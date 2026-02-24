@@ -2,7 +2,6 @@
 training_data/images/
 training_data/excel
 training_data/excel/
-training_data/*.jsonl
 
 # Python
 __pycache__/
