@@ -151,11 +151,11 @@ async def stream_generate(image=None, prompt=''):
         model=MODEL_PATH,
         hf_overrides={"architectures": ["DeepseekOCRForCausalLM"]},
         block_size=256,
-        max_model_len=8192,
+        max_model_len=4096,
         enforce_eager=False,
         trust_remote_code=True,  
         tensor_parallel_size=1,
-        gpu_memory_utilization=0.75,
+        gpu_memory_utilization=0.95,
     )
     engine = AsyncLLMEngine.from_engine_args(engine_args)
     
@@ -206,98 +206,103 @@ if __name__ == "__main__":
     os.makedirs(OUTPUT_PATH, exist_ok=True)
     os.makedirs(f'{OUTPUT_PATH}/images', exist_ok=True)
 
-    image = load_image(INPUT_PATH).convert('RGB')
+    for idx, img in enumerate(os.listdir(INPUT_PATH)):
+        cur_output = f'{OUTPUT_PATH}/img_{idx}'
+        os.makedirs(cur_output, exist_ok=True)
+        os.makedirs(f'{cur_output}/images', exist_ok=True)
 
-    
-    if '<image>' in PROMPT:
+        img_path = os.path.join(INPUT_PATH, img)
+        image = load_image(img_path).convert('RGB')
 
-        image_features = DeepseekOCRProcessor().tokenize_with_images(images = [image], bos=True, eos=True, cropping=CROP_MODE)
-    else:
-        image_features = ''
+        if '<image>' in PROMPT:
 
-    prompt = PROMPT
+            image_features = DeepseekOCRProcessor().tokenize_with_images(images=[image], bos=True, eos=True,
+                                                                         cropping=CROP_MODE)
+        else:
+            image_features = ''
 
-    result_out = asyncio.run(stream_generate(image_features, prompt))
+        prompt = PROMPT
 
+        result_out = asyncio.run(stream_generate(image_features, prompt))
 
-    save_results = 1
+        save_results = 1
 
-    if save_results and '<image>' in prompt:
-        print('='*15 + 'save results:' + '='*15)
+        if save_results and '<image>' in prompt:
+            print('=' * 15 + 'save results:' + '=' * 15)
 
-        image_draw = image.copy()
+            image_draw = image.copy()
 
-        outputs = result_out
+            outputs = result_out
 
-        with open(f'{OUTPUT_PATH}/result_ori.mmd', 'w', encoding = 'utf-8') as afile:
-            afile.write(outputs)
+            with open(f'{cur_output}/result_ori.mmd', 'w', encoding='utf-8') as afile:
+                afile.write(outputs)
 
-        matches_ref, matches_images, mathes_other = re_match(outputs)
-        # print(matches_ref)
-        result = process_image_with_refs(image_draw, matches_ref)
+            matches_ref, matches_images, mathes_other = re_match(outputs)
+            # print(matches_ref)
+            result = process_image_with_refs(image_draw, matches_ref)
 
+            for idx, a_match_image in enumerate(tqdm(matches_images, desc="image")):
+                outputs = outputs.replace(a_match_image, f'![](images/' + str(idx) + '.jpg)\n')
 
-        for idx, a_match_image in enumerate(tqdm(matches_images, desc="image")):
-            outputs = outputs.replace(a_match_image, f'![](images/' + str(idx) + '.jpg)\n')
+            for idx, a_match_other in enumerate(tqdm(mathes_other, desc="other")):
+                outputs = outputs.replace(a_match_other, '').replace('\\coloneqq', ':=').replace('\\eqqcolon', '=:')
 
-        for idx, a_match_other in enumerate(tqdm(mathes_other, desc="other")):
-            outputs = outputs.replace(a_match_other, '').replace('\\coloneqq', ':=').replace('\\eqqcolon', '=:')
+            # if 'structural formula' in conversation[0]['content']:
+            #     outputs = '<smiles>' + outputs + '</smiles>'
+            with open(f'{cur_output}/result.mmd', 'w', encoding='utf-8') as afile:
+                afile.write(outputs)
 
-        # if 'structural formula' in conversation[0]['content']:
-        #     outputs = '<smiles>' + outputs + '</smiles>'
-        with open(f'{OUTPUT_PATH}/result.mmd', 'w', encoding = 'utf-8') as afile:
-            afile.write(outputs)
+            if 'line_type' in outputs:
+                import matplotlib.pyplot as plt
+                from matplotlib.patches import Circle
 
-        if 'line_type' in outputs:
-            import matplotlib.pyplot as plt
-            from matplotlib.patches import Circle
-            lines = eval(outputs)['Line']['line']
+                lines = eval(outputs)['Line']['line']
 
-            line_type = eval(outputs)['Line']['line_type']
-            # print(lines)
+                line_type = eval(outputs)['Line']['line_type']
+                # print(lines)
 
-            endpoints = eval(outputs)['Line']['line_endpoint']
+                endpoints = eval(outputs)['Line']['line_endpoint']
 
-            fig, ax = plt.subplots(figsize=(3,3), dpi=200)
-            ax.set_xlim(-15, 15)
-            ax.set_ylim(-15, 15)
+                fig, ax = plt.subplots(figsize=(3, 3), dpi=200)
+                ax.set_xlim(-15, 15)
+                ax.set_ylim(-15, 15)
 
-            for idx, line in enumerate(lines):
+                for idx, line in enumerate(lines):
+                    try:
+                        p0 = eval(line.split(' -- ')[0])
+                        p1 = eval(line.split(' -- ')[-1])
+
+                        if line_type[idx] == '--':
+                            ax.plot([p0[0], p1[0]], [p0[1], p1[1]], linewidth=0.8, color='k')
+                        else:
+                            ax.plot([p0[0], p1[0]], [p0[1], p1[1]], linewidth=0.8, color='k')
+
+                        ax.scatter(p0[0], p0[1], s=5, color='k')
+                        ax.scatter(p1[0], p1[1], s=5, color='k')
+                    except:
+                        pass
+
+                for endpoint in endpoints:
+                    label = endpoint.split(': ')[0]
+                    (x, y) = eval(endpoint.split(': ')[1])
+                    ax.annotate(label, (x, y), xytext=(1, 1), textcoords='offset points',
+                                fontsize=5, fontweight='light')
+
                 try:
-                    p0 = eval(line.split(' -- ')[0])
-                    p1 = eval(line.split(' -- ')[-1])
+                    if 'Circle' in eval(outputs).keys():
+                        circle_centers = eval(outputs)['Circle']['circle_center']
+                        radius = eval(outputs)['Circle']['radius']
 
-                    if line_type[idx] == '--':
-                        ax.plot([p0[0], p1[0]], [p0[1], p1[1]], linewidth=0.8, color='k')
-                    else:
-                        ax.plot([p0[0], p1[0]], [p0[1], p1[1]], linewidth = 0.8, color = 'k')
-
-                    ax.scatter(p0[0], p0[1], s=5, color = 'k')
-                    ax.scatter(p1[0], p1[1], s=5, color = 'k')
+                        for center, r in zip(circle_centers, radius):
+                            center = eval(center.split(': ')[1])
+                            circle = Circle(center, radius=r, fill=False, edgecolor='black', linewidth=0.8)
+                            ax.add_patch(circle)
                 except:
                     pass
 
-            for endpoint in endpoints:
+                plt.savefig(f'{cur_output}/geo.jpg')
+                plt.close()
 
-                label = endpoint.split(': ')[0]
-                (x, y) = eval(endpoint.split(': ')[1])
-                ax.annotate(label, (x, y), xytext=(1, 1), textcoords='offset points', 
-                            fontsize=5, fontweight='light')
-            
-            try:
-                if 'Circle' in eval(outputs).keys():
-                    circle_centers = eval(outputs)['Circle']['circle_center']
-                    radius = eval(outputs)['Circle']['radius']
+            result.save(f'{cur_output}/result_with_boxes.jpg')
+    
 
-                    for center, r in zip(circle_centers, radius):
-                        center = eval(center.split(': ')[1])
-                        circle = Circle(center, radius=r, fill=False, edgecolor='black', linewidth=0.8)
-                        ax.add_patch(circle)
-            except:
-                pass
-
-
-            plt.savefig(f'{OUTPUT_PATH}/geo.jpg')
-            plt.close()
-
-        result.save(f'{OUTPUT_PATH}/result_with_boxes.jpg')

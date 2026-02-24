@@ -1,0 +1,18 @@
+# Training data (images, Excel, generated datasets)
+training_data/images/
+training_data/excel
+training_data/excel/
+training_data/*.jsonl
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+
+# IDE
+.idea/
+
+# Misc
+*.deb

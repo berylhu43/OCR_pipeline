@@ -7,3 +7,29 @@ easydict
 addict 
 Pillow
 numpy
+
+# Fine-tuning requirements for DeepSeek-OCR
+
+# Core ML libraries
+torch>=2.0.0
+torchvision>=0.15.0
+
+# LoRA/QLoRA fine-tuning
+peft>=0.7.0
+bitsandbytes>=0.41.0
+accelerate>=0.25.0
+
+# Data processing
+datasets>=2.14.0
+openpyxl>=3.1.0
+pillow>=9.0.0
+
+# Training utilities
+tensorboard>=2.14.0
+tqdm>=4.65.0
+
+# Optional: For faster inference
+vllm>=0.2.0
+
+# Optional: For flash attention (requires CUDA)
+flash-attn>=2.3.0
