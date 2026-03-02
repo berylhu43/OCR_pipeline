@@ -32,6 +32,7 @@ from PIL import Image
 from transformers import (
     AutoTokenizer,
     AutoProcessor,
+    AutoModelForCausalLM,
     TrainingArguments,
     Trainer,
     BitsAndBytesConfig,
@@ -272,9 +273,7 @@ def load_model_for_training(
         processor = None
 
     # Load model with quantization
-    from transformers import AutoModel
-
-    model = AutoModel.from_pretrained(
+    model = AutoModelForCausalLM.from_pretrained(
         model_config.model_name,
         quantization_config=bnb_config,
         device_map=device_map,

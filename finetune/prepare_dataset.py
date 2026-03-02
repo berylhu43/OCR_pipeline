@@ -149,10 +149,12 @@ def extract_month_folder_info(folder_name: str) -> Optional[Tuple[str, int]]:
 
 
 def detect_naming_style(folder_path: Path) -> str:
-    """'coded' → A1_002.jpeg  |  'paged' → January 2023 page 3.jpeg"""
+    """'coded' → A1_002.jpeg  |  'paged' → January 2023 page 3.jpeg  |  'numbered' → 1.jpg"""
     for f in folder_path.iterdir():
         if f.suffix.lower() in (".jpg", ".jpeg", ".png"):
             stem = f.stem
+            if re.match(r'^\d+$', stem):
+                return "numbered"
             if re.match(r'^.+_\d{3}$', stem):
                 return "coded"
             if re.search(r'\bpage\s+\d+', stem, re.IGNORECASE):
@@ -183,6 +185,25 @@ def build_coded_index(folder_path: Path) -> SectionIndex:
     if "A1" in index and 2 in index["A1"]:
         index.setdefault("A", {})[2] = index["A1"].pop(2)
 
+    return index
+
+
+def build_numbered_index(folder_path: Path) -> SectionIndex:
+    """
+    Build section → {page_num → path} for numbered folders where images are
+    simply named N.jpg (e.g. 1.jpg, 2.jpg, ..., 142.jpg).
+    Uses SECTION_PAGE_RANGES to assign pages to sections.
+    """
+    page_to_path: Dict[int, Path] = {}
+    for f in folder_path.iterdir():
+        if f.suffix.lower() in (".jpg", ".jpeg", ".png") and f.stem.isdigit():
+            page_to_path[int(f.stem)] = f
+
+    index: SectionIndex = {}
+    for code, (start, end) in SECTION_PAGE_RANGES.items():
+        for page in range(start, end + 1):
+            if page in page_to_path:
+                index.setdefault(code, {})[page] = page_to_path[page]
     return index
 
 
@@ -378,8 +399,10 @@ def process_month_folder(
     # Build section → {page_num → image_path} index
     if naming_style == "coded":
         section_index = build_coded_index(folder_path)
-    else:
+    elif naming_style == "paged":
         section_index = build_paged_index(folder_path, canonical_month, year)
+    else:  # numbered
+        section_index = build_numbered_index(folder_path)
 
     print(f"  Sections found: {sorted(section_index)}")
 

@@ -15,6 +15,7 @@ Usage:
 """
 
 import os
+import re
 import json
 import argparse
 from pathlib import Path
@@ -23,7 +24,26 @@ from typing import Optional, List
 import torch
 from PIL import Image
 
-from transformers import AutoTokenizer, AutoModel, BitsAndBytesConfig
+
+# Phrases written on blank form pages (case-insensitive, accent-tolerant).
+_RAS_PATTERN = re.compile(
+    r'\b(rien\s+[aà]\s+signaler|pien\s+[aà]\s+signaler|n[eé]ant|r\.?\s*a\.?\s*s\.?)\b',
+    re.IGNORECASE,
+)
+
+
+def is_blank_page(ocr_output: str) -> bool:
+    """
+    Return True if the model output indicates a blank page
+    (contains only a 'rien à signaler' phrase and no table data).
+    """
+    text = ocr_output.strip()
+    # If it contains a table tag, it's not blank
+    if "<table" in text.lower():
+        return False
+    return bool(_RAS_PATTERN.search(text))
+
+from transformers import AutoTokenizer, AutoModelForCausalLM, BitsAndBytesConfig
 from peft import PeftModel
 
 
@@ -60,7 +80,7 @@ def load_finetuned_model(
     )
 
     # Load base model
-    model = AutoModel.from_pretrained(
+    model = AutoModelForCausalLM.from_pretrained(
         base_model_name,
         quantization_config=bnb_config,
         device_map="auto" if device == "cuda" else None,
@@ -229,6 +249,11 @@ def batch_process(
         try:
             result = run_ocr(model, tokenizer, str(image_path))
 
+            if is_blank_page(result):
+                print(f"  Skipped (blank page: 'rien à signaler')")
+                results[image_path.name] = {"status": "skipped_blank"}
+                continue
+
             # Save individual result
             output_file = output_dir / f"{image_path.stem}.txt"
             with open(output_file, 'w', encoding='utf-8') as f:
@@ -378,6 +403,11 @@ def main():
             max_new_tokens=args.max_tokens,
             temperature=args.temperature,
         )
+
+        if is_blank_page(result):
+            print("\nBlank page detected ('rien à signaler') — skipped.")
+            return
+
         print("\nOCR Result:")
         print("-" * 40)
         print(result)
