@@ -170,7 +170,7 @@ class OCRFineTuneDataset(Dataset):
 
         # Process image
         if self.processor is not None:
-            pixel_values = self.processor(text=" ", images=image, return_tensors="pt")["pixel_values"]
+            pixel_values = self.processor(images=image, return_tensors="pt")["pixel_values"]
         else:
             # Fallback: basic image preprocessing
             from torchvision import transforms
@@ -269,6 +269,10 @@ def load_model_for_training(
             model_config.model_name,
             trust_remote_code=model_config.trust_remote_code,
         )
+        # Check if it actually handles images (not just a tokenizer)
+        if not hasattr(processor, 'image_processor') and not hasattr(processor, 'feature_extractor'):
+            logger.warning("Processor does not support images, using torchvision fallback.")
+            processor = None
     except Exception as e:
         logger.warning(f"Could not load processor: {e}. Using basic preprocessing.")
         processor = None
