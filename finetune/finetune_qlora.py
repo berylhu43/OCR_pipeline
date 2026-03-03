@@ -19,6 +19,7 @@ Requirements:
 
 import os
 import json
+import math
 import argparse
 import logging
 from pathlib import Path
@@ -26,8 +27,18 @@ from typing import Dict, List, Optional
 from dataclasses import dataclass, field
 
 import torch
+import torchvision.transforms as T
 from torch.utils.data import Dataset, DataLoader
-from PIL import Image
+from PIL import Image, ImageOps
+
+# DeepSeek-OCR image constants (no-crop mode for simplicity)
+IMAGE_TOKEN = "<image>"
+IMAGE_TOKEN_ID = 128815
+IMAGE_SIZE = 640       # image patch size
+BASE_SIZE = 640        # global view size (same as IMAGE_SIZE in no-crop)
+PATCH_SIZE = 16
+DOWNSAMPLE_RATIO = 4
+IMAGE_MEAN = IMAGE_STD = (0.5, 0.5, 0.5)  # model's own normalization
 
 from transformers import (
     AutoTokenizer,
@@ -141,70 +152,81 @@ class OCRFineTuneDataset(Dataset):
     def __getitem__(self, idx) -> Dict:
         example = self.examples[idx]
 
-        # Load and process image
+        # Load image
         image_path = example["image"]
         try:
             image = Image.open(image_path).convert("RGB")
         except Exception as e:
             logger.warning(f"Error loading image {image_path}: {e}")
-            # Return a blank image as fallback
-            image = Image.new("RGB", (self.image_size, self.image_size), "white")
+            image = Image.new("RGB", (IMAGE_SIZE, IMAGE_SIZE), (128, 128, 128))
 
-        # Get conversation
+        # Preprocess image using model's normalization (no-crop mode)
+        transform = T.Compose([T.ToTensor(), T.Normalize(mean=IMAGE_MEAN, std=IMAGE_STD)])
+        pad_color = tuple(int(x * 255) for x in IMAGE_MEAN)
+        padded = ImageOps.pad(image, (IMAGE_SIZE, IMAGE_SIZE), color=pad_color)
+        images_ori = transform(padded)                              # [3, H, W]
+        images_crop = torch.zeros(1, 3, IMAGE_SIZE, IMAGE_SIZE)    # no crops
+        images_spatial_crop = torch.tensor([1, 1], dtype=torch.long)
+
+        # Build image token sequence (no-crop mode, fixed size)
+        num_q = math.ceil((IMAGE_SIZE // PATCH_SIZE) / DOWNSAMPLE_RATIO)
+        image_token_ids = ([IMAGE_TOKEN_ID] * num_q + [IMAGE_TOKEN_ID]) * num_q + [IMAGE_TOKEN_ID]
+
+        # Tokenize conversation parts
         conversations = example["conversations"]
-        user_content = conversations[0]["content"]  # Includes <image> token
-        assistant_content = conversations[1]["content"]  # Ground truth
+        user_content = conversations[0]["content"]   # contains "<image>"
+        assistant_content = conversations[1]["content"]
 
-        # Format as chat
-        # DeepSeek format: <|User|>content<|Assistant|>response<|end▁of▁sentence|>
-        full_text = f"<|User|>{user_content}<|Assistant|>{assistant_content}<|end▁of▁sentence|>"
+        text_parts = user_content.split(IMAGE_TOKEN)
+        prefix_ids = self.tokenizer.encode(f"<|User|>{text_parts[0]}", add_special_tokens=False)
+        suffix_ids  = self.tokenizer.encode(text_parts[1] if len(text_parts) > 1 else "", add_special_tokens=False)
+        asst_prefix = self.tokenizer.encode("<|Assistant|>", add_special_tokens=False)
+        response_ids = self.tokenizer.encode(assistant_content, add_special_tokens=False)
+        eos_id = self.tokenizer.eos_token_id or 2
+        bos_id = self.tokenizer.bos_token_id or 0
 
-        # Tokenize
-        encoding = self.tokenizer(
-            full_text,
-            truncation=True,
-            max_length=self.max_length,
-            padding="max_length",
-            return_tensors="pt",
+        full_ids = [bos_id] + prefix_ids + image_token_ids + suffix_ids + asst_prefix + response_ids + [eos_id]
+
+        # images_seq_mask: True only for image token positions
+        seq_mask = (
+            [False] +
+            [False] * len(prefix_ids) +
+            [True]  * len(image_token_ids) +
+            [False] * len(suffix_ids) +
+            [False] * len(asst_prefix) +
+            [False] * len(response_ids) +
+            [False]
         )
 
-        # Process image
-        if self.processor is not None:
-            pixel_values = self.processor(images=image, return_tensors="pt")["pixel_values"]
+        # Labels: -100 everywhere except assistant response + EOS
+        resp_start = len(full_ids) - len(response_ids) - 1
+        labels = [-100] * resp_start + response_ids + [eos_id]
+
+        # Truncate or pad to max_length
+        pad_id = self.tokenizer.pad_token_id or 0
+        if len(full_ids) > self.max_length:
+            full_ids  = full_ids[:self.max_length]
+            seq_mask  = seq_mask[:self.max_length]
+            labels    = labels[:self.max_length]
         else:
-            # Fallback: basic image preprocessing
-            from torchvision import transforms
-            transform = transforms.Compose([
-                transforms.Resize((self.image_size, self.image_size)),
-                transforms.ToTensor(),
-                transforms.Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])
-            ])
-            pixel_values = transform(image).unsqueeze(0)
+            pad_len   = self.max_length - len(full_ids)
+            full_ids  = full_ids  + [pad_id] * pad_len
+            seq_mask  = seq_mask  + [False]  * pad_len
+            labels    = labels    + [-100]   * pad_len
 
-        # Create labels (mask user input, only train on assistant response)
-        input_ids = encoding["input_ids"].squeeze()
-        labels = input_ids.clone()
-
-        # Find where assistant response starts
-        assistant_token = self.tokenizer.encode("<|Assistant|>", add_special_tokens=False)
-        assistant_start = None
-        for i in range(len(input_ids) - len(assistant_token)):
-            if input_ids[i:i+len(assistant_token)].tolist() == assistant_token:
-                assistant_start = i + len(assistant_token)
-                break
-
-        # Mask everything before assistant response
-        if assistant_start:
-            labels[:assistant_start] = -100
-
-        # Also mask padding
-        labels[labels == self.tokenizer.pad_token_id] = -100
+        input_ids        = torch.tensor(full_ids, dtype=torch.long)
+        attention_mask   = (input_ids != pad_id).long()
+        images_seq_mask  = torch.tensor(seq_mask, dtype=torch.bool)
+        labels_tensor    = torch.tensor(labels,   dtype=torch.long)
 
         return {
-            "input_ids": input_ids,
-            "attention_mask": encoding["attention_mask"].squeeze(),
-            "pixel_values": pixel_values.squeeze(),
-            "labels": labels,
+            "input_ids":          input_ids,
+            "attention_mask":     attention_mask,
+            "images_ori":         images_ori,
+            "images_crop":        images_crop,
+            "images_spatial_crop": images_spatial_crop,
+            "images_seq_mask":    images_seq_mask,
+            "labels":             labels_tensor,
         }
 
 
@@ -219,16 +241,21 @@ class OCRDataCollator:
         self.tokenizer = tokenizer
 
     def __call__(self, batch: List[Dict]) -> Dict:
-        input_ids = torch.stack([x["input_ids"] for x in batch])
-        attention_mask = torch.stack([x["attention_mask"] for x in batch])
-        labels = torch.stack([x["labels"] for x in batch])
-        pixel_values = torch.stack([x["pixel_values"] for x in batch])
+        input_ids        = torch.stack([x["input_ids"]          for x in batch])
+        attention_mask   = torch.stack([x["attention_mask"]     for x in batch])
+        labels           = torch.stack([x["labels"]             for x in batch])
+        images_seq_mask  = torch.stack([x["images_seq_mask"]    for x in batch])
+        images_spatial_crop = torch.stack([x["images_spatial_crop"] for x in batch])
+        images_crop      = torch.stack([x["images_crop"]        for x in batch])
+        images_ori       = torch.stack([x["images_ori"]         for x in batch])
 
         return {
-            "input_ids": input_ids,
-            "attention_mask": attention_mask,
-            "labels": labels,
-            "pixel_values": pixel_values,
+            "input_ids":           input_ids,
+            "attention_mask":      attention_mask,
+            "labels":              labels,
+            "images":              [(images_crop, images_ori)],
+            "images_seq_mask":     images_seq_mask,
+            "images_spatial_crop": images_spatial_crop,
         }
 
 
