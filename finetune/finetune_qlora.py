@@ -170,7 +170,7 @@ class OCRFineTuneDataset(Dataset):
 
         # Process image
         if self.processor is not None:
-            pixel_values = self.processor(images=image, return_tensors="pt")["pixel_values"]
+            pixel_values = self.processor(text=" ", images=image, return_tensors="pt")["pixel_values"]
         else:
             # Fallback: basic image preprocessing
             from torchvision import transforms
