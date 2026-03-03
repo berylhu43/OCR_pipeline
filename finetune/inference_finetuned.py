@@ -99,15 +99,16 @@ def run_ocr(
     image = Image.open(image_path).convert("RGB")
 
     # Use model's built-in infer() method
+    # Settings must match training: IMAGE_SIZE=640, BASE_SIZE=640, no crop
     if hasattr(model, 'infer'):
         result = model.infer(
             tokenizer,
             prompt=prompt,
             image_file=image_path,
             output_path="/tmp/ocr_output",
-            base_size=1024,
+            base_size=640,
             image_size=640,
-            crop_mode=True,
+            crop_mode=False,
             save_results=False,
             eval_mode=True,
         )
