@@ -98,7 +98,7 @@ class ModelConfig:
 @dataclass
 class LoRAConfig:
     """LoRA configuration optimized for vision-language models"""
-    r: int = 16  # LoRA rank (lower = less memory, 8-64 typical)
+    r: int = 64  # LoRA rank (lower = less memory, 8-64 typical)
     lora_alpha: int = 32  # LoRA alpha (typically 2x rank)
     lora_dropout: float = 0.05
     bias: str = "none"
@@ -118,7 +118,7 @@ class TrainConfig:
     gradient_accumulation_steps: int = 8  # Effective batch size = 8
 
     # Training settings
-    num_train_epochs: int = 3
+    num_train_epochs: int = 10
     learning_rate: float = 2e-5
     weight_decay: float = 0.01
     warmup_ratio: float = 0.1
