@@ -60,6 +60,28 @@ logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
 
+def patch_deepseek_ocr_cache():
+    """Fix in-place masked_scatter_ in cached modeling file (not allowed during training)."""
+    import glob
+    pattern = os.path.expanduser(
+        "~/.cache/huggingface/modules/transformers_modules/deepseek-ai/DeepSeek-OCR/*/modeling_deepseekocr.py"
+    )
+    old = "                    inputs_embeds[idx].masked_scatter_(images_seq_mask[idx].unsqueeze(-1).cuda(), images_in_this_batch)"
+    new = (
+        "                    inputs_embeds = inputs_embeds.clone()\n"
+        "                    inputs_embeds[idx] = inputs_embeds[idx].masked_scatter(images_seq_mask[idx].unsqueeze(-1).cuda(), images_in_this_batch)"
+    )
+    for path in glob.glob(pattern):
+        text = open(path).read()
+        if old in text:
+            open(path, "w").write(text.replace(old, new))
+            logger.info(f"Patched {path}")
+        elif new.split("\n")[1] in text:
+            logger.info(f"Already patched: {path}")
+        else:
+            logger.warning(f"Pattern not found in {path} — may need manual fix")
+
+
 # ============================================================================
 # Configuration
 # ============================================================================
@@ -466,6 +488,8 @@ def train(
 # ============================================================================
 
 def main():
+    patch_deepseek_ocr_cache()
+
     parser = argparse.ArgumentParser(description="Fine-tune DeepSeek-OCR with QLoRA")
 
     # Data paths
