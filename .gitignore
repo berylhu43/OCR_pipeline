@@ -3,6 +3,9 @@ training_data/images/
 training_data/excel
 training_data/excel/
 
+# finetune model
+finetuned_model/
+
 # Python
 __pycache__/
 *.py[cod]

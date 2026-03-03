@@ -43,7 +43,7 @@ def is_blank_page(ocr_output: str) -> bool:
         return False
     return bool(_RAS_PATTERN.search(text))
 
-from transformers import AutoTokenizer, AutoModelForCausalLM, BitsAndBytesConfig
+from transformers import AutoTokenizer, AutoModel
 from peft import PeftModel
 
 
@@ -53,49 +53,20 @@ def load_finetuned_model(
     device: str = "cuda",
     load_in_4bit: bool = True,
 ):
-    """
-    Load the base model with optional LoRA adapters.
-
-    Args:
-        base_model_name: HuggingFace model name or path
-        adapter_path: Path to LoRA adapter weights (None for base model only)
-        device: Device to load model on
-        load_in_4bit: Whether to use 4-bit quantization
-    """
     print(f"Loading base model: {base_model_name}")
 
-    # Quantization config
-    bnb_config = None
-    if load_in_4bit:
-        bnb_config = BitsAndBytesConfig(
-            load_in_4bit=True,
-            bnb_4bit_quant_type="nf4",
-            bnb_4bit_compute_dtype=torch.bfloat16,
-        )
+    tokenizer = AutoTokenizer.from_pretrained(base_model_name, trust_remote_code=True)
 
-    # Load tokenizer
-    tokenizer = AutoTokenizer.from_pretrained(
+    model = AutoModel.from_pretrained(
         base_model_name,
-        trust_remote_code=True,
-    )
-
-    # Load base model
-    model = AutoModelForCausalLM.from_pretrained(
-        base_model_name,
-        quantization_config=bnb_config,
-        device_map="auto" if device == "cuda" else None,
         trust_remote_code=True,
         torch_dtype=torch.bfloat16,
     )
+    model = model.eval().cuda()
 
-    # Load LoRA adapters if provided
     if adapter_path and Path(adapter_path).exists():
         print(f"Loading LoRA adapters from: {adapter_path}")
         model = PeftModel.from_pretrained(model, adapter_path)
-        # Optionally merge for faster inference
-        # model = model.merge_and_unload()
-
-    model.eval()
 
     return model, tokenizer
 
@@ -127,14 +98,18 @@ def run_ocr(
     # Load image
     image = Image.open(image_path).convert("RGB")
 
-    # Check if model has a dedicated inference method
+    # Use model's built-in infer() method
     if hasattr(model, 'infer'):
-        # Use model's built-in inference
         result = model.infer(
-            image=image,
+            tokenizer,
             prompt=prompt,
-            max_new_tokens=max_new_tokens,
-            temperature=temperature,
+            image_file=image_path,
+            output_path="/tmp/ocr_output",
+            base_size=1024,
+            image_size=640,
+            crop_mode=True,
+            save_results=False,
+            eval_mode=True,
         )
         return result
 
