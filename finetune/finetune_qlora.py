@@ -33,6 +33,7 @@ from transformers import (
     AutoTokenizer,
     AutoProcessor,
     AutoModelForCausalLM,
+    AutoModel,
     TrainingArguments,
     Trainer,
     BitsAndBytesConfig,
@@ -273,14 +274,24 @@ def load_model_for_training(
         processor = None
 
     # Load model with quantization
-    model = AutoModelForCausalLM.from_pretrained(
-        model_config.model_name,
-        quantization_config=bnb_config,
-        device_map=device_map,
-        trust_remote_code=model_config.trust_remote_code,
-        torch_dtype=torch.bfloat16,
-        attn_implementation="flash_attention_2" if model_config.use_flash_attention else "eager",
-    )
+    try:
+        model = AutoModelForCausalLM.from_pretrained(
+            model_config.model_name,
+            quantization_config=bnb_config,
+            device_map=device_map,
+            trust_remote_code=model_config.trust_remote_code,
+            torch_dtype=torch.bfloat16,
+            attn_implementation="flash_attention_2" if model_config.use_flash_attention else "eager",
+        )
+    except ValueError:
+        logger.warning("AutoModelForCausalLM failed, falling back to AutoModel with trust_remote_code")
+        model = AutoModel.from_pretrained(
+            model_config.model_name,
+            quantization_config=bnb_config,
+            device_map=device_map,
+            trust_remote_code=model_config.trust_remote_code,
+            torch_dtype=torch.bfloat16,
+        )
 
     # Prepare for k-bit training
     model = prepare_model_for_kbit_training(
