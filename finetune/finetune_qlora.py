@@ -349,7 +349,7 @@ class OCRDataCollator:
             "input_ids":           input_ids,
             "attention_mask":      attention_mask,
             "labels":              labels,
-            "images":              [(padded_crops[i], images_ori[i]) for i in range(len(batch))],
+            "images":              [(padded_crops[i], images_ori[i].unsqueeze(0)) for i in range(len(batch))],
             "images_seq_mask":     images_seq_mask,
             "images_spatial_crop": images_spatial_crop,
         }
