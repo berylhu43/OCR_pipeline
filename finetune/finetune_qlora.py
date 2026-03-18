@@ -345,13 +345,11 @@ class OCRDataCollator:
             if pad_n > 0:
                 crop = torch.cat([crop, torch.zeros(pad_n, c, h, w)], dim=0)
             padded_crops.append(crop)
-        images_crop = torch.stack(padded_crops)
-
         return {
             "input_ids":           input_ids,
             "attention_mask":      attention_mask,
             "labels":              labels,
-            "images":              [(images_crop, images_ori)],
+            "images":              [(padded_crops[i], images_ori[i]) for i in range(len(batch))],
             "images_seq_mask":     images_seq_mask,
             "images_spatial_crop": images_spatial_crop,
         }
