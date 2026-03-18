@@ -31,14 +31,58 @@ import torchvision.transforms as T
 from torch.utils.data import Dataset, DataLoader
 from PIL import Image, ImageOps
 
-# DeepSeek-OCR image constants (no-crop mode for simplicity)
+# DeepSeek-OCR image constants (crop mode, matches inference)
 IMAGE_TOKEN = "<image>"
 IMAGE_TOKEN_ID = 128815
-IMAGE_SIZE = 640       # image patch size
-BASE_SIZE = 640        # global view size (same as IMAGE_SIZE in no-crop)
+IMAGE_SIZE = 640       # local crop patch size
+BASE_SIZE = 1024       # global view size
 PATCH_SIZE = 16
 DOWNSAMPLE_RATIO = 4
-IMAGE_MEAN = IMAGE_STD = (0.5, 0.5, 0.5)  # model's own normalization
+MIN_CROPS = 1
+MAX_CROPS = 6
+IMAGE_MEAN = IMAGE_STD = (0.5, 0.5, 0.5)
+
+
+def find_closest_aspect_ratio(aspect_ratio, target_ratios, width, height, image_size):
+    best_ratio_diff = float('inf')
+    best_ratio = (1, 1)
+    area = width * height
+    for ratio in target_ratios:
+        target_aspect_ratio = ratio[0] / ratio[1]
+        ratio_diff = abs(aspect_ratio - target_aspect_ratio)
+        if ratio_diff < best_ratio_diff:
+            best_ratio_diff = ratio_diff
+            best_ratio = ratio
+        elif ratio_diff == best_ratio_diff:
+            if area > 0.5 * image_size * image_size * ratio[0] * ratio[1]:
+                best_ratio = ratio
+    return best_ratio
+
+
+def dynamic_preprocess(image, min_num=MIN_CROPS, max_num=MAX_CROPS, image_size=IMAGE_SIZE):
+    """Split image into crop patches, matching the model's own preprocessing."""
+    orig_width, orig_height = image.size
+    aspect_ratio = orig_width / orig_height
+    target_ratios = set(
+        (i, j) for n in range(min_num, max_num + 1)
+        for i in range(1, n + 1) for j in range(1, n + 1)
+        if min_num <= i * j <= max_num
+    )
+    target_ratios = sorted(target_ratios, key=lambda x: x[0] * x[1])
+    best_ratio = find_closest_aspect_ratio(aspect_ratio, target_ratios, orig_width, orig_height, image_size)
+    target_width  = image_size * best_ratio[0]
+    target_height = image_size * best_ratio[1]
+    resized = image.resize((target_width, target_height))
+    patches = []
+    for i in range(best_ratio[0] * best_ratio[1]):
+        box = (
+            (i % best_ratio[0]) * image_size,
+            (i // best_ratio[0]) * image_size,
+            ((i % best_ratio[0]) + 1) * image_size,
+            ((i // best_ratio[0]) + 1) * image_size,
+        )
+        patches.append(resized.crop(box))
+    return patches, list(best_ratio)
 
 from transformers import (
     AutoTokenizer,
@@ -99,7 +143,7 @@ class ModelConfig:
 class LoRAConfig:
     """LoRA configuration optimized for vision-language models"""
     r: int = 64  # LoRA rank (lower = less memory, 8-64 typical)
-    lora_alpha: int = 32  # LoRA alpha (typically 2x rank)
+    lora_alpha: int = 128  # LoRA alpha (typically 2x rank)
     lora_dropout: float = 0.05
     bias: str = "none"
     # Target modules for DeepSeek-VL2 architecture
@@ -111,11 +155,11 @@ class LoRAConfig:
 
 @dataclass
 class TrainConfig:
-    """Training configuration optimized for 8GB VRAM"""
+    """Training configuration for 50GB VRAM with crop mode"""
     # Batch size settings
-    per_device_train_batch_size: int = 1
-    per_device_eval_batch_size: int = 1
-    gradient_accumulation_steps: int = 8  # Effective batch size = 8
+    per_device_train_batch_size: int = 2
+    per_device_eval_batch_size: int = 2
+    gradient_accumulation_steps: int = 4  # Effective batch size = 8
 
     # Training settings
     num_train_epochs: int = 10
@@ -182,17 +226,38 @@ class OCRFineTuneDataset(Dataset):
             logger.warning(f"Error loading image {image_path}: {e}")
             image = Image.new("RGB", (IMAGE_SIZE, IMAGE_SIZE), (128, 128, 128))
 
-        # Preprocess image using model's normalization (no-crop mode)
+        # Preprocess image using model's normalization (crop mode, matches inference)
         transform = T.Compose([T.ToTensor(), T.Normalize(mean=IMAGE_MEAN, std=IMAGE_STD)])
         pad_color = tuple(int(x * 255) for x in IMAGE_MEAN)
-        padded = ImageOps.pad(image, (IMAGE_SIZE, IMAGE_SIZE), color=pad_color)
-        images_ori = transform(padded)                              # [3, H, W]
-        images_crop = torch.zeros(1, 3, IMAGE_SIZE, IMAGE_SIZE)    # no crops
-        images_spatial_crop = torch.tensor([1, 1], dtype=torch.long)
 
-        # Build image token sequence (no-crop mode, fixed size)
-        num_q = math.ceil((IMAGE_SIZE // PATCH_SIZE) / DOWNSAMPLE_RATIO)
-        image_token_ids = ([IMAGE_TOKEN_ID] * num_q + [IMAGE_TOKEN_ID]) * num_q + [IMAGE_TOKEN_ID]
+        w, h = image.size
+        if w <= IMAGE_SIZE and h <= IMAGE_SIZE:
+            crop_patches, crop_ratio = [], [1, 1]
+        else:
+            crop_patches, crop_ratio = dynamic_preprocess(image)
+
+        width_crop_num, height_crop_num = crop_ratio
+
+        # Global view (padded to BASE_SIZE)
+        global_view = ImageOps.pad(image, (BASE_SIZE, BASE_SIZE), color=pad_color)
+        images_ori = transform(global_view)  # [3, BASE_SIZE, BASE_SIZE]
+
+        # Local crop patches
+        if crop_patches:
+            images_crop = torch.stack([transform(p) for p in crop_patches])  # [n, 3, IMAGE_SIZE, IMAGE_SIZE]
+        else:
+            images_crop = torch.zeros(1, 3, BASE_SIZE, BASE_SIZE)
+
+        images_spatial_crop = torch.tensor([width_crop_num, height_crop_num], dtype=torch.long)
+
+        # Build image token sequence (crop mode)
+        num_q      = math.ceil((IMAGE_SIZE // PATCH_SIZE) / DOWNSAMPLE_RATIO)
+        num_q_base = math.ceil((BASE_SIZE  // PATCH_SIZE) / DOWNSAMPLE_RATIO)
+        image_token_ids = ([IMAGE_TOKEN_ID] * num_q_base + [IMAGE_TOKEN_ID]) * num_q_base + [IMAGE_TOKEN_ID]
+        if width_crop_num > 1 or height_crop_num > 1:
+            image_token_ids += (
+                [IMAGE_TOKEN_ID] * (num_q * width_crop_num) + [IMAGE_TOKEN_ID]
+            ) * (num_q * height_crop_num)
 
         # Tokenize conversation parts
         conversations = example["conversations"]
@@ -268,8 +333,19 @@ class OCRDataCollator:
         labels           = torch.stack([x["labels"]             for x in batch])
         images_seq_mask  = torch.stack([x["images_seq_mask"]    for x in batch])
         images_spatial_crop = torch.stack([x["images_spatial_crop"] for x in batch])
-        images_crop      = torch.stack([x["images_crop"]        for x in batch])
         images_ori       = torch.stack([x["images_ori"]         for x in batch])
+
+        # Pad images_crop to the max number of crops in the batch
+        max_crops = max(x["images_crop"].shape[0] for x in batch)
+        _, c, h, w = batch[0]["images_crop"].shape
+        padded_crops = []
+        for x in batch:
+            crop = x["images_crop"]
+            pad_n = max_crops - crop.shape[0]
+            if pad_n > 0:
+                crop = torch.cat([crop, torch.zeros(pad_n, c, h, w)], dim=0)
+            padded_crops.append(crop)
+        images_crop = torch.stack(padded_crops)
 
         return {
             "input_ids":           input_ids,
@@ -507,10 +583,10 @@ def main():
                         help="Maximum sequence length")
 
     # LoRA settings
-    parser.add_argument("--lora_r", type=int, default=16,
+    parser.add_argument("--lora_r", type=int, default=64,
                         help="LoRA rank")
-    parser.add_argument("--lora_alpha", type=int, default=32,
-                        help="LoRA alpha")
+    parser.add_argument("--lora_alpha", type=int, default=128,
+                        help="LoRA alpha (typically 2x rank)")
     parser.add_argument("--lora_dropout", type=float, default=0.05,
                         help="LoRA dropout")
 

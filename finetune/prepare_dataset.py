@@ -359,13 +359,17 @@ def rows_to_markdown(headers: tuple, data_rows: List[tuple]) -> str:
 # Training example creation
 # ---------------------------------------------------------------------------
 
-def create_training_example(image_path: Path, ground_truth: str) -> dict:
+def create_training_example(image_path: Path, ground_truth: str, section_name: str = "") -> dict:
+    if section_name:
+        prompt = f"<image>\n<|grounding|>This is section {section_name}. The document is in Congolese French. Convert the document to markdown."
+    else:
+        prompt = "<image>\n<|grounding|>The document is in Congolese French. Convert the document to markdown."
     return {
         "image": str(image_path),
         "conversations": [
             {
                 "role": "user",
-                "content": "<image>\n<|grounding|>Convert the document to markdown.",
+                "content": prompt,
             },
             {
                 "role": "assistant",
@@ -467,7 +471,7 @@ def process_month_folder(
                     else rows_to_markdown(display_headers, display_rows)
                 )
                 if table:
-                    examples.append(create_training_example(imgs[0], table))
+                    examples.append(create_training_example(imgs[0], table, stem))
                     file_examples += 1
             else:
                 # Multi-page value (e.g. L_front '[111, 112]'):
@@ -485,7 +489,7 @@ def process_month_folder(
                         else rows_to_markdown(display_headers, chunk_rows)
                     )
                     if table:
-                        examples.append(create_training_example(img, table))
+                        examples.append(create_training_example(img, table, stem))
                         file_examples += 1
 
         print(f"    {stem}: {len(data_rows)} rows → {file_examples} examples")

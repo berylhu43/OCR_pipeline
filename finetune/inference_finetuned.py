@@ -75,7 +75,7 @@ def run_ocr(
     model,
     tokenizer,
     image_path: str,
-    prompt: str = "<image>\n<|grounding|>Convert the document to markdown.",
+    prompt: str = "<image>\n<|grounding|>The document is in Congolese French. Convert the document to markdown.",
     max_new_tokens: int = 2048,
     temperature: float = 0.1,
     do_sample: bool = False,
@@ -151,7 +151,7 @@ def run_ocr(
 def run_ocr_vllm(
     image_path: str,
     adapter_path: Optional[str] = None,
-    prompt: str = "<image>\n<|grounding|>Convert the document to markdown.",
+    prompt: str = "<image>\n<|grounding|>The document is in Congolese French. Convert the document to markdown.",
 ) -> str:
     """
     Run OCR using vLLM for faster inference.
