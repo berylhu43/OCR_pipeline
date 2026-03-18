@@ -188,24 +188,6 @@ def build_coded_index(folder_path: Path) -> SectionIndex:
     return index
 
 
-def build_numbered_index(folder_path: Path) -> SectionIndex:
-    """
-    Build section → {page_num → path} for numbered folders where images are
-    simply named N.jpg (e.g. 1.jpg, 2.jpg, ..., 142.jpg).
-    Uses SECTION_PAGE_RANGES to assign pages to sections.
-    """
-    page_to_path: Dict[int, Path] = {}
-    for f in folder_path.iterdir():
-        if f.suffix.lower() in (".jpg", ".jpeg", ".png") and f.stem.isdigit():
-            page_to_path[int(f.stem)] = f
-
-    index: SectionIndex = {}
-    for code, (start, end) in SECTION_PAGE_RANGES.items():
-        for page in range(start, end + 1):
-            if page in page_to_path:
-                index.setdefault(code, {})[page] = page_to_path[page]
-    return index
-
 
 def build_paged_index(
     folder_path: Path, month_name: str, year: int
@@ -405,8 +387,8 @@ def process_month_folder(
         section_index = build_coded_index(folder_path)
     elif naming_style == "paged":
         section_index = build_paged_index(folder_path, canonical_month, year)
-    else:  # numbered
-        section_index = build_numbered_index(folder_path)
+    else:  # numbered — section_index unused; page_to_img built directly per section below
+        section_index = {}
 
     print(f"  Sections found: {sorted(section_index)}")
 
@@ -417,10 +399,16 @@ def process_month_folder(
         if stem not in SECTION_CONFIG:
             continue
 
-        # Merge page→image maps for all section codes this file covers
+        # Merge page→image maps for all section codes this file covers.
+        # For numbered style, match page_num directly to image filename (e.g. 3.jpg → page 3).
         page_to_img: Dict[int, Path] = {}
-        for code in SECTION_CONFIG[stem]:
-            page_to_img.update(section_index.get(code, {}))
+        if naming_style == "numbered":
+            for f in folder_path.iterdir():
+                if f.suffix.lower() in (".jpg", ".jpeg", ".png") and f.stem.isdigit():
+                    page_to_img[int(f.stem)] = f
+        else:
+            for code in SECTION_CONFIG[stem]:
+                page_to_img.update(section_index.get(code, {}))
 
         if not page_to_img:
             print(f"    {stem}: no images found – skipping")
