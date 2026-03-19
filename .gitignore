@@ -5,7 +5,7 @@ training_data/excel/
 
 # finetune model
 finetuned_model/
-finetuned_model_v2/
+finetuned_model_v3/
 
 # Python
 __pycache__/
