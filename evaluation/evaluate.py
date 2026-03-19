@@ -30,7 +30,7 @@ from html.parser import HTMLParser
 
 # Add finetune/ to path so we can reuse load_finetuned_model / run_ocr
 sys.path.insert(0, str(Path(__file__).parent.parent / "finetune"))
-from finetune.inference_finetuned import load_finetuned_model, run_ocr
+from inference_finetuned import load_finetuned_model, run_ocr
 
 
 # ---------------------------------------------------------------------------
