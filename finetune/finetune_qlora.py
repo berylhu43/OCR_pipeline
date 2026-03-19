@@ -456,6 +456,7 @@ def train(
     model_config: ModelConfig,
     lora_config: LoRAConfig,
     train_config: TrainConfig,
+    resume_from_checkpoint: Optional[str] = None,
 ):
     """Main training function."""
 
@@ -544,7 +545,7 @@ def train(
 
     # Train
     logger.info("Starting training...")
-    trainer.train()
+    trainer.train(resume_from_checkpoint=resume_from_checkpoint)
 
     # Save final model
     logger.info(f"Saving model to {output_dir}")
@@ -603,6 +604,8 @@ def main():
                         help="Disable gradient checkpointing")
     parser.add_argument("--no_flash_attention", action="store_true",
                         help="Disable flash attention")
+    parser.add_argument("--resume_from_checkpoint", type=str, default=None,
+                        help="Path to checkpoint to resume training from")
 
     args = parser.parse_args()
 
@@ -635,6 +638,7 @@ def main():
         model_config=model_config,
         lora_config=lora_config,
         train_config=train_config,
+        resume_from_checkpoint=args.resume_from_checkpoint,
     )
 
 
