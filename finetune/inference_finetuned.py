@@ -68,14 +68,16 @@ def load_finetuned_model(
             base_model_name,
             trust_remote_code=True,
             quantization_config=bnb_config,
+            device_map="auto",
         )
+        model = model.eval()
     else:
         model = AutoModel.from_pretrained(
             base_model_name,
             trust_remote_code=True,
             torch_dtype=torch.bfloat16,
         )
-    model = model.eval().cuda()
+        model = model.eval().cuda()
 
     if adapter_path and Path(adapter_path).exists():
         print(f"Loading LoRA adapters from: {adapter_path}")
