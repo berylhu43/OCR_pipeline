@@ -1,0 +1,2984 @@
+{
+  "n_examples": 37,
+  "n_evaluated": 32,
+  "n_errors": 5,
+  "avg_cell_accuracy": 0.38503378874317656,
+  "per_column_accuracy": {
+    "Observations": {
+      "accuracy": 0.0,
+      "correct": 0,
+      "total": 18,
+      "sample_errors": [
+        {
+          "row": 0,
+          "pred": "",
+          "gt": "RECUPERES"
+        },
+        {
+          "row": 1,
+          "pred": "",
+          "gt": "RECUPERES"
+        },
+        {
+          "row": 2,
+          "pred": "",
+          "gt": "RECUPERES"
+        }
+      ]
+    },
+    "village": {
+      "accuracy": 0.0,
+      "correct": 0,
+      "total": 3,
+      "sample_errors": [
+        {
+          "row": 0,
+          "pred": "WALOWA SES SORT D'ORGEAIRE A CAUSE DE L'INFIDELITE. L'UN A TROUVEE EN FLORA NE L'AUTRE ERRE COMPAGNE.",
+          "gt": "MISAU"
+        },
+        {
+          "row": 1,
+          "pred": "MUTHEURAS A ETE NETTOYEE MORT AUS LE TROU DE MINE",
+          "gt": "NYAKISUNGUSA"
+        },
+        {
+          "row": 0,
+          "pred": "un homme est mort dans le trou de mine d'explosion",
+          "gt": "PUMUZIKA"
+        }
+      ]
+    },
+    "village_carriere": {
+      "accuracy": 0.0,
+      "correct": 0,
+      "total": 3,
+      "sample_errors": [
+        {
+          "row": 0,
+          "pred": "2023-04-26",
+          "gt": "V"
+        },
+        {
+          "row": 1,
+          "pred": "2023-04-2023-04-28",
+          "gt": "C"
+        },
+        {
+          "row": 0,
+          "pred": "2023",
+          "gt": "C"
+        }
+      ]
+    },
+    "desc_incident": {
+      "accuracy": 0.0,
+      "correct": 0,
+      "total": 3,
+      "sample_errors": [
+        {
+          "row": 0,
+          "pred": "LA POLICE",
+          "gt": "Deux amis se sont bagarrés à cause de l'infidélité. L'un a trouvé en flagrance l'autre avec sa femme."
+        },
+        {
+          "row": 1,
+          "pred": "CHEF DE SITEPAS DE SOLUTION AROUND",
+          "gt": "Un creuseur a été retrouvé mort dans le trou de mine."
+        },
+        {
+          "row": 0,
+          "pred": "2023",
+          "gt": "un homme est mort dans le trou de mine après l’explosion"
+        }
+      ]
+    },
+    "date_signa_pol": {
+      "accuracy": 0.0,
+      "correct": 0,
+      "total": 3,
+      "sample_errors": [
+        {
+          "row": 0,
+          "pred": "BATЫН",
+          "gt": "2023-04-26"
+        },
+        {
+          "row": 1,
+          "pred": "RESTONNERLE JUSTICELE SECTEURMINEIRA",
+          "gt": "2023-04-29"
+        },
+        {
+          "row": 0,
+          "pred": "2023",
+          "gt": "2023-01-24"
+        }
+      ]
+    },
+    "other_authority": {
+      "accuracy": 0.0,
+      "correct": 0,
+      "total": 3,
+      "sample_errors": [
+        {
+          "row": 0,
+          "pred": "2023-04-27",
+          "gt": "la police"
+        },
+        {
+          "row": 1,
+          "pred": "2023-04-28",
+          "gt": "Chef de cité, Pas de solution avant"
+        },
+        {
+          "row": 0,
+          "pred": "2023",
+          "gt": "Chef de centre et commandant PNC en place"
+        }
+      ]
+    },
+    "reason_pol": {
+      "accuracy": 0.0,
+      "correct": 0,
+      "total": 3,
+      "sample_errors": [
+        {
+          "row": 0,
+          "pred": "Pas de precision",
+          "gt": "Rétablir l'ordre public"
+        },
+        {
+          "row": 1,
+          "pred": "Pas de precision",
+          "gt": "Retrouver la justice"
+        },
+        {
+          "row": 0,
+          "pred": "2023",
+          "gt": "Rétablir l'ordre public"
+        }
+      ]
+    },
+    "date_resolution": {
+      "accuracy": 0.0,
+      "correct": 0,
+      "total": 3,
+      "sample_errors": [
+        {
+          "row": 0,
+          "pred": "Le premier est avare pour si avoir tendu justice et le second pour broyage et pour avoir pris la forme d'asthme.",
+          "gt": "2023-04-27"
+        },
+        {
+          "row": 1,
+          "pred": "Les enquete sont encore tout le collegue et le proprietaire du trou aux aveux",
+          "gt": "Pas résolu"
+        },
+        {
+          "row": 0,
+          "pred": "2023",
+          "gt": "2023-01-24"
+        }
+      ]
+    },
+    "desc_resolution": {
+      "accuracy": 0.0,
+      "correct": 0,
+      "total": 3,
+      "sample_errors": [
+        {
+          "row": 0,
+          "pred": "",
+          "gt": "Le premier est arrêté pour s'être rendu justice et le second pour bagarre et pour avoir pris la femme d'autrui."
+        },
+        {
+          "row": 1,
+          "pred": "",
+          "gt": "Les enquêtes sont en cours, tout le collègue et le propriétaire du trou aux arrêts."
+        },
+        {
+          "row": 0,
+          "pred": "2023",
+          "gt": "les responsable ont été inter pellé par la police a fin de repondre de leur imprudence"
+        }
+      ]
+    },
+    "c_date_de_vente": {
+      "accuracy": 0.0,
+      "correct": 0,
+      "total": 13,
+      "sample_errors": [
+        {
+          "row": 0,
+          "pred": "1/4 1/2 2/3",
+          "gt": "2023-04-09"
+        },
+        {
+          "row": 1,
+          "pred": "500 000",
+          "gt": "2023-04-12"
+        },
+        {
+          "row": 2,
+          "pred": "500 000",
+          "gt": "2023-04-10"
+        }
+      ]
+    },
+    "balance_mois_passe": {
+      "accuracy": 0.0,
+      "correct": 0,
+      "total": 3,
+      "sample_errors": [
+        {
+          "row": 0,
+          "pred": "Somme TOTALE collectée tout ce mois",
+          "gt": "101688312152"
+        },
+        {
+          "row": 0,
+          "pred": "Somme",
+          "gt": "96120992052"
+        },
+        {
+          "row": 0,
+          "pred": "Somme TOTALE collectee tout ce mois",
+          "gt": "100164042152"
+        }
+      ]
+    },
+    "somme_totale_collectee": {
+      "accuracy": 0.0,
+      "correct": 0,
+      "total": 3,
+      "sample_errors": [
+        {
+          "row": 0,
+          "pred": "B",
+          "gt": "2629966000"
+        },
+        {
+          "row": 0,
+          "pred": "TOTALE",
+          "gt": "2641368600"
+        },
+        {
+          "row": 0,
+          "pred": "B",
+          "gt": "2652782500"
+        }
+      ]
+    },
+    "ration_alim_date_dep1": {
+      "accuracy": 0.0,
+      "correct": 0,
+      "total": 3,
+      "sample_errors": [
+        {
+          "row": 0,
+          "pred": "2629966000FC",
+          "gt": "NO DATA"
+        },
+        {
+          "row": 0,
+          "pred": "collectée",
+          "gt": "NO DATA"
+        },
+        {
+          "row": 0,
+          "pred": "2.652.782.500FC",
+          "gt": "NO DATA"
+        }
+      ]
+    },
+    "ration_alim_descrip_dep1": {
+      "accuracy": 0.0,
+      "correct": 0,
+      "total": 3,
+      "sample_errors": [
+        {
+          "row": 0,
+          "pred": "",
+          "gt": "RUVUNGI;NDJINGALA;PINGA"
+        },
+        {
+          "row": 0,
+          "pred": "tout ce mois",
+          "gt": "RUVUNGI;MUBI;KIBUA"
+        },
+        {
+          "row": 0,
+          "pred": "",
+          "gt": "KIBUA;PINGA;MUBI"
+        }
+      ]
+    },
+    "ration_alim_montant_dep1": {
+      "accuracy": 0.0,
+      "correct": 0,
+      "total": 3,
+      "sample_errors": [
+        {
+          "row": 0,
+          "pred": "",
+          "gt": "NO DATA"
+        },
+        {
+          "row": 0,
+          "pred": "",
+          "gt": "NO DATA"
+        },
+        {
+          "row": 0,
+          "pred": "",
+          "gt": "NO DATA"
+        }
+      ]
+    },
+    "ration_alim_sum_fc": {
+      "accuracy": 0.0,
+      "correct": 0,
+      "total": 3,
+      "sample_errors": [
+        {
+          "row": 0,
+          "pred": "",
+          "gt": "10000000"
+        },
+        {
+          "row": 0,
+          "pred": "",
+          "gt": "11000000"
+        },
+        {
+          "row": 0,
+          "pred": "",
+          "gt": "10000000"
+        }
+      ]
+    },
+    "ration_alim_sum_usd": {
+      "accuracy": 0.0,
+      "correct": 0,
+      "total": 3,
+      "sample_errors": [
+        {
+          "row": 0,
+          "pred": "",
+          "gt": "40000"
+        },
+        {
+          "row": 0,
+          "pred": "",
+          "gt": "4783"
+        },
+        {
+          "row": 0,
+          "pred": "",
+          "gt": "4000"
+        }
+      ]
+    },
+    "equipment_date_dep1": {
+      "accuracy": 0.0,
+      "correct": 0,
+      "total": 3,
+      "sample_errors": [
+        {
+          "row": 0,
+          "pred": "",
+          "gt": "NO DATA"
+        },
+        {
+          "row": 0,
+          "pred": "",
+          "gt": "NO DATA"
+        },
+        {
+          "row": 0,
+          "pred": "",
+          "gt": "NO DATA"
+        }
+      ]
+    },
+    "equipment_descrip_dep1": {
+      "accuracy": 0.0,
+      "correct": 0,
+      "total": 3,
+      "sample_errors": [
+        {
+          "row": 0,
+          "pred": "",
+          "gt": "NO DATA"
+        },
+        {
+          "row": 0,
+          "pred": "",
+          "gt": "NO DATA"
+        },
+        {
+          "row": 0,
+          "pred": "",
+          "gt": "NO DATA"
+        }
+      ]
+    },
+    "equipment_montant_dep1": {
+      "accuracy": 0.0,
+      "correct": 0,
+      "total": 3,
+      "sample_errors": [
+        {
+          "row": 0,
+          "pred": "",
+          "gt": "NO DATA"
+        },
+        {
+          "row": 0,
+          "pred": "",
+          "gt": "NO DATA"
+        },
+        {
+          "row": 0,
+          "pred": "",
+          "gt": "NO DATA"
+        }
+      ]
+    },
+    "equipment_devise_dep1": {
+      "accuracy": 0.0,
+      "correct": 0,
+      "total": 3,
+      "sample_errors": [
+        {
+          "row": 0,
+          "pred": "",
+          "gt": "NO DATA"
+        },
+        {
+          "row": 0,
+          "pred": "",
+          "gt": "NO DATA"
+        },
+        {
+          "row": 0,
+          "pred": "",
+          "gt": "NO DATA"
+        }
+      ]
+    },
+    "equipment_sum_fc": {
+      "accuracy": 0.0,
+      "correct": 0,
+      "total": 3,
+      "sample_errors": [
+        {
+          "row": 0,
+          "pred": "",
+          "gt": "NO DATA"
+        },
+        {
+          "row": 0,
+          "pred": "",
+          "gt": "NO DATA"
+        },
+        {
+          "row": 0,
+          "pred": "",
+          "gt": "NO DATA"
+        }
+      ]
+    },
+    "equipment_sum_usd": {
+      "accuracy": 0.0,
+      "correct": 0,
+      "total": 3,
+      "sample_errors": [
+        {
+          "row": 0,
+          "pred": "",
+          "gt": "NO DATA"
+        },
+        {
+          "row": 0,
+          "pred": "",
+          "gt": "NO DATA"
+        },
+        {
+          "row": 0,
+          "pred": "",
+          "gt": "NO DATA"
+        }
+      ]
+    },
+    "assist_social_date_dep1": {
+      "accuracy": 0.0,
+      "correct": 0,
+      "total": 3,
+      "sample_errors": [
+        {
+          "row": 0,
+          "pred": "",
+          "gt": "NO DATA"
+        },
+        {
+          "row": 0,
+          "pred": "",
+          "gt": "NO DATA"
+        },
+        {
+          "row": 0,
+          "pred": "",
+          "gt": "NO DATA"
+        }
+      ]
+    },
+    "assist_social_descrip_dep1": {
+      "accuracy": 0.0,
+      "correct": 0,
+      "total": 3,
+      "sample_errors": [
+        {
+          "row": 0,
+          "pred": "",
+          "gt": "KIBUA;MISAU"
+        },
+        {
+          "row": 0,
+          "pred": "",
+          "gt": "LIMANGI;MUNGOTE;KAMISUKU;ANGOA"
+        },
+        {
+          "row": 0,
+          "pred": "",
+          "gt": "Achat matériel de travail"
+        }
+      ]
+    },
+    "assist_social_montant_dep1": {
+      "accuracy": 0.0,
+      "correct": 0,
+      "total": 3,
+      "sample_errors": [
+        {
+          "row": 0,
+          "pred": "",
+          "gt": "NO DATA"
+        },
+        {
+          "row": 0,
+          "pred": "",
+          "gt": "NO DATA"
+        },
+        {
+          "row": 0,
+          "pred": "",
+          "gt": "NO DATA"
+        }
+      ]
+    },
+    "assist_social_sum_fc": {
+      "accuracy": 0.0,
+      "correct": 0,
+      "total": 3,
+      "sample_errors": [
+        {
+          "row": 0,
+          "pred": "",
+          "gt": "2500000"
+        },
+        {
+          "row": 0,
+          "pred": "",
+          "gt": "3000000"
+        },
+        {
+          "row": 0,
+          "pred": "",
+          "gt": "3000000"
+        }
+      ]
+    },
+    "assist_social_sum_usd": {
+      "accuracy": 0.0,
+      "correct": 0,
+      "total": 3,
+      "sample_errors": [
+        {
+          "row": 0,
+          "pred": "",
+          "gt": "1000"
+        },
+        {
+          "row": 0,
+          "pred": "",
+          "gt": "1304"
+        },
+        {
+          "row": 0,
+          "pred": "",
+          "gt": "1200"
+        }
+      ]
+    },
+    "achat_medical_date_dep1": {
+      "accuracy": 0.0,
+      "correct": 0,
+      "total": 3,
+      "sample_errors": [
+        {
+          "row": 0,
+          "pred": "",
+          "gt": "NO DATA"
+        },
+        {
+          "row": 0,
+          "pred": "",
+          "gt": "NO DATA"
+        },
+        {
+          "row": 0,
+          "pred": "",
+          "gt": "NO DATA"
+        }
+      ]
+    },
+    "achat_medical_descrip_dep1": {
+      "accuracy": 0.0,
+      "correct": 0,
+      "total": 3,
+      "sample_errors": [
+        {
+          "row": 0,
+          "pred": "",
+          "gt": "GOMA;WALIKALE"
+        },
+        {
+          "row": 0,
+          "pred": "",
+          "gt": "Achat d'Équippement"
+        },
+        {
+          "row": 0,
+          "pred": "",
+          "gt": "MUKOKO;UNI;KIGOMA"
+        }
+      ]
+    },
+    "achat_medical_montant_dep1": {
+      "accuracy": 0.0,
+      "correct": 0,
+      "total": 3,
+      "sample_errors": [
+        {
+          "row": 0,
+          "pred": "",
+          "gt": "NO DATA"
+        },
+        {
+          "row": 0,
+          "pred": "",
+          "gt": "NO DATA"
+        },
+        {
+          "row": 0,
+          "pred": "",
+          "gt": "NO DATA"
+        }
+      ]
+    },
+    "achat_medical_sum_fc": {
+      "accuracy": 0.0,
+      "correct": 0,
+      "total": 3,
+      "sample_errors": [
+        {
+          "row": 0,
+          "pred": "",
+          "gt": "2500000"
+        },
+        {
+          "row": 0,
+          "pred": "",
+          "gt": "2300000"
+        },
+        {
+          "row": 0,
+          "pred": "",
+          "gt": "4800000"
+        }
+      ]
+    },
+    "achat_medical_sum_usd": {
+      "accuracy": 0.0,
+      "correct": 0,
+      "total": 3,
+      "sample_errors": [
+        {
+          "row": 0,
+          "pred": "",
+          "gt": "1000"
+        },
+        {
+          "row": 0,
+          "pred": "",
+          "gt": "1000"
+        },
+        {
+          "row": 0,
+          "pred": "",
+          "gt": "2000"
+        }
+      ]
+    },
+    "paiment_staff_date_dep1": {
+      "accuracy": 0.0,
+      "correct": 0,
+      "total": 3,
+      "sample_errors": [
+        {
+          "row": 0,
+          "pred": "",
+          "gt": "NO DATA"
+        },
+        {
+          "row": 0,
+          "pred": "",
+          "gt": "NO DATA"
+        },
+        {
+          "row": 0,
+          "pred": "",
+          "gt": "NO DATA"
+        }
+      ]
+    },
+    "paiment_staff_descrip_dep1": {
+      "accuracy": 0.0,
+      "correct": 0,
+      "total": 3,
+      "sample_errors": [
+        {
+          "row": 0,
+          "pred": "",
+          "gt": "IRAMESO;TCHOPO;BUKUMBIRWA"
+        },
+        {
+          "row": 0,
+          "pred": "",
+          "gt": "IRAMESO;BUKUMBIRWA;TCHOPO"
+        },
+        {
+          "row": 0,
+          "pred": "",
+          "gt": "IRAMESO;BUKUMBIRWA;TCHOPO"
+        }
+      ]
+    },
+    "paiment_staff_montant_dep1": {
+      "accuracy": 0.0,
+      "correct": 0,
+      "total": 3,
+      "sample_errors": [
+        {
+          "row": 0,
+          "pred": "",
+          "gt": "NO DATA"
+        },
+        {
+          "row": 0,
+          "pred": "",
+          "gt": "NO DATA"
+        },
+        {
+          "row": 0,
+          "pred": "",
+          "gt": "NO DATA"
+        }
+      ]
+    },
+    "paiment_staff_sum_fc": {
+      "accuracy": 0.0,
+      "correct": 0,
+      "total": 3,
+      "sample_errors": [
+        {
+          "row": 0,
+          "pred": "",
+          "gt": "662675000"
+        },
+        {
+          "row": 0,
+          "pred": "",
+          "gt": "599656000"
+        },
+        {
+          "row": 0,
+          "pred": "",
+          "gt": "660550000"
+        }
+      ]
+    },
+    "paiment_staff_sum_usd": {
+      "accuracy": 0.0,
+      "correct": 0,
+      "total": 3,
+      "sample_errors": [
+        {
+          "row": 0,
+          "pred": "",
+          "gt": "265070"
+        },
+        {
+          "row": 0,
+          "pred": "",
+          "gt": "260720"
+        },
+        {
+          "row": 0,
+          "pred": "",
+          "gt": "264220"
+        }
+      ]
+    },
+    "transport_date_dep1": {
+      "accuracy": 0.0,
+      "correct": 0,
+      "total": 3,
+      "sample_errors": [
+        {
+          "row": 0,
+          "pred": "",
+          "gt": "NO DATA"
+        },
+        {
+          "row": 0,
+          "pred": "",
+          "gt": "NO DATA"
+        },
+        {
+          "row": 0,
+          "pred": "",
+          "gt": "NO DATA"
+        }
+      ]
+    },
+    "transport_descrip_dep1": {
+      "accuracy": 0.0,
+      "correct": 0,
+      "total": 3,
+      "sample_errors": [
+        {
+          "row": 0,
+          "pred": "",
+          "gt": "GOMA;WALIKALE"
+        },
+        {
+          "row": 0,
+          "pred": "",
+          "gt": "GOMA;WALIKALE"
+        },
+        {
+          "row": 0,
+          "pred": "",
+          "gt": "GOMA;WALIKALE"
+        }
+      ]
+    },
+    "transport_montant_dep1": {
+      "accuracy": 0.0,
+      "correct": 0,
+      "total": 3,
+      "sample_errors": [
+        {
+          "row": 0,
+          "pred": "",
+          "gt": "NO DATA"
+        },
+        {
+          "row": 0,
+          "pred": "",
+          "gt": "NO DATA"
+        },
+        {
+          "row": 0,
+          "pred": "",
+          "gt": "NO DATA"
+        }
+      ]
+    },
+    "transport_montant_sum_fc": {
+      "accuracy": 0.0,
+      "correct": 0,
+      "total": 3,
+      "sample_errors": [
+        {
+          "row": 0,
+          "pred": "",
+          "gt": "22425000"
+        },
+        {
+          "row": 0,
+          "pred": "",
+          "gt": "24518000"
+        },
+        {
+          "row": 0,
+          "pred": "",
+          "gt": "23412500"
+        }
+      ]
+    },
+    "transport_montant_sum_usd": {
+      "accuracy": 0.0,
+      "correct": 0,
+      "total": 3,
+      "sample_errors": [
+        {
+          "row": 0,
+          "pred": "",
+          "gt": "8970"
+        },
+        {
+          "row": 0,
+          "pred": "",
+          "gt": "10660"
+        },
+        {
+          "row": 0,
+          "pred": "",
+          "gt": "9365"
+        }
+      ]
+    },
+    "autre_description": {
+      "accuracy": 0.0,
+      "correct": 0,
+      "total": 3,
+      "sample_errors": [
+        {
+          "row": 0,
+          "pred": "",
+          "gt": "Achat materiaux des ventes"
+        },
+        {
+          "row": 0,
+          "pred": "",
+          "gt": "Achat materiaux des ventes"
+        },
+        {
+          "row": 0,
+          "pred": "",
+          "gt": "Achat materiaux des ventes"
+        }
+      ]
+    },
+    "autre_montant_sum_fc": {
+      "accuracy": 0.0,
+      "correct": 0,
+      "total": 3,
+      "sample_errors": [
+        {
+          "row": 0,
+          "pred": "",
+          "gt": "432787500"
+        },
+        {
+          "row": 0,
+          "pred": "",
+          "gt": "466612500"
+        },
+        {
+          "row": 0,
+          "pred": "",
+          "gt": "444250000"
+        }
+      ]
+    },
+    "autre_montant_sum_usd": {
+      "accuracy": 0.0,
+      "correct": 0,
+      "total": 3,
+      "sample_errors": [
+        {
+          "row": 0,
+          "pred": "",
+          "gt": "173115"
+        },
+        {
+          "row": 0,
+          "pred": "",
+          "gt": "202875"
+        },
+        {
+          "row": 0,
+          "pred": "",
+          "gt": "177700"
+        }
+      ]
+    },
+    "total_depenses_pour_le_mois_FC": {
+      "accuracy": 0.0,
+      "correct": 0,
+      "total": 3,
+      "sample_errors": [
+        {
+          "row": 0,
+          "pred": "",
+          "gt": "1132887500"
+        },
+        {
+          "row": 0,
+          "pred": "",
+          "gt": "1107086500"
+        },
+        {
+          "row": 0,
+          "pred": "",
+          "gt": "1148512500"
+        }
+      ]
+    },
+    "balance_finale_de_ce_mois_FC": {
+      "accuracy": 0.0,
+      "correct": 0,
+      "total": 3,
+      "sample_errors": [
+        {
+          "row": 0,
+          "pred": "",
+          "gt": "103165390652"
+        },
+        {
+          "row": 0,
+          "pred": "",
+          "gt": "97655274152"
+        },
+        {
+          "row": 0,
+          "pred": "",
+          "gt": "101668312152"
+        }
+      ]
+    },
+    "bilan_fin_du_mois_passe": {
+      "accuracy": 0.0,
+      "correct": 0,
+      "total": 1,
+      "sample_errors": [
+        {
+          "row": 0,
+          "pred": "202196",
+          "gt": "12675179552"
+        }
+      ]
+    },
+    "bilan_collectee_ce_mois": {
+      "accuracy": 0.0,
+      "correct": 0,
+      "total": 1,
+      "sample_errors": [
+        {
+          "row": 0,
+          "pred": "202196",
+          "gt": "2625642000"
+        }
+      ]
+    },
+    "bilan_montant_final": {
+      "accuracy": 0.0,
+      "correct": 0,
+      "total": 1,
+      "sample_errors": [
+        {
+          "row": 0,
+          "pred": "941179311552",
+          "gt": "94117931552"
+        }
+      ]
+    },
+    "b_date_de_vente": {
+      "accuracy": 0.0,
+      "correct": 0,
+      "total": 26,
+      "sample_errors": [
+        {
+          "row": 0,
+          "pred": "IHANA",
+          "gt": "2023-01-12"
+        },
+        {
+          "row": 1,
+          "pred": "IHANA",
+          "gt": "2023-01-10"
+        },
+        {
+          "row": 2,
+          "pred": "IHANA",
+          "gt": "2023-01-11"
+        }
+      ]
+    },
+    "nom_front_bataille": {
+      "accuracy": 0.0,
+      "correct": 0,
+      "total": 1,
+      "sample_errors": [
+        {
+          "row": 0,
+          "pred": "WAZALENJY",
+          "gt": "WAZALENBU"
+        }
+      ]
+    },
+    "groupment": {
+      "accuracy": 0.0,
+      "correct": 0,
+      "total": 1,
+      "sample_errors": [
+        {
+          "row": 0,
+          "pred": "-",
+          "gt": ""
+        }
+      ]
+    },
+    "nom_villages": {
+      "accuracy": 0.0,
+      "correct": 0,
+      "total": 1,
+      "sample_errors": [
+        {
+          "row": 0,
+          "pred": "RWBAYA",
+          "gt": "RUBAYA"
+        }
+      ]
+    },
+    "unite_impliquee": {
+      "accuracy": 0.0,
+      "correct": 0,
+      "total": 1,
+      "sample_errors": [
+        {
+          "row": 0,
+          "pred": "une etune unité",
+          "gt": "11;12"
+        }
+      ]
+    },
+    "l'objectif_du_front": {
+      "accuracy": 0.0,
+      "correct": 0,
+      "total": 1,
+      "sample_errors": [
+        {
+          "row": 0,
+          "pred": "diffendre l'integrite territoriale contre lesenslavisseurs du RWANDA",
+          "gt": "défendre l’intérêt territorial"
+        }
+      ]
+    },
+    "type_de_grigri": {
+      "accuracy": 0.0,
+      "correct": 0,
+      "total": 1,
+      "sample_errors": [
+        {
+          "row": 0,
+          "pred": "",
+          "gt": "MUTUKA MUNENE; SANS CONDITION; NDIME NDIME"
+        }
+      ]
+    },
+    "nom_groupe_initiateur": {
+      "accuracy": 0.0,
+      "correct": 0,
+      "total": 1,
+      "sample_errors": [
+        {
+          "row": 0,
+          "pred": "",
+          "gt": "NDC, FARDC"
+        }
+      ]
+    },
+    "nombre_de_membres_front_initiateur": {
+      "accuracy": 0.0,
+      "correct": 0,
+      "total": 1,
+      "sample_errors": [
+        {
+          "row": 0,
+          "pred": "",
+          "gt": "300"
+        }
+      ]
+    },
+    "nom_groupe_attaque": {
+      "accuracy": 0.0,
+      "correct": 0,
+      "total": 1,
+      "sample_errors": [
+        {
+          "row": 0,
+          "pred": "",
+          "gt": "M23"
+        }
+      ]
+    },
+    "nombre_de_membres_front_attaque": {
+      "accuracy": 0.0,
+      "correct": 0,
+      "total": 1,
+      "sample_errors": [
+        {
+          "row": 0,
+          "pred": "",
+          "gt": "Pas de precision"
+        }
+      ]
+    },
+    "taxe_recette_fc": {
+      "accuracy": 0.0,
+      "correct": 0,
+      "total": 7,
+      "sample_errors": [
+        {
+          "row": 0,
+          "pred": "",
+          "gt": "258360000"
+        },
+        {
+          "row": 1,
+          "pred": "",
+          "gt": "60000000"
+        },
+        {
+          "row": 2,
+          "pred": "",
+          "gt": "271340000"
+        }
+      ]
+    },
+    "b_prix_de_vente_a_l_unitefc": {
+      "accuracy": 0.038461538461538464,
+      "correct": 1,
+      "total": 26,
+      "sample_errors": [
+        {
+          "row": 0,
+          "pred": "2023-01-12",
+          "gt": "98000"
+        },
+        {
+          "row": 1,
+          "pred": "2023-01-10",
+          "gt": "98000"
+        },
+        {
+          "row": 2,
+          "pred": "2023-01-11",
+          "gt": "98000"
+        }
+      ]
+    },
+    "b_quantite_distribuee": {
+      "accuracy": 0.038461538461538464,
+      "correct": 1,
+      "total": 26,
+      "sample_errors": [
+        {
+          "row": 0,
+          "pred": "98000",
+          "gt": "10"
+        },
+        {
+          "row": 1,
+          "pred": "98000",
+          "gt": "9"
+        },
+        {
+          "row": 2,
+          "pred": "98000",
+          "gt": "8"
+        }
+      ]
+    },
+    "b_net_flow": {
+      "accuracy": 0.038461538461538464,
+      "correct": 1,
+      "total": 26,
+      "sample_errors": [
+        {
+          "row": 0,
+          "pred": "90000",
+          "gt": "1"
+        },
+        {
+          "row": 1,
+          "pred": "882000",
+          "gt": "0"
+        },
+        {
+          "row": 2,
+          "pred": "784000",
+          "gt": "1"
+        }
+      ]
+    },
+    "b_recette_totale_fc": {
+      "accuracy": 0.038461538461538464,
+      "correct": 1,
+      "total": 26,
+      "sample_errors": [
+        {
+          "row": 0,
+          "pred": "",
+          "gt": "882000"
+        },
+        {
+          "row": 1,
+          "pred": "",
+          "gt": "882000"
+        },
+        {
+          "row": 2,
+          "pred": "",
+          "gt": "686000"
+        }
+      ]
+    },
+    "grade": {
+      "accuracy": 0.058823529411764705,
+      "correct": 1,
+      "total": 17,
+      "sample_errors": [
+        {
+          "row": 1,
+          "pred": "Numero 2",
+          "gt": "Secretaire Particulier du Numero 1 COMD.MVT"
+        },
+        {
+          "row": 2,
+          "pred": "Numero 3",
+          "gt": "Numero 2"
+        },
+        {
+          "row": 3,
+          "pred": "Numero 4",
+          "gt": "Secretaire Particulier du Numero 2 OPS REK MVT"
+        }
+      ]
+    },
+    "c_quantite_distribuee": {
+      "accuracy": 0.07692307692307693,
+      "correct": 1,
+      "total": 13,
+      "sample_errors": [
+        {
+          "row": 0,
+          "pred": "F",
+          "gt": "9"
+        },
+        {
+          "row": 1,
+          "pred": "9",
+          "gt": "7"
+        },
+        {
+          "row": 2,
+          "pred": "7",
+          "gt": "6"
+        }
+      ]
+    },
+    "date_de_debut_de_controle": {
+      "accuracy": 0.14285714285714285,
+      "correct": 7,
+      "total": 49,
+      "sample_errors": [
+        {
+          "row": 0,
+          "pred": "2025-02-07",
+          "gt": "2015-04-07"
+        },
+        {
+          "row": 1,
+          "pred": "2025-02-07",
+          "gt": "2015-04-07"
+        },
+        {
+          "row": 2,
+          "pred": "2025-02-10",
+          "gt": "2015-05-11"
+        }
+      ]
+    },
+    "type": {
+      "accuracy": 0.14285714285714285,
+      "correct": 1,
+      "total": 7,
+      "sample_errors": [
+        {
+          "row": 0,
+          "pred": "Chasseurs",
+          "gt": "chasse"
+        },
+        {
+          "row": 1,
+          "pred": "Creuseurs",
+          "gt": "creuse"
+        },
+        {
+          "row": 2,
+          "pred": "Producteurs d'huile",
+          "gt": "prod_huil_"
+        }
+      ]
+    },
+    "desc_ressource": {
+      "accuracy": 0.14285714285714285,
+      "correct": 1,
+      "total": 7,
+      "sample_errors": [
+        {
+          "row": 0,
+          "pred": "",
+          "gt": "VIANDE"
+        },
+        {
+          "row": 1,
+          "pred": "",
+          "gt": "OR"
+        },
+        {
+          "row": 2,
+          "pred": "",
+          "gt": "BOUTEILLES D'HUILES"
+        }
+      ]
+    },
+    "unit_price_fc": {
+      "accuracy": 0.14285714285714285,
+      "correct": 1,
+      "total": 7,
+      "sample_errors": [
+        {
+          "row": 0,
+          "pred": "",
+          "gt": "10000"
+        },
+        {
+          "row": 1,
+          "pred": "",
+          "gt": "60000"
+        },
+        {
+          "row": 2,
+          "pred": "",
+          "gt": "4000"
+        }
+      ]
+    },
+    "qty_livree_tot": {
+      "accuracy": 0.14285714285714285,
+      "correct": 1,
+      "total": 7,
+      "sample_errors": [
+        {
+          "row": 0,
+          "pred": "",
+          "gt": "25836"
+        },
+        {
+          "row": 1,
+          "pred": "",
+          "gt": "1000"
+        },
+        {
+          "row": 2,
+          "pred": "",
+          "gt": "67835"
+        }
+      ]
+    },
+    "nature_fc": {
+      "accuracy": 0.14285714285714285,
+      "correct": 1,
+      "total": 7,
+      "sample_errors": [
+        {
+          "row": 0,
+          "pred": "",
+          "gt": "180852"
+        },
+        {
+          "row": 1,
+          "pred": "",
+          "gt": "54000000"
+        },
+        {
+          "row": 2,
+          "pred": "",
+          "gt": "108536000"
+        }
+      ]
+    },
+    "espece_fc": {
+      "accuracy": 0.14285714285714285,
+      "correct": 1,
+      "total": 7,
+      "sample_errors": [
+        {
+          "row": 0,
+          "pred": "",
+          "gt": "77508000"
+        },
+        {
+          "row": 1,
+          "pred": "",
+          "gt": "6000000"
+        },
+        {
+          "row": 2,
+          "pred": "",
+          "gt": "162804000"
+        }
+      ]
+    },
+    "c_net_flow": {
+      "accuracy": 0.15384615384615385,
+      "correct": 2,
+      "total": 13,
+      "sample_errors": [
+        {
+          "row": 0,
+          "pred": "10",
+          "gt": "1"
+        },
+        {
+          "row": 1,
+          "pred": "1",
+          "gt": "0"
+        },
+        {
+          "row": 4,
+          "pred": "6",
+          "gt": "0"
+        }
+      ]
+    },
+    "rang": {
+      "accuracy": 0.19047619047619047,
+      "correct": 4,
+      "total": 21,
+      "sample_errors": [
+        {
+          "row": 0,
+          "pred": "N'oubliez pas les lignes correspondantes pour un commissariat sur la page precedente",
+          "gt": "Autre"
+        },
+        {
+          "row": 1,
+          "pred": "NOMBRE DE SOUS COMMISSARIATS :",
+          "gt": "Total partiel commisariat"
+        },
+        {
+          "row": 2,
+          "pred": "Compléter ci-dessous pour UN SOUS COMMISSARIAT (S/CIAT) TYPIQUE",
+          "gt": "COMDT. SOUS-CIAT"
+        }
+      ]
+    },
+    "nom_et_postnom": {
+      "accuracy": 0.2,
+      "correct": 1,
+      "total": 5,
+      "sample_errors": [
+        {
+          "row": 0,
+          "pred": "USOGOPE KAMARA ESTA CHE",
+          "gt": "USIOGOPE KAMARA EUSTACHE"
+        },
+        {
+          "row": 1,
+          "pred": "BAHATI NIKO TACKS",
+          "gt": "BAHATI NBEKO JACKOS"
+        },
+        {
+          "row": 2,
+          "pred": "ARON MIRHO EMMANUEL",
+          "gt": "ARON MIROHO EMMANUEL"
+        }
+      ]
+    },
+    "Date": {
+      "accuracy": 0.2222222222222222,
+      "correct": 4,
+      "total": 18,
+      "sample_errors": [
+        {
+          "row": 0,
+          "pred": "Avril",
+          "gt": "2023-08-14"
+        },
+        {
+          "row": 1,
+          "pred": "Avril",
+          "gt": "2023-08-17"
+        },
+        {
+          "row": 2,
+          "pred": "Avril",
+          "gt": "2023-08-17"
+        }
+      ]
+    },
+    "recette_realisee_FC": {
+      "accuracy": 0.22448979591836735,
+      "correct": 11,
+      "total": 49,
+      "sample_errors": [
+        {
+          "row": 0,
+          "pred": "408",
+          "gt": "623000"
+        },
+        {
+          "row": 1,
+          "pred": "203",
+          "gt": "408000"
+        },
+        {
+          "row": 2,
+          "pred": "165",
+          "gt": "203000"
+        }
+      ]
+    },
+    "c_quantite_vendue": {
+      "accuracy": 0.23076923076923078,
+      "correct": 3,
+      "total": 13,
+      "sample_errors": [
+        {
+          "row": 0,
+          "pred": "9",
+          "gt": "8"
+        },
+        {
+          "row": 1,
+          "pred": "8",
+          "gt": "7"
+        },
+        {
+          "row": 2,
+          "pred": "2",
+          "gt": "6"
+        }
+      ]
+    },
+    "c_remain_last_mth": {
+      "accuracy": 0.23076923076923078,
+      "correct": 3,
+      "total": 13,
+      "sample_errors": [
+        {
+          "row": 0,
+          "pred": "0",
+          "gt": "1"
+        },
+        {
+          "row": 1,
+          "pred": "1",
+          "gt": "0"
+        },
+        {
+          "row": 4,
+          "pred": "0",
+          "gt": "2"
+        }
+      ]
+    },
+    "c_recette_totale_fc": {
+      "accuracy": 0.23076923076923078,
+      "correct": 3,
+      "total": 13,
+      "sample_errors": [
+        {
+          "row": 0,
+          "pred": "5000000",
+          "gt": "4000000"
+        },
+        {
+          "row": 1,
+          "pred": "4000000",
+          "gt": "3500000"
+        },
+        {
+          "row": 2,
+          "pred": "3500000",
+          "gt": "3000000"
+        }
+      ]
+    },
+    "b_remain_last_mth": {
+      "accuracy": 0.23076923076923078,
+      "correct": 6,
+      "total": 26,
+      "sample_errors": [
+        {
+          "row": 0,
+          "pred": "",
+          "gt": "1"
+        },
+        {
+          "row": 1,
+          "pred": "",
+          "gt": "0"
+        },
+        {
+          "row": 2,
+          "pred": "",
+          "gt": "0"
+        }
+      ]
+    },
+    "b_overall_total": {
+      "accuracy": 0.23076923076923078,
+      "correct": 6,
+      "total": 26,
+      "sample_errors": [
+        {
+          "row": 0,
+          "pred": "",
+          "gt": "2"
+        },
+        {
+          "row": 1,
+          "pred": "",
+          "gt": "0"
+        },
+        {
+          "row": 2,
+          "pred": "",
+          "gt": "1"
+        }
+      ]
+    },
+    "date_de_distribution_jetons": {
+      "accuracy": 0.2857142857142857,
+      "correct": 14,
+      "total": 49,
+      "sample_errors": [
+        {
+          "row": 0,
+          "pred": "2023-04-05",
+          "gt": "2023-04-04"
+        },
+        {
+          "row": 1,
+          "pred": "2023-04-06",
+          "gt": "2023-04-05"
+        },
+        {
+          "row": 2,
+          "pred": "2023-04-06",
+          "gt": "2023-04-05"
+        }
+      ]
+    },
+    "jetons_nombre_restants": {
+      "accuracy": 0.2857142857142857,
+      "correct": 14,
+      "total": 49,
+      "sample_errors": [
+        {
+          "row": 1,
+          "pred": "0",
+          "gt": "2"
+        },
+        {
+          "row": 4,
+          "pred": "2",
+          "gt": "0"
+        },
+        {
+          "row": 5,
+          "pred": "5",
+          "gt": "2"
+        }
+      ]
+    },
+    "nombre_d_autre_type": {
+      "accuracy": 0.2916666666666667,
+      "correct": 14,
+      "total": 48,
+      "sample_errors": [
+        {
+          "row": 0,
+          "pred": "46",
+          "gt": "31"
+        },
+        {
+          "row": 1,
+          "pred": "33",
+          "gt": "1450"
+        },
+        {
+          "row": 2,
+          "pred": "38",
+          "gt": "32"
+        }
+      ]
+    },
+    "paiement_ce_rang_ce_mois_par_personne": {
+      "accuracy": 0.29411764705882354,
+      "correct": 5,
+      "total": 17,
+      "sample_errors": [
+        {
+          "row": 2,
+          "pred": "650",
+          "gt": "1070"
+        },
+        {
+          "row": 3,
+          "pred": "1040",
+          "gt": "650"
+        },
+        {
+          "row": 4,
+          "pred": "550",
+          "gt": "1040"
+        }
+      ]
+    },
+    "paiement_ce_rang_ce_mois_total": {
+      "accuracy": 0.29411764705882354,
+      "correct": 5,
+      "total": 17,
+      "sample_errors": [
+        {
+          "row": 2,
+          "pred": "650",
+          "gt": "1070"
+        },
+        {
+          "row": 3,
+          "pred": "1040",
+          "gt": "650"
+        },
+        {
+          "row": 4,
+          "pred": "550",
+          "gt": "1040"
+        }
+      ]
+    },
+    "jetons_nombre_distribues": {
+      "accuracy": 0.30612244897959184,
+      "correct": 15,
+      "total": 49,
+      "sample_errors": [
+        {
+          "row": 0,
+          "pred": "410",
+          "gt": "625"
+        },
+        {
+          "row": 1,
+          "pred": "203",
+          "gt": "410"
+        },
+        {
+          "row": 2,
+          "pred": "165",
+          "gt": "203"
+        }
+      ]
+    },
+    "nom_village": {
+      "accuracy": 0.32589285714285715,
+      "correct": 73,
+      "total": 224,
+      "sample_errors": [
+        {
+          "row": 0,
+          "pred": "MAFOFOKI",
+          "gt": "MUNJULI"
+        },
+        {
+          "row": 1,
+          "pred": "BETOBETO 1",
+          "gt": "MAFOFOKI"
+        },
+        {
+          "row": 2,
+          "pred": "BETOBETO 2",
+          "gt": "BETOBETO 1"
+        }
+      ]
+    },
+    "nom_bataillon": {
+      "accuracy": 0.32653061224489793,
+      "correct": 16,
+      "total": 49,
+      "sample_errors": [
+        {
+          "row": 3,
+          "pred": "1112",
+          "gt": "1122"
+        },
+        {
+          "row": 5,
+          "pred": "1111",
+          "gt": "1122"
+        },
+        {
+          "row": 6,
+          "pred": "1112",
+          "gt": "1122"
+        }
+      ]
+    },
+    "date_incident": {
+      "accuracy": 0.3333333333333333,
+      "correct": 1,
+      "total": 3,
+      "sample_errors": [
+        {
+          "row": 1,
+          "pred": "2023-04-2023-04-27",
+          "gt": "4//28/2023"
+        },
+        {
+          "row": 0,
+          "pred": "PUMUZIYA",
+          "gt": "2023-01-24"
+        }
+      ]
+    },
+    "nombre_chasseurs": {
+      "accuracy": 0.3333333333333333,
+      "correct": 16,
+      "total": 48,
+      "sample_errors": [
+        {
+          "row": 0,
+          "pred": "IRAMESO",
+          "gt": "43"
+        },
+        {
+          "row": 1,
+          "pred": "CHOPO",
+          "gt": "35"
+        },
+        {
+          "row": 2,
+          "pred": "MIRONGE",
+          "gt": "50"
+        }
+      ]
+    },
+    "nombre_creuseurs": {
+      "accuracy": 0.3333333333333333,
+      "correct": 16,
+      "total": 48,
+      "sample_errors": [
+        {
+          "row": 0,
+          "pred": "43",
+          "gt": "340"
+        },
+        {
+          "row": 1,
+          "pred": "35",
+          "gt": "170"
+        },
+        {
+          "row": 2,
+          "pred": "50",
+          "gt": "40"
+        }
+      ]
+    },
+    "nombre_producteurs_d_huile": {
+      "accuracy": 0.3333333333333333,
+      "correct": 16,
+      "total": 48,
+      "sample_errors": [
+        {
+          "row": 0,
+          "pred": "340",
+          "gt": "33"
+        },
+        {
+          "row": 1,
+          "pred": "170",
+          "gt": "40"
+        },
+        {
+          "row": 2,
+          "pred": "40",
+          "gt": "30"
+        }
+      ]
+    },
+    "nombre_commercants_dans_village": {
+      "accuracy": 0.3333333333333333,
+      "correct": 16,
+      "total": 48,
+      "sample_errors": [
+        {
+          "row": 0,
+          "pred": "31",
+          "gt": "533"
+        },
+        {
+          "row": 1,
+          "pred": "1450",
+          "gt": "2044"
+        },
+        {
+          "row": 2,
+          "pred": "32",
+          "gt": "227"
+        }
+      ]
+    },
+    "tva_total_recolte_fc": {
+      "accuracy": 0.3333333333333333,
+      "correct": 16,
+      "total": 48,
+      "sample_errors": [
+        {
+          "row": 0,
+          "pred": "533",
+          "gt": "533000"
+        },
+        {
+          "row": 1,
+          "pred": "2044",
+          "gt": "2044000"
+        },
+        {
+          "row": 2,
+          "pred": "227",
+          "gt": "227000"
+        }
+      ]
+    },
+    "nombre_producteurs_boisson": {
+      "accuracy": 0.3541666666666667,
+      "correct": 17,
+      "total": 48,
+      "sample_errors": [
+        {
+          "row": 0,
+          "pred": "40",
+          "gt": "46"
+        },
+        {
+          "row": 1,
+          "pred": "386",
+          "gt": "33"
+        },
+        {
+          "row": 2,
+          "pred": "37",
+          "gt": "38"
+        }
+      ]
+    },
+    "c_overall_total": {
+      "accuracy": 0.38461538461538464,
+      "correct": 5,
+      "total": 13,
+      "sample_errors": [
+        {
+          "row": 0,
+          "pred": "1",
+          "gt": "2"
+        },
+        {
+          "row": 1,
+          "pred": "2",
+          "gt": "0"
+        },
+        {
+          "row": 4,
+          "pred": "0",
+          "gt": "1"
+        }
+      ]
+    },
+    "nom_brigade": {
+      "accuracy": 0.3877551020408163,
+      "correct": 19,
+      "total": 49,
+      "sample_errors": [
+        {
+          "row": 3,
+          "pred": "111",
+          "gt": "112"
+        },
+        {
+          "row": 5,
+          "pred": "111",
+          "gt": "112"
+        },
+        {
+          "row": 6,
+          "pred": "111",
+          "gt": "112"
+        }
+      ]
+    },
+    "nombre_cultivateurs": {
+      "accuracy": 0.3958333333333333,
+      "correct": 19,
+      "total": 48,
+      "sample_errors": [
+        {
+          "row": 0,
+          "pred": "33",
+          "gt": "40"
+        },
+        {
+          "row": 1,
+          "pred": "40",
+          "gt": "316"
+        },
+        {
+          "row": 2,
+          "pred": "20",
+          "gt": "37"
+        }
+      ]
+    },
+    "date_de_naissance": {
+      "accuracy": 0.4,
+      "correct": 2,
+      "total": 5,
+      "sample_errors": [
+        {
+          "row": 0,
+          "pred": "2017-07-06",
+          "gt": "2001-06-02"
+        },
+        {
+          "row": 2,
+          "pred": "1987-09-11",
+          "gt": "1988-09-11"
+        },
+        {
+          "row": 4,
+          "pred": "1987-02-29",
+          "gt": "2/29/1987"
+        }
+      ]
+    },
+    "village_de_naissance": {
+      "accuracy": 0.4,
+      "correct": 2,
+      "total": 5,
+      "sample_errors": [
+        {
+          "row": 1,
+          "pred": "NYAMALA",
+          "gt": "NYAMIALA"
+        },
+        {
+          "row": 3,
+          "pred": "PINGA - NCHASA",
+          "gt": "PINGA-NKASA"
+        },
+        {
+          "row": 4,
+          "pred": "WATAKATO",
+          "gt": "MUTAKATO"
+        }
+      ]
+    },
+    "dates_victime_membre_de_son_mena": {
+      "accuracy": 0.4,
+      "correct": 2,
+      "total": 5,
+      "sample_errors": [
+        {
+          "row": 0,
+          "pred": "2019-04-04",
+          "gt": "2019-04-01"
+        },
+        {
+          "row": 1,
+          "pred": "2020-09-10",
+          "gt": "2020-10-01"
+        },
+        {
+          "row": 4,
+          "pred": "2009-06-15",
+          "gt": "2017-06-15"
+        }
+      ]
+    },
+    "jetons_nombre_vendus": {
+      "accuracy": 0.40816326530612246,
+      "correct": 20,
+      "total": 49,
+      "sample_errors": [
+        {
+          "row": 0,
+          "pred": "408",
+          "gt": "623"
+        },
+        {
+          "row": 1,
+          "pred": "203",
+          "gt": "408"
+        },
+        {
+          "row": 2,
+          "pred": "165",
+          "gt": "203"
+        }
+      ]
+    },
+    "nom_section": {
+      "accuracy": 0.4489795918367347,
+      "correct": 22,
+      "total": 49,
+      "sample_errors": [
+        {
+          "row": 4,
+          "pred": "1 1",
+          "gt": "1 2"
+        },
+        {
+          "row": 8,
+          "pred": "1 1",
+          "gt": "1 2"
+        },
+        {
+          "row": 10,
+          "pred": "1 2",
+          "gt": "2 1"
+        }
+      ]
+    },
+    "nom_unite": {
+      "accuracy": 0.46938775510204084,
+      "correct": 23,
+      "total": 49,
+      "sample_errors": [
+        {
+          "row": 0,
+          "pred": "V",
+          "gt": "12"
+        },
+        {
+          "row": 1,
+          "pred": "V",
+          "gt": "13"
+        },
+        {
+          "row": 2,
+          "pred": "V",
+          "gt": "12"
+        }
+      ]
+    },
+    "groupement": {
+      "accuracy": 0.4807692307692308,
+      "correct": 25,
+      "total": 52,
+      "sample_errors": [
+        {
+          "row": 0,
+          "pred": "IHANA MISAU",
+          "gt": "IHANA"
+        },
+        {
+          "row": 1,
+          "pred": "NYAMISUNGU SAI (USALA)",
+          "gt": "USALA"
+        },
+        {
+          "row": 0,
+          "pred": "2023",
+          "gt": "IHANA"
+        }
+      ]
+    },
+    "groupement_corrected": {
+      "accuracy": 0.4845360824742268,
+      "correct": 47,
+      "total": 97,
+      "sample_errors": [
+        {
+          "row": 6,
+          "pred": "IHANA",
+          "gt": "UTUNDA"
+        },
+        {
+          "row": 8,
+          "pred": "UTUNDA",
+          "gt": "IHANA"
+        },
+        {
+          "row": 10,
+          "pred": "IHANA",
+          "gt": "UTUNDA"
+        }
+      ]
+    },
+    "village_ou_carriere": {
+      "accuracy": 0.4897959183673469,
+      "correct": 24,
+      "total": 49,
+      "sample_errors": [
+        {
+          "row": 0,
+          "pred": "IRAMBA",
+          "gt": "V"
+        },
+        {
+          "row": 1,
+          "pred": "IHANA",
+          "gt": "V"
+        },
+        {
+          "row": 2,
+          "pred": "MANGA",
+          "gt": "V"
+        }
+      ]
+    },
+    "Marque": {
+      "accuracy": 0.5,
+      "correct": 9,
+      "total": 18,
+      "sample_errors": [
+        {
+          "row": 0,
+          "pred": "MAGNUM",
+          "gt": "Marqueur"
+        },
+        {
+          "row": 4,
+          "pred": "Stylo stylofelt",
+          "gt": "Petit format stylo"
+        },
+        {
+          "row": 6,
+          "pred": "Papier du plafond",
+          "gt": "Papier duplicateur"
+        }
+      ]
+    },
+    "nom_compagne": {
+      "accuracy": 0.5102040816326531,
+      "correct": 25,
+      "total": 49,
+      "sample_errors": [
+        {
+          "row": 0,
+          "pred": "121",
+          "gt": "2"
+        },
+        {
+          "row": 1,
+          "pred": "131",
+          "gt": "2"
+        },
+        {
+          "row": 2,
+          "pred": "121",
+          "gt": "2"
+        }
+      ]
+    },
+    "population": {
+      "accuracy": 0.5102040816326531,
+      "correct": 25,
+      "total": 49,
+      "sample_errors": [
+        {
+          "row": 0,
+          "pred": "2 1 2",
+          "gt": "118"
+        },
+        {
+          "row": 1,
+          "pred": "1 2 2",
+          "gt": "170"
+        },
+        {
+          "row": 2,
+          "pred": "1 2 2",
+          "gt": "211"
+        }
+      ]
+    },
+    "nombre_staff_controle": {
+      "accuracy": 0.5102040816326531,
+      "correct": 25,
+      "total": 49,
+      "sample_errors": [
+        {
+          "row": 0,
+          "pred": "118",
+          "gt": "10"
+        },
+        {
+          "row": 1,
+          "pred": "170",
+          "gt": "10"
+        },
+        {
+          "row": 2,
+          "pred": "211",
+          "gt": "28"
+        }
+      ]
+    },
+    "b_quantite_vendue": {
+      "accuracy": 0.5769230769230769,
+      "correct": 15,
+      "total": 26,
+      "sample_errors": [
+        {
+          "row": 2,
+          "pred": "8",
+          "gt": "7"
+        },
+        {
+          "row": 5,
+          "pred": "11",
+          "gt": "12"
+        },
+        {
+          "row": 6,
+          "pred": "9",
+          "gt": "11"
+        }
+      ]
+    },
+    "groupement_raw": {
+      "accuracy": 0.5897435897435898,
+      "correct": 46,
+      "total": 78,
+      "sample_errors": [
+        {
+          "row": 4,
+          "pred": "UTUNDA",
+          "gt": "IHANA"
+        },
+        {
+          "row": 13,
+          "pred": "UTUNDA",
+          "gt": "USALA"
+        },
+        {
+          "row": 0,
+          "pred": "IHANA",
+          "gt": "KISIMBA"
+        }
+      ]
+    },
+    "groupement_de_naissance": {
+      "accuracy": 0.6,
+      "correct": 3,
+      "total": 5,
+      "sample_errors": [
+        {
+          "row": 0,
+          "pred": "BANA BYANGI",
+          "gt": "BANA-BANGI"
+        },
+        {
+          "row": 4,
+          "pred": "BANA - BAYNGI",
+          "gt": "BANA-BANGI"
+        }
+      ]
+    },
+    "dates_victime_lui_meme": {
+      "accuracy": 0.6,
+      "correct": 3,
+      "total": 5,
+      "sample_errors": [
+        {
+          "row": 0,
+          "pred": "2013-04-04",
+          "gt": "2019-04-01"
+        },
+        {
+          "row": 1,
+          "pred": "2020-09-10",
+          "gt": "2020-10-01"
+        }
+      ]
+    },
+    "dates_victime_membre_de_sa_famil": {
+      "accuracy": 0.6,
+      "correct": 3,
+      "total": 5,
+      "sample_errors": [
+        {
+          "row": 0,
+          "pred": "2019-04-04",
+          "gt": "2019-04-01"
+        },
+        {
+          "row": 1,
+          "pred": "2020-09-10",
+          "gt": "2020-10-01"
+        }
+      ]
+    },
+    "Prix_Total": {
+      "accuracy": 0.6111111111111112,
+      "correct": 11,
+      "total": 18,
+      "sample_errors": [
+        {
+          "row": 0,
+          "pred": "Récupérer",
+          "gt": "0"
+        },
+        {
+          "row": 1,
+          "pred": "Reparner",
+          "gt": "0"
+        },
+        {
+          "row": 2,
+          "pred": "Reparner",
+          "gt": "0"
+        }
+      ]
+    },
+    "num_in_rank": {
+      "accuracy": 0.6190476190476191,
+      "correct": 13,
+      "total": 21,
+      "sample_errors": [
+        {
+          "row": 1,
+          "pred": "",
+          "gt": "5"
+        },
+        {
+          "row": 2,
+          "pred": "",
+          "gt": "2"
+        },
+        {
+          "row": 3,
+          "pred": "",
+          "gt": "1"
+        }
+      ]
+    },
+    "num_in_rank_paid": {
+      "accuracy": 0.6190476190476191,
+      "correct": 13,
+      "total": 21,
+      "sample_errors": [
+        {
+          "row": 1,
+          "pred": "",
+          "gt": "5"
+        },
+        {
+          "row": 2,
+          "pred": "",
+          "gt": "2"
+        },
+        {
+          "row": 3,
+          "pred": "",
+          "gt": "1"
+        }
+      ]
+    },
+    "total_payment_usd": {
+      "accuracy": 0.6190476190476191,
+      "correct": 13,
+      "total": 21,
+      "sample_errors": [
+        {
+          "row": 1,
+          "pred": "",
+          "gt": "1630"
+        },
+        {
+          "row": 2,
+          "pred": "",
+          "gt": "600"
+        },
+        {
+          "row": 3,
+          "pred": "",
+          "gt": "220"
+        }
+      ]
+    },
+    "nombre_de_personnes_de_ce_rang": {
+      "accuracy": 0.6470588235294118,
+      "correct": 11,
+      "total": 17,
+      "sample_errors": [
+        {
+          "row": 8,
+          "pred": "2",
+          "gt": "1"
+        },
+        {
+          "row": 9,
+          "pred": "2",
+          "gt": "1"
+        },
+        {
+          "row": 13,
+          "pred": "1",
+          "gt": "2"
+        }
+      ]
+    },
+    "nombre_personnes_payees_ce_mois": {
+      "accuracy": 0.6470588235294118,
+      "correct": 11,
+      "total": 17,
+      "sample_errors": [
+        {
+          "row": 8,
+          "pred": "2",
+          "gt": "1"
+        },
+        {
+          "row": 9,
+          "pred": "2",
+          "gt": "1"
+        },
+        {
+          "row": 13,
+          "pred": "1",
+          "gt": "2"
+        }
+      ]
+    },
+    "nom_peleton": {
+      "accuracy": 0.6530612244897959,
+      "correct": 32,
+      "total": 49,
+      "sample_errors": [
+        {
+          "row": 5,
+          "pred": "4",
+          "gt": "1"
+        },
+        {
+          "row": 8,
+          "pred": "2",
+          "gt": "1"
+        },
+        {
+          "row": 9,
+          "pred": "2",
+          "gt": "1"
+        }
+      ]
+    },
+    "pay_per_unit_usd": {
+      "accuracy": 0.6666666666666666,
+      "correct": 14,
+      "total": 21,
+      "sample_errors": [
+        {
+          "row": 2,
+          "pred": "",
+          "gt": "300"
+        },
+        {
+          "row": 3,
+          "pred": "",
+          "gt": "220"
+        },
+        {
+          "row": 4,
+          "pred": "",
+          "gt": "200"
+        }
+      ]
+    },
+    "l_net_flow": {
+      "accuracy": 0.7435897435897436,
+      "correct": 29,
+      "total": 39,
+      "sample_errors": [
+        {
+          "row": 0,
+          "pred": "8",
+          "gt": "0"
+        },
+        {
+          "row": 1,
+          "pred": "7",
+          "gt": "0"
+        },
+        {
+          "row": 2,
+          "pred": "10",
+          "gt": "1"
+        }
+      ]
+    },
+    "l_recette_totale_fc": {
+      "accuracy": 0.7692307692307693,
+      "correct": 30,
+      "total": 39,
+      "sample_errors": [
+        {
+          "row": 8,
+          "pred": "400000",
+          "gt": "500000"
+        },
+        {
+          "row": 9,
+          "pred": "500000",
+          "gt": "400000"
+        },
+        {
+          "row": 10,
+          "pred": "400000",
+          "gt": "500000"
+        }
+      ]
+    },
+    "c_prix_de_vente_a_l_unitefc": {
+      "accuracy": 0.7692307692307693,
+      "correct": 10,
+      "total": 13,
+      "sample_errors": [
+        {
+          "row": 1,
+          "pred": "F",
+          "gt": "500000"
+        },
+        {
+          "row": 2,
+          "pred": "F",
+          "gt": "500000"
+        },
+        {
+          "row": 3,
+          "pred": "F",
+          "gt": "500000"
+        }
+      ]
+    },
+    "l_overall_total": {
+      "accuracy": 0.8205128205128205,
+      "correct": 32,
+      "total": 39,
+      "sample_errors": [
+        {
+          "row": 2,
+          "pred": "1",
+          "gt": "2"
+        },
+        {
+          "row": 13,
+          "pred": "0",
+          "gt": "3"
+        },
+        {
+          "row": 4,
+          "pred": "1",
+          "gt": "0"
+        }
+      ]
+    },
+    "l_quantite_distribuee": {
+      "accuracy": 0.8461538461538461,
+      "correct": 33,
+      "total": 39,
+      "sample_errors": [
+        {
+          "row": 12,
+          "pred": "10",
+          "gt": "8"
+        },
+        {
+          "row": 13,
+          "pred": "9",
+          "gt": "11"
+        },
+        {
+          "row": 8,
+          "pred": "7",
+          "gt": "8"
+        }
+      ]
+    },
+    "l_date_de_vente": {
+      "accuracy": 0.8717948717948718,
+      "correct": 34,
+      "total": 39,
+      "sample_errors": [
+        {
+          "row": 0,
+          "pred": "2023-04-05",
+          "gt": "2023-04-09"
+        },
+        {
+          "row": 1,
+          "pred": "2023-02-08",
+          "gt": "2023-02-05"
+        },
+        {
+          "row": 6,
+          "pred": "2023-02-06",
+          "gt": "2023-02-08"
+        }
+      ]
+    },
+    "l_quantite_vendue": {
+      "accuracy": 0.8974358974358975,
+      "correct": 35,
+      "total": 39,
+      "sample_errors": [
+        {
+          "row": 9,
+          "pred": "7",
+          "gt": "8"
+        },
+        {
+          "row": 8,
+          "pred": "8",
+          "gt": "6"
+        },
+        {
+          "row": 10,
+          "pred": "6",
+          "gt": "10"
+        }
+      ]
+    },
+    "l_remain_last_mth": {
+      "accuracy": 0.8974358974358975,
+      "correct": 35,
+      "total": 39,
+      "sample_errors": [
+        {
+          "row": 13,
+          "pred": "2",
+          "gt": "1"
+        },
+        {
+          "row": 6,
+          "pred": "1",
+          "gt": "0"
+        },
+        {
+          "row": 10,
+          "pred": "0",
+          "gt": "2"
+        }
+      ]
+    },
+    "Quantite": {
+      "accuracy": 0.9444444444444444,
+      "correct": 17,
+      "total": 18,
+      "sample_errors": [
+        {
+          "row": 1,
+          "pred": "10 box",
+          "gt": "10"
+        }
+      ]
+    },
+    "Prix": {
+      "accuracy": 1.0,
+      "correct": 18,
+      "total": 18,
+      "sample_errors": []
+    },
+    "nombre_de_payeurs_de_la_taxe": {
+      "accuracy": 1.0,
+      "correct": 48,
+      "total": 48,
+      "sample_errors": []
+    },
+    "l_prix_de_vente_a_l_unitefc": {
+      "accuracy": 1.0,
+      "correct": 39,
+      "total": 39,
+      "sample_errors": []
+    },
+    "currency": {
+      "accuracy": 1.0,
+      "correct": 15,
+      "total": 15,
+      "sample_errors": []
+    },
+    "Unite de compte": {
+      "accuracy": 1.0,
+      "correct": 1,
+      "total": 1,
+      "sample_errors": []
+    },
+    "bilan_depense_ce_mois": {
+      "accuracy": 1.0,
+      "correct": 1,
+      "total": 1,
+      "sample_errors": []
+    },
+    "": {
+      "accuracy": 1.0,
+      "correct": 17,
+      "total": 17,
+      "sample_errors": []
+    },
+    "num_de_front": {
+      "accuracy": 1.0,
+      "correct": 1,
+      "total": 1,
+      "sample_errors": []
+    },
+    "date_de_debut": {
+      "accuracy": 1.0,
+      "correct": 1,
+      "total": 1,
+      "sample_errors": []
+    },
+    "date_de_fin": {
+      "accuracy": 1.0,
+      "correct": 1,
+      "total": 1,
+      "sample_errors": []
+    },
+    "post_et_rank_commence": {
+      "accuracy": 1.0,
+      "correct": 5,
+      "total": 5,
+      "sample_errors": []
+    },
+    "motif": {
+      "accuracy": 1.0,
+      "correct": 5,
+      "total": 5,
+      "sample_errors": []
+    },
+    "dates_de_participation_campagne_": {
+      "accuracy": 1.0,
+      "correct": 5,
+      "total": 5,
+      "sample_errors": []
+    }
+  }
+}

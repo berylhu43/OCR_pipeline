@@ -431,8 +431,10 @@ def process_month_folder(
             print(f"    {stem}: no page_num column – skipping")
             continue
 
-        # Strip page_num column for display; keep originals for grouping
-        keep_cols = [i for i in range(len(headers)) if i != pg_col]
+        # Strip page_num, annee, mois columns for display; keep originals for grouping
+        year_col, month_col = detect_date_columns(headers)
+        skip_cols = {pg_col, year_col, month_col} - {None}
+        keep_cols = [i for i in range(len(headers)) if i not in skip_cols]
         display_headers = tuple(headers[i] for i in keep_cols)
 
         def strip_pg(row):

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Example 25/37</title>
+
+<style>
+  body { font-family: sans-serif; font-size: 13px; margin: 20px; }
+  h2 { color: #333; }
+  h4 { margin: 0 0 8px 0; color: #555; border-bottom: 1px solid #eee; padding-bottom: 4px; }
+  .image-path { font-size: 12px; color: #888; margin-bottom: 16px; }
+  .section { margin-bottom: 24px; }
+  table { border-collapse: collapse; width: 100%; font-size: 12px; margin-bottom: 8px; }
+  td, th { border: 1px solid #ddd; padding: 5px 10px; text-align: left; }
+  tr:nth-child(even) { background: #f9f9f9; }
+  thead tr { background: #e8f0fe; }
+  pre { background: #f5f5f5; padding: 10px; font-size: 11px; white-space: pre-wrap; word-break: break-word; border-radius: 4px; }
+  .nav { margin-bottom: 20px; font-size: 13px; }
+  .nav a { margin-right: 12px; color: #1a73e8; text-decoration: none; }
+  .nav a:hover { text-decoration: underline; }
+</style>
+
+</head>
+<body>
+<div class="nav"><a href="index.html">Index</a> <a href="024.html">← Prev</a> <a href="026.html">Next →</a> <span style="color:#999">25/37</span></div>
+<h2>Example 25</h2>
+<div class="image-path">training_data/images/95. February 2023/D_054.jpeg</div>
+
+<div class="section">
+  <h4>Ground Truth</h4>
+  <table><tr><td>total_ou_detail_vente_b</td><td>annee</td><td>mois</td><td>nom_village</td><td>groupement_raw</td><td>b_date_de_vente</td><td>b_prix_de_vente_a_l_unitefc</td><td>b_quantite_distribuee</td><td>b_quantite_vendue</td><td>b_net_flow</td><td>b_remain_last_mth</td><td>b_overall_total</td><td>b_recette_totale_fc</td></tr><tr><td>12</td><td>2023</td><td>Feburary</td><td>TOKELU</td><td>USALA</td><td>2023-02-10</td><td>98000</td><td>12</td><td>11</td><td>1</td><td>0</td><td>1</td><td>1078000</td></tr><tr><td>13</td><td>2023</td><td>Feburary</td><td>LUTOBORA</td><td>USALA</td><td>2023-02-10</td><td>98000</td><td>10</td><td>11</td><td>0</td><td>2</td><td>1</td><td>1078000</td></tr><tr><td>14</td><td>2023</td><td>Feburary</td><td>ROBE</td><td>IHANA</td><td>2023-02-10</td><td>98000</td><td>11</td><td>9</td><td>2</td><td>0</td><td>2</td><td>882000</td></tr><tr><td>15</td><td>2023</td><td>Feburary</td><td>KIMANGA</td><td>IKOBO</td><td>2023-02-08</td><td>98000</td><td>9</td><td>9</td><td>0</td><td>0</td><td>0</td><td>882000</td></tr><tr><td>16</td><td>2023</td><td>Feburary</td><td>CHAMBULI</td><td>IKOBO</td><td>2023-02-08</td><td>98000</td><td>10</td><td>11</td><td>0</td><td>1</td><td>0</td><td>1078000</td></tr><tr><td>17</td><td>2023</td><td>Feburary</td><td>KASEKE</td><td>IHANA</td><td>2023-02-10</td><td>98000</td><td>7</td><td>8</td><td>0</td><td>1</td><td>0</td><td>784000</td></tr><tr><td>18</td><td>2023</td><td>Feburary</td><td>FATUA</td><td>USALA</td><td>2023-02-12</td><td>98000</td><td>8</td><td>8</td><td>0</td><td>0</td><td>0</td><td>784000</td></tr><tr><td>19</td><td>2023</td><td>Feburary</td><td>IRAMESO</td><td>IHANA</td><td>2023-02-07</td><td>98000</td><td>9</td><td>7</td><td>2</td><td>0</td><td>2</td><td>686000</td></tr><tr><td>20</td><td>2023</td><td>Feburary</td><td>BETELI</td><td>IHANA</td><td>2023-02-09</td><td>98000</td><td>10</td><td>10</td><td>0</td><td>0</td><td>0</td><td>980000</td></tr><tr><td>21</td><td>2023</td><td>Feburary</td><td>BETOBETO 1</td><td>UTUNDA</td><td>2023-02-07</td><td>98000</td><td>12</td><td>12</td><td>0</td><td>0</td><td>0</td><td>1176000</td></tr><tr><td>22</td><td>2023</td><td>Feburary</td><td>BETOBETO 2</td><td>UTUNDA</td><td>2023-02-08</td><td>98000</td><td>9</td><td>9</td><td>0</td><td>0</td><td>0</td><td>882000</td></tr><tr><td>23</td><td>2023</td><td>Feburary</td><td>KINCHIMBA</td><td>UTUNDA</td><td>2023-02-09</td><td>98000</td><td>11</td><td>10</td><td>1</td><td>2</td><td>3</td><td>980000</td></tr><tr><td>24</td><td>2023</td><td>Feburary</td><td>MUNGWE</td><td>UTUNDA</td><td>2023-02-10</td><td>98000</td><td>11</td><td>12</td><td>0</td><td>2</td><td>1</td><td>1176000</td></tr></table>
+</div>
+
+<div class="section">
+  <h4>Model Output (cleaned)</h4>
+  <table><tr><td>mois</td><td>lieu de vente</td><td>nom_village</td><td>groupement_de_vente</td><td>date_de_vente</td><td>prix_de_vente_a_l_unite</td><td>quantite_distribuee</td><td>quantite_vendue</td><td>quantiteRestant</td><td>quantite_recolte</td><td>recette_totale_generale</td><td>taille_fc</td></tr><tr><td>2023</td><td>Fevrier</td><td>TOKELU</td><td>USALA</td><td>2023-02-10</td><td>98000</td><td>12</td><td>11</td><td>1</td><td>0</td><td>1</td><td>487000</td></tr><tr><td>2023</td><td>Fevrier</td><td>LUTOBORA</td><td>USALA</td><td>2023-02-10</td><td>98000</td><td>10</td><td>11</td><td>0</td><td>2</td><td>1</td><td>595000</td></tr><tr><td>2023</td><td>Fevrier</td><td>ROBE</td><td>IHANA</td><td>2023-02-10</td><td>98000</td><td>11</td><td>9</td><td>2</td><td>0</td><td>2</td><td>882000</td></tr><tr><td>2023</td><td>Fevrier</td><td>KIMANGA</td><td>IKOBO</td><td>2023-02-08</td><td>98000</td><td>9</td><td>9</td><td>0</td><td>0</td><td>0</td><td>882000</td></tr><tr><td>2023</td><td>Fevrier</td><td>CHAMBULI</td><td>IKOBO</td><td>2023-02-08</td><td>98000</td><td>10</td><td>11</td><td>0</td><td>1</td><td>0</td><td>1098000</td></tr><tr><td>2023</td><td>Fevrier</td><td>KASEKE</td><td>IHANA</td><td>2023-02-10</td><td>98000</td><td>7</td><td>8</td><td>0</td><td>1</td><td>0</td><td>784000</td></tr><tr><td>2023</td><td>Fevrier</td><td>FATUA</td><td>USALA</td><td>2023-02-12</td><td>98000</td><td>8</td><td>8</td><td>0</td><td>0</td><td>0</td><td>784000</td></tr><tr><td>2023</td><td>Fevrier</td><td>RAMESO</td><td>IHANA</td><td>2023-02-09</td><td>98000</td><td>9</td><td>7</td><td>2</td><td>0</td><td>2</td><td>686000</td></tr><tr><td>2023</td><td>Fevrier</td><td>BETELI</td><td>IHANA</td><td>2023-02-09</td><td>98000</td><td>10</td><td>10</td><td>0</td><td>0</td><td>0</td><td>980000</td></tr><tr><td>2023</td><td>Fevrier</td><td>BETOBETO 1</td><td>UTUNDA</td><td>2023-02-07</td><td>98000</td><td>12</td><td>12</td><td>0</td><td>0</td><td>0</td><td>1176000</td></tr><tr><td>2023</td><td>Fevrier</td><td>BETOBETO 2</td><td>UTUNDA</td><td>2023-02-08</td><td>98000</td><td>9</td><td>9</td><td>0</td><td>0</td><td>0</td><td>882000</td></tr><tr><td colspan="2">2023</td><td>KINCHIMBA</td><td>UTUNDA</td><td>2023-02-05</td><td>98000</td><td>11</td><td>10</td><td>1</td><td>2</td><td>3</td><td>980000</td></tr><tr><td>2023</td><td>Fevrier</td><td>MUTWE</td><td>UTUNDA</td><td>2023-02-10</td><td>98000</td><td>11</td><td>12</td><td>0</td><td>2</td><td>1</td><td>1176000</td></tr></table>
+</div>
+
+<div class="section">
+  <h4>Raw Output</h4>
+  <pre><|ref|>table<|/ref|><|det|>[[46, 192, 897, 870]]<|/det|>
+<table><tr><td>mois</td><td>lieu de vente</td><td>nom_village</td><td>groupement_de_vente</td><td>date_de_vente</td><td>prix_de_vente_a_l_unite</td><td>quantite_distribuee</td><td>quantite_vendue</td><td>quantiteRestant</td><td>quantite_recolte</td><td>recette_totale_generale</td><td>taille_fc</td></tr><tr><td>2023</td><td>Fevrier</td><td>TOKELU</td><td>USALA</td><td>2023-02-10</td><td>98000</td><td>12</td><td>11</td><td>1</td><td>0</td><td>1</td><td>487000</td></tr><tr><td>2023</td><td>Fevrier</td><td>LUTOBORA</td><td>USALA</td><td>2023-02-10</td><td>98000</td><td>10</td><td>11</td><td>0</td><td>2</td><td>1</td><td>595000</td></tr><tr><td>2023</td><td>Fevrier</td><td>ROBE</td><td>IHANA</td><td>2023-02-10</td><td>98000</td><td>11</td><td>9</td><td>2</td><td>0</td><td>2</td><td>882000</td></tr><tr><td>2023</td><td>Fevrier</td><td>KIMANGA</td><td>IKOBO</td><td>2023-02-08</td><td>98000</td><td>9</td><td>9</td><td>0</td><td>0</td><td>0</td><td>882000</td></tr><tr><td>2023</td><td>Fevrier</td><td>CHAMBULI</td><td>IKOBO</td><td>2023-02-08</td><td>98000</td><td>10</td><td>11</td><td>0</td><td>1</td><td>0</td><td>1098000</td></tr><tr><td>2023</td><td>Fevrier</td><td>KASEKE</td><td>IHANA</td><td>2023-02-10</td><td>98000</td><td>7</td><td>8</td><td>0</td><td>1</td><td>0</td><td>784000</td></tr><tr><td>2023</td><td>Fevrier</td><td>FATUA</td><td>USALA</td><td>2023-02-12</td><td>98000</td><td>8</td><td>8</td><td>0</td><td>0</td><td>0</td><td>784000</td></tr><tr><td>2023</td><td>Fevrier</td><td>RAMESO</td><td>IHANA</td><td>2023-02-09</td><td>98000</td><td>9</td><td>7</td><td>2</td><td>0</td><td>2</td><td>686000</td></tr><tr><td>2023</td><td>Fevrier</td><td>BETELI</td><td>IHANA</td><td>2023-02-09</td><td>98000</td><td>10</td><td>10</td><td>0</td><td>0</td><td>0</td><td>980000</td></tr><tr><td>2023</td><td>Fevrier</td><td>BETOBETO 1</td><td>UTUNDA</td><td>2023-02-07</td><td>98000</td><td>12</td><td>12</td><td>0</td><td>0</td><td>0</td><td>1176000</td></tr><tr><td>2023</td><td>Fevrier</td><td>BETOBETO 2</td><td>UTUNDA</td><td>2023-02-08</td><td>98000</td><td>9</td><td>9</td><td>0</td><td>0</td><td>0</td><td>882000</td></tr><tr><td colspan="2">2023</td><td>KINCHIMBA</td><td>UTUNDA</td><td>2023-02-05</td><td>98000</td><td>11</td><td>10</td><td>1</td><td>2</td><td>3</td><td>980000</td></tr><tr><td>2023</td><td>Fevrier</td><td>MUTWE</td><td>UTUNDA</td><td>2023-02-10</td><td>98000</td><td>11</td><td>12</td><td>0</td><td>2</td><td>1</td><td>1176000</td></tr></table></pre>
+</div>
+
+<div class="nav"><a href="index.html">Index</a> <a href="024.html">← Prev</a> <a href="026.html">Next →</a></div>
+</body>
+</html>

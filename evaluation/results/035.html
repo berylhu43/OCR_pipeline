@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Example 35/37</title>
+
+<style>
+  body { font-family: sans-serif; font-size: 13px; margin: 20px; }
+  h2 { color: #333; }
+  h4 { margin: 0 0 8px 0; color: #555; border-bottom: 1px solid #eee; padding-bottom: 4px; }
+  .image-path { font-size: 12px; color: #888; margin-bottom: 16px; }
+  .section { margin-bottom: 24px; }
+  table { border-collapse: collapse; width: 100%; font-size: 12px; margin-bottom: 8px; }
+  td, th { border: 1px solid #ddd; padding: 5px 10px; text-align: left; }
+  tr:nth-child(even) { background: #f9f9f9; }
+  thead tr { background: #e8f0fe; }
+  pre { background: #f5f5f5; padding: 10px; font-size: 11px; white-space: pre-wrap; word-break: break-word; border-radius: 4px; }
+  .nav { margin-bottom: 20px; font-size: 13px; }
+  .nav a { margin-right: 12px; color: #1a73e8; text-decoration: none; }
+  .nav a:hover { text-decoration: underline; }
+</style>
+
+</head>
+<body>
+<div class="nav"><a href="index.html">Index</a> <a href="034.html">← Prev</a> <a href="036.html">Next →</a> <span style="color:#999">35/37</span></div>
+<h2>Example 35</h2>
+<div class="image-path">training_data/images/95. February 2023/E_088.jpeg</div>
+
+<div class="section">
+  <h4>Ground Truth</h4>
+  <table><tr><td>Month</td><td>Date</td><td>Marque</td><td>Quantite</td><td>Prix</td><td>Prix_Total</td><td>Observations</td></tr><tr><td>Fevrier</td><td>2023-02-07</td><td>Stylo</td><td>6</td><td>0</td><td>0</td><td>RECUPERES</td></tr><tr><td>Fevrier</td><td>2023-02-07</td><td>Accessoire Stylo</td><td>10</td><td>0</td><td>0</td><td>DON</td></tr><tr><td>Fevrier</td><td>2023-02-09</td><td>Marqueur</td><td>2</td><td>0</td><td>0</td><td>RECUPERES</td></tr><tr><td>Fevrier</td><td>2023-02-15</td><td>Machine coupe bois 80</td><td>3</td><td>0</td><td>0</td><td>RECUPERES</td></tr><tr><td>Fevrier</td><td>2023-02-15</td><td>Machine coupe bois 82</td><td>5</td><td>0</td><td>0</td><td>RECUPERES</td></tr><tr><td>Fevrier</td><td>2023-02-16</td><td>Machine coupe bois 120</td><td>3</td><td>0</td><td>0</td><td>RECUPERES</td></tr><tr><td>Fevrier</td><td>2023-02-17</td><td>Radio</td><td>50</td><td>0</td><td>0</td><td>DON</td></tr><tr><td>Fevrier</td><td>2023-02-25</td><td>Papier duplicateur</td><td>8</td><td>0</td><td>0</td><td>RECUPERES</td></tr><tr><td>Fevrier</td><td>2023-02-26</td><td>Tige de bois</td><td>10</td><td>0</td><td>0</td><td>RECUPERES</td></tr><tr><td>Fevrier</td><td>2023-02-28</td><td>Petit format stylo</td><td>2</td><td>0</td><td>0</td><td>DON</td></tr><tr><td>Fevrier</td><td>2023-02-28</td><td>Petit format stylo</td><td>6</td><td>0</td><td>0</td><td>DON</td></tr></table>
+</div>
+
+<div class="section">
+  <h4>Model Output (cleaned)</h4>
+  <table>季節 month="Fevrier" color="fff" text-align="center">MOIS DE<br/>Fevrier 2023
+PAGE NUMBER 88
+<table><tr><td>Date de l'achat ou du vol</td><td>Marque</td><td>Quantite</td><td>Prix a deducter a l'unite</td><td>Prix total (c'est a dire quantite multipliee par prix a l'unite)</td><td>Observations</td></tr><tr><td>F/21/2023</td><td>Stylo</td><td>6</td><td>0</td><td>0</td><td>Repuver</td></tr><tr><td>F/21/2023</td><td>Papier outao</td><td>10 box</td><td>0</td><td>0</td><td>Bon (FARDC)</td></tr><tr><td>9/21/2023</td><td>Marqueur</td><td>2</td><td>0</td><td>0</td><td>Repuver</td></tr><tr><td>2023-02-18</td><td>Tige de bois</td><td>3</td><td>0</td><td>0</td><td>Repuver</td></tr><tr><td>2023-02-18</td><td>Machine coupeuse</td><td>5</td><td>0</td><td>0</td><td>Repuver</td></tr><tr><td>2023-02-16</td><td>Nickel 1/20</td><td>3</td><td>0</td><td>0</td><td>Repuver</td></tr><tr><td>2023-02-17</td><td>Radio</td><td>50</td><td>0</td><td>0</td><td>Bon (FARDC)</td></tr><tr><td>2023-02-28</td><td>Duplicateur</td><td>8</td><td>0</td><td>0</td><td>Repuver</td></tr><tr><td>2023-02-28</td><td>Tige de bois</td><td>10</td><td>0</td><td>0</td><td>Machine coupeuse</td></tr><tr><td>2023-02-28</td><td>Petit format stylo</td><td>2</td><td>0</td><td>0</td><td>Don (FARDC)</td></tr><tr><td>2023-02-28</td><td>Accessoire coupe 82</td><td>6</td><td>0</td><td>0</td><td>Don (FARDC)</td></tr></table>
+</div>
+
+<div class="section">
+  <h4>Raw Output</h4>
+  <pre><|ref|>table<|/ref|><|det|>[[80, 120, 944, 938]]<|/det|>
+<table>季節 month="Fevrier" color="fff" text-align="center">MOIS DE<br/>Fevrier 2023
+PAGE NUMBER 88
+<table><tr><td>Date de l'achat ou du vol</td><td>Marque</td><td>Quantite</td><td>Prix a deducter a l'unite</td><td>Prix total (c'est a dire quantite multipliee par prix a l'unite)</td><td>Observations</td></tr><tr><td>F/21/2023</td><td>Stylo</td><td>6</td><td>0</td><td>0</td><td>Repuver</td></tr><tr><td>F/21/2023</td><td>Papier outao</td><td>10 box</td><td>0</td><td>0</td><td>Bon (FARDC)</td></tr><tr><td>9/21/2023</td><td>Marqueur</td><td>2</td><td>0</td><td>0</td><td>Repuver</td></tr><tr><td>2023-02-18</td><td>Tige de bois</td><td>3</td><td>0</td><td>0</td><td>Repuver</td></tr><tr><td>2023-02-18</td><td>Machine coupeuse</td><td>5</td><td>0</td><td>0</td><td>Repuver</td></tr><tr><td>2023-02-16</td><td>Nickel 1/20</td><td>3</td><td>0</td><td>0</td><td>Repuver</td></tr><tr><td>2023-02-17</td><td>Radio</td><td>50</td><td>0</td><td>0</td><td>Bon (FARDC)</td></tr><tr><td>2023-02-28</td><td>Duplicateur</td><td>8</td><td>0</td><td>0</td><td>Repuver</td></tr><tr><td>2023-02-28</td><td>Tige de bois</td><td>10</td><td>0</td><td>0</td><td>Machine coupeuse</td></tr><tr><td>2023-02-28</td><td>Petit format stylo</td><td>2</td><td>0</td><td>0</td><td>Don (FARDC)</td></tr><tr><td>2023-02-28</td><td>Accessoire coupe 82</td><td>6</td><td>0</td><td>0</td><td>Don (FARDC)</td></tr></table></pre>
+</div>
+
+<div class="nav"><a href="index.html">Index</a> <a href="034.html">← Prev</a> <a href="036.html">Next →</a></div>
+</body>
+</html>

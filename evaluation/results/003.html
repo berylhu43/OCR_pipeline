@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Example 3/37</title>
+
+<style>
+  body { font-family: sans-serif; font-size: 13px; margin: 20px; }
+  h2 { color: #333; }
+  h4 { margin: 0 0 8px 0; color: #555; border-bottom: 1px solid #eee; padding-bottom: 4px; }
+  .image-path { font-size: 12px; color: #888; margin-bottom: 16px; }
+  .section { margin-bottom: 24px; }
+  table { border-collapse: collapse; width: 100%; font-size: 12px; margin-bottom: 8px; }
+  td, th { border: 1px solid #ddd; padding: 5px 10px; text-align: left; }
+  tr:nth-child(even) { background: #f9f9f9; }
+  thead tr { background: #e8f0fe; }
+  pre { background: #f5f5f5; padding: 10px; font-size: 11px; white-space: pre-wrap; word-break: break-word; border-radius: 4px; }
+  .nav { margin-bottom: 20px; font-size: 13px; }
+  .nav a { margin-right: 12px; color: #1a73e8; text-decoration: none; }
+  .nav a:hover { text-decoration: underline; }
+</style>
+
+</head>
+<body>
+<div class="nav"><a href="index.html">Index</a> <a href="002.html">← Prev</a> <a href="004.html">Next →</a> <span style="color:#999">3/37</span></div>
+<h2>Example 3</h2>
+<div class="image-path">training_data/images/97. April 2023/119.jpg</div>
+
+<div class="section">
+  <h4>Ground Truth</h4>
+  <table><tr><td>annee</td><td>mois</td><td>Num</td><td>date_incident</td><td>groupement</td><td>village</td><td>village_carriere</td><td>desc_incident</td><td>date_signa_pol</td><td>other_authority</td><td>reason_pol</td><td>date_resolution</td><td>desc_resolution</td></tr><tr><td>2023</td><td>Avril</td><td>6</td><td>2023-04-26</td><td>IHANA</td><td>MISAU</td><td>V</td><td>Deux amis se sont bagarrés à cause de l'infidélité. L'un a trouvé en flagrance l'autre avec sa femme.</td><td>2023-04-26</td><td>la police</td><td>Rétablir l'ordre public</td><td>2023-04-27</td><td>Le premier est arrêté pour s'être rendu justice et le second pour bagarre et pour avoir pris la femme d'autrui.</td></tr><tr><td>2023</td><td>Avril</td><td>7</td><td>4//28/2023</td><td>USALA</td><td>NYAKISUNGUSA</td><td>C</td><td>Un creuseur a été retrouvé mort dans le trou de mine.</td><td>2023-04-29</td><td>Chef de cité, Pas de solution avant</td><td>Retrouver la justice</td><td>Pas résolu</td><td>Les enquêtes sont en cours, tout le collègue et le propriétaire du trou aux arrêts.</td></tr></table>
+</div>
+
+<div class="section">
+  <h4>Model Output (cleaned)</h4>
+  <table>日期/><br/>MOIS DE<br/>Avril<br/>ANNEE 2023<br/>PAGE NUMERO 119
+<table><tr><td>No</td><td>Date exacte de l'incident</td><td>Groupement et Nom du Village ou Carriere</td><td>Village ou Carriere</td><td>Date de l'incident</td><td>Description de l'incident</td><td>Date exacte à laquelle l'incident a été signalé la police</td><td>Les autres autorites impliquees (par ex. autorites coutumiers, PNC, etc.) et les solutions qui ont ete essayees avant que la police du groupe ait ete impliquee</td><td>Raison de l'implication de la police au seine du groupe</td><td>Date exacte à laquelle l'incident a été résolu<br/>(jour/mois/année)</td><td>Description de la facon dont l'incident a ete résolu</td><td>OU</td></tr><tr><td>1</td><td>2023-04-26</td><td>IHANA MISAU</td><td>WALOWA SES SORT D'ORGEAIRE A CAUSE DE L'INFIDELITE. L'UN A TROUVEE EN FLORA NE L'AUTRE ERRE COMPAGNE.</td><td>2023-04-26</td><td>LA POLICE</td><td>BATЫН</td><td>2023-04-27</td><td>Pas de precision</td><td>Le premier est avare pour si avoir tendu justice et le second pour broyage et pour avoir pris la forme d'asthme.</td><td></td><td></td></tr><tr><td>2</td><td>2023-04-2023-04-27</td><td>NYAMISUNGU SAI (USALA)</td><td>MUTHEURAS A ETE NETTOYEE MORT AUS LE TROU DE MINE</td><td>2023-04-2023-04-28</td><td>CHEF DE SITE<br/>PAS DE SOLUTION AROUND</td><td>RESTONNER<br/>LE JUSTICE<br/>LE SECTEUR<br/>MINEIRA</td><td>2023-04-28</td><td>Pas de precision</td><td>Les enquete sont encore tout le collegue et le proprietaire du trou aux aveux</td><td></td><td></td></tr></table>
+</div>
+
+<div class="section">
+  <h4>Raw Output</h4>
+  <pre><|ref|>table<|/ref|><|det|>[[26, 105, 972, 870]]<|/det|>
+<table>日期/><br/>MOIS DE<br/>Avril<br/>ANNEE 2023<br/>PAGE NUMERO 119
+<table><tr><td>No</td><td>Date exacte de l'incident</td><td>Groupement et Nom du Village ou Carriere</td><td>Village ou Carriere</td><td>Date de l'incident</td><td>Description de l'incident</td><td>Date exacte à laquelle l'incident a été signalé la police</td><td>Les autres autorites impliquees (par ex. autorites coutumiers, PNC, etc.) et les solutions qui ont ete essayees avant que la police du groupe ait ete impliquee</td><td>Raison de l'implication de la police au seine du groupe</td><td>Date exacte à laquelle l'incident a été résolu<br/>(jour/mois/année)</td><td>Description de la facon dont l'incident a ete résolu</td><td>OU</td></tr><tr><td>1</td><td>2023-04-26</td><td>IHANA MISAU</td><td>WALOWA SES SORT D'ORGEAIRE A CAUSE DE L'INFIDELITE. L'UN A TROUVEE EN FLORA NE L'AUTRE ERRE COMPAGNE.</td><td>2023-04-26</td><td>LA POLICE</td><td>BATЫН</td><td>2023-04-27</td><td>Pas de precision</td><td>Le premier est avare pour si avoir tendu justice et le second pour broyage et pour avoir pris la forme d'asthme.</td><td></td><td></td></tr><tr><td>2</td><td>2023-04-2023-04-27</td><td>NYAMISUNGU SAI (USALA)</td><td>MUTHEURAS A ETE NETTOYEE MORT AUS LE TROU DE MINE</td><td>2023-04-2023-04-28</td><td>CHEF DE SITE<br/>PAS DE SOLUTION AROUND</td><td>RESTONNER<br/>LE JUSTICE<br/>LE SECTEUR<br/>MINEIRA</td><td>2023-04-28</td><td>Pas de precision</td><td>Les enquete sont encore tout le collegue et le proprietaire du trou aux aveux</td><td></td><td></td></tr></table></pre>
+</div>
+
+<div class="nav"><a href="index.html">Index</a> <a href="002.html">← Prev</a> <a href="004.html">Next →</a></div>
+</body>
+</html>

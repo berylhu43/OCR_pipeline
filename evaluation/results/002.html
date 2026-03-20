@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Example 2/37</title>
+
+<style>
+  body { font-family: sans-serif; font-size: 13px; margin: 20px; }
+  h2 { color: #333; }
+  h4 { margin: 0 0 8px 0; color: #555; border-bottom: 1px solid #eee; padding-bottom: 4px; }
+  .image-path { font-size: 12px; color: #888; margin-bottom: 16px; }
+  .section { margin-bottom: 24px; }
+  table { border-collapse: collapse; width: 100%; font-size: 12px; margin-bottom: 8px; }
+  td, th { border: 1px solid #ddd; padding: 5px 10px; text-align: left; }
+  tr:nth-child(even) { background: #f9f9f9; }
+  thead tr { background: #e8f0fe; }
+  pre { background: #f5f5f5; padding: 10px; font-size: 11px; white-space: pre-wrap; word-break: break-word; border-radius: 4px; }
+  .nav { margin-bottom: 20px; font-size: 13px; }
+  .nav a { margin-right: 12px; color: #1a73e8; text-decoration: none; }
+  .nav a:hover { text-decoration: underline; }
+</style>
+
+</head>
+<body>
+<div class="nav"><a href="index.html">Index</a> <a href="001.html">← Prev</a> <a href="003.html">Next →</a> <span style="color:#999">2/37</span></div>
+<h2>Example 2</h2>
+<div class="image-path">training_data/images/97. April 2023/37.jpg</div>
+
+<div class="section">
+  <h4>Ground Truth</h4>
+  <table><tr><td>annee</td><td>mois</td><td>groupement_corrected</td><td>nom_village</td><td>date_de_distribution_jetons</td><td>jetons_nombre_distribues</td><td>jetons_nombre_vendus</td><td>jetons_nombre_restants</td><td>recette_realisee_FC</td></tr><tr><td>2023</td><td>Avril</td><td>UTUNDA</td><td>MUNJULI</td><td>2023-04-04</td><td>625</td><td>623</td><td>2</td><td>623000</td></tr><tr><td>2023</td><td>Avril</td><td>UTUNDA</td><td>MAFOFOKI</td><td>2023-04-05</td><td>410</td><td>408</td><td>2</td><td>408000</td></tr><tr><td>2023</td><td>Avril</td><td>UTUNDA</td><td>BETOBETO 1</td><td>2023-04-05</td><td>203</td><td>203</td><td>0</td><td>203000</td></tr><tr><td>2023</td><td>Avril</td><td>UTUNDA</td><td>BETOBETO 2</td><td>2023-04-06</td><td>165</td><td>165</td><td>0</td><td>165000</td></tr><tr><td>2023</td><td>Avril</td><td>UTUNDA</td><td>MUKUYU</td><td>2023-04-06</td><td>190</td><td>190</td><td>0</td><td>190000</td></tr><tr><td>2023</td><td>Avril</td><td>UTUNDA</td><td>CHARINGWANGWA</td><td>2023-04-07</td><td>193</td><td>191</td><td>2</td><td>191000</td></tr><tr><td>2023</td><td>Avril</td><td>UTUNDA</td><td>BIRESHE</td><td>2023-04-09</td><td>365</td><td>360</td><td>5</td><td>360000</td></tr><tr><td>2023</td><td>Avril</td><td>IHANA</td><td>BETELI</td><td>2023-04-10</td><td>628</td><td>628</td><td>0</td><td>628000</td></tr><tr><td>2023</td><td>Avril</td><td>IHANA</td><td>TWAMAKURU</td><td>2023-04-10</td><td>155</td><td>150</td><td>5</td><td>150000</td></tr><tr><td>2023</td><td>Avril</td><td>UTUNDA</td><td>PUMUZIKA</td><td>2023-04-12</td><td>150</td><td>147</td><td>3</td><td>147000</td></tr><tr><td>2023</td><td>Avril</td><td>UTUNDA</td><td>IRUMBA</td><td>2023-04-10</td><td>144</td><td>142</td><td>2</td><td>142000</td></tr><tr><td>2023</td><td>Avril</td><td>IHANA</td><td>MINSUNSU</td><td>2023-04-07</td><td>920</td><td>917</td><td>3</td><td>917000</td></tr><tr><td>2023</td><td>Avril</td><td>UTUNDA</td><td>MAJENGO</td><td>2023-04-08</td><td>166</td><td>161</td><td>5</td><td>161000</td></tr><tr><td>2023</td><td>Avril</td><td>UTUNDA</td><td>IYOYA</td><td>2023-04-08</td><td>130</td><td>130</td><td>0</td><td>130000</td></tr></table>
+</div>
+
+<div class="section">
+  <h4>Model Output (cleaned)</h4>
+  <table>季節/月> | NO | NOM GROUPEment | NOM VILLAGE<br/>Nom Carriere | Date(s) exacte de<br/>distribution des jetons<br/>Jour/mois/année | Nombre de jetons<br/>distribues dans le<br/>village: | Nombre de jetons<br/>vendus dans le<br/>village: | Nombre de jetons<br/>restant: | RECETTE<br/>par village<br/>A-B | RECETTE<br/>total<br/>AFTERMATH<br/>OF JETONS |
+<table><tr><td>27</td><td>UTUNDA</td><td>MWINJULI</td><td>2023-04-04</td><td>625</td><td>625</td><td>2</td><td>625</td><td>6000</td></tr><tr><td>28</td><td>UTUNDA</td><td>MAFOFOKI</td><td>2023-04-05</td><td>410</td><td>408</td><td>2</td><td>408</td><td>4000</td></tr><tr><td>29</td><td>UTUNDA</td><td>BETOBETO 1</td><td>2023-04-06</td><td>203</td><td>203</td><td>0</td><td>203</td><td>2000</td></tr><tr><td>30</td><td>UTUNDA</td><td>BETOBETO 2</td><td>2023-04-06</td><td>165</td><td>165</td><td>0</td><td>165</td><td>1600</td></tr><tr><td>31</td><td>UTUNDA</td><td>MUKUYU</td><td>2023-04-06</td><td>190</td><td>190</td><td>0</td><td>190</td><td>1800</td></tr><tr><td>32</td><td>UTUNDA</td><td>CHARIANGAWANGWA</td><td>2023-04-07</td><td>193</td><td>191</td><td>2</td><td>191</td><td>1800</td></tr><tr><td>33</td><td>UTUNDA</td><td>BIBESHE</td><td>2023-04-08</td><td>365</td><td>360</td><td>5</td><td>360</td><td>3000</td></tr><tr><td>34</td><td>IHANA</td><td>BETELI</td><td>2023-04-10</td><td>628</td><td>628</td><td>0</td><td>628</td><td>6000</td></tr><tr><td>35</td><td>IHANA</td><td>TWAMAKURU</td><td>2023-04-10</td><td>155</td><td>150</td><td>5</td><td>150</td><td>6000</td></tr><tr><td>36</td><td>UTUNDA</td><td>PUMUZIKA</td><td>2023-04-12</td><td>150</td><td>147</td><td>3</td><td>147</td><td>6000</td></tr><tr><td>37</td><td>UTUNDA</td><td>IRUMBA</td><td>2023-04-10</td><td>144</td><td>142</td><td>2</td><td>142</td><td>6000</td></tr><tr><td>38</td><td>IHANA</td><td>MINSUNSU</td><td>2023-04-07</td><td>920</td><td>917</td><td>3</td><td>920</td><td>6000</td></tr><tr><td>39</td><td>UTUNDA</td><td>MAJESU 0</td><td>2023-04-08</td><td>166</td><td>161</td><td>5</td><td>161</td><td>6000</td></tr><tr><td>40</td><td>UTUNDA</td><td>IYOYA</td><td>2023-04-08</td><td>130</td><td>130</td><td>0</td><td>130</td><td>6000</td></tr></table>
+</div>
+
+<div class="section">
+  <h4>Raw Output</h4>
+  <pre><|ref|>table<|/ref|><|det|>[[66, 111, 978, 880]]<|/det|>
+<table>季節/月> | NO | NOM GROUPEment | NOM VILLAGE<br/>Nom Carriere | Date(s) exacte de<br/>distribution des jetons<br/>Jour/mois/année | Nombre de jetons<br/>distribues dans le<br/>village: | Nombre de jetons<br/>vendus dans le<br/>village: | Nombre de jetons<br/>restant: | RECETTE<br/>par village<br/>A-B | RECETTE<br/>total<br/>AFTERMATH<br/>OF JETONS |
+<table><tr><td>27</td><td>UTUNDA</td><td>MWINJULI</td><td>2023-04-04</td><td>625</td><td>625</td><td>2</td><td>625</td><td>6000</td></tr><tr><td>28</td><td>UTUNDA</td><td>MAFOFOKI</td><td>2023-04-05</td><td>410</td><td>408</td><td>2</td><td>408</td><td>4000</td></tr><tr><td>29</td><td>UTUNDA</td><td>BETOBETO 1</td><td>2023-04-06</td><td>203</td><td>203</td><td>0</td><td>203</td><td>2000</td></tr><tr><td>30</td><td>UTUNDA</td><td>BETOBETO 2</td><td>2023-04-06</td><td>165</td><td>165</td><td>0</td><td>165</td><td>1600</td></tr><tr><td>31</td><td>UTUNDA</td><td>MUKUYU</td><td>2023-04-06</td><td>190</td><td>190</td><td>0</td><td>190</td><td>1800</td></tr><tr><td>32</td><td>UTUNDA</td><td>CHARIANGAWANGWA</td><td>2023-04-07</td><td>193</td><td>191</td><td>2</td><td>191</td><td>1800</td></tr><tr><td>33</td><td>UTUNDA</td><td>BIBESHE</td><td>2023-04-08</td><td>365</td><td>360</td><td>5</td><td>360</td><td>3000</td></tr><tr><td>34</td><td>IHANA</td><td>BETELI</td><td>2023-04-10</td><td>628</td><td>628</td><td>0</td><td>628</td><td>6000</td></tr><tr><td>35</td><td>IHANA</td><td>TWAMAKURU</td><td>2023-04-10</td><td>155</td><td>150</td><td>5</td><td>150</td><td>6000</td></tr><tr><td>36</td><td>UTUNDA</td><td>PUMUZIKA</td><td>2023-04-12</td><td>150</td><td>147</td><td>3</td><td>147</td><td>6000</td></tr><tr><td>37</td><td>UTUNDA</td><td>IRUMBA</td><td>2023-04-10</td><td>144</td><td>142</td><td>2</td><td>142</td><td>6000</td></tr><tr><td>38</td><td>IHANA</td><td>MINSUNSU</td><td>2023-04-07</td><td>920</td><td>917</td><td>3</td><td>920</td><td>6000</td></tr><tr><td>39</td><td>UTUNDA</td><td>MAJESU 0</td><td>2023-04-08</td><td>166</td><td>161</td><td>5</td><td>161</td><td>6000</td></tr><tr><td>40</td><td>UTUNDA</td><td>IYOYA</td><td>2023-04-08</td><td>130</td><td>130</td><td>0</td><td>130</td><td>6000</td></tr></table></pre>
+</div>
+
+<div class="nav"><a href="index.html">Index</a> <a href="001.html">← Prev</a> <a href="003.html">Next →</a></div>
+</body>
+</html>

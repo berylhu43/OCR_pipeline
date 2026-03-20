@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Example 24/37</title>
+
+<style>
+  body { font-family: sans-serif; font-size: 13px; margin: 20px; }
+  h2 { color: #333; }
+  h4 { margin: 0 0 8px 0; color: #555; border-bottom: 1px solid #eee; padding-bottom: 4px; }
+  .image-path { font-size: 12px; color: #888; margin-bottom: 16px; }
+  .section { margin-bottom: 24px; }
+  table { border-collapse: collapse; width: 100%; font-size: 12px; margin-bottom: 8px; }
+  td, th { border: 1px solid #ddd; padding: 5px 10px; text-align: left; }
+  tr:nth-child(even) { background: #f9f9f9; }
+  thead tr { background: #e8f0fe; }
+  pre { background: #f5f5f5; padding: 10px; font-size: 11px; white-space: pre-wrap; word-break: break-word; border-radius: 4px; }
+  .nav { margin-bottom: 20px; font-size: 13px; }
+  .nav a { margin-right: 12px; color: #1a73e8; text-decoration: none; }
+  .nav a:hover { text-decoration: underline; }
+</style>
+
+</head>
+<body>
+<div class="nav"><a href="index.html">Index</a> <a href="023.html">← Prev</a> <a href="025.html">Next →</a> <span style="color:#999">24/37</span></div>
+<h2>Example 24</h2>
+<div class="image-path">training_data/images/100. July 2023/109.jpg</div>
+
+<div class="section">
+  <h4>Ground Truth</h4>
+  <table><tr><td>annee</td><td>mois</td><td>balance_mois_passe</td><td>somme_totale_collectee</td><td>ration_alim_date_dep1</td><td>ration_alim_descrip_dep1</td><td>ration_alim_montant_dep1</td><td>currency</td><td>ration_alim_sum_fc</td><td>ration_alim_sum_usd</td><td>equipment_date_dep1</td><td>equipment_descrip_dep1</td><td>equipment_montant_dep1</td><td>equipment_devise_dep1</td><td>equipment_sum_fc</td><td>equipment_sum_usd</td><td>assist_social_date_dep1</td><td>assist_social_descrip_dep1</td><td>assist_social_montant_dep1</td><td>currency</td><td>assist_social_sum_fc</td><td>assist_social_sum_usd</td><td>achat_medical_date_dep1</td><td>achat_medical_descrip_dep1</td><td>achat_medical_montant_dep1</td><td>currency</td><td>achat_medical_sum_fc</td><td>achat_medical_sum_usd</td><td>paiment_staff_date_dep1</td><td>paiment_staff_descrip_dep1</td><td>paiment_staff_montant_dep1</td><td>currency</td><td>paiment_staff_sum_fc</td><td>paiment_staff_sum_usd</td><td>transport_date_dep1</td><td>transport_descrip_dep1</td><td>transport_montant_dep1</td><td>currency</td><td>transport_montant_sum_fc</td><td>transport_montant_sum_usd</td><td>autre_description</td><td>autre_montant_sum_fc</td><td>autre_montant_sum_usd</td><td>total_depenses_pour_le_mois_FC</td><td>balance_finale_de_ce_mois_FC</td></tr><tr><td>2023</td><td>Juillet</td><td>100164042152</td><td>2652782500</td><td>NO DATA</td><td>KIBUA;PINGA;MUBI</td><td>NO DATA</td><td>FC</td><td>10000000</td><td>4000</td><td>NO DATA</td><td>NO DATA</td><td>NO DATA</td><td>NO DATA</td><td>NO DATA</td><td>NO DATA</td><td>NO DATA</td><td>Achat matériel de travail</td><td>NO DATA</td><td>FC</td><td>3000000</td><td>1200</td><td>NO DATA</td><td>MUKOKO;UNI;KIGOMA</td><td>NO DATA</td><td>FC</td><td>4800000</td><td>2000</td><td>NO DATA</td><td>IRAMESO;BUKUMBIRWA;TCHOPO</td><td>NO DATA</td><td>FC</td><td>660550000</td><td>264220</td><td>NO DATA</td><td>GOMA;WALIKALE</td><td>NO DATA</td><td>FC</td><td>23412500</td><td>9365</td><td>Achat materiaux des ventes</td><td>444250000</td><td>177700</td><td>1148512500</td><td>101668312152</td></tr></table>
+</div>
+
+<div class="section">
+  <h4>Model Output (cleaned)</h4>
+  <table><tr><td colspan="4">Balance dans le compte a la fin du mois precedent</td><td>A</td><td>100.164.042.152FC</td></tr><tr><td colspan="4">Somme TOTALE collectee tout ce mois</td><td>B</td><td>2.652.782.500FC</td></tr><tr><td>Catégories de dépenses</td><td>Date</td><td>Description ou Objet de la dépense</td><td>Montant de la dépense</td><td>Somme totale par catégorie de dépense<br>(c'est-a-dire somme de toutes les dépenses indiquées pour cette catégorie de dépense)</td><td></td></tr><tr><td rowspan="3">Ration alimentaire</td><td></td><td>K13VA</td><td></td><td>10.000.000FC</td><td></td></tr><tr><td></td><td>PINGA</td><td></td><td></td><td>4000</td></tr><tr><td></td><td>MUBI</td><td></td><td></td><td></td></tr><tr><td rowspan="3">Equipement</td><td></td><td>Achat</td><td></td><td>3000</td><td>FC</td></tr><tr><td></td><td>Armement<br>de travail</td><td></td><td></td><td>1200</td></tr><tr><td></td><td>MUKUKO</td><td></td><td>4.800.000FC</td><td></td></tr><tr><td rowspan="2">Assistance sociale</td><td></td><td>UNI</td><td></td><td></td><td>2000</td></tr><tr><td></td><td>KIGOMA</td><td></td><td></td><td></td></tr><tr><td rowspan="2">Achat médical</td><td></td><td>GOMA</td><td></td><td>2.500.000FC</td><td></td></tr><tr><td></td><td>WALINGE</td><td></td><td></td><td>1000</td></tr><tr><td rowspan="3">Paiement<br>Staff</td><td></td><td>WAMESO</td><td></td><td>660550.000FC</td><td></td></tr><tr><td></td><td>BUKUMBIRWA</td><td></td><td></td><td>264220</td></tr><tr><td></td><td>TETOPO</td><td></td><td></td><td></td></tr><tr><td rowspan="3">Transport</td><td></td><td>GOMA</td><td></td><td>23.412.500FC</td><td></td></tr><tr><td></td><td>WALINGE</td><td></td><td></td><td>9365</td></tr><tr><td></td><td>Achat<br>maternelle<br>des ventes</td><td></td><td>444.250.000FC</td><td></td></tr><tr><td>Autres<br>dépenses</td><td></td><td></td><td></td><td></td><td>477700</td></tr><tr><td colspan="4">Dépenses totales de ce mois(C)=</td><td>A</td><td>1148.512.500FC</td></tr><tr><td colspan="4">(c'est-a-dire la somme des dépenses toute catégories confondues)</td><td>B</td><td>101.668312.152FC</td></tr></table>
+</div>
+
+<div class="section">
+  <h4>Raw Output</h4>
+  <pre><|ref|>table_caption<|/ref|><|det|>[[371, 100, 578, 119]]<|/det|>
+J/Sorties/Depenses
+
+<|ref|>table<|/ref|><|det|>[[67, 128, 920, 857]]<|/det|>
+
+<table><tr><td colspan="4">Balance dans le compte a la fin du mois precedent</td><td>A</td><td>100.164.042.152FC</td></tr><tr><td colspan="4">Somme TOTALE collectee tout ce mois</td><td>B</td><td>2.652.782.500FC</td></tr><tr><td>Catégories de dépenses</td><td>Date</td><td>Description ou Objet de la dépense</td><td>Montant de la dépense</td><td>Somme totale par catégorie de dépense<br>(c'est-a-dire somme de toutes les dépenses indiquées pour cette catégorie de dépense)</td><td></td></tr><tr><td rowspan="3">Ration alimentaire</td><td></td><td>K13VA</td><td></td><td>10.000.000FC</td><td></td></tr><tr><td></td><td>PINGA</td><td></td><td></td><td>4000</td></tr><tr><td></td><td>MUBI</td><td></td><td></td><td></td></tr><tr><td rowspan="3">Equipement</td><td></td><td>Achat</td><td></td><td>3000</td><td>FC</td></tr><tr><td></td><td>Armement<br>de travail</td><td></td><td></td><td>1200</td></tr><tr><td></td><td>MUKUKO</td><td></td><td>4.800.000FC</td><td></td></tr><tr><td rowspan="2">Assistance sociale</td><td></td><td>UNI</td><td></td><td></td><td>2000</td></tr><tr><td></td><td>KIGOMA</td><td></td><td></td><td></td></tr><tr><td rowspan="2">Achat médical</td><td></td><td>GOMA</td><td></td><td>2.500.000FC</td><td></td></tr><tr><td></td><td>WALINGE</td><td></td><td></td><td>1000</td></tr><tr><td rowspan="3">Paiement<br>Staff</td><td></td><td>WAMESO</td><td></td><td>660550.000FC</td><td></td></tr><tr><td></td><td>BUKUMBIRWA</td><td></td><td></td><td>264220</td></tr><tr><td></td><td>TETOPO</td><td></td><td></td><td></td></tr><tr><td rowspan="3">Transport</td><td></td><td>GOMA</td><td></td><td>23.412.500FC</td><td></td></tr><tr><td></td><td>WALINGE</td><td></td><td></td><td>9365</td></tr><tr><td></td><td>Achat<br>maternelle<br>des ventes</td><td></td><td>444.250.000FC</td><td></td></tr><tr><td>Autres<br>dépenses</td><td></td><td></td><td></td><td></td><td>477700</td></tr><tr><td colspan="4">Dépenses totales de ce mois(C)=</td><td>A</td><td>1148.512.500FC</td></tr><tr><td colspan="4">(c'est-a-dire la somme des dépenses toute catégories confondues)</td><td>B</td><td>101.668312.152FC</td></tr></table></pre>
+</div>
+
+<div class="nav"><a href="index.html">Index</a> <a href="023.html">← Prev</a> <a href="025.html">Next →</a></div>
+</body>
+</html>

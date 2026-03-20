@@ -174,7 +174,7 @@ class TrainConfig:
 
     # Logging and saving
     logging_steps: int = 10
-    save_steps: int = 100
+    save_steps: int = 50
     eval_steps: int = 100
     save_total_limit: int = 3
 

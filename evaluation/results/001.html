@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Example 1/37</title>
+
+<style>
+  body { font-family: sans-serif; font-size: 13px; margin: 20px; }
+  h2 { color: #333; }
+  h4 { margin: 0 0 8px 0; color: #555; border-bottom: 1px solid #eee; padding-bottom: 4px; }
+  .image-path { font-size: 12px; color: #888; margin-bottom: 16px; }
+  .section { margin-bottom: 24px; }
+  table { border-collapse: collapse; width: 100%; font-size: 12px; margin-bottom: 8px; }
+  td, th { border: 1px solid #ddd; padding: 5px 10px; text-align: left; }
+  tr:nth-child(even) { background: #f9f9f9; }
+  thead tr { background: #e8f0fe; }
+  pre { background: #f5f5f5; padding: 10px; font-size: 11px; white-space: pre-wrap; word-break: break-word; border-radius: 4px; }
+  .nav { margin-bottom: 20px; font-size: 13px; }
+  .nav a { margin-right: 12px; color: #1a73e8; text-decoration: none; }
+  .nav a:hover { text-decoration: underline; }
+</style>
+
+</head>
+<body>
+<div class="nav"><a href="index.html">Index</a>  <a href="002.html">Next →</a> <span style="color:#999">1/37</span></div>
+<h2>Example 1</h2>
+<div class="image-path">training_data/images/101. August 2023/88.jpg</div>
+
+<div class="section">
+  <h4>Ground Truth</h4>
+  <table><tr><td>Month</td><td>Date</td><td>Marque</td><td>Quantite</td><td>Prix</td><td>Prix_Total</td><td>Observations</td></tr><tr><td>Aout</td><td>2023-08-14</td><td>Marqueur</td><td>4</td><td>0</td><td>0</td><td>RECUPERES</td></tr><tr><td>Aout</td><td>2023-08-17</td><td>Radio</td><td>9</td><td>0</td><td>0</td><td>RECUPERES</td></tr><tr><td>Aout</td><td>2023-08-17</td><td>Telephone mobile</td><td>3</td><td>0</td><td>0</td><td>RECUPERES</td></tr><tr><td>Aout</td><td>2023-08-24</td><td>Stylo</td><td>15</td><td>0</td><td>0</td><td>RECUPERES</td></tr><tr><td>Aout</td><td>2023-08-24</td><td>Petit format stylo</td><td>5</td><td>0</td><td>0</td><td>RECUPERES</td></tr><tr><td>Aout</td><td>2023-08-27</td><td>Tige de bois</td><td>11</td><td>0</td><td>0</td><td>RECUPERES</td></tr><tr><td>Aout</td><td>2023-08-27</td><td>Papier duplicateur</td><td>7</td><td>0</td><td>0</td><td>RECUPERES</td></tr></table>
+</div>
+
+<div class="section">
+  <h4>Model Output (cleaned)</h4>
+  <table><tr><td>An</td><td>Date</td><td>Marque</td><td>Quantite</td><td>Prix</td><td>Observations</td></tr><tr><td>2023</td><td>Avril</td><td>MAGNUM</td><td>4</td><td>0</td><td>Récupérer</td></tr><tr><td>2023</td><td>Avril</td><td>Radio</td><td>9</td><td>0</td><td>Reparner</td></tr><tr><td>2023</td><td>Avril</td><td>Telephone mobile</td><td>3</td><td>0</td><td>Reparner</td></tr><tr><td>2023</td><td>Avril</td><td>Stylo</td><td>15</td><td>0</td><td>Récupérer</td></tr><tr><td>2023</td><td>Avril</td><td>Stylo stylo<br>felt</td><td>5</td><td>0</td><td>Reparner</td></tr><tr><td>2023</td><td>Avril</td><td>Tige de bois</td><td>11</td><td>0</td><td>Récupérer</td></tr><tr><td>2023</td><td>Avril</td><td>Papier du plafond</td><td>7</td><td>0</td><td>Récupérer</td></tr></table>
+</div>
+
+<div class="section">
+  <h4>Raw Output</h4>
+  <pre><|ref|>table_caption<|/ref|><|det|>[[362, 90, 636, 110]]<|/det|>
+E/ Equipements ou outils
+
+<|ref|>table<|/ref|><|det|>[[67, 112, 936, 904]]<|/det|>
+
+<table><tr><td>An</td><td>Date</td><td>Marque</td><td>Quantite</td><td>Prix</td><td>Observations</td></tr><tr><td>2023</td><td>Avril</td><td>MAGNUM</td><td>4</td><td>0</td><td>Récupérer</td></tr><tr><td>2023</td><td>Avril</td><td>Radio</td><td>9</td><td>0</td><td>Reparner</td></tr><tr><td>2023</td><td>Avril</td><td>Telephone mobile</td><td>3</td><td>0</td><td>Reparner</td></tr><tr><td>2023</td><td>Avril</td><td>Stylo</td><td>15</td><td>0</td><td>Récupérer</td></tr><tr><td>2023</td><td>Avril</td><td>Stylo stylo<br>felt</td><td>5</td><td>0</td><td>Reparner</td></tr><tr><td>2023</td><td>Avril</td><td>Tige de bois</td><td>11</td><td>0</td><td>Récupérer</td></tr><tr><td>2023</td><td>Avril</td><td>Papier du plafond</td><td>7</td><td>0</td><td>Récupérer</td></tr></table></pre>
+</div>
+
+<div class="nav"><a href="index.html">Index</a>  <a href="002.html">Next →</a></div>
+</body>
+</html>

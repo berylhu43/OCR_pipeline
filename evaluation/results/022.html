@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Example 22/37</title>
+
+<style>
+  body { font-family: sans-serif; font-size: 13px; margin: 20px; }
+  h2 { color: #333; }
+  h4 { margin: 0 0 8px 0; color: #555; border-bottom: 1px solid #eee; padding-bottom: 4px; }
+  .image-path { font-size: 12px; color: #888; margin-bottom: 16px; }
+  .section { margin-bottom: 24px; }
+  table { border-collapse: collapse; width: 100%; font-size: 12px; margin-bottom: 8px; }
+  td, th { border: 1px solid #ddd; padding: 5px 10px; text-align: left; }
+  tr:nth-child(even) { background: #f9f9f9; }
+  thead tr { background: #e8f0fe; }
+  pre { background: #f5f5f5; padding: 10px; font-size: 11px; white-space: pre-wrap; word-break: break-word; border-radius: 4px; }
+  .nav { margin-bottom: 20px; font-size: 13px; }
+  .nav a { margin-right: 12px; color: #1a73e8; text-decoration: none; }
+  .nav a:hover { text-decoration: underline; }
+</style>
+
+</head>
+<body>
+<div class="nav"><a href="index.html">Index</a> <a href="021.html">← Prev</a> <a href="023.html">Next →</a> <span style="color:#999">22/37</span></div>
+<h2>Example 22</h2>
+<div class="image-path">training_data/images/94. January 2023/January 2023 page 92.jpeg</div>
+
+<div class="section">
+  <h4>Ground Truth</h4>
+  <table><tr><td>annee</td><td>mois</td><td>grade</td><td>nombre_de_personnes_de_ce_rang</td><td>nombre_personnes_payees_ce_mois</td><td>paiement_ce_rang_ce_mois_par_personne</td><td>paiement_ce_rang_ce_mois_total</td><td></td></tr><tr><td>2023</td><td>Janvier</td><td>Numero 1</td><td>1</td><td>1</td><td>1600</td><td>1600</td><td></td></tr><tr><td>2023</td><td>Janvier</td><td>Secretaire Particulier du Numero 1 COMD.MVT</td><td>1</td><td>1</td><td>750</td><td>750</td><td></td></tr><tr><td>2023</td><td>Janvier</td><td>Numero 2</td><td>1</td><td>1</td><td>1070</td><td>1070</td><td></td></tr><tr><td>2023</td><td>Janvier</td><td>Secretaire Particulier du Numero 2 OPS REK MVT</td><td>1</td><td>1</td><td>650</td><td>650</td><td></td></tr><tr><td>2023</td><td>Janvier</td><td>Numero 3</td><td>1</td><td>1</td><td>1040</td><td>1040</td><td></td></tr><tr><td>2023</td><td>Janvier</td><td>Secretaire Particulier du Numero 3 ADM LOG MVT</td><td>1</td><td>1</td><td>550</td><td>550</td><td></td></tr><tr><td>2023</td><td>Janvier</td><td>CHEF.EM.MVT</td><td>1</td><td>1</td><td>1000</td><td>1000</td><td></td></tr><tr><td>2023</td><td>Janvier</td><td>Q.G.MVT</td><td>1</td><td>1</td><td>950</td><td>950</td><td></td></tr><tr><td>2023</td><td>Janvier</td><td>R.C.M</td><td>1</td><td>1</td><td>900</td><td>900</td><td></td></tr><tr><td>2023</td><td>Janvier</td><td>AIDE DU CAMP</td><td>1</td><td>1</td><td>850</td><td>850</td><td></td></tr><tr><td>2023</td><td>Janvier</td><td>T1(titulaire + adjoint)</td><td>2</td><td>2</td><td>600</td><td>1200</td><td></td></tr><tr><td>2023</td><td>Janvier</td><td>T2(titulaire + adjoint)</td><td>2</td><td>2</td><td>600</td><td>1200</td><td></td></tr><tr><td>2023</td><td>Janvier</td><td>T3(titulaire + adjoint)</td><td>2</td><td>2</td><td>600</td><td>1200</td><td></td></tr><tr><td>2023</td><td>Janvier</td><td>T4(titulaire + adjoint)</td><td>2</td><td>2</td><td>600</td><td>1200</td><td></td></tr><tr><td>2023</td><td>Janvier</td><td>T5(titulaire + adjoint)</td><td>2</td><td>2</td><td>600</td><td>1200</td><td></td></tr><tr><td>2023</td><td>Janvier</td><td>O.M.D.MVT</td><td>1</td><td>1</td><td>750</td><td>750</td><td></td></tr><tr><td>2023</td><td>Janvier</td><td>Secretaire General MVT</td><td>1</td><td>1</td><td>1000</td><td>1000</td><td></td></tr><tr><td>2023</td><td>Janvier</td><td>TOTAL PARTIEL DE L'ETAT MAJOR GENERAL</td><td>22</td><td>22</td><td></td><td>17110</td><td></td></tr></table>
+</div>
+
+<div class="section">
+  <h4>Model Output (cleaned)</h4>
+  <table><tr><td>annee</td><td>mois</td><td>grade</td><td>nombre de personnes dans l'organisation qui ont ce rang</td><td>nombre de personnels de ce rang paysagers associates</td><td>paiement pour ce rang</td><td>paiement pour ce mois total pour ce rang</td></tr><tr><td>2023</td><td>Janvier</td><td>Numero 1</td><td>1</td><td>1</td><td>1600</td><td>1600</td></tr><tr><td>2023</td><td>Janvier</td><td>Numero 2</td><td>1</td><td>1</td><td>750</td><td>750</td></tr><tr><td>2023</td><td>Janvier</td><td>Numero 3</td><td>1</td><td>1</td><td>650</td><td>650</td></tr><tr><td>2023</td><td>Janvier</td><td>Numero 4</td><td>1</td><td>1</td><td>1040</td><td>1040</td></tr><tr><td>2023</td><td>Janvier</td><td>Numero 5</td><td>1</td><td>1</td><td>550</td><td>550</td></tr><tr><td>2023</td><td>Janvier</td><td>Q.G. Association</td><td>1</td><td>1</td><td>950</td><td>950</td></tr><tr><td>2023</td><td>Janvier</td><td>R.C.M</td><td>1</td><td>1</td><td>900</td><td>900</td></tr><tr><td>2023</td><td>Janvier</td><td>Aide du Camp</td><td>1</td><td>1</td><td>850</td><td>850</td></tr><tr><td>2023</td><td>Janvier</td><td>Technicien 1</td><td>2</td><td>2</td><td>600</td><td>1200</td></tr><tr><td>2023</td><td>Janvier</td><td>Technicien 2</td><td>2</td><td>2</td><td>600</td><td>1200</td></tr><tr><td>2023</td><td>Janvier</td><td>Technicien 3</td><td>2</td><td>2</td><td>600</td><td>1200</td></tr><tr><td>2023</td><td>Janvier</td><td>Technicien 4</td><td>2</td><td>2</td><td>600</td><td>1200</td></tr><tr><td>2023</td><td>Janvier</td><td>Technicien 5</td><td>2</td><td>2</td><td>600</td><td>1200</td></tr><tr><td>2023</td><td>Janvier</td><td>O.M.D. Association</td><td>1</td><td>1</td><td>750</td><td>750</td></tr><tr><td>2023</td><td>Janvier</td><td>Sécurité Sociale Association</td><td>1</td><td>1</td><td>1000</td><td>1000</td></tr><tr><td>2023</td><td>Janvier</td><td>Autre</td><td></td><td></td><td></td><td></td></tr><tr><td>2023</td><td>Janvier</td><td>Total partiel de l'etat major general</td><td>22</td><td>22</td><td></td><td></td></tr></table>
+</div>
+
+<div class="section">
+  <h4>Raw Output</h4>
+  <pre><table><tr><td>annee</td><td>mois</td><td>grade</td><td>nombre de personnes dans l'organisation qui ont ce rang</td><td>nombre de personnels de ce rang paysagers associates</td><td>paiement pour ce rang</td><td>paiement pour ce mois total pour ce rang</td></tr><tr><td>2023</td><td>Janvier</td><td>Numero 1</td><td>1</td><td>1</td><td>1600</td><td>1600</td></tr><tr><td>2023</td><td>Janvier</td><td>Numero 2</td><td>1</td><td>1</td><td>750</td><td>750</td></tr><tr><td>2023</td><td>Janvier</td><td>Numero 3</td><td>1</td><td>1</td><td>650</td><td>650</td></tr><tr><td>2023</td><td>Janvier</td><td>Numero 4</td><td>1</td><td>1</td><td>1040</td><td>1040</td></tr><tr><td>2023</td><td>Janvier</td><td>Numero 5</td><td>1</td><td>1</td><td>550</td><td>550</td></tr><tr><td>2023</td><td>Janvier</td><td>Q.G. Association</td><td>1</td><td>1</td><td>950</td><td>950</td></tr><tr><td>2023</td><td>Janvier</td><td>R.C.M</td><td>1</td><td>1</td><td>900</td><td>900</td></tr><tr><td>2023</td><td>Janvier</td><td>Aide du Camp</td><td>1</td><td>1</td><td>850</td><td>850</td></tr><tr><td>2023</td><td>Janvier</td><td>Technicien 1</td><td>2</td><td>2</td><td>600</td><td>1200</td></tr><tr><td>2023</td><td>Janvier</td><td>Technicien 2</td><td>2</td><td>2</td><td>600</td><td>1200</td></tr><tr><td>2023</td><td>Janvier</td><td>Technicien 3</td><td>2</td><td>2</td><td>600</td><td>1200</td></tr><tr><td>2023</td><td>Janvier</td><td>Technicien 4</td><td>2</td><td>2</td><td>600</td><td>1200</td></tr><tr><td>2023</td><td>Janvier</td><td>Technicien 5</td><td>2</td><td>2</td><td>600</td><td>1200</td></tr><tr><td>2023</td><td>Janvier</td><td>O.M.D. Association</td><td>1</td><td>1</td><td>750</td><td>750</td></tr><tr><td>2023</td><td>Janvier</td><td>Sécurité Sociale Association</td><td>1</td><td>1</td><td>1000</td><td>1000</td></tr><tr><td>2023</td><td>Janvier</td><td>Autre</td><td></td><td></td><td></td><td></td></tr><tr><td>2023</td><td>Janvier</td><td>Total partiel de l'etat major general</td><td>22</td><td>22</td><td></td><td></td></tr></table></pre>
+</div>
+
+<div class="nav"><a href="index.html">Index</a> <a href="021.html">← Prev</a> <a href="023.html">Next →</a></div>
+</body>
+</html>

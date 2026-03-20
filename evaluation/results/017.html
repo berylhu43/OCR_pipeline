@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Example 17/37</title>
+
+<style>
+  body { font-family: sans-serif; font-size: 13px; margin: 20px; }
+  h2 { color: #333; }
+  h4 { margin: 0 0 8px 0; color: #555; border-bottom: 1px solid #eee; padding-bottom: 4px; }
+  .image-path { font-size: 12px; color: #888; margin-bottom: 16px; }
+  .section { margin-bottom: 24px; }
+  table { border-collapse: collapse; width: 100%; font-size: 12px; margin-bottom: 8px; }
+  td, th { border: 1px solid #ddd; padding: 5px 10px; text-align: left; }
+  tr:nth-child(even) { background: #f9f9f9; }
+  thead tr { background: #e8f0fe; }
+  pre { background: #f5f5f5; padding: 10px; font-size: 11px; white-space: pre-wrap; word-break: break-word; border-radius: 4px; }
+  .nav { margin-bottom: 20px; font-size: 13px; }
+  .nav a { margin-right: 12px; color: #1a73e8; text-decoration: none; }
+  .nav a:hover { text-decoration: underline; }
+</style>
+
+</head>
+<body>
+<div class="nav"><a href="index.html">Index</a> <a href="016.html">← Prev</a> <a href="018.html">Next →</a> <span style="color:#999">17/37</span></div>
+<h2>Example 17</h2>
+<div class="image-path">training_data/images/97. April 2023/135.jpg</div>
+
+<div class="section">
+  <h4>Ground Truth</h4>
+  <table><tr><td>annee</td><td>mois</td><td>rang</td><td>num_in_rank</td><td>num_in_rank_paid</td><td>pay_per_unit_usd</td><td>total_payment_usd</td></tr><tr><td>2023</td><td>Avril</td><td>Autre</td><td></td><td></td><td></td><td></td></tr><tr><td>2023</td><td>Avril</td><td>Total partiel commisariat</td><td>5</td><td>5</td><td></td><td>1630</td></tr><tr><td>2023</td><td>Avril</td><td>COMDT. SOUS-CIAT</td><td>2</td><td>2</td><td>300</td><td>600</td></tr><tr><td>2023</td><td>Avril</td><td>SECRETAIRE SOUS-CIAT</td><td>1</td><td>1</td><td>220</td><td>220</td></tr><tr><td>2023</td><td>Avril</td><td>OPJ</td><td>1</td><td>1</td><td>200</td><td>200</td></tr><tr><td>2023</td><td>Avril</td><td>BRGS</td><td>1</td><td>1</td><td>210</td><td>210</td></tr><tr><td>2023</td><td>Avril</td><td>Autre</td><td></td><td></td><td></td><td></td></tr><tr><td>2023</td><td>Avril</td><td>Total partiel sous commisariat</td><td>5</td><td>5</td><td></td><td>1250</td></tr><tr><td>2023</td><td>Avril</td><td>COMDT. Poste (titulaire+adjoint)</td><td>2</td><td>2</td><td>200</td><td>400</td></tr><tr><td>2023</td><td>Avril</td><td>ADJ</td><td>1</td><td>1</td><td>40</td><td>40</td></tr><tr><td>2023</td><td>Avril</td><td>Autre</td><td></td><td></td><td></td><td></td></tr></table>
+</div>
+
+<div class="section">
+  <h4>Model Output (cleaned)</h4>
+  <table><tr><td colspan="6">A continuer… Compléter ci-dessous pour UN COMMISSARIAT TYPIQUE</td></tr><tr><td>Autre</td><td>(Nom(s) de(s) autre(s))</td><td></td><td></td><td></td><td></td></tr><tr><td>TOTAL PARTIEL COMMISSARIAT</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>(Additionner tous les lignes)</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>N'oubliez pas les lignes correspondantes pour un commissariat sur la page precedente</td><td>5</td><td>5</td><td></td><td></td><td>1630</td></tr><tr><td colspan="6">NOMBRE DE SOUS COMMISSARIATS :</td></tr><tr><td colspan="6">Compléter ci-dessous pour UN SOUS COMMISSARIAT (S/CIAT) TYPIQUE</td></tr><tr><td>COMDT. SOUS-CIAT</td><td>2</td><td>2</td><td></td><td></td><td>600</td></tr><tr><td>(titulaire + adjoint)</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>SECRETAIRE SOUS-CIAT</td><td>1</td><td>1</td><td></td><td></td><td>220</td></tr><tr><td>OPJ (officier de la police judiciaire)</td><td>1</td><td>1</td><td></td><td></td><td>200</td></tr><tr><td>BRGS (bureau de renseignement general special)</td><td>1</td><td>1</td><td></td><td></td><td>210</td></tr><tr><td>Autre</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>TOTAL PARTIEL SOUS COMMISSARIAT</td><td>5</td><td>5</td><td></td><td></td><td>1250</td></tr><tr><td colspan="6">NOMBRE DE POSTES :</td></tr><tr><td colspan="6">Compléter ci-dessous pour UN POSTE TYPIQUE</td></tr><tr><td>COMDT. Poste (titulaire + adjoint)</td><td>2</td><td>2</td><td></td><td></td><td>400</td></tr><tr><td>ADJ (agent de la police judiciaire)</td><td>1</td><td>1</td><td></td><td></td><td>40</td></tr><tr><td>Autre</td><td></td><td></td><td></td><td></td><td></td></tr></table>
+</div>
+
+<div class="section">
+  <h4>Raw Output</h4>
+  <pre><|ref|>table<|/ref|><|det|>[[140, 90, 904, 848]]<|/det|>
+<table><tr><td colspan="6">A continuer… Compléter ci-dessous pour UN COMMISSARIAT TYPIQUE</td></tr><tr><td>Autre</td><td>(Nom(s) de(s) autre(s))</td><td></td><td></td><td></td><td></td></tr><tr><td>TOTAL PARTIEL COMMISSARIAT</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>(Additionner tous les lignes)</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>N'oubliez pas les lignes correspondantes pour un commissariat sur la page precedente</td><td>5</td><td>5</td><td></td><td></td><td>1630</td></tr><tr><td colspan="6">NOMBRE DE SOUS COMMISSARIATS :</td></tr><tr><td colspan="6">Compléter ci-dessous pour UN SOUS COMMISSARIAT (S/CIAT) TYPIQUE</td></tr><tr><td>COMDT. SOUS-CIAT</td><td>2</td><td>2</td><td></td><td></td><td>600</td></tr><tr><td>(titulaire + adjoint)</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>SECRETAIRE SOUS-CIAT</td><td>1</td><td>1</td><td></td><td></td><td>220</td></tr><tr><td>OPJ (officier de la police judiciaire)</td><td>1</td><td>1</td><td></td><td></td><td>200</td></tr><tr><td>BRGS (bureau de renseignement general special)</td><td>1</td><td>1</td><td></td><td></td><td>210</td></tr><tr><td>Autre</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>TOTAL PARTIEL SOUS COMMISSARIAT</td><td>5</td><td>5</td><td></td><td></td><td>1250</td></tr><tr><td colspan="6">NOMBRE DE POSTES :</td></tr><tr><td colspan="6">Compléter ci-dessous pour UN POSTE TYPIQUE</td></tr><tr><td>COMDT. Poste (titulaire + adjoint)</td><td>2</td><td>2</td><td></td><td></td><td>400</td></tr><tr><td>ADJ (agent de la police judiciaire)</td><td>1</td><td>1</td><td></td><td></td><td>40</td></tr><tr><td>Autre</td><td></td><td></td><td></td><td></td><td></td></tr></table></pre>
+</div>
+
+<div class="nav"><a href="index.html">Index</a> <a href="016.html">← Prev</a> <a href="018.html">Next →</a></div>
+</body>
+</html>

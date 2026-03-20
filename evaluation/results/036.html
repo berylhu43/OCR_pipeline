@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Example 36/37</title>
+
+<style>
+  body { font-family: sans-serif; font-size: 13px; margin: 20px; }
+  h2 { color: #333; }
+  h4 { margin: 0 0 8px 0; color: #555; border-bottom: 1px solid #eee; padding-bottom: 4px; }
+  .image-path { font-size: 12px; color: #888; margin-bottom: 16px; }
+  .section { margin-bottom: 24px; }
+  table { border-collapse: collapse; width: 100%; font-size: 12px; margin-bottom: 8px; }
+  td, th { border: 1px solid #ddd; padding: 5px 10px; text-align: left; }
+  tr:nth-child(even) { background: #f9f9f9; }
+  thead tr { background: #e8f0fe; }
+  pre { background: #f5f5f5; padding: 10px; font-size: 11px; white-space: pre-wrap; word-break: break-word; border-radius: 4px; }
+  .nav { margin-bottom: 20px; font-size: 13px; }
+  .nav a { margin-right: 12px; color: #1a73e8; text-decoration: none; }
+  .nav a:hover { text-decoration: underline; }
+</style>
+
+</head>
+<body>
+<div class="nav"><a href="index.html">Index</a> <a href="035.html">← Prev</a> <a href="037.html">Next →</a> <span style="color:#999">36/37</span></div>
+<h2>Example 36</h2>
+<div class="image-path">training_data/images/94. January 2023/January 2023 page 37.jpeg</div>
+
+<div class="section">
+  <h4>Ground Truth</h4>
+  <table><tr><td>annee</td><td>mois</td><td>groupement_corrected</td><td>nom_village</td><td>date_de_distribution_jetons</td><td>jetons_nombre_distribues</td><td>jetons_nombre_vendus</td><td>jetons_nombre_restants</td><td>recette_realisee_FC</td></tr><tr><td>2023</td><td>January</td><td>USALA</td><td>KAMISUKU</td><td>2023-01-05</td><td>150</td><td>150</td><td>0</td><td>150000</td></tr><tr><td>2023</td><td>January</td><td>KISIMBA</td><td>BUKUCHA</td><td>2023-01-07</td><td>2680</td><td>2675</td><td>5</td><td>2675000</td></tr><tr><td>2023</td><td>January</td><td>UTUNDA</td><td>MPOKO</td><td>2023-01-06</td><td>140</td><td>138</td><td>2</td><td>138000</td></tr><tr><td>2023</td><td>January</td><td>UTUNDA</td><td>ANGOA</td><td>2023-01-06</td><td>138</td><td>135</td><td>3</td><td>135000</td></tr><tr><td>2023</td><td>January</td><td>USALA</td><td>CHOPO</td><td>2023-01-10</td><td>203</td><td>200</td><td>3</td><td>200000</td></tr><tr><td>2023</td><td>January</td><td>KISIMBA</td><td>IRAMBO</td><td>2023-01-12</td><td>137</td><td>137</td><td>0</td><td>137000</td></tr><tr><td>2023</td><td>January</td><td>IHANA</td><td>MIRONGE 1</td><td>2023-01-11</td><td>210</td><td>210</td><td>0</td><td>210000</td></tr><tr><td>2023</td><td>January</td><td>IHANA</td><td>TITI</td><td>2023-01-09</td><td>175</td><td>175</td><td>0</td><td>175000</td></tr><tr><td>2023</td><td>January</td><td>UTUNDA</td><td>IKERE</td><td>2023-01-10</td><td>215</td><td>215</td><td>0</td><td>215000</td></tr><tr><td>2023</td><td>January</td><td>UTUNDA</td><td>KINCHIMBA</td><td>2023-01-10</td><td>570</td><td>570</td><td>0</td><td>570000</td></tr><tr><td>2023</td><td>January</td><td>KISIMBA</td><td>BUSAKARA</td><td>2023-01-11</td><td>180</td><td>176</td><td>4</td><td>176000</td></tr><tr><td>2023</td><td>January</td><td>USALA</td><td>ONINGA</td><td>2023-01-13</td><td>1900</td><td>1900</td><td>0</td><td>1900000</td></tr><tr><td>2023</td><td>January</td><td>IHANA</td><td>MABONDO 1</td><td>2023-01-11</td><td>250</td><td>250</td><td>0</td><td>250000</td></tr><tr><td>2023</td><td>January</td><td>UTUNDA</td><td>KASARA</td><td>2023-01-10</td><td>150</td><td>150</td><td>0</td><td>150000</td></tr></table>
+</div>
+
+<div class="section">
+  <h4>Model Output (cleaned)</h4>
+  <table><tr><th colspan="2">Secteur d’activité</th><th>Nom Groupeement</th><th>Nom Village</th><th>Num Secteur</td><td>Date(s) exacte de distribution des jetons</td><td>Nombre de jetons distribués dans le village</td><td>Nombre de jetons vendus dans le village</td><td>Nombre de jetons restant</td><td>Recette réalisée par village grâce à la vente des jetons</td><td>TOTAL</td></tr><tr><td>1</td><td>Heilonquois</td><td>USALA</td><td>KAMISUKU</td><td>2023-01-05</td><td>150</td><td>150</td><td>0</td><td>150000</td><td></td></tr><tr><td>2</td><td>Heilonquois</td><td>KISIMBA</td><td>BUKUCHA</td><td>2023-01-07</td><td>2680</td><td>2675</td><td>5</td><td>267500</td><td></td></tr><tr><td>3</td><td>Heilonquois</td><td>UTUNDA</td><td>MPOKO</td><td>2023-01-06</td><td>140</td><td>138</td><td>2</td><td>138000</td><td></td></tr><tr><td>4</td><td>Heilonquois</td><td>UTUNDA</td><td>ANGOA</td><td>2023-01-06</td><td>138</td><td>135</td><td>3</td><td>135000</td><td></td></tr><tr><td>5</td><td>Heilonquois</td><td>USALA</td><td>CHOPO</td><td>2023-01-10</td><td>203</td><td>290</td><td>3</td><td>290000</td><td></td></tr><tr><td>6</td><td>Heilonquois</td><td>KISIMBA</td><td>IRAMBO</td><td>2023-01-12</td><td>137</td><td>137</td><td>0</td><td>137000</td><td></td></tr><tr><td>7</td><td>Heilonquois</td><td>IHANA</td><td>MIRONGE 1</td><td>2023-01-11</td><td>210</td><td>210</td><td>0</td><td>210000</td><td></td></tr><tr><td>8</td><td>Heilonquois</td><td>IHANA</td><td>TITI</td><td>2023-01-09</td><td>175</td><td>175</td><td>0</td><td>175000</td><td></td></tr><tr><td>9</td><td>Heilonquois</td><td>UTUNDA</td><td>IKERE</td><td>2023-01-10</td><td>215</td><td>215</td><td>0</td><td>215000</td><td></td></tr><tr><td>10</td><td>Heilonquois</td><td>UTUNDA</td><td>KINCHIMBA</td><td>2023-01-10</td><td>570</td><td>570</td><td>0</td><td>570000</td><td></td></tr><tr><td>11</td><td>Heilonquois</td><td>KISIMBA</td><td>BUSAKARA</td><td>2023-01-11</td><td>180</td><td>176</td><td>4</td><td>176000</td><td></td></tr><tr><td>12</td><td>Heilonquois</td><td>USALA</td><td>ONINGA</td><td>2023-01-13</td><td>1900</td><td>1900</td><td>0</td><td>1900000</td><td></td></tr><tr><td>13</td><td>Heilonquois</td><td>IHANA</td><td>MABONGO 1</td><td>2023-01-11</td><td>250</td><td>250</td><td>0</td><td>250000</td><td></td></tr><tr><td>14</td><td>Heilonquois</td><td>UTUNDA</td><td>KASARA</td><td>2023-01-10</td><td>150</td><td>150</td><td>0</td><td>150000</td><td></td></tr></table>
+</div>
+
+<div class="section">
+  <h4>Raw Output</h4>
+  <pre><table><tr><th colspan="2">Secteur d’activité</th><th>Nom Groupeement</th><th>Nom Village</th><th>Num Secteur</td><td>Date(s) exacte de distribution des jetons</td><td>Nombre de jetons distribués dans le village</td><td>Nombre de jetons vendus dans le village</td><td>Nombre de jetons restant</td><td>Recette réalisée par village grâce à la vente des jetons</td><td>TOTAL</td></tr><tr><td>1</td><td>Heilonquois</td><td>USALA</td><td>KAMISUKU</td><td>2023-01-05</td><td>150</td><td>150</td><td>0</td><td>150000</td><td></td></tr><tr><td>2</td><td>Heilonquois</td><td>KISIMBA</td><td>BUKUCHA</td><td>2023-01-07</td><td>2680</td><td>2675</td><td>5</td><td>267500</td><td></td></tr><tr><td>3</td><td>Heilonquois</td><td>UTUNDA</td><td>MPOKO</td><td>2023-01-06</td><td>140</td><td>138</td><td>2</td><td>138000</td><td></td></tr><tr><td>4</td><td>Heilonquois</td><td>UTUNDA</td><td>ANGOA</td><td>2023-01-06</td><td>138</td><td>135</td><td>3</td><td>135000</td><td></td></tr><tr><td>5</td><td>Heilonquois</td><td>USALA</td><td>CHOPO</td><td>2023-01-10</td><td>203</td><td>290</td><td>3</td><td>290000</td><td></td></tr><tr><td>6</td><td>Heilonquois</td><td>KISIMBA</td><td>IRAMBO</td><td>2023-01-12</td><td>137</td><td>137</td><td>0</td><td>137000</td><td></td></tr><tr><td>7</td><td>Heilonquois</td><td>IHANA</td><td>MIRONGE 1</td><td>2023-01-11</td><td>210</td><td>210</td><td>0</td><td>210000</td><td></td></tr><tr><td>8</td><td>Heilonquois</td><td>IHANA</td><td>TITI</td><td>2023-01-09</td><td>175</td><td>175</td><td>0</td><td>175000</td><td></td></tr><tr><td>9</td><td>Heilonquois</td><td>UTUNDA</td><td>IKERE</td><td>2023-01-10</td><td>215</td><td>215</td><td>0</td><td>215000</td><td></td></tr><tr><td>10</td><td>Heilonquois</td><td>UTUNDA</td><td>KINCHIMBA</td><td>2023-01-10</td><td>570</td><td>570</td><td>0</td><td>570000</td><td></td></tr><tr><td>11</td><td>Heilonquois</td><td>KISIMBA</td><td>BUSAKARA</td><td>2023-01-11</td><td>180</td><td>176</td><td>4</td><td>176000</td><td></td></tr><tr><td>12</td><td>Heilonquois</td><td>USALA</td><td>ONINGA</td><td>2023-01-13</td><td>1900</td><td>1900</td><td>0</td><td>1900000</td><td></td></tr><tr><td>13</td><td>Heilonquois</td><td>IHANA</td><td>MABONGO 1</td><td>2023-01-11</td><td>250</td><td>250</td><td>0</td><td>250000</td><td></td></tr><tr><td>14</td><td>Heilonquois</td><td>UTUNDA</td><td>KASARA</td><td>2023-01-10</td><td>150</td><td>150</td><td>0</td><td>150000</td><td></td></tr></table></pre>
+</div>
+
+<div class="nav"><a href="index.html">Index</a> <a href="035.html">← Prev</a> <a href="037.html">Next →</a></div>
+</body>
+</html>

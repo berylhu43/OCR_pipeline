@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Example 28/37</title>
+
+<style>
+  body { font-family: sans-serif; font-size: 13px; margin: 20px; }
+  h2 { color: #333; }
+  h4 { margin: 0 0 8px 0; color: #555; border-bottom: 1px solid #eee; padding-bottom: 4px; }
+  .image-path { font-size: 12px; color: #888; margin-bottom: 16px; }
+  .section { margin-bottom: 24px; }
+  table { border-collapse: collapse; width: 100%; font-size: 12px; margin-bottom: 8px; }
+  td, th { border: 1px solid #ddd; padding: 5px 10px; text-align: left; }
+  tr:nth-child(even) { background: #f9f9f9; }
+  thead tr { background: #e8f0fe; }
+  pre { background: #f5f5f5; padding: 10px; font-size: 11px; white-space: pre-wrap; word-break: break-word; border-radius: 4px; }
+  .nav { margin-bottom: 20px; font-size: 13px; }
+  .nav a { margin-right: 12px; color: #1a73e8; text-decoration: none; }
+  .nav a:hover { text-decoration: underline; }
+</style>
+
+</head>
+<body>
+<div class="nav"><a href="index.html">Index</a> <a href="027.html">← Prev</a> <a href="029.html">Next →</a> <span style="color:#999">28/37</span></div>
+<h2>Example 28</h2>
+<div class="image-path">training_data/images/96. March 2023/137.jpg</div>
+
+<div class="section">
+  <h4>Ground Truth</h4>
+  <table><tr><td>annee</td><td>mois</td><td>rang</td><td>num_in_rank</td><td>num_in_rank_paid</td><td>pay_per_unit_usd</td><td>total_payment_usd</td></tr><tr><td>2023</td><td>Mars</td><td>COMDT District</td><td>1</td><td>1</td><td>500</td><td>500</td></tr><tr><td>2023</td><td>Mars</td><td>OPS RENS District</td><td>1</td><td>1</td><td>400</td><td>400</td></tr><tr><td>2023</td><td>Mars</td><td>ADM LOG District</td><td>1</td><td>1</td><td>350</td><td>350</td></tr><tr><td>2023</td><td>Mars</td><td>B1(titulaire+adjoint)</td><td>2</td><td>2</td><td>300</td><td>600</td></tr><tr><td>2023</td><td>Mars</td><td>B2(titulaire+adjoint)</td><td>2</td><td>2</td><td>300</td><td>600</td></tr><tr><td>2023</td><td>Mars</td><td>B3(titulaire+adjoint)</td><td>2</td><td>2</td><td>300</td><td>600</td></tr><tr><td>2023</td><td>Mars</td><td>B4(titulaire+adjoint)</td><td>2</td><td>2</td><td>300</td><td>600</td></tr><tr><td>2023</td><td>Mars</td><td>B5(titulaire+adjoint)</td><td>2</td><td>2</td><td>300</td><td>600</td></tr><tr><td>2023</td><td>Mars</td><td>Autre</td><td></td><td></td><td></td><td></td></tr><tr><td>2023</td><td>Mars</td><td>Total partiel de l'etat major do comdt district</td><td>13</td><td>13</td><td></td><td>4250</td></tr><tr><td>2023</td><td>Mars</td><td>COMDT CIAT (titulaire+adjoint)</td><td>2</td><td>2</td><td>370</td><td>740</td></tr><tr><td>2023</td><td>Mars</td><td>SECRETAIRE CIAT</td><td>1</td><td>1</td><td>350</td><td>350</td></tr><tr><td>2023</td><td>Mars</td><td>OPJ</td><td>1</td><td>1</td><td>270</td><td>270</td></tr><tr><td>2023</td><td>Mars</td><td>BRGS</td><td>1</td><td>1</td><td>270</td><td>270</td></tr></table>
+</div>
+
+<div class="section">
+  <h4>Model Output (cleaned)</h4>
+  <table><tr><td>Grade</td><td>Nombre de personnes dans l'organisation qui ont ce rang</td><td>Nombre de personnes de ce rang payées ce mois</td><td>Paiement pour ce rang ce mois par personne</td><td>Paiement pour ce mois total pour ce rang</td></tr><tr><td colspan="5">ETAT MAJOR COMMDT DU DISTRICT</td></tr><tr><td>COMDT District</td><td>1</td><td>1</td><td>500</td><td>500</td></tr><tr><td>OPS RENS District</td><td>1</td><td>1</td><td>400</td><td>400</td></tr><tr><td>ADM LOG District</td><td>1</td><td>1</td><td>350</td><td>350</td></tr><tr><td>B1 (titulaire + adjoint)</td><td>2</td><td>2</td><td>300</td><td>600</td></tr><tr><td>B2 (titulaire + adjoint)</td><td>2</td><td>2</td><td>300</td><td>600</td></tr><tr><td>B3 (titulaire + adjoint)</td><td>2</td><td>2</td><td>300</td><td>600</td></tr><tr><td>B4 (titulaire + adjoint)</td><td>2</td><td>2</td><td>300</td><td>600</td></tr><tr><td>B5 (titulaire + adjoint)</td><td>2</td><td>2</td><td>300</td><td>600</td></tr><tr><td>Autre</td><td></td><td></td><td></td><td></td></tr><tr><td>TOTAL PARTIEL DE L'ETAT MAJOR COMDT DU DISTRICT<br/>(Additionner tous les lignes)</td><td>13</td><td>13</td><td>(laisser vider)</td><td>4 250</td></tr></table>
+</div>
+
+<div class="section">
+  <h4>Raw Output</h4>
+  <pre><|ref|>table<|/ref|><|det|>[[114, 120, 942, 687]]<|/det|>
+<table><tr><td>Grade</td><td>Nombre de personnes dans l'organisation qui ont ce rang</td><td>Nombre de personnes de ce rang payées ce mois</td><td>Paiement pour ce rang ce mois par personne</td><td>Paiement pour ce mois total pour ce rang</td></tr><tr><td colspan="5">ETAT MAJOR COMMDT DU DISTRICT</td></tr><tr><td>COMDT District</td><td>1</td><td>1</td><td>500</td><td>500</td></tr><tr><td>OPS RENS District</td><td>1</td><td>1</td><td>400</td><td>400</td></tr><tr><td>ADM LOG District</td><td>1</td><td>1</td><td>350</td><td>350</td></tr><tr><td>B1 (titulaire + adjoint)</td><td>2</td><td>2</td><td>300</td><td>600</td></tr><tr><td>B2 (titulaire + adjoint)</td><td>2</td><td>2</td><td>300</td><td>600</td></tr><tr><td>B3 (titulaire + adjoint)</td><td>2</td><td>2</td><td>300</td><td>600</td></tr><tr><td>B4 (titulaire + adjoint)</td><td>2</td><td>2</td><td>300</td><td>600</td></tr><tr><td>B5 (titulaire + adjoint)</td><td>2</td><td>2</td><td>300</td><td>600</td></tr><tr><td>Autre</td><td></td><td></td><td></td><td></td></tr><tr><td>TOTAL PARTIEL DE L'ETAT MAJOR COMDT DU DISTRICT<br/>(Additionner tous les lignes)</td><td>13</td><td>13</td><td>(laisser vider)</td><td>4 250</td></tr></table>
+
+<|ref|>table_caption<|/ref|><|det|>[[120, 700, 690, 750]]<|/det|>
+NOMBRE COMMISSARIATS : _____
+Compléter ci-dessous pour UN COMMISSARIAT (CIAT)
+
+<|ref|>table<|/ref|><|det|>[[114, 748, 942, 911]]<|/det|></pre>
+</div>
+
+<div class="nav"><a href="index.html">Index</a> <a href="027.html">← Prev</a> <a href="029.html">Next →</a></div>
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Example 8/37</title>
+
+<style>
+  body { font-family: sans-serif; font-size: 13px; margin: 20px; }
+  h2 { color: #333; }
+  h4 { margin: 0 0 8px 0; color: #555; border-bottom: 1px solid #eee; padding-bottom: 4px; }
+  .image-path { font-size: 12px; color: #888; margin-bottom: 16px; }
+  .section { margin-bottom: 24px; }
+  table { border-collapse: collapse; width: 100%; font-size: 12px; margin-bottom: 8px; }
+  td, th { border: 1px solid #ddd; padding: 5px 10px; text-align: left; }
+  tr:nth-child(even) { background: #f9f9f9; }
+  thead tr { background: #e8f0fe; }
+  pre { background: #f5f5f5; padding: 10px; font-size: 11px; white-space: pre-wrap; word-break: break-word; border-radius: 4px; }
+  .nav { margin-bottom: 20px; font-size: 13px; }
+  .nav a { margin-right: 12px; color: #1a73e8; text-decoration: none; }
+  .nav a:hover { text-decoration: underline; }
+</style>
+
+</head>
+<body>
+<div class="nav"><a href="index.html">Index</a> <a href="007.html">← Prev</a> <a href="009.html">Next →</a> <span style="color:#999">8/37</span></div>
+<h2>Example 8</h2>
+<div class="image-path">training_data/images/94. January 2023/January 2023 page 26.jpeg</div>
+
+<div class="section">
+  <h4>Ground Truth</h4>
+  <table><tr><td>annee</td><td>mois</td><td>groupement</td><td>nom_village</td><td>village_ou_carriere</td><td>date_de_debut_de_controle</td><td>nom_unite</td><td>nom_brigade</td><td>nom_bataillon</td><td>nom_compagne</td><td>nom_peleton</td><td>nom_section</td><td>population</td><td>nombre_staff_controle</td></tr><tr><td>2023</td><td>January</td><td>KISIMBA</td><td>BESE</td><td>C</td><td>2015-04-07</td><td>131</td><td>131</td><td>1312</td><td>2</td><td>1</td><td>1 2</td><td>654</td><td>25</td></tr><tr><td>2023</td><td>January</td><td>USALA</td><td>KAMISUKU 1</td><td>C</td><td>2015-04-07</td><td>11</td><td>111</td><td>1112</td><td>1</td><td>1</td><td>1 2</td><td>156</td><td>13</td></tr><tr><td>2023</td><td>January</td><td>UTUNDA</td><td>PUMUZIKA</td><td>C</td><td>2015-05-11</td><td>12</td><td>121</td><td>1211</td><td>1</td><td>1</td><td>1 2</td><td>175</td><td>14</td></tr><tr><td>2023</td><td>January</td><td>UTUNDA</td><td>MPOKO</td><td>C</td><td>2015-04-06</td><td>11</td><td>112</td><td>1122</td><td>1</td><td>1</td><td>1 2</td><td>141</td><td>15</td></tr><tr><td>2023</td><td>January</td><td>KISIMBA</td><td>BUKUCHA</td><td>C</td><td>2015-04-06</td><td>11</td><td>111</td><td>1111</td><td>2</td><td>2</td><td>1 2</td><td>1890</td><td>50</td></tr><tr><td>2023</td><td>January</td><td>USALA</td><td>CHOPO</td><td>C</td><td>2015-04-08</td><td>11</td><td>112</td><td>1122</td><td>2</td><td>2</td><td>2 1</td><td>2385</td><td>60</td></tr><tr><td>2023</td><td>January</td><td>USALA</td><td>ONINGA</td><td>C</td><td>2015-04-08</td><td>11</td><td>112</td><td>1122</td><td>1</td><td>1</td><td>1 2</td><td>770</td><td>25</td></tr><tr><td>2023</td><td>January</td><td>IHANA</td><td>IRAMESO</td><td>C</td><td>2015-04-08</td><td>11</td><td>111</td><td>1111</td><td>1</td><td>2</td><td>2 1</td><td>214</td><td>27</td></tr><tr><td>2023</td><td>January</td><td>IHANA</td><td>MIRONGE</td><td>C</td><td>2015-04-10</td><td>11</td><td>111</td><td>1112</td><td>2</td><td>1</td><td>1 2</td><td>145</td><td>11</td></tr><tr><td>2023</td><td>January</td><td>IHANA</td><td>TITI</td><td>C</td><td>2015-04-29</td><td>12</td><td>122</td><td>1221</td><td>2</td><td>2</td><td>2 1</td><td>135</td><td>11</td></tr><tr><td>2023</td><td>January</td><td>KISIMBA</td><td>MAASHA</td><td>C</td><td>2015-05-07</td><td>12</td><td>122</td><td>1211</td><td>2</td><td>2</td><td>2 1</td><td>891</td><td>40</td></tr><tr><td>2023</td><td>January</td><td>IHANA</td><td>BETELI</td><td>C</td><td>2015-05-07</td><td>12</td><td>121</td><td>1211</td><td>2</td><td>2</td><td>2 1</td><td>274</td><td>35</td></tr></table>
+</div>
+
+<div class="section">
+  <h4>Model Output (cleaned)</h4>
+  <table>季節 year month day<table><tr><td>annee</td><td>mois</td><td>groupement</td><td>nomvillage<br/>carriere<br/>alternatives</td><td>village<br/>v date<br/>ou<br/>carriere</td><td>date_exacte<br/>de_debut<br/>du_controle</td><td>nomvillage<br/>cible</td><td>nomde la<br/>division</td><td>nomde la<br/>mpart<br/>de_village</td><td>nomde la<br/>comite<br/>responsable</td><td>nomde la<br/>SOUS-COMITE<br/>responsable</td><td>nomde la<br/>section<br/>responsable</td><td>population<br/>du_village<br/>(nombre de<br/>personnes<br/>au-dessus<br/>de 18 ans)</td><td>nombre<br/>de_staff<br/>qui<br/>controle<br/>le_village</td></tr><tr><td>2023</td><td>January</td><td>KISIMBA</td><td>BESE</td><td>V</td><td>2023-01-07</td><td>13e</br>cellule</td><td>1312</br>DIVISION</td><td>1312</br>DEPARTEMENT</td><td>2</td><td>2</td><td>122</br>SECTION</td><td>654</td><td>25</td></tr><tr><td>2023</td><td>January</td><td>USALA</td><td>KAMUJUKA</td><td>C</td><td>2023-01-09</td><td>1</br>m</br>c</br>l</br>l</br>e</br>l</br>u</br>l</br>e</br>l</br>i</br>n</br>d</br>o</br>r</br>s</br>t</br>a</br>t</br>i</br>o</br>n</br>s</br>t</br>a</br>t</br>i</br>o</br>n</br>s</br></br>s</br>t</br>a</br>t</br>i</br>o</br>n</br>s</br>s</br>t</br>a</br>t</br>i</br>o</br>n</br>s</br/>t</br>a</br>t</br>i</br>o</br>n</br>s</br>t</br>a</x</br>t</br>i</br>o</br>n</br>s</br>t</br>a</br>t</br>x</br>i</br>n</br>d</br>o</br>r</br>s</br>t</br>a</br>x</br>i</br>n</br>d</br>o</br>r</br>s</br>t</br>x</br>i</br>n</br>d</br>o</br>r</br>s</br>s</br>t</br>x</br>i</br>n</br>d</br>o</br>r</br>d</br>o</br>r</br>s</br>s</br>t</br>x</br>i</br>m</br>i</br>n</br>d</br>o</br>r</br>s</br>t</br>x</br>a</br>t</br>i</br>o</br>n</br>s</br>t</br>x</br>a</br>t</br>i</br>o</br>n</br>d</br>o</br>r</br>s</br>t</br>x</br>a</br>i</br>n</br>d</br>o</br>r</br>s</br>t</table>
+</div>
+
+<div class="section">
+  <h4>Raw Output</h4>
+  <pre><|ref|>table<|/ref|><|det|>[[75, 177, 980, 870]]<|/det|>
+<table>季節 year month day<table><tr><td>annee</td><td>mois</td><td>groupement</td><td>nomvillage<br/>carriere<br/>alternatives</td><td>village<br/>v date<br/>ou<br/>carriere</td><td>date_exacte<br/>de_debut<br/>du_controle</td><td>nomvillage<br/>cible</td><td>nomde la<br/>division</td><td>nomde la<br/>mpart<br/>de_village</td><td>nomde la<br/>comite<br/>responsable</td><td>nomde la<br/>SOUS-COMITE<br/>responsable</td><td>nomde la<br/>section<br/>responsable</td><td>population<br/>du_village<br/>(nombre de<br/>personnes<br/>au-dessus<br/>de 18 ans)</td><td>nombre<br/>de_staff<br/>qui<br/>controle<br/>le_village</td></tr><tr><td>2023</td><td>January</td><td>KISIMBA</td><td>BESE</td><td>V</td><td>2023-01-07</td><td>13e</br>cellule</td><td>1312</br>DIVISION</td><td>1312</br>DEPARTEMENT</td><td>2</td><td>2</td><td>122</br>SECTION</td><td>654</td><td>25</td></tr><tr><td>2023</td><td>January</td><td>USALA</td><td>KAMUJUKA</td><td>C</td><td>2023-01-09</td><td>1</br>m</br>c</br>l</br>l</br>e</br>l</br>u</br>l</br>e</br>l</br>i</br>n</br>d</br>o</br>r</br>s</br>t</br>a</br>t</br>i</br>o</br>n</br>s</br>t</br>a</br>t</br>i</br>o</br>n</br>s</br></br>s</br>t</br>a</br>t</br>i</br>o</br>n</br>s</br>s</br>t</br>a</br>t</br>i</br>o</br>n</br>s</br/>t</br>a</br>t</br>i</br>o</br>n</br>s</br>t</br>a</x</br>t</br>i</br>o</br>n</br>s</br>t</br>a</br>t</br>x</br>i</br>n</br>d</br>o</br>r</br>s</br>t</br>a</br>x</br>i</br>n</br>d</br>o</br>r</br>s</br>t</br>x</br>i</br>n</br>d</br>o</br>r</br>s</br>s</br>t</br>x</br>i</br>n</br>d</br>o</br>r</br>d</br>o</br>r</br>s</br>s</br>t</br>x</br>i</br>m</br>i</br>n</br>d</br>o</br>r</br>s</br>t</br>x</br>a</br>t</br>i</br>o</br>n</br>s</br>t</br>x</br>a</br>t</br>i</br>o</br>n</br>d</br>o</br>r</br>s</br>t</br>x</br>a</br>i</br>n</br>d</br>o</br>r</br>s</br>t</table></pre>
+</div>
+
+<div class="nav"><a href="index.html">Index</a> <a href="007.html">← Prev</a> <a href="009.html">Next →</a></div>
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Example 37/37</title>
+
+<style>
+  body { font-family: sans-serif; font-size: 13px; margin: 20px; }
+  h2 { color: #333; }
+  h4 { margin: 0 0 8px 0; color: #555; border-bottom: 1px solid #eee; padding-bottom: 4px; }
+  .image-path { font-size: 12px; color: #888; margin-bottom: 16px; }
+  .section { margin-bottom: 24px; }
+  table { border-collapse: collapse; width: 100%; font-size: 12px; margin-bottom: 8px; }
+  td, th { border: 1px solid #ddd; padding: 5px 10px; text-align: left; }
+  tr:nth-child(even) { background: #f9f9f9; }
+  thead tr { background: #e8f0fe; }
+  pre { background: #f5f5f5; padding: 10px; font-size: 11px; white-space: pre-wrap; word-break: break-word; border-radius: 4px; }
+  .nav { margin-bottom: 20px; font-size: 13px; }
+  .nav a { margin-right: 12px; color: #1a73e8; text-decoration: none; }
+  .nav a:hover { text-decoration: underline; }
+</style>
+
+</head>
+<body>
+<div class="nav"><a href="index.html">Index</a> <a href="036.html">← Prev</a>  <span style="color:#999">37/37</span></div>
+<h2>Example 37</h2>
+<div class="image-path">training_data/images/97. April 2023/5.jpg</div>
+
+<div class="section">
+  <h4>Ground Truth</h4>
+  <table><tr><td>annee</td><td>mois</td><td>nom_et_postnom</td><td>date_de_naissance</td><td>post_et_rank_commence</td><td>motif</td><td>groupement_de_naissance</td><td>village_de_naissance</td><td>dates_de_participation_campagne_</td><td>dates_victime_lui_meme</td><td>dates_victime_membre_de_son_mena</td><td>dates_victime_membre_de_sa_famil</td></tr><tr><td>2023</td><td>Avril</td><td>USIOGOPE KAMARA EUSTACHE</td><td>2001-06-02</td><td>soldat</td><td>defendre integrite territoire</td><td>BANA-BANGI</td><td>TUTERO</td><td>2022-08-05</td><td>2019-04-01</td><td>2019-04-01</td><td>2019-04-01</td></tr><tr><td>2023</td><td>Avril</td><td>BAHATI NBEKO JACKOS</td><td>1986-03-17</td><td>soldat</td><td>defendre integrite territoire</td><td>BAKANO</td><td>NYAMIALA</td><td>2023-02-27</td><td>2020-10-01</td><td>2020-10-01</td><td>2020-10-01</td></tr><tr><td>2023</td><td>Avril</td><td>ARON MIROHO EMMANUEL</td><td>1988-09-11</td><td>soldat</td><td>defendre integrite territoire</td><td>BAKANO</td><td>KATETE</td><td>2019-12-19</td><td>AUCUNE</td><td>2009-08-16</td><td>AUCUNE</td></tr><tr><td>2023</td><td>Avril</td><td>LUBUTO BUTAKA INNOCENT</td><td>2001-10-11</td><td>soldat</td><td>defendre integrite territoire</td><td>KISIMBA</td><td>PINGA-NKASA</td><td>2022-12-17</td><td>AUCUNE</td><td>2022-05-28</td><td>2022-05-28</td></tr><tr><td>2023</td><td>Avril</td><td>KAMBALE UACHENI ANSELME</td><td>2/29/1987</td><td>soldat</td><td>defendre integrite territoire</td><td>BANA-BANGI</td><td>MUTAKATO</td><td>2022-09-18</td><td>2017-06-15</td><td>2017-06-15</td><td>AUCUNE</td></tr></table>
+</div>
+
+<div class="section">
+  <h4>Model Output (cleaned)</h4>
+  <table><tr><td>annee</td><td>mois</td><td>nom_et_postnom</td><td>date_de_naissance</td><td>post_et_rank_commence</td><td>motif_ison</td><td>groupement_de_naissance</td><td>village_de_naissance</td><td>dates_de_participation_campagne_</td><td>dates_victime_lui_meme</td><td>dates_victime_membre_de_son_mena</td><td>dates_victime_membre_de_sa_famil</td></tr><tr><td>2023</td><td>Avril</td><td>USOGOPE KAMARA ESTA CHE</td><td>2017-07-06</td><td>soldat</td><td>defendre integrite territoire</td><td>BANA BYANGI</td><td>TUTERO</td><td>2022-08-05</td><td>2013-04-04</td><td>2019-04-04</td><td>2019-04-04</td></tr><tr><td>2023</td><td>Avril</td><td>BAHATI NIKO TACKS</td><td>1986-03-17</td><td>soldat</td><td>defendre integrite territoire</td><td>BAKANO</td><td>NYAMALA</td><td>2023-02-27</td><td>2020-09-10</td><td>2020-09-10</td><td>2020-09-10</td></tr><tr><td>2023</td><td>Avril</td><td>ARON MIRHO EMMANUEL</td><td>1987-09-11</td><td>soldat</td><td>defendre integrite territoire</td><td>BAKANO</td><td>KATETE</td><td>2019-12-19</td><td>AUCUNE</td><td>2009-08-16</td><td>AUCUNE</td></tr><tr><td>2023</td><td>Avril</td><td>LUBUTO BUTAKA INNOCENT</td><td>2001-10-11</td><td>soldat</td><td>defendre integrite territoire</td><td>KISIMBA</td><td>PINGA - NCHASA</td><td>2022-12-17</td><td>AUCUNE</td><td>2022-05-28</td><td>2022-05-28</td></tr><tr><td>2023</td><td>Avril</td><td>KAMBALE UBACHENI ANSELME</td><td>1987-02-29</td><td>soldat</td><td>defendre integrite territoire</td><td>BANA - BAYNGI</td><td>WATAKATO</td><td>2022-09-18</td><td>2017-06-15</td><td>2009-06-15</td><td>AUCUNE</td></tr></table>
+</div>
+
+<div class="section">
+  <h4>Raw Output</h4>
+  <pre><|ref|>table<|/ref|><|det|>[[60, 111, 980, 780]]<|/det|>
+<table><tr><td>annee</td><td>mois</td><td>nom_et_postnom</td><td>date_de_naissance</td><td>post_et_rank_commence</td><td>motif_ison</td><td>groupement_de_naissance</td><td>village_de_naissance</td><td>dates_de_participation_campagne_</td><td>dates_victime_lui_meme</td><td>dates_victime_membre_de_son_mena</td><td>dates_victime_membre_de_sa_famil</td></tr><tr><td>2023</td><td>Avril</td><td>USOGOPE KAMARA ESTA CHE</td><td>2017-07-06</td><td>soldat</td><td>defendre integrite territoire</td><td>BANA BYANGI</td><td>TUTERO</td><td>2022-08-05</td><td>2013-04-04</td><td>2019-04-04</td><td>2019-04-04</td></tr><tr><td>2023</td><td>Avril</td><td>BAHATI NIKO TACKS</td><td>1986-03-17</td><td>soldat</td><td>defendre integrite territoire</td><td>BAKANO</td><td>NYAMALA</td><td>2023-02-27</td><td>2020-09-10</td><td>2020-09-10</td><td>2020-09-10</td></tr><tr><td>2023</td><td>Avril</td><td>ARON MIRHO EMMANUEL</td><td>1987-09-11</td><td>soldat</td><td>defendre integrite territoire</td><td>BAKANO</td><td>KATETE</td><td>2019-12-19</td><td>AUCUNE</td><td>2009-08-16</td><td>AUCUNE</td></tr><tr><td>2023</td><td>Avril</td><td>LUBUTO BUTAKA INNOCENT</td><td>2001-10-11</td><td>soldat</td><td>defendre integrite territoire</td><td>KISIMBA</td><td>PINGA - NCHASA</td><td>2022-12-17</td><td>AUCUNE</td><td>2022-05-28</td><td>2022-05-28</td></tr><tr><td>2023</td><td>Avril</td><td>KAMBALE UBACHENI ANSELME</td><td>1987-02-29</td><td>soldat</td><td>defendre integrite territoire</td><td>BANA - BAYNGI</td><td>WATAKATO</td><td>2022-09-18</td><td>2017-06-15</td><td>2009-06-15</td><td>AUCUNE</td></tr></table></pre>
+</div>
+
+<div class="nav"><a href="index.html">Index</a> <a href="036.html">← Prev</a> </div>
+</body>
+</html>

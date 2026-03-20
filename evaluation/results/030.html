@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Example 30/37</title>
+
+<style>
+  body { font-family: sans-serif; font-size: 13px; margin: 20px; }
+  h2 { color: #333; }
+  h4 { margin: 0 0 8px 0; color: #555; border-bottom: 1px solid #eee; padding-bottom: 4px; }
+  .image-path { font-size: 12px; color: #888; margin-bottom: 16px; }
+  .section { margin-bottom: 24px; }
+  table { border-collapse: collapse; width: 100%; font-size: 12px; margin-bottom: 8px; }
+  td, th { border: 1px solid #ddd; padding: 5px 10px; text-align: left; }
+  tr:nth-child(even) { background: #f9f9f9; }
+  thead tr { background: #e8f0fe; }
+  pre { background: #f5f5f5; padding: 10px; font-size: 11px; white-space: pre-wrap; word-break: break-word; border-radius: 4px; }
+  .nav { margin-bottom: 20px; font-size: 13px; }
+  .nav a { margin-right: 12px; color: #1a73e8; text-decoration: none; }
+  .nav a:hover { text-decoration: underline; }
+</style>
+
+</head>
+<body>
+<div class="nav"><a href="index.html">Index</a> <a href="029.html">← Prev</a> <a href="031.html">Next →</a> <span style="color:#999">30/37</span></div>
+<h2>Example 30</h2>
+<div class="image-path">training_data/images/99. June 2023/108.jpg</div>
+
+<div class="section">
+  <h4>Ground Truth</h4>
+  <table><tr><td>annee</td><td>mois</td><td>type</td><td>desc_ressource</td><td>unit_price_fc</td><td>qty_livree_tot</td><td>nature_fc</td><td>espece_fc</td><td>taxe_recette_fc</td></tr><tr><td>2023</td><td>Juin</td><td>chasse</td><td>VIANDE</td><td>10000</td><td>25836</td><td>180852</td><td>77508000</td><td>258360000</td></tr><tr><td>2023</td><td>Juin</td><td>creuse</td><td>OR</td><td>60000</td><td>1000</td><td>54000000</td><td>6000000</td><td>60000000</td></tr><tr><td>2023</td><td>Juin</td><td>prod_huil_</td><td>BOUTEILLES D'HUILES</td><td>4000</td><td>67835</td><td>108536000</td><td>162804000</td><td>271340000</td></tr><tr><td>2023</td><td>Juin</td><td>cultivateurs</td><td>FARINE DE MANIOC</td><td>1000</td><td>6401</td><td>4160650</td><td>2240350</td><td>6401000</td></tr><tr><td>2023</td><td>Juin</td><td>producteur_boisson_alc_local</td><td>BOISSON ALCOLIQUE</td><td>8000</td><td>11977</td><td>8443600</td><td>14372400</td><td>95816000</td></tr><tr><td>2023</td><td>Juin</td><td>autre</td><td>MARCHANDISES</td><td>10000</td><td>9351</td><td>88834500</td><td>4675500</td><td>93510000</td></tr><tr><td>2023</td><td>Juin</td><td>total</td><td></td><td></td><td></td><td></td><td></td><td>785427000</td></tr></table>
+</div>
+
+<div class="section">
+  <h4>Model Output (cleaned)</h4>
+  <table><tr><td colspan="8">Taxes Selon la Production</td></tr><tr><td rowspan="2">Types de commerçants</td><td rowspan="2">Description de la ressource taxée</td><td colspan="3">EN NATURE</td><td colspan="2">EN ESPECE</td><td>EN NATURE PLUS EN ESPECE</td></tr><tr><td>Ou: Paiement de la taxe EN NATURE, tous les villages confondus<br/>Prix de la ressource à l'unité (en FC)</td><td>Quantité livrée totale de tous les villages</td><td>Valeur en francs congolais de la recette collectée EN NATURE dans tous les villages</td><td>Ou: Paiement de la taxe EN ESPECE (francs congolais), tous les villages confondus<br/>D</td><td>E</td><td>C</td><td></td></tr><tr><td>Chasseurs</td><td>VIANDE</td><td>10.000 FC</td><td>25836 poules</td><td>180852000 FC</td><td>47508000 FC</td><td>25836000 FC</td><td></td></tr><tr><td>Creuseurs</td><td>OR</td><td>60000 FC</td><td>1000 grammes</td><td>54000000 FC</td><td>60000000 FC</td><td>60000000 FC</td><td></td></tr><tr><td>Producteurs d'huile</td><td>HUILES</td><td>4000 FC</td><td>67835 boiteilles</td><td>108536000 FC</td><td>162804000 FC</td><td>271340000 FC</td><td></td></tr><tr><td>Cultivateurs</td><td>FARINE DE MANIOC</td><td>1000 FC</td><td>640 assiettes</td><td>4160650 FC</td><td>2240350 FC</td><td>6401000 FC</td><td></td></tr><tr><td>Producteur du boisson alcoolise local</td><td>BOISSON LACAGE</td><td>8000 FC</td><td>11977 boiteilles</td><td>84,443600 FC</td><td>14372,400 FC</td><td>95816,000 FC</td><td></td></tr><tr><td>Autre type:</td><td>MARCHANDISES</td><td>10000 FC</td><td>9351 commentat</td><td>88834,500 FC</td><td>4675,500 FC</td><td>9351000 FC</td><td></td></tr><tr><td>Autre type:</td><td></td><td></td><td></td><td></td><td></td><td></td><td>785427000 FC</td></tr><tr><td>TOTAL</td><td></td><td></td><td></td><td></td><td></td><td></td><td>785427000 FC</td></tr></table>
+</div>
+
+<div class="section">
+  <h4>Raw Output</h4>
+  <pre><|ref|>table<|/ref|><|det|>[[66, 120, 975, 920]]<|/det|>
+<table><tr><td colspan="8">Taxes Selon la Production</td></tr><tr><td rowspan="2">Types de commerçants</td><td rowspan="2">Description de la ressource taxée</td><td colspan="3">EN NATURE</td><td colspan="2">EN ESPECE</td><td>EN NATURE PLUS EN ESPECE</td></tr><tr><td>Ou: Paiement de la taxe EN NATURE, tous les villages confondus<br/>Prix de la ressource à l'unité (en FC)</td><td>Quantité livrée totale de tous les villages</td><td>Valeur en francs congolais de la recette collectée EN NATURE dans tous les villages</td><td>Ou: Paiement de la taxe EN ESPECE (francs congolais), tous les villages confondus<br/>D</td><td>E</td><td>C</td><td></td></tr><tr><td>Chasseurs</td><td>VIANDE</td><td>10.000 FC</td><td>25836 poules</td><td>180852000 FC</td><td>47508000 FC</td><td>25836000 FC</td><td></td></tr><tr><td>Creuseurs</td><td>OR</td><td>60000 FC</td><td>1000 grammes</td><td>54000000 FC</td><td>60000000 FC</td><td>60000000 FC</td><td></td></tr><tr><td>Producteurs d'huile</td><td>HUILES</td><td>4000 FC</td><td>67835 boiteilles</td><td>108536000 FC</td><td>162804000 FC</td><td>271340000 FC</td><td></td></tr><tr><td>Cultivateurs</td><td>FARINE DE MANIOC</td><td>1000 FC</td><td>640 assiettes</td><td>4160650 FC</td><td>2240350 FC</td><td>6401000 FC</td><td></td></tr><tr><td>Producteur du boisson alcoolise local</td><td>BOISSON LACAGE</td><td>8000 FC</td><td>11977 boiteilles</td><td>84,443600 FC</td><td>14372,400 FC</td><td>95816,000 FC</td><td></td></tr><tr><td>Autre type:</td><td>MARCHANDISES</td><td>10000 FC</td><td>9351 commentat</td><td>88834,500 FC</td><td>4675,500 FC</td><td>9351000 FC</td><td></td></tr><tr><td>Autre type:</td><td></td><td></td><td></td><td></td><td></td><td></td><td>785427000 FC</td></tr><tr><td>TOTAL</td><td></td><td></td><td></td><td></td><td></td><td></td><td>785427000 FC</td></tr></table></pre>
+</div>
+
+<div class="nav"><a href="index.html">Index</a> <a href="029.html">← Prev</a> <a href="031.html">Next →</a></div>
+</body>
+</html>

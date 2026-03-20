@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Example 26/37</title>
+
+<style>
+  body { font-family: sans-serif; font-size: 13px; margin: 20px; }
+  h2 { color: #333; }
+  h4 { margin: 0 0 8px 0; color: #555; border-bottom: 1px solid #eee; padding-bottom: 4px; }
+  .image-path { font-size: 12px; color: #888; margin-bottom: 16px; }
+  .section { margin-bottom: 24px; }
+  table { border-collapse: collapse; width: 100%; font-size: 12px; margin-bottom: 8px; }
+  td, th { border: 1px solid #ddd; padding: 5px 10px; text-align: left; }
+  tr:nth-child(even) { background: #f9f9f9; }
+  thead tr { background: #e8f0fe; }
+  pre { background: #f5f5f5; padding: 10px; font-size: 11px; white-space: pre-wrap; word-break: break-word; border-radius: 4px; }
+  .nav { margin-bottom: 20px; font-size: 13px; }
+  .nav a { margin-right: 12px; color: #1a73e8; text-decoration: none; }
+  .nav a:hover { text-decoration: underline; }
+</style>
+
+</head>
+<body>
+<div class="nav"><a href="index.html">Index</a> <a href="025.html">← Prev</a> <a href="027.html">Next →</a> <span style="color:#999">26/37</span></div>
+<h2>Example 26</h2>
+<div class="image-path">training_data/images/96. March 2023/111.jpg</div>
+
+<div class="section">
+  <h4>Ground Truth</h4>
+  <table><tr><td>annee</td><td>mois</td><td>num_de_front</td><td>date_de_debut</td><td>date_de_fin</td><td>nom_front_bataille</td><td>groupment</td><td>nom_villages</td><td>unite_impliquee</td><td>l'objectif_du_front</td><td>type_de_grigri</td><td>nom_groupe_initiateur</td><td>nombre_de_membres_front_initiateur</td><td>nom_groupe_attaque</td><td>nombre_de_membres_front_attaque</td></tr><tr><td>2023</td><td>Mars</td><td>1</td><td>2023-03-16</td><td>2023-03-18</td><td>WAZALENBU</td><td></td><td>RUBAYA</td><td>11;12</td><td>défendre l’intérêt territorial</td><td>MUTUKA MUNENE; SANS CONDITION; NDIME NDIME</td><td>NDC, FARDC</td><td>300</td><td>M23</td><td>Pas de precision</td></tr></table>
+</div>
+
+<div class="section">
+  <h4>Model Output (cleaned)</h4>
+  <table><tr><td>Num . de front</td><td>Date de début<br>jour/mois/annee<br>(Si commencé avant ce mois, indiquez "en cours")</td><td>Date de fin<br>jour/mois/annee<br>(Si toujours actif à la fin du mois, indiquez "toujours actif')</td><td>Nom du front</td><td>Nommez tous les groupements inclus dans cette zone</td><td>Nommez tous les villages inclus dans cette zone (ou les plus proches de cette zone)</td><td>Unite(s) impliquee(s) dans le front d'activite</td><td>L'objectif du front</td></tr><tr><td>1.</td><td>2023-03-16</td><td>2023-03-18</td><td>WAZALENJY</td><td>-</td><td>RWBAYA</td><td>une et<br>une unité</td><td>diffendre l'integrite territoriale contre les<br>enslavisseurs du RWANDA</td></tr><tr><td>2.</td><td>2023-03-22</td><td>2023-03-27</td><td>WAZALENJY</td><td>-</td><td>BIHAMBWE</td><td>une et 12<br>unite</td><td>Repousser les ennemis<br>du M23 et leurs<br>alliés Rwandais</td></tr><tr><td>3.</td><td>2023-03-29</td><td>2023-03-27</td><td>WALOWA</td><td></td><td></td><td></td><td></td></tr><tr><td>4.</td><td>2023-03-31</td><td>2023-03-27</td><td>WALOWA</td><td></td><td></td><td></td><td></td></tr></table>
+</div>
+
+<div class="section">
+  <h4>Raw Output</h4>
+  <pre><|ref|>table_caption<|/ref|><|det|>[[356, 210, 685, 240]]<|/det|>
+L1/ Activités actifs effectuent ce mois-ci
+
+<|ref|>table<|/ref|><|det|>[[60, 275, 962, 900]]<|/det|>
+
+<table><tr><td>Num . de front</td><td>Date de début<br>jour/mois/annee<br>(Si commencé avant ce mois, indiquez "en cours")</td><td>Date de fin<br>jour/mois/annee<br>(Si toujours actif à la fin du mois, indiquez "toujours actif')</td><td>Nom du front</td><td>Nommez tous les groupements inclus dans cette zone</td><td>Nommez tous les villages inclus dans cette zone (ou les plus proches de cette zone)</td><td>Unite(s) impliquee(s) dans le front d'activite</td><td>L'objectif du front</td></tr><tr><td>1.</td><td>2023-03-16</td><td>2023-03-18</td><td>WAZALENJY</td><td>-</td><td>RWBAYA</td><td>une et<br>une unité</td><td>diffendre l'integrite territoriale contre les<br>enslavisseurs du RWANDA</td></tr><tr><td>2.</td><td>2023-03-22</td><td>2023-03-27</td><td>WAZALENJY</td><td>-</td><td>BIHAMBWE</td><td>une et 12<br>unite</td><td>Repousser les ennemis<br>du M23 et leurs<br>alliés Rwandais</td></tr><tr><td>3.</td><td>2023-03-29</td><td>2023-03-27</td><td>WALOWA</td><td></td><td></td><td></td><td></td></tr><tr><td>4.</td><td>2023-03-31</td><td>2023-03-27</td><td>WALOWA</td><td></td><td></td><td></td><td></td></tr></table></pre>
+</div>
+
+<div class="nav"><a href="index.html">Index</a> <a href="025.html">← Prev</a> <a href="027.html">Next →</a></div>
+</body>
+</html>

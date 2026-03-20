@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Example 7/37</title>
+
+<style>
+  body { font-family: sans-serif; font-size: 13px; margin: 20px; }
+  h2 { color: #333; }
+  h4 { margin: 0 0 8px 0; color: #555; border-bottom: 1px solid #eee; padding-bottom: 4px; }
+  .image-path { font-size: 12px; color: #888; margin-bottom: 16px; }
+  .section { margin-bottom: 24px; }
+  table { border-collapse: collapse; width: 100%; font-size: 12px; margin-bottom: 8px; }
+  td, th { border: 1px solid #ddd; padding: 5px 10px; text-align: left; }
+  tr:nth-child(even) { background: #f9f9f9; }
+  thead tr { background: #e8f0fe; }
+  pre { background: #f5f5f5; padding: 10px; font-size: 11px; white-space: pre-wrap; word-break: break-word; border-radius: 4px; }
+  .nav { margin-bottom: 20px; font-size: 13px; }
+  .nav a { margin-right: 12px; color: #1a73e8; text-decoration: none; }
+  .nav a:hover { text-decoration: underline; }
+</style>
+
+</head>
+<body>
+<div class="nav"><a href="index.html">Index</a> <a href="006.html">← Prev</a> <a href="008.html">Next →</a> <span style="color:#999">7/37</span></div>
+<h2>Example 7</h2>
+<div class="image-path">training_data/images/95. February 2023/B1_029.jpeg</div>
+
+<div class="section">
+  <h4>Ground Truth</h4>
+  <table><tr><td>annee</td><td>mois</td><td>groupement</td><td>nom_village</td><td>village_ou_carriere</td><td>date_de_debut_de_controle</td><td>nom_unite</td><td>nom_brigade</td><td>nom_bataillon</td><td>nom_compagne</td><td>nom_peleton</td><td>nom_section</td><td>population</td><td>nombre_staff_controle</td></tr><tr><td>2023</td><td>February</td><td>IKOBO</td><td>KIMANGA</td><td>C</td><td>2017-07-16</td><td>12</td><td>121</td><td>1212</td><td>2</td><td>1</td><td>2 1</td><td>1300</td><td>56</td></tr><tr><td>2023</td><td>February</td><td>IKOBO</td><td>KAUMBO</td><td>V</td><td>2017-07-25</td><td>13</td><td>131</td><td>1311</td><td>1</td><td>2</td><td>1 2</td><td>900</td><td>30</td></tr><tr><td>2023</td><td>February</td><td>IKOBO</td><td>CHAMBULI</td><td>V</td><td>2017-07-18</td><td>13</td><td>131</td><td>1311</td><td>1</td><td>1</td><td>1 2</td><td>213</td><td>16</td></tr><tr><td>2023</td><td>February</td><td>IKOBO</td><td>KATSINGA</td><td>V</td><td>2017-07-18</td><td>13</td><td>131</td><td>1311</td><td>1</td><td>1</td><td>1 2</td><td>1206</td><td>40</td></tr><tr><td>2023</td><td>February</td><td>IHANA</td><td>BASOMBE</td><td>V</td><td>2017-07-24</td><td>13</td><td>131</td><td>1311</td><td>1</td><td>2</td><td>1 2</td><td>782</td><td>30</td></tr><tr><td>2023</td><td>February</td><td>UTUNDA</td><td>NGERI</td><td>C</td><td>2017-07-05</td><td>13</td><td>122</td><td>1322</td><td>1</td><td>1</td><td>2 1</td><td>1404</td><td>41</td></tr><tr><td>2023</td><td>February</td><td>KISIMBA</td><td>BURAI</td><td>V</td><td>2017-07-06</td><td>13</td><td>131</td><td>1312</td><td>2</td><td>2</td><td>1 2</td><td>665</td><td>40</td></tr><tr><td>2023</td><td>February</td><td>IHANA</td><td>BUERE</td><td>C</td><td>2017-05-28</td><td>12</td><td>121</td><td>1212</td><td>2</td><td>2</td><td>1 2</td><td>157</td><td>31</td></tr><tr><td>2023</td><td>February</td><td>IHANA</td><td>NKANGA</td><td>C</td><td>2017-05-28</td><td>12</td><td>121</td><td>1212</td><td>2</td><td>2</td><td>1 2</td><td>111</td><td>20</td></tr><tr><td>2023</td><td>February</td><td>IHANA</td><td>MANINGE</td><td>V</td><td>2017-05-29</td><td>12</td><td>122</td><td>1221</td><td>1</td><td>1</td><td>1 2</td><td>138</td><td>14</td></tr><tr><td>2023</td><td>February</td><td>IHANA</td><td>MUKAKA</td><td>V</td><td>2017-07-14</td><td>13</td><td>131</td><td>1311</td><td>2</td><td>1</td><td>1 2</td><td>125</td><td>10</td></tr><tr><td>2023</td><td>February</td><td>UTUNDA</td><td>MURINDE</td><td>C</td><td>2017-07-25</td><td>12</td><td>122</td><td>1221</td><td>1</td><td>1</td><td>1 2</td><td>117</td><td>15</td></tr></table>
+</div>
+
+<div class="section">
+  <h4>Model Output (cleaned)</h4>
+  <table>季節
+<table>季節
+<tr><td>no</td><td>groupement</td><td>nom_village</td><td>village (k)</td><td>date_de_debut_de_controle</td><td>nom_unite</td><td>nom_brigade</td><td>nom_bataillon</td><td>nom_compagne</td><td>nom_peleton</td><td>nom_section</td><td>population</td><td>nombre_staff_controle</td></tr><tr><td>30</td><td>IKOBO</td><td>KIMANGA</td><td>C</td><td>2017-07-16</td><td>12</td><td>121</td><td>1212</td><td>2</td><td>1</td><td>2 1</td><td>1300</td><td>56</td></tr><tr><td>31</td><td>IKOBO</td><td>KAUMBO</td><td>V</td><td>2017-07-05</td><td>13</td><td>131</td><td>1312</td><td>1</td><td>2</td><td>1 2</td><td>900</td><td>30</td></tr><tr><td>32</td><td>IKOBO</td><td>CHAMBULI</td><td>V</td><td>2017-07-18</td><td>13</td><td>131</td><td>1311</td><td>1</td><td>1</td><td>1 1</td><td>213</td><td>16</td></tr><tr><td>33</td><td>IKOBO</td><td>KATSINGA</td><td>V</td><td>2017-07-18</td><td>13</td><td>131</td><td>1311</td><td>1</td><td>1</td><td>1 1</td><td>1206</td><td>40</td></tr><tr><td>34</td><td>IHANA</td><td>KASOMBE</td><td>V</td><td>2017-07-24</td><td>13</td><td>131</td><td>1311</td><td>1</td><td>2</td><td>1 2</td><td>782</td><td>30</td></tr><tr><td>35</td><td>UTUNDA</td><td>NGERI</td><td>C</td><td>2017-07-05</td><td>13</td><td>132</td><td>1322</td><td>1</td><td>1</td><td>1 2</td><td>1404</td><td>41</td></tr><tr><td>36</td><td>KISIMBA</td><td>BURAI</td><td>V</td><td>2017-07-06</td><td>10</td><td>101</td><td>1322</td><td>2</td><td>2</td><td>1 2</td><td>665</td><td>40</td></tr><tr><td>37</td><td>IHANA</td><td>BUERE</td><td>C</td><td>2015-05-28</td><td>12</td><td>121</td><td>1212</td><td>2</td><td>2</td><td>1 2</td><td>157</td><td>31</td></tr><tr><td>38</td><td>IHANA</td><td>NKANGA</td><td>C</td><td>2015-05-22</td><td>12</td><td>121</td><td>1212</td><td>2</td><td>2</td><td>1 2</td><td>111</td><td>20</td></tr><tr><td>39</td><td>IHANA</td><td>MANINGE</td><td>V</td><td>2017-07-09</td><td>12</td><td>122</td><td>1222</td><td>1</td><td>1</td><td>1 2</td><td>138</td><td>14</td></tr><tr><td>40</td><td>IHANA</td><td>BUKAKA</td><td>V</td><td>2017-07-10</td><td>13</td><td>131</td><td>1311</td><td>2</td><td>1</td><td>1 2</td><td>125</td><td>10</td></tr><tr><td>41</td><td>UTUNDA</td><td>MURINDE</td><td>C</td><td>2017-07-25</td><td>12</td><td>122</td><td>1221</td><td>1</td><td>1</td><td>1 2</td><td>117</td><td>15</td></tr></table>
+</div>
+
+<div class="section">
+  <h4>Raw Output</h4>
+  <pre><|ref|>table<|/ref|><|det|>[[28, 140, 960, 870]]<|/det|>
+<table>季節
+<table>季節
+<tr><td>no</td><td>groupement</td><td>nom_village</td><td>village (k)</td><td>date_de_debut_de_controle</td><td>nom_unite</td><td>nom_brigade</td><td>nom_bataillon</td><td>nom_compagne</td><td>nom_peleton</td><td>nom_section</td><td>population</td><td>nombre_staff_controle</td></tr><tr><td>30</td><td>IKOBO</td><td>KIMANGA</td><td>C</td><td>2017-07-16</td><td>12</td><td>121</td><td>1212</td><td>2</td><td>1</td><td>2 1</td><td>1300</td><td>56</td></tr><tr><td>31</td><td>IKOBO</td><td>KAUMBO</td><td>V</td><td>2017-07-05</td><td>13</td><td>131</td><td>1312</td><td>1</td><td>2</td><td>1 2</td><td>900</td><td>30</td></tr><tr><td>32</td><td>IKOBO</td><td>CHAMBULI</td><td>V</td><td>2017-07-18</td><td>13</td><td>131</td><td>1311</td><td>1</td><td>1</td><td>1 1</td><td>213</td><td>16</td></tr><tr><td>33</td><td>IKOBO</td><td>KATSINGA</td><td>V</td><td>2017-07-18</td><td>13</td><td>131</td><td>1311</td><td>1</td><td>1</td><td>1 1</td><td>1206</td><td>40</td></tr><tr><td>34</td><td>IHANA</td><td>KASOMBE</td><td>V</td><td>2017-07-24</td><td>13</td><td>131</td><td>1311</td><td>1</td><td>2</td><td>1 2</td><td>782</td><td>30</td></tr><tr><td>35</td><td>UTUNDA</td><td>NGERI</td><td>C</td><td>2017-07-05</td><td>13</td><td>132</td><td>1322</td><td>1</td><td>1</td><td>1 2</td><td>1404</td><td>41</td></tr><tr><td>36</td><td>KISIMBA</td><td>BURAI</td><td>V</td><td>2017-07-06</td><td>10</td><td>101</td><td>1322</td><td>2</td><td>2</td><td>1 2</td><td>665</td><td>40</td></tr><tr><td>37</td><td>IHANA</td><td>BUERE</td><td>C</td><td>2015-05-28</td><td>12</td><td>121</td><td>1212</td><td>2</td><td>2</td><td>1 2</td><td>157</td><td>31</td></tr><tr><td>38</td><td>IHANA</td><td>NKANGA</td><td>C</td><td>2015-05-22</td><td>12</td><td>121</td><td>1212</td><td>2</td><td>2</td><td>1 2</td><td>111</td><td>20</td></tr><tr><td>39</td><td>IHANA</td><td>MANINGE</td><td>V</td><td>2017-07-09</td><td>12</td><td>122</td><td>1222</td><td>1</td><td>1</td><td>1 2</td><td>138</td><td>14</td></tr><tr><td>40</td><td>IHANA</td><td>BUKAKA</td><td>V</td><td>2017-07-10</td><td>13</td><td>131</td><td>1311</td><td>2</td><td>1</td><td>1 2</td><td>125</td><td>10</td></tr><tr><td>41</td><td>UTUNDA</td><td>MURINDE</td><td>C</td><td>2017-07-25</td><td>12</td><td>122</td><td>1221</td><td>1</td><td>1</td><td>1 2</td><td>117</td><td>15</td></tr></table></pre>
+</div>
+
+<div class="nav"><a href="index.html">Index</a> <a href="006.html">← Prev</a> <a href="008.html">Next →</a></div>
+</body>
+</html>

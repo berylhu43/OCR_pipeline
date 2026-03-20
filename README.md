@@ -143,7 +143,7 @@ python finetune/prepare_dataset.py \
 nohup python finetune/finetune_qlora.py \
     --train_data ./training_data/dataset_train.jsonl \
     --val_data   ./training_data/dataset_val.jsonl \
-    --output_dir ./finetuned_model_v4 \
+    --output_dir ./finetuned_model_v4b \
     --epochs 10 --lora_r 64 --lora_alpha 128 \
     --batch_size 1 --grad_accum 8 \
     > training.log 2>&1 &
@@ -164,24 +164,35 @@ python finetune/finetune_qlora.py \
 ```bash
 python finetune/inference_finetuned.py \
     --image        ./test.jpg \
-    --adapter_path ./finetuned_model_v4
+    --adapter_path ./finetuned_model_v4b
 ```
 
 ### 5. Evaluate
 
 ```bash
-# Preview raw outputs vs ground truth (no scoring)
+# Preview raw outputs vs ground truth, save to JSON
 python evaluation/preview_outputs.py \
     --val_data     ./training_data/dataset_val.jsonl \
-    --adapter_path ./finetuned_model_v4 \
-    --n 10 \
-    --save ./evaluation/preview.json
+    --adapter_path ./finetuned_model_v4b \
+    --n 20 \
+    --save ./evaluation/results.json
 
-# Full evaluation with per-column accuracy
+# Convert saved JSON to browsable HTML pages (no GPU needed)
+python evaluation/view_results.py \
+    --input ./evaluation/results.json \
+    --output_dir ./evaluation/results/
+# Open evaluation/results/index.html in your browser
+
+# Score from saved JSON (fast, no GPU needed)
+python evaluation/evaluate.py \
+    --from_json ./evaluation/results.json \
+    --output_dir ./evaluation/eval_results
+
+# Or run inference + score in one step
 python evaluation/evaluate.py \
     --val_data     ./training_data/dataset_val.jsonl \
-    --adapter_path ./finetuned_model_v4 \
-    --output_dir   ./evaluation/results
+    --adapter_path ./finetuned_model_v4b \
+    --output_dir   ./evaluation/eval_results
 ```
 
 ## RunPod Setup
@@ -207,16 +218,42 @@ rclone sync "dropbox_OCR:18. Administrative data NDC/04. Data entry/2023" \
 rclone sync "dropbox_OCR:.../94. January 2023" "./training_data/images/94. January 2023/" --progress
 ```
 
+## Evaluation Results (finetuned_model_v4b)
+
+Evaluated on 37 validation examples across all sections (January–August 2023).
+
+| Metric | Value |
+|---|---|
+| Examples evaluated | 32 / 37 |
+| **Avg cell accuracy** | **38.5%** |
+
+**Strong columns (≥80%):**
+
+| Column | Accuracy |
+|---|---|
+| Prix | 100% |
+| nombre_de_payeurs_de_la_taxe | 100% |
+| l_prix_de_vente_a_l_unitefc | 100% |
+| currency | 100% |
+| l_quantite_vendue | 89.7% |
+| l_remain_last_mth | 89.7% |
+| l_date_de_vente | 87.2% |
+| l_quantite_distribuee | 84.6% |
+| l_overall_total | 82.1% |
+
+**Weak areas:** Observations column (transcription style mismatch), incident-record section (M3), and D_cig dates.
+
+The evaluation script strips DB-only metadata columns (`annee`, `mois`, sequential row counters) from both GT and model output before scoring, to only compare what is actually visible in the scanned image.
+
 ## Roadmap
 
 - [x] Data pipeline: Excel + images → JSONL training pairs
 - [x] Exact page-level image–row matching via `page_num`
 - [x] Three image naming styles (coded, paged, numbered) + PDF support
-- [x] Per-section prompt instructions (unit stripping, date reformatting, I_autorisation)
 - [x] 8-month dataset (January–August 2023, ~600 examples)
-- [x] QLoRA fine-tuning (v2: Jan–Feb; v3: Jan–Apr; v4: Jan–Aug in progress)
-- [x] Evaluation pipeline with per-column accuracy reporting
-- [ ] Benchmark: v3 vs v4 extraction accuracy
+- [x] QLoRA fine-tuning (v2: Jan–Feb; v3: Jan–Apr; v4b: Jan–Aug, 38.5% cell accuracy)
+- [x] Evaluation pipeline with per-column accuracy reporting and HTML result viewer
+- [ ] Improve weak sections (M3 incidents, Observations text normalization)
 - [ ] Expand to remaining months of 2023
 
 ## Upstream: DeepSeek-OCR

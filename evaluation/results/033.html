@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Example 33/37</title>
+
+<style>
+  body { font-family: sans-serif; font-size: 13px; margin: 20px; }
+  h2 { color: #333; }
+  h4 { margin: 0 0 8px 0; color: #555; border-bottom: 1px solid #eee; padding-bottom: 4px; }
+  .image-path { font-size: 12px; color: #888; margin-bottom: 16px; }
+  .section { margin-bottom: 24px; }
+  table { border-collapse: collapse; width: 100%; font-size: 12px; margin-bottom: 8px; }
+  td, th { border: 1px solid #ddd; padding: 5px 10px; text-align: left; }
+  tr:nth-child(even) { background: #f9f9f9; }
+  thead tr { background: #e8f0fe; }
+  pre { background: #f5f5f5; padding: 10px; font-size: 11px; white-space: pre-wrap; word-break: break-word; border-radius: 4px; }
+  .nav { margin-bottom: 20px; font-size: 13px; }
+  .nav a { margin-right: 12px; color: #1a73e8; text-decoration: none; }
+  .nav a:hover { text-decoration: underline; }
+</style>
+
+</head>
+<body>
+<div class="nav"><a href="index.html">Index</a> <a href="032.html">← Prev</a> <a href="034.html">Next →</a> <span style="color:#999">33/37</span></div>
+<h2>Example 33</h2>
+<div class="image-path">training_data/images/96. March 2023/113.jpg</div>
+
+<div class="section">
+  <h4>Ground Truth</h4>
+  <table><tr><td>annee</td><td>mois</td><td>num_de_combat</td><td>date_de_debut</td><td>dete_de_fin</td><td>num_de_front</td><td>groupment</td><td>village_lieu_combat</td><td>unite_impliquee</td><td>toute_grigri_supplementaire</td><td>nom_groupe_initiateur</td><td>nombre_de_membres_combat_initiateur</td><td>nom_groupe_attaque</td><td>nombre_de_membres_combat_attaque</td><td>nom_groupe_vaincu</td><td>membres_blesses_vaincu</td><td>membres_captures_vaincu</td><td>membres_tues_vaincu</td><td>nom_groupe_vainqueur</td><td>membres_blesses_vainqueur</td><td>membres_captures_vainqueur</td><td>membres_tues_vainqueurs</td><td>descrip_gain_objectif</td></tr><tr><td>2023</td><td>Mars</td><td>1</td><td>2023-03-16</td><td>2023-03-18</td><td>1</td><td>MASISI</td><td>RUBAYA</td><td>11;12</td><td>AUCUN</td><td>NDC, FARDC</td><td>300</td><td>M23</td><td>Pas de precision</td><td>M23</td><td>Pas de precision</td><td>Pas de precision</td><td>Pas de precision</td><td>NDC, FARDC</td><td>2</td><td>0</td><td>5</td><td>Les ennemis ont été repoussés</td></tr></table>
+</div>
+
+<div class="section">
+  <h4>Model Output (cleaned)</h4>
+  <table>日期> month> day> hour> min> text
+<table><tr><td>Num. de petite active</td><td>Date de début<br/>joul/mais/année<br/>(Si commencé<br/>avant, "en<br/>cours")</td><td>Date de fin<br/>joul/mois/année<br/>(Si toujours<br/>actif à la fin,<br>"toujours<br/>actif")</td><td>Num.</td><td>Groupement<br/>dans lequel<br/>cette petite<br/>activité a eu<br/>lieu</td><td>Village dans lequel cette petite activité a eu lieu</td><td>Unité(s)<br/>impliquée(s)<br/>dans la petite activité</td><td>Toute grigri<br/>supplémentaire pour cette activité que n'est pas déjà mentionnée pour tout le front. (ou "aucun")</td><td>Group initiateur de la petite activité</td><td>Nombre de<br/>membres<br/>à la petite<br/>activité</td><td>Groupe attaqué</td></tr><tr><td>1.</td><td>2023-03-16</td><td>2023-03-18</td><td>1</td><td>M4S1S1<br/>RUBYJA</td><td>BUNA</td><td>11e et 12e units</td><td>ANUNC</td><td>NDC, FARDC<br/>et la utility<br/>britannique</td><td>123 et<br/>1200<br/>RWAYOAS<br/>OVANAOAS</td><td>Pas<br/>de<br/>Désignation</td></tr><tr><td>2.</td><td>2023-03-22</td><td>2023-03-27</td><td>2</td><td>M4S1S1<br/>BIBOMBUE</td><td>M1</td><td>12e et 13e units</td><td>ANUNC</td><td>NDC, FARDC et<br/>la utility<br/>britannique</td><td>123 et<br/>1200<br/>RWAYOAS<br/>OVANAOAS</td><td>Pas<br/>de<br/>Description</td></tr><tr><td>3.</td><td>2023-03-29</td><td>2023-03-29</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>4.</td><td>2023-03-30</td><td>2023-03-30</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>5.</td><td>2023-03-30</td><td>2023-03-30</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>6.</td><td>2023-03-30</td><td>2023-03-30</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><tr><td>7.</td><td>2023-03-30</td><td>2023-03-30</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+</div>
+
+<div class="section">
+  <h4>Raw Output</h4>
+  <pre><|ref|>table<|/ref|><|det|>[[33, 202, 972, 902]]<|/det|>
+<table>日期> month> day> hour> min> text
+<table><tr><td>Num. de petite active</td><td>Date de début<br/>joul/mais/année<br/>(Si commencé<br/>avant, "en<br/>cours")</td><td>Date de fin<br/>joul/mois/année<br/>(Si toujours<br/>actif à la fin,<br>"toujours<br/>actif")</td><td>Num.</td><td>Groupement<br/>dans lequel<br/>cette petite<br/>activité a eu<br/>lieu</td><td>Village dans lequel cette petite activité a eu lieu</td><td>Unité(s)<br/>impliquée(s)<br/>dans la petite activité</td><td>Toute grigri<br/>supplémentaire pour cette activité que n'est pas déjà mentionnée pour tout le front. (ou "aucun")</td><td>Group initiateur de la petite activité</td><td>Nombre de<br/>membres<br/>à la petite<br/>activité</td><td>Groupe attaqué</td></tr><tr><td>1.</td><td>2023-03-16</td><td>2023-03-18</td><td>1</td><td>M4S1S1<br/>RUBYJA</td><td>BUNA</td><td>11e et 12e units</td><td>ANUNC</td><td>NDC, FARDC<br/>et la utility<br/>britannique</td><td>123 et<br/>1200<br/>RWAYOAS<br/>OVANAOAS</td><td>Pas<br/>de<br/>Désignation</td></tr><tr><td>2.</td><td>2023-03-22</td><td>2023-03-27</td><td>2</td><td>M4S1S1<br/>BIBOMBUE</td><td>M1</td><td>12e et 13e units</td><td>ANUNC</td><td>NDC, FARDC et<br/>la utility<br/>britannique</td><td>123 et<br/>1200<br/>RWAYOAS<br/>OVANAOAS</td><td>Pas<br/>de<br/>Description</td></tr><tr><td>3.</td><td>2023-03-29</td><td>2023-03-29</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>4.</td><td>2023-03-30</td><td>2023-03-30</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>5.</td><td>2023-03-30</td><td>2023-03-30</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>6.</td><td>2023-03-30</td><td>2023-03-30</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><tr><td>7.</td><td>2023-03-30</td><td>2023-03-30</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></pre>
+</div>
+
+<div class="nav"><a href="index.html">Index</a> <a href="032.html">← Prev</a> <a href="034.html">Next →</a></div>
+</body>
+</html>

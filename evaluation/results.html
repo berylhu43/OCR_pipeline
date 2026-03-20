@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>OCR Results</title>
+<style>
+  body { font-family: sans-serif; font-size: 13px; margin: 20px; }
+  .example { border: 1px solid #ccc; margin-bottom: 30px; padding: 15px; border-radius: 6px; }
+  h3 { margin-top: 0; color: #333; font-size: 14px; }
+  h4 { margin: 0 0 8px 0; color: #666; }
+  .tables { display: flex; gap: 20px; }
+  .col { flex: 1; overflow-x: auto; }
+  table { border-collapse: collapse; width: 100%; font-size: 12px; }
+  td, th { border: 1px solid #ddd; padding: 4px 8px; }
+  tr:nth-child(even) { background: #f9f9f9; }
+  pre { background: #f5f5f5; padding: 8px; font-size: 11px; overflow-x: auto; white-space: pre-wrap; }
+</style>
+</head>
+<body>
+<h1>OCR Model Results (20 examples)</h1>
+
+        <div class="example">
+            <h3>[1] training_data/images/101. August 2023/88.jpg</h3>
+            <div class="tables">
+                <div class="col">
+                    <h4>Ground Truth</h4>
+                    <table><tr><td>Month</td><td>Date</td><td>Marque</td><td>Quantite</td><td>Prix</td><td>Prix_Total</td><td>Observations</td></tr><tr><td>Aout</td><td>2023-08-14</td><td>Marqueur</td><td>4</td><td>0</td><td>0</td><td>RECUPERES</td></tr><tr><td>Aout</td><td>2023-08-17</td><td>Radio</td><td>9</td><td>0</td><td>0</td><td>RECUPERES</td></tr><tr><td>Aout</td><td>2023-08-17</td><td>Telephone mobile</td><td>3</td><td>0</td><td>0</td><td>RECUPERES</td></tr><tr><td>Aout</td><td>2023-08-24</td><td>Stylo</td><td>15</td><td>0</td><td>0</td><td>RECUPERES</td></tr><tr><td>Aout</td><td>2023-08-24</td><td>Petit format stylo</td><td>5</td><td>0</td><td>0</td><td>RECUPERES</td></tr><tr><td>Aout</td><td>2023-08-27</td><td>Tige de bois</td><td>11</td><td>0</td><td>0</td><td>RECUPERES</td></tr><tr><td>Aout</td><td>2023-08-27</td><td>Papier duplicateur</td><td>7</td><td>0</td><td>0</td><td>RECUPERES</td></tr></table>
+                </div>
+                <div class="col">
+                    <h4>Model Output (cleaned)</h4>
+                    <table><tr><td>An</td><td>Date</td><td>Marque</td><td>Quantite</td><td>Prix</td><td>Observations</td></tr><tr><td>2023</td><td>Avril</td><td>MAGNUM</td><td>4</td><td>0</td><td>Récupérer</td></tr><tr><td>2023</td><td>Avril</td><td>Radio</td><td>9</td><td>0</td><td>Reparner</td></tr><tr><td>2023</td><td>Avril</td><td>Telephone mobile</td><td>3</td><td>0</td><td>Reparner</td></tr><tr><td>2023</td><td>Avril</td><td>Stylo</td><td>15</td><td>0</td><td>Récupérer</td></tr><tr><td>2023</td><td>Avril</td><td>Stylo stylo<br>felt</td><td>5</td><td>0</td><td>Reparner</td></tr><tr><td>2023</td><td>Avril</td><td>Tige de bois</td><td>11</td><td>0</td><td>Récupérer</td></tr><tr><td>2023</td><td>Avril</td><td>Papier du plafond</td><td>7</td><td>0</td><td>Récupérer</td></tr></table>
+                </div>
+                <div class="col">
+                    <h4>Raw Output</h4>
+                    <pre><|ref|>table_caption<|/ref|><|det|>[[362, 90, 636, 110]]<|/det|>
+E/ Equipements ou outils
+
+<|ref|>table<|/ref|><|det|>[[67, 112, 936, 904]]<|/det|>
+
+<table><tr><td>An</td><td>Date</td><td>Marque</td><td>Quantite</td><td>Prix</td><td>Observations</td></tr><tr><td>2023</td><td>Avril</td><td>MAGNUM</td><td>4</td><td>0</td><td>Récupérer</td></tr><tr><td>2023</td><td>Avril</td><td>Radio</td><td>9</td><td>0</td><td>Reparner</td></tr><tr><td>2023</td><td>Avril</td><td>Telephone mobile</td><td>3</td><td...</pre>
+                </div>
+            </div>
+        </div>
+        
+        <div class="example">
+            <h3>[2] training_data/images/97. April 2023/37.jpg</h3>
+            <div class="tables">
+                <div class="col">
+                    <h4>Ground Truth</h4>
+                    <table><tr><td>annee</td><td>mois</td><td>groupement_corrected</td><td>nom_village</td><td>date_de_distribution_jetons</td><td>jetons_nombre_distribues</td><td>jetons_nombre_vendus</td><td>jetons_nombre_restants</td><td>recette_realisee_FC</td></tr><tr><td>2023</td><td>Avril</td><td>UTUNDA</td><td>MUNJULI</td><td>2023-04-04</td><td>625</td><td>623</td><td>2</td><td>623000</td></tr><tr><td>2023</td><td>Avril</td><td>UTUNDA</td><td>MAFOFOKI</td><td>2023-04-05</td><td>410</td><td>408</td><td>2</td><td>408000</td></tr><tr><td>2023</td><td>Avril</td><td>UTUNDA</td><td>BETOBETO 1</td><td>2023-04-05</td><td>203</td><td>203</td><td>0</td><td>203000</td></tr><tr><td>2023</td><td>Avril</td><td>UTUNDA</td><td>BETOBETO 2</td><td>2023-04-06</td><td>165</td><td>165</td><td>0</td><td>165000</td></tr><tr><td>2023</td><td>Avril</td><td>UTUNDA</td><td>MUKUYU</td><td>2023-04-06</td><td>190</td><td>190</td><td>0</td><td>190000</td></tr><tr><td>2023</td><td>Avril</td><td>UTUNDA</td><td>CHARINGWANGWA</td><td>2023-04-07</td><td>193</td><td>191</td><td>2</td><td>191000</td></tr><tr><td>2023</td><td>Avril</td><td>UTUNDA</td><td>BIRESHE</td><td>2023-04-09</td><td>365</td><td>360</td><td>5</td><td>360000</td></tr><tr><td>2023</td><td>Avril</td><td>IHANA</td><td>BETELI</td><td>2023-04-10</td><td>628</td><td>628</td><td>0</td><td>628000</td></tr><tr><td>2023</td><td>Avril</td><td>IHANA</td><td>TWAMAKURU</td><td>2023-04-10</td><td>155</td><td>150</td><td>5</td><td>150000</td></tr><tr><td>2023</td><td>Avril</td><td>UTUNDA</td><td>PUMUZIKA</td><td>2023-04-12</td><td>150</td><td>147</td><td>3</td><td>147000</td></tr><tr><td>2023</td><td>Avril</td><td>UTUNDA</td><td>IRUMBA</td><td>2023-04-10</td><td>144</td><td>142</td><td>2</td><td>142000</td></tr><tr><td>2023</td><td>Avril</td><td>IHANA</td><td>MINSUNSU</td><td>2023-04-07</td><td>920</td><td>917</td><td>3</td><td>917000</td></tr><tr><td>2023</td><td>Avril</td><td>UTUNDA</td><td>MAJENGO</td><td>2023-04-08</td><td>166</td><td>161</td><td>5</td><td>161000</td></tr><tr><td>2023</td><td>Avril</td><td>UTUNDA</td><td>IYOYA</td><td>2023-04-08</td><td>130</td><td>130</td><td>0</td><td>130000</td></tr></table>
+                </div>
+                <div class="col">
+                    <h4>Model Output (cleaned)</h4>
+                    <table>季節/月> | NO | NOM GROUPEment | NOM VILLAGE<br/>Nom Carriere | Date(s) exacte de<br/>distribution des jetons<br/>Jour/mois/année | Nombre de jetons<br/>distribues dans le<br/>village: | Nombre de jetons<br/>vendus dans le<br/>village: | Nombre de jetons<br/>restant: | RECETTE<br/>par village<br/>A-B | RECETTE<br/>total<br/>AFTERMATH<br/>OF JETONS |
+<table><tr><td>27</td><td>UTUNDA</td><td>MWINJULI</td><td>2023-04-04</td><td>625</td><td>625</td><td>2</td><td>625</td><td>6000</td></tr><tr><td>28</td><td>UTUNDA</td><td>MAFOFOKI</td><td>2023-04-05</td><td>410</td><td>408</td><td>2</td><td>408</td><td>4000</td></tr><tr><td>29</td><td>UTUNDA</td><td>BETOBETO 1</td><td>2023-04-06</td><td>203</td><td>203</td><td>0</td><td>203</td><td>2000</td></tr><tr><td>30</td><td>UTUNDA</td><td>BETOBETO 2</td><td>2023-04-06</td><td>165</td><td>165</td><td>0</td><td>165</td><td>1600</td></tr><tr><td>31</td><td>UTUNDA</td><td>MUKUYU</td><td>2023-04-06</td><td>190</td><td>190</td><td>0</td><td>190</td><td>1800</td></tr><tr><td>32</td><td>UTUNDA</td><td>CHARIANGAWANGWA</td><td>2023-04-07</td><td>193</td><td>191</td><td>2</td><td>191</td><td>1800</td></tr><tr><td>33</td><td>UTUNDA</td><td>BIBESHE</td><td>2023-04-08</td><td>365</td><td>360</td><td>5</td><td>360</td><td>3000</td></tr><tr><td>34</td><td>IHANA</td><td>BETELI</td><td>2023-04-10</td><td>628</td><td>628</td><td>0</td><td>628</td><td>6000</td></tr><tr><td>35</td><td>IHANA</td><td>TWAMAKURU</td><td>2023-04-10</td><td>155</td><td>150</td><td>5</td><td>150</td><td>6000</td></tr><tr><td>36</td><td>UTUNDA</td><td>PUMUZIKA</td><td>2023-04-12</td><td>150</td><td>147</td><td>3</td><td>147</td><td>6000</td></tr><tr><td>37</td><td>UTUNDA</td><td>IRUMBA</td><td>2023-04-10</td><td>144</td><td>142</td><td>2</td><td>142</td><td>6000</td></tr><tr><td>38</td><td>IHANA</td><td>MINSUNSU</td><td>2023-04-07</td><td>920</td><td>917</td><td>3</td><td>920</td><td>6000</td></tr><tr><td>39</td><td>UTUNDA</td><td>MAJESU 0</td><td>2023-04-08</td><td>166</td><td>161</td><td>5</td><td>161</td><td>6000</td></tr><tr><td>40</td><td>UTUNDA</td><td>IYOYA</td><td>2023-04-08</td><td>130</td><td>130</td><td>0</td><td>130</td><td>6000</td></tr></table>
+                </div>
+                <div class="col">
+                    <h4>Raw Output</h4>
+                    <pre><|ref|>table<|/ref|><|det|>[[66, 111, 978, 880]]<|/det|>
+<table>季節/月> | NO | NOM GROUPEment | NOM VILLAGE<br/>Nom Carriere | Date(s) exacte de<br/>distribution des jetons<br/>Jour/mois/année | Nombre de jetons<br/>distribues dans le<br/>village: | Nombre de jetons<br/>vendus dans le<br/>village: | Nombre de jetons<br/>restant: | RECETTE<br/>par village<br/>A-B | RECETTE<br/>total<br/>AFTERMATH<br/>OF JETONS |
+<table><tr><td>27</td><td>UTUNDA</td><td>MWINJULI</td><td>2023-04-04</td><td>625</td><t...</pre>
+                </div>
+            </div>
+        </div>
+        
+        <div class="example">
+            <h3>[3] training_data/images/97. April 2023/119.jpg</h3>
+            <div class="tables">
+                <div class="col">
+                    <h4>Ground Truth</h4>
+                    <table><tr><td>annee</td><td>mois</td><td>Num</td><td>date_incident</td><td>groupement</td><td>village</td><td>village_carriere</td><td>desc_incident</td><td>date_signa_pol</td><td>other_authority</td><td>reason_pol</td><td>date_resolution</td><td>desc_resolution</td></tr><tr><td>2023</td><td>Avril</td><td>6</td><td>2023-04-26</td><td>IHANA</td><td>MISAU</td><td>V</td><td>Deux amis se sont bagarrés à cause de l'infidélité. L'un a trouvé en flagrance l'autre avec sa femme.</td><td>2023-04-26</td><td>la police</td><td>Rétablir l'ordre public</td><td>2023-04-27</td><td>Le premier est arrêté pour s'être rendu justice et le second pour bagarre et pour avoir pris la femme d'autrui.</td></tr><tr><td>2023</td><td>Avril</td><td>7</td><td>4//28/2023</td><td>USALA</td><td>NYAKISUNGUSA</td><td>C</td><td>Un creuseur a été retrouvé mort dans le trou de mine.</td><td>2023-04-29</td><td>Chef de cité, Pas de solution avant</td><td>Retrouver la justice</td><td>Pas résolu</td><td>Les enquêtes sont en cours, tout le collègue et le propriétaire du trou aux arrêts.</td></tr></table>
+                </div>
+                <div class="col">
+                    <h4>Model Output (cleaned)</h4>
+                    <table>日期/><br/>MOIS DE<br/>Avril<br/>ANNEE 2023<br/>PAGE NUMERO 119
+<table><tr><td>No</td><td>Date exacte de l'incident</td><td>Groupement et Nom du Village ou Carriere</td><td>Village ou Carriere</td><td>Date de l'incident</td><td>Description de l'incident</td><td>Date exacte à laquelle l'incident a été signalé la police</td><td>Les autres autorites impliquees (par ex. autorites coutumiers, PNC, etc.) et les solutions qui ont ete essayees avant que la police du groupe ait ete impliquee</td><td>Raison de l'implication de la police au seine du groupe</td><td>Date exacte à laquelle l'incident a été résolu<br/>(jour/mois/année)</td><td>Description de la facon dont l'incident a ete résolu</td><td>OU</td></tr><tr><td>1</td><td>2023-04-26</td><td>IHANA MISAU</td><td>WALOWA SES SORT D'ORGEAIRE A CAUSE DE L'INFIDELITE. L'UN A TROUVEE EN FLORA NE L'AUTRE ERRE COMPAGNE.</td><td>2023-04-26</td><td>LA POLICE</td><td>BATЫН</td><td>2023-04-27</td><td>Pas de precision</td><td>Le premier est avare pour si avoir tendu justice et le second pour broyage et pour avoir pris la forme d'asthme.</td><td></td><td></td></tr><tr><td>2</td><td>2023-04-2023-04-27</td><td>NYAMISUNGU SAI (USALA)</td><td>MUTHEURAS A ETE NETTOYEE MORT AUS LE TROU DE MINE</td><td>2023-04-2023-04-28</td><td>CHEF DE SITE<br/>PAS DE SOLUTION AROUND</td><td>RESTONNER<br/>LE JUSTICE<br/>LE SECTEUR<br/>MINEIRA</td><td>2023-04-28</td><td>Pas de precision</td><td>Les enquete sont encore tout le collegue et le proprietaire du trou aux aveux</td><td></td><td></td></tr></table>
+                </div>
+                <div class="col">
+                    <h4>Raw Output</h4>
+                    <pre><|ref|>table<|/ref|><|det|>[[26, 105, 972, 870]]<|/det|>
+<table>日期/><br/>MOIS DE<br/>Avril<br/>ANNEE 2023<br/>PAGE NUMERO 119
+<table><tr><td>No</td><td>Date exacte de l'incident</td><td>Groupement et Nom du Village ou Carriere</td><td>Village ou Carriere</td><td>Date de l'incident</td><td>Description de l'incident</td><td>Date exacte à laquelle l'incident a été signalé la police</td><td>Les autres autorites impliquees (par ex. autorites coutumiers, PNC, etc.) et les solutions qui ont ete essayee...</pre>
+                </div>
+            </div>
+        </div>
+        
+        <div class="example">
+            <h3>[4] training_data/images/95. February 2023/B1_026.jpeg</h3>
+            <div class="tables">
+                <div class="col">
+                    <h4>Ground Truth</h4>
+                    <table><tr><td>annee</td><td>mois</td><td>groupement</td><td>nom_village</td><td>village_ou_carriere</td><td>date_de_debut_de_controle</td><td>nom_unite</td><td>nom_brigade</td><td>nom_bataillon</td><td>nom_compagne</td><td>nom_peleton</td><td>nom_section</td><td>population</td><td>nombre_staff_controle</td></tr><tr><td>2023</td><td>February</td><td>KISIMBA</td><td>BESE</td><td>V</td><td>2015-04-07</td><td>12</td><td>131</td><td>1312</td><td>2</td><td>2</td><td>1 2</td><td>660</td><td>25</td></tr><tr><td>2023</td><td>February</td><td>USALA</td><td>KAMISUKU 1</td><td>C</td><td>2015-04-07</td><td>11</td><td>111</td><td>1112</td><td>2</td><td>1</td><td>1 2</td><td>157</td><td>13</td></tr><tr><td>2023</td><td>February</td><td>UTUNDA</td><td>PUMUZIKA</td><td>C</td><td>2015-05-11</td><td>12</td><td>121</td><td>1211</td><td>1</td><td>1</td><td>1 2</td><td>180</td><td>14</td></tr><tr><td>2023</td><td>February</td><td>UTUNDA</td><td>MPOKO</td><td>C</td><td>2015-04-06</td><td>11</td><td>112</td><td>1122</td><td>2</td><td>1</td><td>1 2</td><td>142</td><td>15</td></tr><tr><td>2023</td><td>February</td><td>KISIMBA</td><td>BUKUCHA</td><td>V</td><td>2015-04-06</td><td>11</td><td>111</td><td>1111</td><td>1</td><td>2</td><td>1 2</td><td>1877</td><td>50</td></tr><tr><td>2023</td><td>February</td><td>USALA</td><td>CHOPO</td><td>V</td><td>2015-04-08</td><td>11</td><td>112</td><td>1122</td><td>2</td><td>2</td><td>2 1</td><td>2387</td><td>60</td></tr><tr><td>2023</td><td>February</td><td>USALA</td><td>ONINGA</td><td>C</td><td>2015-04-08</td><td>11</td><td>112</td><td>1122</td><td>2</td><td>1</td><td>1 2</td><td>770</td><td>25</td></tr><tr><td>2023</td><td>February</td><td>IHANA</td><td>IRAMESO</td><td>C</td><td>2015-04-08</td><td>11</td><td>111</td><td>1112</td><td>2</td><td>1</td><td>2 1</td><td>215</td><td>27</td></tr><tr><td>2023</td><td>February</td><td>IHANA</td><td>MIRONGE</td><td>C</td><td>2015-04-10</td><td>11</td><td>111</td><td>1112</td><td>1</td><td>2</td><td>1 2</td><td>143</td><td>11</td></tr><tr><td>2023</td><td>February</td><td>IHANA</td><td>TITI</td><td>C</td><td>2015-04-23</td><td>12</td><td>122</td><td>1221</td><td>2</td><td>2</td><td>2 1</td><td>142</td><td>11</td></tr><tr><td>2023</td><td>February</td><td>KISIMBA</td><td>MAASHA</td><td>V</td><td>2015-05-07</td><td>12</td><td>122</td><td>1211</td><td>2</td><td>1</td><td>2 1</td><td>880</td><td>40</td></tr><tr><td>2023</td><td>February</td><td>IHANA</td><td>BETELI</td><td>C</td><td>2015-05-07</td><td>12</td><td>121</td><td>1211</td><td>2</td><td>1</td><td>2 1</td><td>276</td><td>35</td></tr></table>
+                </div>
+                <div class="col">
+                    <h4>Model Output (cleaned)</h4>
+                    <table>季節
+<table>季節
+<table><tr><td>annee</td><td>mois</td><td>groupement</td><td>nom_village</td><td>village_ou_carriere</td><td>date_de_debut</td><td>nom_unite</td><td>nom_brigade</td><td>nom_bataillon</td><td>nom_compagne</td><td>nom_peleton</td><td>nom_section</td><td>population</td><td>nombre_staff_qui_controle</td></tr><tr><td>2023</td><td>Fevrier</td><td>KISIMBA</td><td>NESE</td><td>V</td><td>2025-02-07</td><td>12</td><td>131</td><td>1312</td><td>2</td><td>2</td><td>1 2</td><td>660</td><td>25</td></tr><tr><td>2023</td><td>Fevrier</td><td>USALA</td><td>KAMISUKU 1</td><td>C</td><td>2025-02-07</td><td>11</td><td>111</td><td>1112</td><td>2</td><td>1</td><td>1 2</td><td>157</td><td>13</td></tr><tr><td>2023</td><td>Fevrier</td><td>UTUNDA</td><td>JUMUZI 1</td><td>C</td><td>2025-02-10</td><td>12</td><td>121</td><td>1211</td><td>1</td><td>1</td><td>1 2</td><td>180</td><td>14</td></tr><tr><td>2023</td><td>Fevrier</td><td>UTUNDA</td><td>MPOKO</td><td>C</td><td>2025-02-06</td><td>11</td><td>111</td><td>1112</td><td>2</td><td>1</td><td>1 2</td><td>142</td><td>15</td></tr><tr><td>2023</td><td>Fevrier</td><td>KISIMBA</td><td>BUKUCHA</td><td>V</td><td>2025-02-06</td><td>11</td><td>111</td><td>1111</td><td>1</td><td>2</td><td>1 1</td><td>1877</td><td>50</td></tr><tr><td>2023</td><td>Fevrier</td><td>USALA</td><td>CHOPO</td><td>V</td><td>2025-02-08</td><td>11</td><td>111</td><td>1111</td><td>2</td><td>2</td><td>2 1</td><td>2387</td><td>60</td></tr><tr><td>2023</td><td>Fevrier</td><td>USALA</td><td>ONINGA</td><td>C</td><td>2025-02-08</td><td>11</td><td>111</td><td>1112</td><td>2</td><td>1</td><td>1 2</td><td>770</td><td>25</td></tr><tr><td>2023</td><td>Fevrier</td><td>IHANA</td><td>IRAMESO</td><td>C</td><td>2025-02-08</td><td>11</td><td>111</td><td>1111</td><td>2</td><td>1</td><td>2 1</td><td>215</td><td>27</td></tr><tr><td>2023</td><td>Fevrier</td><td>IHANA</td><td>MIRONGE</td><td>C</td><td>2025-02-10</td><td>11</td><td>111</td><td>1112</td><td>1</td><td>2</td><td>1 1</td><td>143</td><td>11</td></tr><tr><td>2023</td><td>Fevrier</td><td>IHANA</td><td>TITI</td><td>C</td><td>2025-02-09</td><td>12</td><td>122</td><td>1221</td><td>2</td><td>2</td><td>2 1</td><td>142</td><td>11</td></tr><tr><td>2023</td><td>Fevrier</td><td>KISIMBA</td><td>MAASHA</td><td>V</td><td>2025-02-07</td><td>12</td><td>122</td><td>1221</td><td>2</td><td>1</td><td>1 2</td><td>880</td><td>40</td></tr><tr><td>2023</td><td>Fevrier</td><td>IHANA</td><td>DETEKI</td><td>C</td><td>2025-02-07</td><td>12</td><td>121</td><td>1211</td><td>2</td><td>1</td><td>2 1</td><td>276</td><td>35</td></tr></table>
+                </div>
+                <div class="col">
+                    <h4>Raw Output</h4>
+                    <pre><|ref|>table<|/ref|><|det|>[[26, 119, 974, 870]]<|/det|>
+<table>季節
+<table>季節
+<table><tr><td>annee</td><td>mois</td><td>groupement</td><td>nom_village</td><td>village_ou_carriere</td><td>date_de_debut</td><td>nom_unite</td><td>nom_brigade</td><td>nom_bataillon</td><td>nom_compagne</td><td>nom_peleton</td><td>nom_section</td><td>population</td><td>nombre_staff_qui_controle</td></tr><tr><td>2023</td><td>Fevrier</td><td>KISIMBA</td><td>NESE</td><td>V</td><td>2025-02-07</td><td>12</td><td>131</td><td...</pre>
+                </div>
+            </div>
+        </div>
+        
+        <div class="example">
+            <h3>[5] training_data/images/95. February 2023/B1_032.jpeg</h3>
+            <div class="tables">
+                <div class="col">
+                    <h4>Ground Truth</h4>
+                    <table><tr><td>annee</td><td>mois</td><td>groupement</td><td>nom_village</td><td>village_ou_carriere</td><td>date_de_debut_de_controle</td><td>nom_unite</td><td>nom_brigade</td><td>nom_bataillon</td><td>nom_compagne</td><td>nom_peleton</td><td>nom_section</td><td>population</td><td>nombre_staff_controle</td></tr><tr><td>2023</td><td>February</td><td>IHANA</td><td>KAUMBO</td><td>V</td><td>2017-07-10</td><td>12</td><td>122</td><td>1221</td><td>2</td><td>2</td><td>2 1</td><td>118</td><td>10</td></tr><tr><td>2023</td><td>February</td><td>IHANA</td><td>LIBY</td><td>V</td><td>2017-07-10</td><td>13</td><td>131</td><td>1312</td><td>2</td><td>2</td><td>1 2</td><td>170</td><td>10</td></tr><tr><td>2023</td><td>February</td><td>IHANA</td><td>MABUSA</td><td>V</td><td>2017-07-10</td><td>12</td><td>121</td><td>1211</td><td>2</td><td>2</td><td>1 2</td><td>211</td><td>28</td></tr><tr><td>2023</td><td>February</td><td>IHANA</td><td>MITAMBA</td><td>V</td><td>2017-07-13</td><td>12</td><td>122</td><td>1221</td><td>1</td><td>1</td><td>1 2</td><td>150</td><td>21</td></tr><tr><td>2023</td><td>February</td><td>IKOBO</td><td>IRU</td><td>V</td><td>2017-04-06</td><td>13</td><td>132</td><td>1322</td><td>2</td><td>2</td><td>1 2</td><td>148</td><td>10</td></tr><tr><td>2023</td><td>February</td><td>IKOBO</td><td>KATINGA</td><td>V</td><td>2015-04-04</td><td>13</td><td>132</td><td>1321</td><td>1</td><td>1</td><td>2 1</td><td>1980</td><td>30</td></tr><tr><td>2023</td><td>February</td><td>USALA</td><td>LUBIRI</td><td>V</td><td>2015-04-10</td><td>11</td><td>111</td><td>1113</td><td>2</td><td>2</td><td>2 1</td><td>310</td><td>21</td></tr><tr><td>2023</td><td>February</td><td>USALA</td><td>MAKUTANO</td><td>V</td><td>2015-04-07</td><td>11</td><td>111</td><td>1111</td><td>2</td><td>2</td><td>1 2</td><td>440</td><td>13</td></tr><tr><td>2023</td><td>February</td><td>USALA</td><td>VUMILIA</td><td>V</td><td>2015-04-07</td><td>11</td><td>111</td><td>1112</td><td>1</td><td>1</td><td>1 2</td><td>213</td><td>15</td></tr><tr><td>2023</td><td>February</td><td>UTUNDA</td><td>MIKITI</td><td>V</td><td>2015-04-08</td><td>11</td><td>111</td><td>1113</td><td>2</td><td>1</td><td>2 1</td><td>226</td><td>10</td></tr><tr><td>2023</td><td>February</td><td>KISIMBA</td><td>BURUKO</td><td>V</td><td>2015-04-04</td><td>13</td><td>132</td><td>1321</td><td>2</td><td>2</td><td>1 2</td><td>309</td><td>10</td></tr><tr><td>2023</td><td>February</td><td>USALA</td><td>TOKELU</td><td>C</td><td>2015-04-10</td><td>11</td><td>113</td><td>1132</td><td>2</td><td>1</td><td>2 1</td><td>673</td><td>10</td></tr></table>
+                </div>
+                <div class="col">
+                    <h4>Model Output (cleaned)</h4>
+                    <table>季節
+<table>季節
+<tr><td>編碼</td><td>年份</td><td>月份</td><td>groupement</td><td>nom_village</td><td>village_ou_carriere</td><td>date_de_debut_du_control_ce_village/start_date_ce_village</td><td>nom_unite_de_responsable</td><td>nom_brigade_de_responsable</td><td>nom_bataillon_de_responsable</td><td>nom_compagne_de_responsable</td><td>nom_peleton_de_responsable</td><td>nom_peleton_de_responsable</td><td>population_du_village_controle</td><td>nombre_staff_qui_ controle_lavage</td></tr><tr><td>36</td><td>2023</td><td>February</td><td>IRAMBA</td><td>KASUMBA</td><td>V</td><td>2017</td><td>12</td><td>121</td><td>2</td><td>2 1</td><td>2 1 2</td><td>118</td><td>10</td><td></td></tr><tr><td>37</td><td>2023</td><td>February</td><td>IHANA</td><td>LUBY</td><td>V</td><td>2017</td><td>13</td><td>131</td><td>2</td><td>2 1</td><td>1 2 2</td><td>170</td><td>10</td><td></td></tr><tr><td>38</td><td>2023</td><td>February</td><td>MANGA</td><td>MABUJA</td><td>V</td><td>2017</td><td>12</td><td>121</td><td>2</td><td>2 1</td><td>1 2 2</td><td>211</td><td>28</td><td></td></tr><tr><td>39</td><td>2023</td><td>February</td><td>ITANA</td><td>MITAMBA</td><td>V</td><td>2017</td><td>12</td><td>122</td><td>1</td><td>1 1</td><td>1 2 2</td><td>150</td><td>21</td><td></td></tr><tr><td>40</td><td>2023</td><td>February</td><td>IKOBO</td><td>IRU</td><td>V</td><td>2017</td><td>13</td><td>132</td><td>2</td><td>2 1</td><td>1 2 2</td><td>148</td><td>10</td><td></td></tr><tr><td>41</td><td>2023</td><td>February</td><td>IKOBO</td><td>KATINGA</td><td>V</td><td>2015</td><td>13</td><td>132</td><td>4</td><td>1 2</td><td>2 1 2</td><td>1980</td><td>30</td><td></td></tr><tr><td>42</td><td>2023</td><td>February</td><td>USALA</td><td>LUBIRI</td><td>V</td><td>2015</td><td>11</td><td>111</td><td>2</td><td>2 2</td><td>2 1 2</td><td>310</td><td>21</td><td></td></tr><tr><td>43</td><td>2023</td><td>February</td><td>USALA</td><td>MAKUTANO</td><td>V</td><td>2015</td><td>11</td><td>111</td><td>2</td><td>2 1</td><td>1 2 2</td><td>440</td><td>13</td><td></td></tr><tr><td>44</td><td>2023</td><td>February</td><td>USALA</td><td>UMILIA</td><td>V</td><td>2015</td><td>11</td><td>111</td><td>2</td><td>1 2</td><td>1 2 2</td><td>213</td><td>15</td><td></td></tr><tr><td>45</td><td>2023</td><td>February</td><td>UTUNDA</td><td>MIKITI</td><td>V</td><td>2015</td><td>11</td><td>111</td><td>2</td><td>2 1</td><td>2 2 1</td><td>226</td><td>10</td><td></td></tr><tr><td>46</td><td>2023</td><td>February</td><td>KISIMBA</td><td>BURUKO</td><td>V</td><td>2015</td><td>13</td><td>132</td><td>2</td><td>2 1</td><td>1 2 2</td><td>309</td><td>10</td><td></td></tr><tr><td>47</td><td>2023</td><td>February</td><td>USALA</td><td>TOKELU</td><td>C</td><td>2015</td><td>11</td><td>113</td><td>2</td><td>2 1</td><td>2 1 2</td><td>673</td><td>10</td><td></td></tr></table>
+                </div>
+                <div class="col">
+                    <h4>Raw Output</h4>
+                    <pre><|ref|>table<|/ref|><|det|>[[28, 150, 951, 870]]<|/det|>
+<table>季節
+<table>季節
+<tr><td>編碼</td><td>年份</td><td>月份</td><td>groupement</td><td>nom_village</td><td>village_ou_carriere</td><td>date_de_debut_du_control_ce_village/start_date_ce_village</td><td>nom_unite_de_responsable</td><td>nom_brigade_de_responsable</td><td>nom_bataillon_de_responsable</td><td>nom_compagne_de_responsable</td><td>nom_peleton_de_responsable</td><td>nom_peleton_de_responsable</td><td>population_du_village_controle</td><td...</pre>
+                </div>
+            </div>
+        </div>
+        
+        <div class="example">
+            <h3>[6] training_data/images/95. February 2023/D_081.jpeg</h3>
+            <div class="tables">
+                <div class="col">
+                    <h4>Ground Truth</h4>
+                    <table><tr><td>total_ou_detail_vente_l</td><td>annee</td><td>mois</td><td>nom_village</td><td>groupement_raw</td><td>l_date_de_vente</td><td>l_prix_de_vente_a_l_unitefc</td><td>l_quantite_distribuee</td><td>l_quantite_vendue</td><td>l_net_flow</td><td>l_remain_last_mth</td><td>l_overall_total</td><td>l_recette_totale_fc</td></tr><tr><td>65</td><td>2023</td><td>Feburary</td><td>NKANGA</td><td>IHANA</td><td>2023-02-09</td><td>50000</td><td>10</td><td>10</td><td>0</td><td>1</td><td>1</td><td>500000</td></tr><tr><td>66</td><td>2023</td><td>Feburary</td><td>MANINGE 1</td><td>IHANA</td><td>2023-02-11</td><td>50000</td><td>7</td><td>7</td><td>0</td><td>0</td><td>0</td><td>350000</td></tr><tr><td>67</td><td>2023</td><td>Feburary</td><td>BUSAO</td><td>UTUNDA</td><td>2023-02-10</td><td>50000</td><td>7</td><td>8</td><td>0</td><td>1</td><td>0</td><td>400000</td></tr><tr><td>68</td><td>2023</td><td>Feburary</td><td>NSOKA</td><td>IHANA</td><td>2023-02-09</td><td>50000</td><td>9</td><td>9</td><td>0</td><td>0</td><td>0</td><td>450000</td></tr><tr><td>69</td><td>2023</td><td>Feburary</td><td>BUERE</td><td>IHANA</td><td>2023-02-10</td><td>50000</td><td>10</td><td>11</td><td>0</td><td>2</td><td>1</td><td>550000</td></tr><tr><td>70</td><td>2023</td><td>Feburary</td><td>KAHANDE</td><td>IHANA</td><td>2023-02-10</td><td>50000</td><td>10</td><td>13</td><td>0</td><td>3</td><td>0</td><td>650000</td></tr><tr><td>71</td><td>2023</td><td>Feburary</td><td>KIMBA</td><td>USALA</td><td>2023-02-09</td><td>50000</td><td>6</td><td>6</td><td>0</td><td>0</td><td>0</td><td>300000</td></tr><tr><td>72</td><td>2023</td><td>Feburary</td><td>KATANGA</td><td>IHANA</td><td>2023-02-12</td><td>50000</td><td>6</td><td>6</td><td>0</td><td>0</td><td>0</td><td>300000</td></tr><tr><td>73</td><td>2023</td><td>Feburary</td><td>NGERI</td><td>USALA</td><td>2023-02-11</td><td>50000</td><td>8</td><td>8</td><td>0</td><td>0</td><td>0</td><td>400000</td></tr><tr><td>74</td><td>2023</td><td>Feburary</td><td>KALAMBAIRO</td><td>UTUNDA</td><td>2023-02-08</td><td>50000</td><td>10</td><td>10</td><td>0</td><td>0</td><td>0</td><td>500000</td></tr><tr><td>75</td><td>2023</td><td>Feburary</td><td>MIRONGE 1</td><td>IHANA</td><td>2023-02-10</td><td>50000</td><td>7</td><td>8</td><td>0</td><td>1</td><td>0</td><td>400000</td></tr><tr><td>76</td><td>2023</td><td>Feburary</td><td>MUKAKA</td><td>IHANA</td><td>2023-02-07</td><td>50000</td><td>8</td><td>7</td><td>1</td><td>0</td><td>1</td><td>350000</td></tr><tr><td>77</td><td>2023</td><td>Feburary</td><td>WANGO</td><td>UTUNDA</td><td>2023-02-10</td><td>50000</td><td>8</td><td>7</td><td>1</td><td>1</td><td>2</td><td>350000</td></tr></table>
+                </div>
+                <div class="col">
+                    <h4>Model Output (cleaned)</h4>
+                    <table><tr><td>annee</td><td>mois</td><td>lieu de vente</td><td>nom_village</td><td>groupement_de_vendeur</td><td>date_de_vente</td><td>prix_de_vente_a_l_unitefc</td><td>quantite_distribuee</td><td>quantite_vendue</td><td>quantite_stollevable</td><td>quantite_restant_dans_le_village</td><td>quantite_stollevable_par_boutie</td><td>quantite_bouteille_ou_caillote_fc</td><td>recette_totale_fc</td></tr><tr><td>2023</td><td>Fevrier</td><td>CORDON DUTTOU</td><td>IHANA</td><td>11h20</td><td>2023-02-09</td><td>10</td><td>10</td><td>10</td><td>0</td><td>1</td><td>1</td><td>500000</td><td></td></tr><tr><td>2023</td><td>Fevrier</td><td>CORDON DUTTOU</td><td>IHANA</td><td>11h20</td><td>2023-01-12</td><td>10</td><td>7</td><td>7</td><td>0</td><td>0</td><td>0</td><td>450000</td><td></td></tr><tr><td>2023</td><td>Fevrier</td><td>CORDON DUTTOU</td><td>IHANA</td><td>11h20</td><td>2003-01-11</td><td>10</td><td>7</td><td>8</td><td>0</td><td>1</td><td>0</td><td>400000</td><td></td></tr><tr><td>2023</td><td>Fevrier</td><td>CORDON DUTTOU</td><td>IHANA</td><td>11h20</td><td>2203-01-12</td><td>10</td><td>9</td><td>9</td><td>0</td><td>0</td><td>0</td><td>450000</td><td></td></tr><tr><td>2023</td><td>Fevrier</td><td>CORDON DUTTO U</td><td>IHANA</td><td>11h20</td><td>2023-01-12</td><td>10</td><td>10</td><td>11</td><td>0</td><td>2</td><td>1</td><td>550000</td><td></td></tr><tr><td>2023</td><td>Fevrier</td><td>CORDON DUTTOU</td><td>IHANA</td><td>11h20</td><td>2103-01-12</td><td>10</td><td>10</td><td>13</td><td>0</td><td>3</td><td>0</td><td>650000</td><td></td></tr><tr><td>2023</td><td>Fevrier</td><td>CORDON DUTTOU</td><td>IHANA</td><td>11h20</td><td>2013-01-12</td><td>10</td><td>6</td><td>6</td><td>0</td><td>0</td><td>0</td><td>300000</td><td></td></tr><tr><td>2023</td><td>Fevrier</td><td>CORDON DUTTOU</td><td>IHANA</td><td>11h20</td><td>2113-01-12</td><td>10</td><td>6</td><td>6</td><td>0</td><td>0</td><td>0</td><td>300000</td><td></td></tr><tr><td>2022</td><td>Fevrier</td><td>CORDON DUTTOU</td><td>IHANA</td><td>11h20</td><td>2022-01-11</td><td>10</td><td>8</td><td>8</td><td>0</td><td>0</td><td>0</td><td>400000</td><td></td></tr><tr><td>2022</td><td>Fevrier</td><td>CORDON DUTTOU</td><td>IHANA</td><td>11h20</td><td>2102-01-11</td><td>10</td><td>10</td><td>10</td><td>0</td><td>0</td><td>0</td><td>500000</td><td></td></tr><tr><td>2022</td><td>Fevrier</td><td>CORDON DUTTOU</td><td>IHANA</td><td>11h20</td><td>2012-01-11</td><td>10</td><td>7</td><td>8</td><td>0</td><td>1</td><td>0</td><td>450000</td><td></td></tr><tr><td>2022</td><td>Fevrier</td><td>CORDON DUTTOU</td><td>IHANA</td><td>11h20</td><td>2112-01-11</td><td>10</td><td>10</td><td>10</td><td>0</td><td>0</td><td>0</td><td>450000</td><td></td></tr><tr><td>2022</td><td>Fevrier</td><td>CORDON DUTTOU</td><td>IHANA</td></tr><|ref|>
+                </div>
+                <div class="col">
+                    <h4>Raw Output</h4>
+                    <pre><|ref|>table<|/ref|><|det|>[[26, 120, 953, 884]]<|/det|>
+<table><tr><td>annee</td><td>mois</td><td>lieu de vente</td><td>nom_village</td><td>groupement_de_vendeur</td><td>date_de_vente</td><td>prix_de_vente_a_l_unitefc</td><td>quantite_distribuee</td><td>quantite_vendue</td><td>quantite_stollevable</td><td>quantite_restant_dans_le_village</td><td>quantite_stollevable_par_boutie</td><td>quantite_bouteille_ou_caillote_fc</td><td>recette_totale_fc</td></tr><tr><td>2023</td><td>Fevrier</td><td>CORDO...</pre>
+                </div>
+            </div>
+        </div>
+        
+        <div class="example">
+            <h3>[7] training_data/images/95. February 2023/B1_029.jpeg</h3>
+            <div class="tables">
+                <div class="col">
+                    <h4>Ground Truth</h4>
+                    <table><tr><td>annee</td><td>mois</td><td>groupement</td><td>nom_village</td><td>village_ou_carriere</td><td>date_de_debut_de_controle</td><td>nom_unite</td><td>nom_brigade</td><td>nom_bataillon</td><td>nom_compagne</td><td>nom_peleton</td><td>nom_section</td><td>population</td><td>nombre_staff_controle</td></tr><tr><td>2023</td><td>February</td><td>IKOBO</td><td>KIMANGA</td><td>C</td><td>2017-07-16</td><td>12</td><td>121</td><td>1212</td><td>2</td><td>1</td><td>2 1</td><td>1300</td><td>56</td></tr><tr><td>2023</td><td>February</td><td>IKOBO</td><td>KAUMBO</td><td>V</td><td>2017-07-25</td><td>13</td><td>131</td><td>1311</td><td>1</td><td>2</td><td>1 2</td><td>900</td><td>30</td></tr><tr><td>2023</td><td>February</td><td>IKOBO</td><td>CHAMBULI</td><td>V</td><td>2017-07-18</td><td>13</td><td>131</td><td>1311</td><td>1</td><td>1</td><td>1 2</td><td>213</td><td>16</td></tr><tr><td>2023</td><td>February</td><td>IKOBO</td><td>KATSINGA</td><td>V</td><td>2017-07-18</td><td>13</td><td>131</td><td>1311</td><td>1</td><td>1</td><td>1 2</td><td>1206</td><td>40</td></tr><tr><td>2023</td><td>February</td><td>IHANA</td><td>BASOMBE</td><td>V</td><td>2017-07-24</td><td>13</td><td>131</td><td>1311</td><td>1</td><td>2</td><td>1 2</td><td>782</td><td>30</td></tr><tr><td>2023</td><td>February</td><td>UTUNDA</td><td>NGERI</td><td>C</td><td>2017-07-05</td><td>13</td><td>122</td><td>1322</td><td>1</td><td>1</td><td>2 1</td><td>1404</td><td>41</td></tr><tr><td>2023</td><td>February</td><td>KISIMBA</td><td>BURAI</td><td>V</td><td>2017-07-06</td><td>13</td><td>131</td><td>1312</td><td>2</td><td>2</td><td>1 2</td><td>665</td><td>40</td></tr><tr><td>2023</td><td>February</td><td>IHANA</td><td>BUERE</td><td>C</td><td>2017-05-28</td><td>12</td><td>121</td><td>1212</td><td>2</td><td>2</td><td>1 2</td><td>157</td><td>31</td></tr><tr><td>2023</td><td>February</td><td>IHANA</td><td>NKANGA</td><td>C</td><td>2017-05-28</td><td>12</td><td>121</td><td>1212</td><td>2</td><td>2</td><td>1 2</td><td>111</td><td>20</td></tr><tr><td>2023</td><td>February</td><td>IHANA</td><td>MANINGE</td><td>V</td><td>2017-05-29</td><td>12</td><td>122</td><td>1221</td><td>1</td><td>1</td><td>1 2</td><td>138</td><td>14</td></tr><tr><td>2023</td><td>February</td><td>IHANA</td><td>MUKAKA</td><td>V</td><td>2017-07-14</td><td>13</td><td>131</td><td>1311</td><td>2</td><td>1</td><td>1 2</td><td>125</td><td>10</td></tr><tr><td>2023</td><td>February</td><td>UTUNDA</td><td>MURINDE</td><td>C</td><td>2017-07-25</td><td>12</td><td>122</td><td>1221</td><td>1</td><td>1</td><td>1 2</td><td>117</td><td>15</td></tr></table>
+                </div>
+                <div class="col">
+                    <h4>Model Output (cleaned)</h4>
+                    <table>季節
+<table>季節
+<tr><td>no</td><td>groupement</td><td>nom_village</td><td>village (k)</td><td>date_de_debut_de_controle</td><td>nom_unite</td><td>nom_brigade</td><td>nom_bataillon</td><td>nom_compagne</td><td>nom_peleton</td><td>nom_section</td><td>population</td><td>nombre_staff_controle</td></tr><tr><td>30</td><td>IKOBO</td><td>KIMANGA</td><td>C</td><td>2017-07-16</td><td>12</td><td>121</td><td>1212</td><td>2</td><td>1</td><td>2 1</td><td>1300</td><td>56</td></tr><tr><td>31</td><td>IKOBO</td><td>KAUMBO</td><td>V</td><td>2017-07-05</td><td>13</td><td>131</td><td>1312</td><td>1</td><td>2</td><td>1 2</td><td>900</td><td>30</td></tr><tr><td>32</td><td>IKOBO</td><td>CHAMBULI</td><td>V</td><td>2017-07-18</td><td>13</td><td>131</td><td>1311</td><td>1</td><td>1</td><td>1 1</td><td>213</td><td>16</td></tr><tr><td>33</td><td>IKOBO</td><td>KATSINGA</td><td>V</td><td>2017-07-18</td><td>13</td><td>131</td><td>1311</td><td>1</td><td>1</td><td>1 1</td><td>1206</td><td>40</td></tr><tr><td>34</td><td>IHANA</td><td>KASOMBE</td><td>V</td><td>2017-07-24</td><td>13</td><td>131</td><td>1311</td><td>1</td><td>2</td><td>1 2</td><td>782</td><td>30</td></tr><tr><td>35</td><td>UTUNDA</td><td>NGERI</td><td>C</td><td>2017-07-05</td><td>13</td><td>132</td><td>1322</td><td>1</td><td>1</td><td>1 2</td><td>1404</td><td>41</td></tr><tr><td>36</td><td>KISIMBA</td><td>BURAI</td><td>V</td><td>2017-07-06</td><td>10</td><td>101</td><td>1322</td><td>2</td><td>2</td><td>1 2</td><td>665</td><td>40</td></tr><tr><td>37</td><td>IHANA</td><td>BUERE</td><td>C</td><td>2015-05-28</td><td>12</td><td>121</td><td>1212</td><td>2</td><td>2</td><td>1 2</td><td>157</td><td>31</td></tr><tr><td>38</td><td>IHANA</td><td>NKANGA</td><td>C</td><td>2015-05-22</td><td>12</td><td>121</td><td>1212</td><td>2</td><td>2</td><td>1 2</td><td>111</td><td>20</td></tr><tr><td>39</td><td>IHANA</td><td>MANINGE</td><td>V</td><td>2017-07-09</td><td>12</td><td>122</td><td>1222</td><td>1</td><td>1</td><td>1 2</td><td>138</td><td>14</td></tr><tr><td>40</td><td>IHANA</td><td>BUKAKA</td><td>V</td><td>2017-07-10</td><td>13</td><td>131</td><td>1311</td><td>2</td><td>1</td><td>1 2</td><td>125</td><td>10</td></tr><tr><td>41</td><td>UTUNDA</td><td>MURINDE</td><td>C</td><td>2017-07-25</td><td>12</td><td>122</td><td>1221</td><td>1</td><td>1</td><td>1 2</td><td>117</td><td>15</td></tr></table>
+                </div>
+                <div class="col">
+                    <h4>Raw Output</h4>
+                    <pre><|ref|>table<|/ref|><|det|>[[28, 140, 960, 870]]<|/det|>
+<table>季節
+<table>季節
+<tr><td>no</td><td>groupement</td><td>nom_village</td><td>village (k)</td><td>date_de_debut_de_controle</td><td>nom_unite</td><td>nom_brigade</td><td>nom_bataillon</td><td>nom_compagne</td><td>nom_peleton</td><td>nom_section</td><td>population</td><td>nombre_staff_controle</td></tr><tr><td>30</td><td>IKOBO</td><td>KIMANGA</td><td>C</td><td>2017-07-16</td><td>12</td><td>121</td><td>1212</td><td>2</td><td>1</td><td>2 1</t...</pre>
+                </div>
+            </div>
+        </div>
+        
+        <div class="example">
+            <h3>[8] training_data/images/94. January 2023/January 2023 page 26.jpeg</h3>
+            <div class="tables">
+                <div class="col">
+                    <h4>Ground Truth</h4>
+                    <table><tr><td>annee</td><td>mois</td><td>groupement</td><td>nom_village</td><td>village_ou_carriere</td><td>date_de_debut_de_controle</td><td>nom_unite</td><td>nom_brigade</td><td>nom_bataillon</td><td>nom_compagne</td><td>nom_peleton</td><td>nom_section</td><td>population</td><td>nombre_staff_controle</td></tr><tr><td>2023</td><td>January</td><td>KISIMBA</td><td>BESE</td><td>C</td><td>2015-04-07</td><td>131</td><td>131</td><td>1312</td><td>2</td><td>1</td><td>1 2</td><td>654</td><td>25</td></tr><tr><td>2023</td><td>January</td><td>USALA</td><td>KAMISUKU 1</td><td>C</td><td>2015-04-07</td><td>11</td><td>111</td><td>1112</td><td>1</td><td>1</td><td>1 2</td><td>156</td><td>13</td></tr><tr><td>2023</td><td>January</td><td>UTUNDA</td><td>PUMUZIKA</td><td>C</td><td>2015-05-11</td><td>12</td><td>121</td><td>1211</td><td>1</td><td>1</td><td>1 2</td><td>175</td><td>14</td></tr><tr><td>2023</td><td>January</td><td>UTUNDA</td><td>MPOKO</td><td>C</td><td>2015-04-06</td><td>11</td><td>112</td><td>1122</td><td>1</td><td>1</td><td>1 2</td><td>141</td><td>15</td></tr><tr><td>2023</td><td>January</td><td>KISIMBA</td><td>BUKUCHA</td><td>C</td><td>2015-04-06</td><td>11</td><td>111</td><td>1111</td><td>2</td><td>2</td><td>1 2</td><td>1890</td><td>50</td></tr><tr><td>2023</td><td>January</td><td>USALA</td><td>CHOPO</td><td>C</td><td>2015-04-08</td><td>11</td><td>112</td><td>1122</td><td>2</td><td>2</td><td>2 1</td><td>2385</td><td>60</td></tr><tr><td>2023</td><td>January</td><td>USALA</td><td>ONINGA</td><td>C</td><td>2015-04-08</td><td>11</td><td>112</td><td>1122</td><td>1</td><td>1</td><td>1 2</td><td>770</td><td>25</td></tr><tr><td>2023</td><td>January</td><td>IHANA</td><td>IRAMESO</td><td>C</td><td>2015-04-08</td><td>11</td><td>111</td><td>1111</td><td>1</td><td>2</td><td>2 1</td><td>214</td><td>27</td></tr><tr><td>2023</td><td>January</td><td>IHANA</td><td>MIRONGE</td><td>C</td><td>2015-04-10</td><td>11</td><td>111</td><td>1112</td><td>2</td><td>1</td><td>1 2</td><td>145</td><td>11</td></tr><tr><td>2023</td><td>January</td><td>IHANA</td><td>TITI</td><td>C</td><td>2015-04-29</td><td>12</td><td>122</td><td>1221</td><td>2</td><td>2</td><td>2 1</td><td>135</td><td>11</td></tr><tr><td>2023</td><td>January</td><td>KISIMBA</td><td>MAASHA</td><td>C</td><td>2015-05-07</td><td>12</td><td>122</td><td>1211</td><td>2</td><td>2</td><td>2 1</td><td>891</td><td>40</td></tr><tr><td>2023</td><td>January</td><td>IHANA</td><td>BETELI</td><td>C</td><td>2015-05-07</td><td>12</td><td>121</td><td>1211</td><td>2</td><td>2</td><td>2 1</td><td>274</td><td>35</td></tr></table>
+                </div>
+                <div class="col">
+                    <h4>Model Output (cleaned)</h4>
+                    <table>季節 year month day<table><tr><td>annee</td><td>mois</td><td>groupement</td><td>nomvillage<br/>carriere<br/>alternatives</td><td>village<br/>v date<br/>ou<br/>carriere</td><td>date_exacte<br/>de_debut<br/>du_controle</td><td>nomvillage<br/>cible</td><td>nomde la<br/>division</td><td>nomde la<br/>mpart<br/>de_village</td><td>nomde la<br/>comite<br/>responsable</td><td>nomde la<br/>SOUS-COMITE<br/>responsable</td><td>nomde la<br/>section<br/>responsable</td><td>population<br/>du_village<br/>(nombre de<br/>personnes<br/>au-dessus<br/>de 18 ans)</td><td>nombre<br/>de_staff<br/>qui<br/>controle<br/>le_village</td></tr><tr><td>2023</td><td>January</td><td>KISIMBA</td><td>BESE</td><td>V</td><td>2023-01-07</td><td>13e</br>cellule</td><td>1312</br>DIVISION</td><td>1312</br>DEPARTEMENT</td><td>2</td><td>2</td><td>122</br>SECTION</td><td>654</td><td>25</td></tr><tr><td>2023</td><td>January</td><td>USALA</td><td>KAMUJUKA</td><td>C</td><td>2023-01-09</td><td>1</br>m</br>c</br>l</br>l</br>e</br>l</br>u</br>l</br>e</br>l</br>i</br>n</br>d</br>o</br>r</br>s</br>t</br>a</br>t</br>i</br>o</br>n</br>s</br>t</br>a</br>t</br>i</br>o</br>n</br>s</br></br>s</br>t</br>a</br>t</br>i</br>o</br>n</br>s</br>s</br>t</br>a</br>t</br>i</br>o</br>n</br>s</br/>t</br>a</br>t</br>i</br>o</br>n</br>s</br>t</br>a</x</br>t</br>i</br>o</br>n</br>s</br>t</br>a</br>t</br>x</br>i</br>n</br>d</br>o</br>r</br>s</br>t</br>a</br>x</br>i</br>n</br>d</br>o</br>r</br>s</br>t</br>x</br>i</br>n</br>d</br>o</br>r</br>s</br>s</br>t</br>x</br>i</br>n</br>d</br>o</br>r</br>d</br>o</br>r</br>s</br>s</br>t</br>x</br>i</br>m</br>i</br>n</br>d</br>o</br>r</br>s</br>t</br>x</br>a</br>t</br>i</br>o</br>n</br>s</br>t</br>x</br>a</br>t</br>i</br>o</br>n</br>d</br>o</br>r</br>s</br>t</br>x</br>a</br>i</br>n</br>d</br>o</br>r</br>s</br>t</table>
+                </div>
+                <div class="col">
+                    <h4>Raw Output</h4>
+                    <pre><|ref|>table<|/ref|><|det|>[[75, 177, 980, 870]]<|/det|>
+<table>季節 year month day<table><tr><td>annee</td><td>mois</td><td>groupement</td><td>nomvillage<br/>carriere<br/>alternatives</td><td>village<br/>v date<br/>ou<br/>carriere</td><td>date_exacte<br/>de_debut<br/>du_controle</td><td>nomvillage<br/>cible</td><td>nomde la<br/>division</td><td>nomde la<br/>mpart<br/>de_village</td><td>nomde la<br/>comite<br/>responsable</td><td>nomde la<br/>SOUS-COMITE<br/>responsable</td><td>nomde la<br/>sectio...</pre>
+                </div>
+            </div>
+        </div>
+        
+        <div class="example">
+            <h3>[9] training_data/images/96. March 2023/98.jpg</h3>
+            <div class="tables">
+                <div class="col">
+                    <h4>Ground Truth</h4>
+                    <table><tr><td>total_ou_detail_tva</td><td>annee</td><td>mois</td><td>groupement_corrected</td><td>nom_village</td><td>nombre_chasseurs</td><td>nombre_creuseurs</td><td>nombre_producteurs_d_huile</td><td>nombre_cultivateurs</td><td>nombre_producteurs_boisson</td><td>nombre_d_autre_type</td><td>nombre_commercants_dans_village</td><td>nombre_de_payeurs_de_la_taxe</td><td>tva_total_recolte_fc</td></tr><tr><td>16</td><td>2023</td><td>Mars</td><td>IHANA</td><td>IRAMESO</td><td>43</td><td>340</td><td>33</td><td>40</td><td>46</td><td>31</td><td>533</td><td>533</td><td>533000</td></tr><tr><td>17</td><td>2023</td><td>Mars</td><td>USALA</td><td>CHOPO</td><td>35</td><td>170</td><td>40</td><td>316</td><td>33</td><td>1450</td><td>2044</td><td>2044</td><td>2044000</td></tr><tr><td>18</td><td>2023</td><td>Mars</td><td>IHANA</td><td>MIRONGE</td><td>50</td><td>40</td><td>30</td><td>37</td><td>38</td><td>32</td><td>227</td><td>227</td><td>227000</td></tr><tr><td>19</td><td>2023</td><td>Mars</td><td>USALA</td><td>KITURUKU</td><td>181</td><td>730</td><td>136</td><td>120</td><td>230</td><td>693</td><td>2090</td><td>2090</td><td>2090000</td></tr><tr><td>20</td><td>2023</td><td>Mars</td><td>UTUNDA</td><td>TITI</td><td>41</td><td>79</td><td>70</td><td>51</td><td>54</td><td>77</td><td>372</td><td>372</td><td>372000</td></tr><tr><td>21</td><td>2023</td><td>Mars</td><td>UTUNDA</td><td>IKERE</td><td>30</td><td>44</td><td>52</td><td>28</td><td>31</td><td>94</td><td>279</td><td>279</td><td>279000</td></tr><tr><td>22</td><td>2023</td><td>Mars</td><td>UTUNDA</td><td>KINCHIMBA</td><td>26</td><td>62</td><td>35</td><td>37</td><td>37</td><td>57</td><td>254</td><td>254</td><td>254000</td></tr><tr><td>23</td><td>2023</td><td>Mars</td><td>UTUNDA</td><td>KASUMBA</td><td>42</td><td>45</td><td>40</td><td>30</td><td>33</td><td>31</td><td>221</td><td>221</td><td>221000</td></tr><tr><td>24</td><td>2023</td><td>Mars</td><td>UTUNDA</td><td>MUNJULI</td><td>30</td><td>80</td><td>41</td><td>25</td><td>28</td><td>30</td><td>234</td><td>234</td><td>234000</td></tr><tr><td>25</td><td>2023</td><td>Mars</td><td>UTUNDA</td><td>MAFOFOKI</td><td>32</td><td>25</td><td>40</td><td>44</td><td>24</td><td>165</td><td>330</td><td>330</td><td>330000</td></tr><tr><td>26</td><td>2023</td><td>Mars</td><td>IHANA</td><td>KABONDO</td><td>23</td><td>31</td><td>38</td><td>32</td><td>22</td><td>205</td><td>351</td><td>351</td><td>351000</td></tr><tr><td>27</td><td>2023</td><td>Mars</td><td>USALA</td><td>ONINGA</td><td>98</td><td>803</td><td>39</td><td>371</td><td>36</td><td>108</td><td>1455</td><td>1455</td><td>1455000</td></tr><tr><td>28</td><td>2023</td><td>Mars</td><td>UTUNDA</td><td>BETOBETO 1</td><td>27</td><td>47</td><td>112</td><td>27</td><td>32</td><td>78</td><td>323</td><td>323</td><td>323000</td></tr><tr><td>29</td><td>2023</td><td>Mars</td><td>UTUNDA</td><td>BETOBETO 2</td><td>20</td><td>30</td><td>38</td><td>25</td><td>44</td><td>62</td><td>219</td><td>219</td><td>219000</td></tr><tr><td>30</td><td>2023</td><td>Mars</td><td>KISIMBA</td><td>BUKUCHA</td><td>18</td><td>445</td><td>65</td><td>30</td><td>36</td><td>690</td><td>1284</td><td>1284</td><td>1284000</td></tr><tr><td>31</td><td>2023</td><td>Mars</td><td>UTUNDA</td><td>MUKU</td><td>26</td><td>45</td><td>31</td><td>26</td><td>20</td><td>30</td><td>178</td><td>178</td><td>178000</td></tr></table>
+                </div>
+                <div class="col">
+                    <h4>Model Output (cleaned)</h4>
+                    <table><tr><td>Month</td><td>Num</td><td>Village et commune</td><td>Nombre de chasseurs</td><td>Nombre de creuseurs</td><td>Nombre de producteurs d'huile</td><td>Nombre de cultivateurs</td><td>Nombre de producteurs du boisson</td><td>Nombre d’autre type</td><td>Nombre de commerçants</td><td>Nombre de commerçants payeurs de la taxe</td><td>Recette totale venue payee dans ce village</td></tr><tr><td>Mars</td><td>16</td><td>IHANA</td><td>IRAMESO</td><td>43</td><td>340</td><td>33</td><td>40</td><td>46</td><td>31</td><td>533</td><td>533</td><td>533000</td></tr><tr><td>Mars</td><td>17</td><td>USALA</td><td>CHOPO</td><td>35</td><td>170</td><td>40</td><td>386</td><td>33</td><td>1450</td><td>2044</td><td>2044</td><td>2044000</td></tr><tr><td>Mars</td><td>18</td><td>IHANA</td><td>MIRONGE</td><td>50</td><td>40</td><td>20</td><td>37</td><td>38</td><td>32</td><td>227</td><td>227</td><td>227000</td></tr><tr><td>Mars</td><td>19</td><td>USALA</td><td>KITURUKU</td><td>181</td><td>730</td><td>136</td><td>120</td><td>230</td><td>693</td><td>2090</td><td>2090</td><td>2090000</td></tr><tr><td>Mars</td><td>20</td><td>UTUNDA</td><td>TITI</td><td>41</td><td>79</td><td>70</td><td>51</td><td>54</td><td>77</td><td>372</td><td>372</td><td>372000</td></tr><tr><td>Mars</td><td>21</td><td>UTUNDA</td><td>ILERE</td><td>30</td><td>44</td><td>52</td><td>28</td><td>31</td><td>94</td><td>279</td><td>279</td><td>279000</td></tr><tr><td>Mars</td><td>22</td><td>UTUNDA</td><td>KINCHIMBA</td><td>26</td><td>62</td><td>35</td><td>37</td><td>37</td><td>57</td><td>254</td><td>254</td><td>254000</td></tr><tr><td>Mars</td><td>23</td><td>UTUNDA</td><td>KASARA</td><td>42</td><td>45</td><td>40</td><td>30</td><td>33</td><td>31</td><td>221</td><td>221</td><td>221000</td></tr><tr><td>Mars</td><td>24</td><td>UTUNDA</td><td>MUNJULI</td><td>30</td><td>80</td><td>41</td><td>25</td><td>28</td><td>20</td><td>234</td><td>234</td><td>234000</td></tr><tr><td>Mars</td><td>25</td><td>UTUNDA</td><td>MAFOFOKI</td><td>32</td><td>25</td><td>40</td><td>24</td><td>24</td><td>165</td><td>330</td><td>330</td><td>330000</td></tr><tr><td>Mars</td><td>26</td><td>IHANA</td><td>MABONDO</td><td>23</td><td>31</td><td>38</td><td>32</td><td>22</td><td>205</td><td>351</td><td>351</td><td>351000</td></tr><tr><td>Mars</td><td>27</td><td>USALA</td><td>ONINGA</td><td>98</td><td>803</td><td>39</td><td>371</td><td>36</td><td>108</td><td>1455</td><td>1455</td><td>1455000</td></tr><tr><td>Mars</td><td>28</td><td>UTUNDA</td><td>BETOBETO 1</td><td>27</td><td>47</td><td>112</td><td>27</td><td>32</td><td>78</td><td>323</td><td>323</td><td>323000</td></tr><tr><td>Mars</td><td>29</td><td>UTUNDA</td><td>BETOBETO 2</td><td>20</td><td>30</td><td>38</td><td>25</td><td>44</td><td>62</td><td>219</td><td>219</td><td>219000</td></tr><tr><td>Mars</td><td>30</td><td>KISIMBA</td><td>BUKUCHA</td><td>18</td><td>445</td><td>65</td><td>30</td><td>36</td><td>690</td><td>1284</td><td>1284</td><td>1284000</td></tr><tr><td>Mars</td><td>31</td><td>UTUNDA</td><td>MUKUYU</td><td>26</td><td>45</td><td>31</td><td>26</td><td>20</td><td>30</td><td>178</td><td>178</td><td>1780000</td></tr></table>
+                </div>
+                <div class="col">
+                    <h4>Raw Output</h4>
+                    <pre><table><tr><td>Month</td><td>Num</td><td>Village et commune</td><td>Nombre de chasseurs</td><td>Nombre de creuseurs</td><td>Nombre de producteurs d'huile</td><td>Nombre de cultivateurs</td><td>Nombre de producteurs du boisson</td><td>Nombre d’autre type</td><td>Nombre de commerçants</td><td>Nombre de commerçants payeurs de la taxe</td><td>Recette totale venue payee dans ce village</td></tr><tr><td>Mars</td><td>16</td><td>IHANA</td><td>IRAMESO</td><td>43</td><td>340</td><td>33</td><td>40</td><td>...</pre>
+                </div>
+            </div>
+        </div>
+        
+        <div class="example">
+            <h3>[10] training_data/images/97. April 2023/75.jpg</h3>
+            <div class="tables">
+                <div class="col">
+                    <h4>Ground Truth</h4>
+                    <table><tr><td>total_ou_detail_vente_l</td><td>annee</td><td>mois</td><td>nom_village</td><td>groupement_raw</td><td>l_date_de_vente</td><td>l_prix_de_vente_a_l_unitefc</td><td>l_quantite_distribuee</td><td>l_quantite_vendue</td><td>l_net_flow</td><td>l_remain_last_mth</td><td>l_overall_total</td><td>l_recette_totale_fc</td></tr><tr><td>16</td><td>2023</td><td>Avril</td><td>BETOBETO 2</td><td>UTUNDA</td><td>2023-04-09</td><td>50000</td><td>8</td><td>8</td><td>0</td><td>0</td><td>0</td><td>400000</td></tr><tr><td>17</td><td>2023</td><td>Avril</td><td>MUKUYU</td><td>UTUNDA</td><td>2023-04-10</td><td>50000</td><td>7</td><td>7</td><td>0</td><td>0</td><td>0</td><td>350000</td></tr><tr><td>18</td><td>2023</td><td>Avril</td><td>BIRERE</td><td>UTUNDA</td><td>2023-04-10</td><td>50000</td><td>10</td><td>9</td><td>1</td><td>1</td><td>2</td><td>450000</td></tr><tr><td>19</td><td>2023</td><td>Avril</td><td>CHARINGWANGWA</td><td>UTUNDA</td><td>2023-04-08</td><td>50000</td><td>11</td><td>13</td><td>0</td><td>3</td><td>1</td><td>650000</td></tr><tr><td>20</td><td>2023</td><td>Avril</td><td>TWAMAKURU</td><td>IHANA</td><td>2023-04-11</td><td>50000</td><td>12</td><td>11</td><td>1</td><td>0</td><td>1</td><td>550000</td></tr><tr><td>21</td><td>2023</td><td>Avril</td><td>BETELI</td><td>IHANA</td><td>2023-04-12</td><td>50000</td><td>7</td><td>7</td><td>0</td><td>0</td><td>0</td><td>350000</td></tr><tr><td>22</td><td>2023</td><td>Avril</td><td>PUMUZIKA</td><td>UTUNDA</td><td>2023-04-12</td><td>50000</td><td>9</td><td>11</td><td>0</td><td>2</td><td>0</td><td>550000</td></tr><tr><td>23</td><td>2023</td><td>Avril</td><td>BUNESA</td><td>UTUNDA</td><td>2023-04-10</td><td>50000</td><td>9</td><td>9</td><td>0</td><td>0</td><td>0</td><td>450000</td></tr><tr><td>24</td><td>2023</td><td>Avril</td><td>MAJENGO</td><td>UTUNDA</td><td>2023-04-10</td><td>50000</td><td>11</td><td>10</td><td>1</td><td>0</td><td>1</td><td>500000</td></tr><tr><td>25</td><td>2023</td><td>Avril</td><td>IYOYA</td><td>UTUNDA</td><td>2023-04-09</td><td>50000</td><td>8</td><td>8</td><td>0</td><td>0</td><td>0</td><td>400000</td></tr><tr><td>26</td><td>2023</td><td>Avril</td><td>BIKOBA</td><td>UTUNDA</td><td>2023-04-08</td><td>50000</td><td>10</td><td>10</td><td>0</td><td>0</td><td>0</td><td>500000</td></tr><tr><td>27</td><td>2023</td><td>Avril</td><td>KAKORO</td><td>UTUNDA</td><td>2023-04-08</td><td>50000</td><td>8</td><td>8</td><td>0</td><td>0</td><td>0</td><td>400000</td></tr><tr><td>28</td><td>2023</td><td>Avril</td><td>MPOKO</td><td>UTUNDA</td><td>2023-04-10</td><td>50000</td><td>8</td><td>9</td><td>0</td><td>1</td><td>0</td><td>450000</td></tr><tr><td>29</td><td>2023</td><td>Avril</td><td>KAMISUKU</td><td>USALA</td><td>2023-04-10</td><td>50000</td><td>11</td><td>9</td><td>2</td><td>1</td><td>3</td><td>450000</td></tr></table>
+                </div>
+                <div class="col">
+                    <h4>Model Output (cleaned)</h4>
+                    <table><tr><td>Month</td><td>Lieu_de_vente</td><td>Nom_groupe_med_le_lieu_de_vente</td><td>Date(s)_de_vente</td><td>Prix_de_vente_a_l_unitefc</td><td>Quantite_distribuee</td><td>Quantite_vendue</td><td>Quantite_payees_restant_dans_la_village</td><td>Quantite_payees_restant_dans_la_region</td><td>Quantite_payees_dans_la_region</td><td>Recette_totale_fc</td></tr><tr><td>Avril</td><td>BETOBETO 2</td><td>UTUNDA</td><td>2023-04-05</td><td>50000</td><td>8</td><td>8</td><td>8</td><td>0</td><td>0</td><td>400000</td></tr><tr><td>Avril</td><td>MUKUYU</td><td>UTUNDA</td><td>2023-04-10</td><td>50000</td><td>7</td><td>7</td><td>7</td><td>0</td><td>0</td><td>350000</td></tr><tr><td>Avril</td><td>BIRERE</td><td>UTUNDA</td><td>2023-04-10</td><td>50000</td><td>10</td><td>9</td><td>10</td><td>1</td><td>1</td><td>450000</td></tr><tr><td>Avril</td><td>CHARINGWANGWA</td><td>UTUNDA</td><td>2023-04-08</td><td>50000</td><td>11</td><td>13</td><td>10</td><td>3</td><td>1</td><td>650000</td></tr><tr><td>Avril</td><td>TWAMAKURU</td><td>UTUNDA</td><td>2023-04-11</td><td>50000</td><td>12</td><td>11</td><td>11</td><td>0</td><td>1</td><td>550000</td></tr><tr><td>Avril</td><td>BETELI</td><td>IHANA</td><td>2023-04-12</td><td>50000</td><td>7</td><td>7</td><td>0</td><td>0</td><td>0</td><td>350000</td></tr><tr><td>Avril</td><td>POMUZIKA</td><td>UTUNDA</td><td>2023-04-12</td><td>50000</td><td>9</td><td>11</td><td>0</td><td>2</td><td>0</td><td>550000</td></tr><tr><td>Avril</td><td>BUNESA</td><td>UTUNDA</td><td>2023-04-10</td><td>50000</td><td>9</td><td>9</td><td>0</td><td>0</td><td>0</td><td>450000</td></tr><tr><td>Avril</td><td>MAJENGO</td><td>UTUNDA</td><td>2023-04-10</td><td>50000</td><td>11</td><td>10</td><td>0</td><td>0</td><td>1</td><td>400000</td></tr><tr><td>Avril</td><td>IYOYA</td><td>UTUNDA</td><td>2023-04-09</td><td>50000</td><td>8</td><td>8</td><td>0</td><td>0</td><td>0</td><td>500000</td></tr><tr><td>Avril</td><td>BIKO3A</td><td>UTUNDA</td><td>2023-04-08</td><td>50000</td><td>10</td><td>10</td><td>0</td><td>0</td><td>0</td><td>400000</td></tr><tr><td>Avril</td><td>KAKORO</td><td>UTUNDA</td><td>2023-04-08</td><td>50000</td><td>8</td><td>8</td><td>0</td><td>0</td><td>0</td><td>400000</td></tr><tr><td>Avril</td><td>MPOKO</td><td>UTUNDA</td><td>2023-04-10</td><td>50000</td><td>10</td><td>9</td><td>0</td><td>1</td><td>0</td><td>450000</td></tr><tr><td>Avril</td><td>KAMISURU</td><td>UTUNDA</td><td>2023-04-10</td><td>50000</td><td>9</td><td>9</td><td>0</td><td>2</td><td>0</td><td>450000</td></tr></table>
+                </div>
+                <div class="col">
+                    <h4>Raw Output</h4>
+                    <pre><table><tr><td>Month</td><td>Lieu_de_vente</td><td>Nom_groupe_med_le_lieu_de_vente</td><td>Date(s)_de_vente</td><td>Prix_de_vente_a_l_unitefc</td><td>Quantite_distribuee</td><td>Quantite_vendue</td><td>Quantite_payees_restant_dans_la_village</td><td>Quantite_payees_restant_dans_la_region</td><td>Quantite_payees_dans_la_region</td><td>Recette_totale_fc</td></tr><tr><td>Avril</td><td>BETOBETO 2</td><td>UTUNDA</td><td>2023-04-05</td><td>50000</td><td>8</td><td>8</td><td>8</td><td>0</td><td>0</td><t...</pre>
+                </div>
+            </div>
+        </div>
+        
+        <div class="example">
+            <h3>[11] training_data/images/97. April 2023/67.jpg</h3>
+            <div class="tables">
+                <div class="col">
+                    <h4>Ground Truth</h4>
+                    <table><tr><td>total_ou_detail_vente_c</td><td>annee</td><td>mois</td><td>nom_village</td><td>groupement_raw</td><td>c_date_de_vente</td><td>c_prix_de_vente_a_l_unitefc</td><td>c_quantite_distribuee</td><td>c_quantite_vendue</td><td>c_net_flow</td><td>c_remain_last_mth</td><td>c_overall_total</td><td>c_recette_totale_fc</td></tr><tr><td>61</td><td>2023</td><td>Avril</td><td>KALINGA</td><td>KISIMBA</td><td>2023-04-09</td><td>500000</td><td>9</td><td>8</td><td>1</td><td>1</td><td>2</td><td>4000000</td></tr><tr><td>62</td><td>2023</td><td>Avril</td><td>KOKO</td><td>KISIMBA</td><td>2023-04-12</td><td>500000</td><td>7</td><td>7</td><td>0</td><td>0</td><td>0</td><td>3500000</td></tr><tr><td>63</td><td>2023</td><td>Avril</td><td>KUMUTI</td><td>UTUNDA</td><td>2023-04-10</td><td>500000</td><td>6</td><td>6</td><td>0</td><td>0</td><td>0</td><td>3000000</td></tr><tr><td>64</td><td>2023</td><td>Avril</td><td>LANGIRA 2</td><td>IHANA</td><td>2023-04-10</td><td>500000</td><td>6</td><td>6</td><td>0</td><td>0</td><td>0</td><td>3000000</td></tr><tr><td>65</td><td>2023</td><td>Avril</td><td>MABUSA</td><td>IHANA</td><td>2023-04-09</td><td>500000</td><td>7</td><td>8</td><td>0</td><td>2</td><td>1</td><td>4000000</td></tr><tr><td>66</td><td>2023</td><td>Avril</td><td>MATEMBE</td><td>IHANA</td><td>2023-04-09</td><td>500000</td><td>7</td><td>7</td><td>0</td><td>0</td><td>0</td><td>3500000</td></tr><tr><td>67</td><td>2023</td><td>Avril</td><td>MITAMBA</td><td>IHANA</td><td>2023-04-10</td><td>500000</td><td>10</td><td>9</td><td>1</td><td>1</td><td>2</td><td>4500000</td></tr><tr><td>68</td><td>2023</td><td>Avril</td><td>MAVOCATE</td><td>IHANA</td><td>2023-04-10</td><td>500000</td><td>7</td><td>9</td><td>0</td><td>2</td><td>0</td><td>4500000</td></tr><tr><td>69</td><td>2023</td><td>Avril</td><td>BUTEMBO 1</td><td>IHANA</td><td>2023-04-08</td><td>500000</td><td>9</td><td>10</td><td>0</td><td>1</td><td>0</td><td>5000000</td></tr><tr><td>70</td><td>2023</td><td>Avril</td><td>MUKAKA</td><td>IHANA</td><td>2023-04-10</td><td>500000</td><td>10</td><td>9</td><td>1</td><td>0</td><td>1</td><td>4500000</td></tr><tr><td>71</td><td>2023</td><td>Avril</td><td>MINSUNSU</td><td>IHANA</td><td>2023-04-09</td><td>500000</td><td>7</td><td>8</td><td>0</td><td>1</td><td>0</td><td>4000000</td></tr><tr><td>72</td><td>2023</td><td>Avril</td><td>VUMILIA</td><td>USALA</td><td>2023-04-11</td><td>500000</td><td>7</td><td>8</td><td>0</td><td>1</td><td>0</td><td>4000000</td></tr><tr><td>73</td><td>2023</td><td>Avril</td><td>LUBIRI</td><td>USALA</td><td>2023-04-09</td><td>500000</td><td>9</td><td>9</td><td>0</td><td>0</td><td>0</td><td>4500000</td></tr></table>
+                </div>
+                <div class="col">
+                    <h4>Model Output (cleaned)</h4>
+                    <table>季節 nasc 年号 Annee 页码
+<table> décennale 层级 L<br>Lieu de vente<br>Nom Groupe-<br>dans chaque village<br>Prix de vente à l'unité<br>(par carton)<br>Recette totale<br>(F降O付L)|||||||||||
+<tr><td>59</td><td>MISHEESHE</td><td>IHANA</td><td>1/4 1/2 2/3</td><td>500 000</td><td>F</td><td>8</td><td>7</td><td>1</td><td>1</td><td>3500000</td></tr><tr><td>60</td><td>BUSHALINGWA</td><td>IHANA</td><td>1/4 1/2 2/3</td><td>500 000</td><td>F</td><td>9</td><td>10</td><td>0</td><td>1</td><td>5000000</td></tr><tr><td>61</td><td>KALINGA</td><td>KISIMBA 9/4 1/2 2/3</td><td>500 000</td><td>F</td><td>9</td><td>8</td><td>1</td><td>1</td><td>2</td><td>4000000</td></tr><tr><td>62</td><td>KOKO</td><td>KISIMBA 12/4 1/2 2/3</td><td>500 000</td><td>F</td><td>7</td><td>2</td><td>0</td><td>0</td><td>0</td><td>3500000</td></tr><tr><td>63</td><td>KUMUTI</td><td>UTUNDA 10/4 2/3</td><td>500 000</td><td>F</td><td>6</td><td>6</td><td>0</td><td>0</td><td>0</td><td>3000000</td></tr><tr><td>64</td><td>LANGIRA 2</td><td>IHANA</td><td>10/4 1/2 2/3</td><td>500 000</td><td>F</td><td>6</td><td>6</td><td>0</td><td>0</td><td>3000000</td></tr><tr><td>65</td><td>MABUSA</td><td>IHANA</td><td>9/4 2/3</td><td>500 000</td><td>F</td><td>7</td><td>8</td><td>2</td><td>1</td><td>4000000</td></tr><tr><td>66</td><td>MAPEMBE</td><td>IHANA</td><td>9/4 2/3</td><td>500 000</td><td>F</td><td>7</td><td>7</td><td>0</td><td>0</td><td>3500000</td></tr><tr><td>67</td><td>MITAMBA</td><td>IHANA</td><td>10/4 1/2 2/3</td><td>500 000</td><td>F</td><td>10</td><td>9</td><td>1</td><td>2</td><td>4500000</td></tr><tr><td>68</td><td>MAKOCATE</td><td>IHANA</td><td>10/4 1/2 2/3</td><td>500 000</td><td>F</td><td>7</td><td>9</td><td>2</td><td>0</td><td>4500000</td></tr><tr><td>69</td><td>BUTEMBOU</td><td>IHANA</td><td>8/4 1/2 2/3</td><td>500 000</td><td>F</td><td>9</td><td>10</td><td>1</td><td>0</td><td>5000000</td></tr><tr><td>70</td><td>MUKAKU</td><td>IHANA</td><td>10/4 1/2 2/3</td><td>500 000</td><td>F</td><td>10</td><td>9</td><td>1<td>0</td><td>4500000</td></tr><tr><td>71</td><td>MISUNGA</td><td>IHANA</td><td>9/4 1/2 2/3</td><td>500 000</td><td>F</td><td>7</td><td>8</td><td>1</td><td>0</td><td>4000000</td></tr><tr><td>72</td><td>LUMILIA</td><td>USALA</td><td>1/4 1/2 2/3</td><td>500 000</td><td>F</td><td>7</td><td>8</td><td>1</td><td>0</td><td>40000000</td></tr><tr><td>73</td><td>LIBIRI</td><td>USALA</td><td>9/4 2/3</td><td>500 000</td><td>F</td><td>9</td><td>9</td><td>0</td><td>0</td><td>45000000</td></tr></table>
+                </div>
+                <div class="col">
+                    <h4>Raw Output</h4>
+                    <pre><|ref|>table<|/ref|><|det|>[[54, 120, 965, 888]]<|/det|>
+<table>季節 nasc 年号 Annee 页码
+<table> décennale 层级 L<br>Lieu de vente<br>Nom Groupe-<br>dans chaque village<br>Prix de vente à l'unité<br>(par carton)<br>Recette totale<br>(F降O付L)|||||||||||
+<tr><td>59</td><td>MISHEESHE</td><td>IHANA</td><td>1/4 1/2 2/3</td><td>500 000</td><td>F</td><td>8</td><td>7</td><td>1</td><td>1</td><td>3500000</td></tr><tr><td>60</td><td>BUSHALINGWA</td><td>IHANA</td><td>1/4 1/2 2/3</td><td>500 000</td><td>F</td><td>9<...</pre>
+                </div>
+            </div>
+        </div>
+        
+        <div class="example">
+            <h3>[12] training_data/images/97. April 2023/97.jpg</h3>
+            <div class="tables">
+                <div class="col">
+                    <h4>Ground Truth</h4>
+                    <table><tr><td>total_ou_detail_tva</td><td>annee</td><td>mois</td><td>groupement_corrected</td><td>nom_village</td><td>nombre_chasseurs</td><td>nombre_creuseurs</td><td>nombre_producteurs_d_huile</td><td>nombre_cultivateurs</td><td>nombre_producteurs_boisson</td><td>nombre_d_autre_type</td><td>nombre_commercants_dans_village</td><td>nombre_de_payeurs_de_la_taxe</td><td>tva_total_recolte_fc</td></tr><tr><td>48</td><td>2023</td><td>Avril</td><td>UTUNDA</td><td>WANGO</td><td>28</td><td>43</td><td>37</td><td>27</td><td>31</td><td>30</td><td>196</td><td>196</td><td>196000</td></tr><tr><td>49</td><td>2023</td><td>Avril</td><td>UTUNDA</td><td>KAMISAI</td><td>20</td><td>53</td><td>24</td><td>26</td><td>42</td><td>29</td><td>194</td><td>194</td><td>194000</td></tr><tr><td>50</td><td>2023</td><td>Avril</td><td>UTUNDA</td><td>KONDEKONDE</td><td>17</td><td>110</td><td>34</td><td>38</td><td>35</td><td>63</td><td>297</td><td>297</td><td>297000</td></tr><tr><td>51</td><td>2023</td><td>Avril</td><td>IHANA</td><td>NKINGWE</td><td>23</td><td>139</td><td>30</td><td>30</td><td>41</td><td>60</td><td>323</td><td>323</td><td>323000</td></tr><tr><td>52</td><td>2023</td><td>Avril</td><td>IHANA</td><td>BICHAI</td><td>42</td><td>48</td><td>42</td><td>42</td><td>39</td><td>20</td><td>233</td><td>233</td><td>233000</td></tr><tr><td>53</td><td>2023</td><td>Avril</td><td>IHANA</td><td>MUHO</td><td>27</td><td>42</td><td>36</td><td>26</td><td>28</td><td>32</td><td>191</td><td>191</td><td>191000</td></tr><tr><td>54</td><td>2023</td><td>Avril</td><td>IHANA</td><td>MUFEREJI</td><td>31</td><td>30</td><td>24</td><td>27</td><td>42</td><td>27</td><td>181</td><td>181</td><td>181000</td></tr><tr><td>55</td><td>2023</td><td>Avril</td><td>IHANA</td><td>NSOKA</td><td>42</td><td>28</td><td>22</td><td>20</td><td>30</td><td>25</td><td>167</td><td>167</td><td>167000</td></tr><tr><td>56</td><td>2023</td><td>Avril</td><td>USALA</td><td>MANGOBO</td><td>31</td><td>31</td><td>19</td><td>26</td><td>30</td><td>20</td><td>157</td><td>157</td><td>157000</td></tr><tr><td>57</td><td>2023</td><td>Avril</td><td>UTUNDA</td><td>APITI MUCHANGA</td><td>36</td><td>28</td><td>23</td><td>32</td><td>28</td><td>33</td><td>180</td><td>180</td><td>180000</td></tr><tr><td>58</td><td>2023</td><td>Avril</td><td>IHANA</td><td>BIBASIRWA</td><td>27</td><td>25</td><td>20</td><td>21</td><td>47</td><td>35</td><td>175</td><td>175</td><td>175000</td></tr><tr><td>59</td><td>2023</td><td>Avril</td><td>IHANA</td><td>BUBURI</td><td>23</td><td>29</td><td>18</td><td>16</td><td>25</td><td>26</td><td>137</td><td>137</td><td>137000</td></tr><tr><td>60</td><td>2023</td><td>Avril</td><td>IHANA</td><td>MUNA</td><td>21</td><td>31</td><td>26</td><td>29</td><td>20</td><td>30</td><td>157</td><td>157</td><td>157000</td></tr><tr><td>61</td><td>2023</td><td>Avril</td><td>IHANA</td><td>KASUMBA</td><td>18</td><td>30</td><td>25</td><td>25</td><td>19</td><td>23</td><td>130</td><td>130</td><td>130000</td></tr><tr><td>62</td><td>2023</td><td>Avril</td><td>IHANA</td><td>NKOKO</td><td>31</td><td>27</td><td>20</td><td>21</td><td>42</td><td>20</td><td>161</td><td>161</td><td>161000</td></tr><tr><td>63</td><td>2023</td><td>Avril</td><td>UTUNDA</td><td>KABOMBO</td><td>35</td><td>33</td><td>19</td><td>26</td><td>36</td><td>27</td><td>176</td><td>176</td><td>176000</td></tr></table>
+                </div>
+                <div class="col">
+                    <h4>Model Output (cleaned)</h4>
+                    <table><tr><th colspan="2">Secteur d'ouverture</td><td>Annee</td><td>Mois</td><td>Nom_village</td><td>Nom_police</td><td>Nombre_chasseurs par village</td><td>Nombre_creuseurs par village</td><td>Nombre_produceurs d'huile par village</td><td>Nombre_cultivateurs par village</td><td>Nombre_producteurs du boisson alcoolise local par village</td><td>Nombre_d'autre_type</td><td>Nombre_commercants total dans ce village (c'est a dire, additionner tous les types par village)</td><td>Nombre_de_payeurs_de_la_taxe dans ce village</td><td>Recette_totale_FC</td></tr><tr><td>1</td><td>KIVUSHIRI</td><td>2023</td><td>Avril</td><td>UTUNDA</td><td>WUNDO</td><td>28</td><td>43</td><td>37</td><td>27</td><td>31</td><td>30</td><td>196</td><td>196</td><td>196000</td><td></td></tr><tr><td>2</td><td>KIVUSHIRI</td><td>2023</td><td>Avril</td><td>UTUNDA</td><td>ICAMISA 1</td><td>20</td><td>53</td><td>24</td><td>26</td><td>42</td><td>29</td><td>194</td><td>194</td><td>194000</td><td></td></tr><tr><td>3</td><td>KIVUSHIRI</td><td>2023</td><td>Avril</td><td>UTUNDA</td><td>KALBFKONDE</td><td>17</td><td>110</td><td>34</td><td>38</td><td>35</td><td>60</td><td>297</td><td>297</td><td>297000</td><td></td></tr><tr><td>4</td><td>KIVUSHIRI</td><td>2023</td><td>Avril</td><td>IHANA</td><td>NKINGWE</td><td>23</td><td>139</td><td>30</td><td>30</td><td>41</td><td>60</td><td>323</td><td>323</td><td>323000</td><td></td></tr><tr><td>5</td><td>KIVUSHIRI</td><td>2023</td><td>Avril</td><td>IHANA</td><td>BICHAI</td><td>42</td><td>48</td><td>42</td><td>42</td><td>39</td><td>20</td><td>233</td><td>233</td><td>233000</td><td></td></tr><tr><td>6</td><td>KIVUSHIRI</td><td>2023</td><td>Avril</td><td>IHANA</td><td>MUHO</td><td>27</td><td>42</td><td>36</td><td>26</td><td>28</td><td>32</td><td>191</td><td>191</td><td>191000</td><td></td></tr><tr><td>7</td><td>KIVUSHIRI</td><td>2023</td><td>Avril</td><td>IHANA</td><td>MUFEREJI</td><td>31</td><td>30</td><td>24</td><td>27</td><td>42</td><td>27</td><td>181</td><td>181</td><td>181000</td><td></td></tr><tr><td>8</td><td>KIVUSHIRI</td><td>2023</td><td>Avril</td><td>IHANA</td><td>NSOKA</td><td>42</td><td>28</td><td>22</td><td>20</td><td>30</td><td>25</td><td>167</td><td>167</td><td>167000</td><td></td></tr><tr><td>9</td><td>KIVUSHIRI</td><td>2023</td><td>Avril</td><td>USALA</td><td>MANGOTO</td><td>31</td><td>31</td><td>19</td><td>26</td><td>30</td><td>20</td><td>157</td><td>157</td><td>157000</td><td></td></tr><tr><td>10</td><td>KIVUSHIRI</td><td>2023</td><td>Avril</td><td>UTUNDA</td><td>BETHEWANA 4</td><td>36</td><td>28</td><td>23</td><td>32</td><td>28</td><td>33</td><td>180</td><td>180</td><td>180000</td><td></td></tr><tr><td>11</td><td>KIVUSHIRI</td><td>2023</td><td>Avril</td><td>IHANA</td><td>BIBASIRWA</td><td>27</td><td>25</td><td>20</td><td>21</td><td>47</td><td>35</td><td>175</td><td>175</td><td>175000</td><td></td></tr><tr><td>12</td><td>KIVUSHIRI</td><td>2023</td><td>Avril</td><td>IHANA</td><td>OBOVUR</td><td>23</td><td>29</td><td>18</td><td>16</td><td>25</td><td>26</td><td>137</td><td>137</td><td>137000</td><td></td></tr><tr><td>13</td><td>KIVUSHIRI</td><td>2023</td><td>Avril</td><td>IHANA</td><td>MWANGA</td><td>21</td><td>31</td><td>20</td><td>29</td><td>20</td><td>30</td><td>157</td><td>157</td><td>157000</td><td></td></tr><tr><td>14</td><td>KIVUSHIRI</td><td>2023</td><td>Avril</td><td>IHANA</td><td>KASUMBA</td><td>18</td><td>30</td><td>25</td><td>28</td><td>19</td><td>23</td><td>130</td><td>130</td><td>130000</td><td></td></tr><tr><td>15</td><td>KIVUSHIRI</td><td>2023</td><td>Avril</td><td>IHANA</td><td>NKOKO</td><td>31</td><td>27</td><td>20</td><td>21</td><td>42</td><td>20</td><td>161</td><td>161</td><td>161000</td><td></td></tr><tr><td>16</td><td>KIVUSHIRI</td><td>2023</td><td>Avril</td><td>UTUNDA</td><td>KABOMBO</td><td>35</td><td>33</td><td>19</td><td>26</td><td>36</td><td>27</td><td>176</td><td>176</td><td>176000</td><td></td></tr></table>
+                </div>
+                <div class="col">
+                    <h4>Raw Output</h4>
+                    <pre><table><tr><th colspan="2">Secteur d'ouverture</td><td>Annee</td><td>Mois</td><td>Nom_village</td><td>Nom_police</td><td>Nombre_chasseurs par village</td><td>Nombre_creuseurs par village</td><td>Nombre_produceurs d'huile par village</td><td>Nombre_cultivateurs par village</td><td>Nombre_producteurs du boisson alcoolise local par village</td><td>Nombre_d'autre_type</td><td>Nombre_commercants total dans ce village (c'est a dire, additionner tous les types par village)</td><td>Nombre_de_payeurs_de_...</pre>
+                </div>
+            </div>
+        </div>
+        
+        <div class="example">
+            <h3>[13] training_data/images/101. August 2023/109.jpg</h3>
+            <div class="tables">
+                <div class="col">
+                    <h4>Ground Truth</h4>
+                    <table><tr><td>annee</td><td>mois</td><td>balance_mois_passe</td><td>somme_totale_collectee</td><td>ration_alim_date_dep1</td><td>ration_alim_descrip_dep1</td><td>ration_alim_montant_dep1</td><td>currency</td><td>ration_alim_sum_fc</td><td>ration_alim_sum_usd</td><td>equipment_date_dep1</td><td>equipment_descrip_dep1</td><td>equipment_montant_dep1</td><td>equipment_devise_dep1</td><td>equipment_sum_fc</td><td>equipment_sum_usd</td><td>assist_social_date_dep1</td><td>assist_social_descrip_dep1</td><td>assist_social_montant_dep1</td><td>currency</td><td>assist_social_sum_fc</td><td>assist_social_sum_usd</td><td>achat_medical_date_dep1</td><td>achat_medical_descrip_dep1</td><td>achat_medical_montant_dep1</td><td>currency</td><td>achat_medical_sum_fc</td><td>achat_medical_sum_usd</td><td>paiment_staff_date_dep1</td><td>paiment_staff_descrip_dep1</td><td>paiment_staff_montant_dep1</td><td>currency</td><td>paiment_staff_sum_fc</td><td>paiment_staff_sum_usd</td><td>transport_date_dep1</td><td>transport_descrip_dep1</td><td>transport_montant_dep1</td><td>currency</td><td>transport_montant_sum_fc</td><td>transport_montant_sum_usd</td><td>autre_description</td><td>autre_montant_sum_fc</td><td>autre_montant_sum_usd</td><td>total_depenses_pour_le_mois_FC</td><td>balance_finale_de_ce_mois_FC</td></tr><tr><td>2023</td><td>Aout</td><td>101688312152</td><td>2629966000</td><td>NO DATA</td><td>RUVUNGI;NDJINGALA;PINGA</td><td>NO DATA</td><td>FC</td><td>10000000</td><td>40000</td><td>NO DATA</td><td>NO DATA</td><td>NO DATA</td><td>NO DATA</td><td>NO DATA</td><td>NO DATA</td><td>NO DATA</td><td>KIBUA;MISAU</td><td>NO DATA</td><td>FC</td><td>2500000</td><td>1000</td><td>NO DATA</td><td>GOMA;WALIKALE</td><td>NO DATA</td><td>FC</td><td>2500000</td><td>1000</td><td>NO DATA</td><td>IRAMESO;TCHOPO;BUKUMBIRWA</td><td>NO DATA</td><td>FC</td><td>662675000</td><td>265070</td><td>NO DATA</td><td>GOMA;WALIKALE</td><td>NO DATA</td><td>FC</td><td>22425000</td><td>8970</td><td>Achat materiaux des ventes</td><td>432787500</td><td>173115</td><td>1132887500</td><td>103165390652</td></tr></table>
+                </div>
+                <div class="col">
+                    <h4>Model Output (cleaned)</h4>
+                    <table><tr><td colspan="4">Balance dans le compte a la fin du mois précédent</td><td>A</td><td>181668312152FC</td></tr><tr><td colspan="4">Somme TOTALE collectée tout ce mois</td><td>B</td><td>2629966000FC</td></tr><tr><td>Catégories de dépenses</td><td>Date</td><td>Description ou Objet de la dépense</td><td>Montant de la dépense</td><td>Somme totale par catégorie de dépense (c'est-à-dire somme de toutes les dépenses indiquées pour cette catégorie de dépense)</td><td></td></tr><tr><td rowspan="3">Ration alimentaire</td><td></td><td>RWINGI</td><td></td><td>1000000FC</td><td></td></tr><tr><td></td><td>A05INGALA</td><td></td><td></td><td></td></tr><tr><td></td><td>PINGA</td><td></td><td></td><td></td></tr><tr><td>Equipement</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td rowspan="2">Assistance sociale</td><td></td><td>KIBUA</td><td></td><td>2500000FC</td><td></td></tr><tr><td></td><td>MISAU</td><td></td><td></td><td>1000FC</td></tr><tr><td>Achat médical</td><td></td><td>GOMA</td><td></td><td>2500000FC</td><td></td></tr><tr><td>Paiement Staff</td><td></td><td>UTALALE</td><td></td><td></td><td></td></tr><tr><td>Transport</td><td></td><td>IRAMESO<br/>TCHOPO<br/>BIXUMBIRWA</td><td></td><td>6626750000FC<br/>2650700FC</td><td></td></tr><tr><td>Autres dépenses</td><td></td><td>GOMA<br/>UTALALE</td><td></td><td>22425000FC<br/>8750FC</td><td></td></tr><tr><td></td><td></td><td>DEHAT<br/>DE<br/>MUTAMU<br/>KDE VENTE</td><td></td><td>4327875000FC<br/>1473115FC</td><td></td></tr><tr><td colspan="4">Dépenses totales de ce mois (C) = (c'est-à-dire la somme des dépenses toute catégories confondues)</td><td>A</td><td>1132887500FC</td></tr><tr><td colspan="4">Balance finale a la fin de ce mois (A+B-C) =</td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td><td></td><td>1016683121822FC+2629966000FC-1182887500FC</td></tr><tr><td></td><td></td><td></td><td></td><td></td><td>1031653200652FC</td></tr></table>
+                </div>
+                <div class="col">
+                    <h4>Raw Output</h4>
+                    <pre><|ref|>image<|/ref|><|det|>[[170, 28, 258, 62]]<|/det|>
+ 
+
+<|ref|>text<|/ref|><|det|>[[50, 28, 140, 51]]<|/det|>
+MOIS DE 
+
+<|ref|>text<|/ref|><|det|>[[50, 28, 140, 51]]<|/det|>
+Aout 2023 
+
+<|ref|>text<|/ref|><|det|>[[415, 81, 587, 103]]<|/det|>
+J/Sorties/Dépenses 
+
+<|ref|>table<|/ref|><|det|>[[50, 110, 940, 910]]<|/det|>
+<table><tr><td colspan="4">Balance dans le compte a la fin du mois précédent</td><td>A</td><td>181668312152FC</td></tr><tr><td colspan="4">Somme TOTALE collectée tout ce mois</t...</pre>
+                </div>
+            </div>
+        </div>
+        
+        <div class="example">
+            <h3>[14] training_data/images/97. April 2023/95.jpg</h3>
+            <div class="tables">
+                <div class="col">
+                    <h4>Ground Truth</h4>
+                    <table><tr><td>total_ou_detail_tva</td><td>annee</td><td>mois</td><td>groupement_corrected</td><td>nom_village</td><td>nombre_chasseurs</td><td>nombre_creuseurs</td><td>nombre_producteurs_d_huile</td><td>nombre_cultivateurs</td><td>nombre_producteurs_boisson</td><td>nombre_d_autre_type</td><td>nombre_commercants_dans_village</td><td>nombre_de_payeurs_de_la_taxe</td><td>tva_total_recolte_fc</td></tr><tr><td>16</td><td>2023</td><td>Avril</td><td>UTUNDA</td><td>BIRESHE</td><td>28</td><td>26</td><td>28</td><td>15</td><td>21</td><td>31</td><td>149</td><td>149</td><td>149000</td></tr><tr><td>17</td><td>2023</td><td>Avril</td><td>UTUNDA</td><td>CHARINGWANGWA</td><td>24</td><td>80</td><td>33</td><td>27</td><td>28</td><td>198</td><td>390</td><td>390</td><td>390000</td></tr><tr><td>18</td><td>2023</td><td>Avril</td><td>UTUNDA</td><td>BETELI</td><td>22</td><td>42</td><td>44</td><td>25</td><td>25</td><td>55</td><td>213</td><td>213</td><td>213000</td></tr><tr><td>19</td><td>2023</td><td>Avril</td><td>IHANA</td><td>TWAMAKURU</td><td>38</td><td>130</td><td>37</td><td>31</td><td>30</td><td>28</td><td>294</td><td>294</td><td>294000</td></tr><tr><td>20</td><td>2023</td><td>Avril</td><td>IHANA</td><td>PUMUZIKA</td><td>26</td><td>77</td><td>27</td><td>52</td><td>29</td><td>27</td><td>238</td><td>238</td><td>238000</td></tr><tr><td>21</td><td>2023</td><td>Avril</td><td>UTUNDA</td><td>IRUMBA</td><td>30</td><td>65</td><td>31</td><td>29</td><td>40</td><td>30</td><td>225</td><td>225</td><td>225000</td></tr><tr><td>22</td><td>2023</td><td>Avril</td><td>UTUNDA</td><td>BUNESA</td><td>57</td><td>116</td><td>34</td><td>27</td><td>45</td><td>25</td><td>304</td><td>304</td><td>304000</td></tr><tr><td>23</td><td>2023</td><td>Avril</td><td>UTUNDA</td><td>MAJENGO</td><td>39</td><td>230</td><td>33</td><td>60</td><td>56</td><td>112</td><td>530</td><td>530</td><td>530000</td></tr><tr><td>24</td><td>2023</td><td>Avril</td><td>UTUNDA</td><td>IYOYA</td><td>28</td><td>34</td><td>31</td><td>30</td><td>30</td><td>201</td><td>354</td><td>354</td><td>354000</td></tr><tr><td>25</td><td>2023</td><td>Avril</td><td>UTUNDA</td><td>BIKOBA</td><td>14</td><td>31</td><td>27</td><td>31</td><td>20</td><td>115</td><td>238</td><td>238</td><td>238000</td></tr><tr><td>26</td><td>2023</td><td>Avril</td><td>IHANA</td><td>MISOKE</td><td>22</td><td>30</td><td>34</td><td>29</td><td>17</td><td>44</td><td>176</td><td>176</td><td>176000</td></tr><tr><td>27</td><td>2023</td><td>Avril</td><td>UTUNDA</td><td>NKUTU</td><td>20</td><td>20</td><td>30</td><td>31</td><td>19</td><td>38</td><td>158</td><td>158</td><td>158000</td></tr><tr><td>28</td><td>2023</td><td>Avril</td><td>UTUNDA</td><td>MANJERE</td><td>28</td><td>21</td><td>33</td><td>30</td><td>23</td><td>40</td><td>175</td><td>175</td><td>175000</td></tr><tr><td>29</td><td>2023</td><td>Avril</td><td>UTUNDA</td><td>OKU</td><td>35</td><td>25</td><td>25</td><td>28</td><td>30</td><td>103</td><td>246</td><td>246</td><td>246000</td></tr><tr><td>30</td><td>2023</td><td>Avril</td><td>UTUNDA</td><td>MUNGWE</td><td>38</td><td>103</td><td>34</td><td>45</td><td>27</td><td>31</td><td>278</td><td>278</td><td>278000</td></tr><tr><td>31</td><td>2023</td><td>Avril</td><td>UTUNDA</td><td>ISASA</td><td>22</td><td>27</td><td>36</td><td>20</td><td>18</td><td>26</td><td>149</td><td>149</td><td>149000</td></tr></table>
+                </div>
+                <div class="col">
+                    <h4>Model Output (cleaned)</h4>
+                    <table>季節
+MOIS DE
+Avril
+ANNEe 2023
+PAGE NUMERO 95
+<table>季節
+Mois de
+Avril
+2023
+Page Numero 95
+<table>季節
+Mois de
+Avril
+2023
+Page Numero 95
+<tr><td>N°</td><td>Groupe</td><td>Nom Village Nom Carriere</td><td>Nombre de chasseurs par village</td><td>Nombre de recenseurs par village</td><td>Nombre producteurs d'huile par village</td><td>Nombre cultivateurs par village</td><td>Nombre producteurs du boisson alcoolise local par village</td><td>Nombre d'autre type</td><td>Nombre commerçants total dans ce village (c'est a dire, additionner tous les types par village)</td><td>Nombre de commerçants payeurs de la taxe dans ce village</td><td>Recette totale venue payee dans ce village</td></tr><tr><td>16</td><td>UTUNDA</td><td>BIRESHE</td><td>28</td><td>26</td><td>28</td><td>15</td><td>21</td><td>31</td><td>149</td><td>149</td><td>149000</td><td></td></tr><tr><td>17</td><td>UTUNDA</td><td>CHARINGWURFUA</td><td>24</td><td>80</td><td>33</td><td>27</td><td>28</td><td>138</td><td>390</td><td>390</td><td>390000</td><td></td></tr><tr><td>18</td><td>UTUNDA</td><td>BETELI</td><td>22</td><td>42</td><td>44</td><td>25</td><td>25</td><td>55</td><td>213</td><td>213</td><td>213000</td><td></td></tr><tr><td>19</td><td>IHANA</td><td>TWAMAKURU</td><td>38</td><td>130</td><td>37</td><td>31</td><td>30</td><td>28</td><td>294</td><td>294</td><td>294000</td><td></td></tr><tr><td>20</td><td>IHANA</td><td>PUMZIKA</td><td>26</td><td>77</td><td>27</td><td>52</td><td>29</td><td>27</td><td>238</td><td>238</td><td>238000</td><td></td></tr><tr><td>21</td><td>UTUNDA</td><td>IRUMBA</td><td>30</td><td>65</td><td>31</td><td>29</td><td>40</td><td>30</td><td>225</td><td>225</td><td>225000</td><td></td></tr><tr><td>22</td><td>UTUNDA</td><td>BUNESA</td><td>57</td><td>116</td><td>34</td><td>27</td><td>45</td><td>25</td><td>304</td><td>304</td><td>304000</td><td></td></tr><tr><td>23</td><td>UTUNDA</td><td>MAJENGO</td><td>39</td><td>230</td><td>33</td><td>60</td><td>56</td><td>112</td><td>530</td><td>530</td><td>530000</td><td></td></tr><tr><td>24</td><td>UTUNDA</td><td>IYOYA</td><td>28</td><td>34</td><td>31</td><td>30</td><td>30</td><td>201</td><td>354</td><td>354</td><td>354000</td><td></td></tr><tr><td>25</td><td>UTUNDA</td><td>BIKOBA</td><td>14</td><td>21</td><td>27</td><td>31</td><td>20</td><td>115</td><td>238</td><td>238</td><td>238000</td><td></td></tr><tr><td>26</td><td>IHANA</td><td>MISOKE</td><td>22</td><td>30</td><td>34</td><td>29</td><td>17</td><td>44</td><td>176</td><td>176</td><td>176000</td><td></td></tr><tr><td>27</td><td>UTUNDA</td><td>NKUTU</td><td>20</td><td>20</td><td>30</td><td>31</td><td>19</td><td>38</td><td>158</td><td>158</td><td>158000</td><td></td></tr><tr><td>28</td><td>UTUNDA</td><td>MANJERE</td><td>28</td><td>21</td><td>33</td><td>30</td><td>27</td><td>410</td><td>175</td><td>175</td><td>175000</td><td></td></tr><tr><td>29</td><td>UTUNDA</td><td>OKU</td><td>35</td><td>25</td><td>25</td><td>28</td><td>30</td><td>103</td><td>246</td><td>246</td><td>246000</td><td></td></tr><tr><td>30</td><td>UTUNDA</td><td>MUNGWE</td><td>38</td><td>103</td><td>34</td><td>45</td><td>27</td><td>31</td><td>278</td><td>278</td><td>278000</td><td></td></tr><tr><td>31</td><td>UTUNDA</td><td>ISASA</td><td>22</td><td>27</td><td>36</td><td>20</td><td>18</td><td>26</td><td>149</td><td>149</td><td>149000</td><td></td></tr></table>
+                </div>
+                <div class="col">
+                    <h4>Raw Output</h4>
+                    <pre><|ref|>table<|/ref|><|det|>[[81, 140, 968, 844]]<|/det|>
+<table>季節
+MOIS DE
+Avril
+ANNEe 2023
+PAGE NUMERO 95
+<table>季節
+Mois de
+Avril
+2023
+Page Numero 95
+<table>季節
+Mois de
+Avril
+2023
+Page Numero 95
+<tr><td>N°</td><td>Groupe</td><td>Nom Village Nom Carriere</td><td>Nombre de chasseurs par village</td><td>Nombre de recenseurs par village</td><td>Nombre producteurs d'huile par village</td><td>Nombre cultivateurs par village</td><td>Nombre producteurs du boisson alcoolise local par village</td><td>Nomb...</pre>
+                </div>
+            </div>
+        </div>
+        
+        <div class="example">
+            <h3>[15] training_data/images/95. February 2023/K_110.jpeg</h3>
+            <div class="tables">
+                <div class="col">
+                    <h4>Ground Truth</h4>
+                    <table><tr><td>annee</td><td>mois</td><td>Unite de compte</td><td>bilan_fin_du_mois_passe</td><td>bilan_collectee_ce_mois</td><td>bilan_depense_ce_mois</td><td>bilan_montant_final</td></tr><tr><td>2023</td><td>Fevrier</td><td>FC</td><td>12675179552</td><td>2625642000</td><td>1182890000</td><td>94117931552</td></tr><tr><td>2023</td><td>Fevrier</td><td>Or (grammes)</td><td>22016</td><td>985</td><td>700</td><td>22301</td></tr></table>
+                </div>
+                <div class="col">
+                    <h4>Model Output (cleaned)</h4>
+                    <table><tr><td>Annee</td><td>Mois</td><td>Unite de compte</td><td>Bilan a la fin du mois passé</td><td>Collecte pendant la durée de ce mois</td><td>Depende pendant la duree de ce mois</td><td>Bilan a la fin de ce mois</td></tr><tr><td>2023</td><td>Fevrier</td><td>FC</td><td>202196</td><td>202196</td><td>1182890000</td><td>941179311552</td></tr></table>
+                </div>
+                <div class="col">
+                    <h4>Raw Output</h4>
+                    <pre><|ref|>table<|/ref|><|det|>[[90, 110, 914, 404]]<|/det|>
+<table><tr><td>Annee</td><td>Mois</td><td>Unite de compte</td><td>Bilan a la fin du mois passé</td><td>Collecte pendant la durée de ce mois</td><td>Depende pendant la duree de ce mois</td><td>Bilan a la fin de ce mois</td></tr><tr><td>2023</td><td>Fevrier</td><td>FC</td><td>202196</td><td>202196</td><td>1182890000</td><td>941179311552</td></tr></table></pre>
+                </div>
+            </div>
+        </div>
+        
+        <div class="example">
+            <h3>[16] training_data/images/94. January 2023/January 2023 page 57.jpeg</h3>
+            <div class="tables">
+                <div class="col">
+                    <h4>Ground Truth</h4>
+                    <table><tr><td>total_ou_detail_vente_b</td><td>annee</td><td>mois</td><td>nom_village</td><td>groupement_raw</td><td>b_date_de_vente</td><td>b_prix_de_vente_a_l_unitefc</td><td>b_quantite_distribuee</td><td>b_quantite_vendue</td><td>b_net_flow</td><td>b_remain_last_mth</td><td>b_overall_total</td><td>b_recette_totale_fc</td></tr><tr><td>51</td><td>2023</td><td>January</td><td>MITAMBA</td><td>IHANA</td><td>2023-01-12</td><td>98000</td><td>10</td><td>9</td><td>1</td><td>1</td><td>2</td><td>882000</td></tr><tr><td>52</td><td>2023</td><td>January</td><td>MABUSA</td><td>IHANA</td><td>2023-01-10</td><td>98000</td><td>9</td><td>9</td><td>0</td><td>0</td><td>0</td><td>882000</td></tr><tr><td>53</td><td>2023</td><td>January</td><td>LANGIRA 2</td><td>IHANA</td><td>2023-01-11</td><td>98000</td><td>8</td><td>7</td><td>1</td><td>0</td><td>1</td><td>686000</td></tr><tr><td>54</td><td>2023</td><td>January</td><td>BURUKO</td><td>KISIMBA</td><td>2023-01-10</td><td>98000</td><td>8</td><td>8</td><td>0</td><td>0</td><td>0</td><td>784000</td></tr><tr><td>55</td><td>2023</td><td>January</td><td>BASOMBE</td><td>IHANA</td><td>2023-01-08</td><td>98000</td><td>9</td><td>9</td><td>0</td><td>0</td><td>0</td><td>882000</td></tr><tr><td>56</td><td>2023</td><td>January</td><td>TWAMAKURU</td><td>IHANA</td><td>2023-01-10</td><td>98000</td><td>11</td><td>12</td><td>0</td><td>3</td><td>2</td><td>1176000</td></tr><tr><td>57</td><td>2023</td><td>January</td><td>MUHO</td><td>IHANA</td><td>2023-01-13</td><td>98000</td><td>9</td><td>11</td><td>0</td><td>2</td><td>0</td><td>1078000</td></tr><tr><td>58</td><td>2023</td><td>January</td><td>MINSUNSU</td><td>IHANA</td><td>2023-01-10</td><td>98000</td><td>10</td><td>10</td><td>0</td><td>0</td><td>0</td><td>980000</td></tr><tr><td>59</td><td>2023</td><td>January</td><td>VUMILIA</td><td>USALA</td><td>2023-01-09</td><td>98000</td><td>7</td><td>7</td><td>0</td><td>0</td><td>0</td><td>686000</td></tr><tr><td>60</td><td>2023</td><td>January</td><td>MAKUTANO</td><td>USALA</td><td>2023-01-08</td><td>98000</td><td>6</td><td>6</td><td>0</td><td>0</td><td>0</td><td>588000</td></tr><tr><td>61</td><td>2023</td><td>January</td><td>LUBIRI</td><td>USALA</td><td>2023-01-07</td><td>98000</td><td>5</td><td>5</td><td>0</td><td>0</td><td>0</td><td>490000</td></tr><tr><td>62</td><td>2023</td><td>January</td><td>MIKITI</td><td>UTUNDA</td><td>2023-01-10</td><td>98000</td><td>6</td><td>5</td><td>1</td><td>0</td><td>1</td><td>490000</td></tr><tr><td>63</td><td>2023</td><td>January</td><td>SHEBAKENGETA</td><td>USALA</td><td>2023-01-11</td><td>98000</td><td>9</td><td>7</td><td>2</td><td>0</td><td>2</td><td>686000</td></tr></table>
+                </div>
+                <div class="col">
+                    <h4>Model Output (cleaned)</h4>
+                    <table><tr><td>total_ou_detail_vente</td><td>annee</td><td>mois</td><td>nom_village</td><td>groupement_raw</td><td>b_date_raw</td><td>b_quantite_raw</td><td>b_unit_price_raw</td><td>b_total_raw</td></tr><tr><td>52</td><td>2023</td><td>January</td><td>MITAMBA</td><td>IHANA</td><td>2023-01-12</td><td>98000</td><td>9</td><td>90000</td></tr><tr><td>53</td><td>2023</td><td>January</td><td>MABUSA</td><td>IHANA</td><td>2023-01-10</td><td>98000</td><td>9</td><td>882000</td></tr><tr><td>54</td><td>2023</td><td>January</td><td>LANGIRA 2</td><td>IHANA</td><td>2023-01-11</td><td>98000</td><td>8</td><td>784000</td></tr><tr><td>55</td><td>2023</td><td>January</td><td>BURUKO</td><td>KISIMBI</td><td>2023-01-10</td><td>98000</td><td>8</td><td>882000</td></tr><tr><td>56</td><td>2023</td><td>January</td><td>BASEMBE</td><td>IHANA</td><td>2023-01-08</td><td>98000</td><td>9</td><td>882000</td></tr><tr><td>57</td><td>2023</td><td>January</td><td>TWAMAKURU</td><td>IHANA</td><td>2023-01-10</td><td>98000</td><td>11</td><td>1078000</td></tr><tr><td>58</td><td>2023</td><td>January</td><td>MUHO</td><td>IHANA</td><td>2023-01-13</td><td>98000</td><td>9</td><td>882000</td></tr><tr><td>59</td><td>2023</td><td>January</td><td>MINSUNSU</td><td>IHANA</td><td>2023-01-10</td><td>98000</td><td>10</td><td>980000</td></tr><tr><td>60</td><td>2023</td><td>January</td><td>VUMILIA</td><td>USALA</td><td>2023-01-09</td><td>98000</td><td>7</td><td>686000</td></tr><tr><td>61</td><td>2023</td><td>January</td><td>MAKUTANO</td><td>USALA</td><td>2023-01-08</td><td>98000</td><td>6</td><td>588000</td></tr><tr><td>62</td><td>2023</td><td>January</td><td>LUBIRI</td><td>USALA</td><td>2023-01-07</td><td>98000</td><td>5</td><td>490000</td></tr><tr><td>63</td><td>2023</td><td>January</td><td>MIKITI</td><td>UTUNDA</td><td>2023-01-10</td><td>98000</td><td>6</td><td>588000</td></tr><tr><td>64</td><td>2023</td><td>January</td><td>SHEBAKENGETA</td><td>USALA</td><td>2023-01-11</td><td>98000</td><td>7</td><td>686000</td></tr></table>
+                </div>
+                <div class="col">
+                    <h4>Raw Output</h4>
+                    <pre><table><tr><td>total_ou_detail_vente</td><td>annee</td><td>mois</td><td>nom_village</td><td>groupement_raw</td><td>b_date_raw</td><td>b_quantite_raw</td><td>b_unit_price_raw</td><td>b_total_raw</td></tr><tr><td>52</td><td>2023</td><td>January</td><td>MITAMBA</td><td>IHANA</td><td>2023-01-12</td><td>98000</td><td>9</td><td>90000</td></tr><tr><td>53</td><td>2023</td><td>January</td><td>MABUSA</td><td>IHANA</td><td>2023-01-10</td><td>98000</td><td>9</td><td>882000</td></tr><tr><td>54</td><td>2023</...</pre>
+                </div>
+            </div>
+        </div>
+        
+        <div class="example">
+            <h3>[17] training_data/images/97. April 2023/135.jpg</h3>
+            <div class="tables">
+                <div class="col">
+                    <h4>Ground Truth</h4>
+                    <table><tr><td>annee</td><td>mois</td><td>rang</td><td>num_in_rank</td><td>num_in_rank_paid</td><td>pay_per_unit_usd</td><td>total_payment_usd</td></tr><tr><td>2023</td><td>Avril</td><td>Autre</td><td></td><td></td><td></td><td></td></tr><tr><td>2023</td><td>Avril</td><td>Total partiel commisariat</td><td>5</td><td>5</td><td></td><td>1630</td></tr><tr><td>2023</td><td>Avril</td><td>COMDT. SOUS-CIAT</td><td>2</td><td>2</td><td>300</td><td>600</td></tr><tr><td>2023</td><td>Avril</td><td>SECRETAIRE SOUS-CIAT</td><td>1</td><td>1</td><td>220</td><td>220</td></tr><tr><td>2023</td><td>Avril</td><td>OPJ</td><td>1</td><td>1</td><td>200</td><td>200</td></tr><tr><td>2023</td><td>Avril</td><td>BRGS</td><td>1</td><td>1</td><td>210</td><td>210</td></tr><tr><td>2023</td><td>Avril</td><td>Autre</td><td></td><td></td><td></td><td></td></tr><tr><td>2023</td><td>Avril</td><td>Total partiel sous commisariat</td><td>5</td><td>5</td><td></td><td>1250</td></tr><tr><td>2023</td><td>Avril</td><td>COMDT. Poste (titulaire+adjoint)</td><td>2</td><td>2</td><td>200</td><td>400</td></tr><tr><td>2023</td><td>Avril</td><td>ADJ</td><td>1</td><td>1</td><td>40</td><td>40</td></tr><tr><td>2023</td><td>Avril</td><td>Autre</td><td></td><td></td><td></td><td></td></tr></table>
+                </div>
+                <div class="col">
+                    <h4>Model Output (cleaned)</h4>
+                    <table><tr><td colspan="6">A continuer… Compléter ci-dessous pour UN COMMISSARIAT TYPIQUE</td></tr><tr><td>Autre</td><td>(Nom(s) de(s) autre(s))</td><td></td><td></td><td></td><td></td></tr><tr><td>TOTAL PARTIEL COMMISSARIAT</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>(Additionner tous les lignes)</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>N'oubliez pas les lignes correspondantes pour un commissariat sur la page precedente</td><td>5</td><td>5</td><td></td><td></td><td>1630</td></tr><tr><td colspan="6">NOMBRE DE SOUS COMMISSARIATS :</td></tr><tr><td colspan="6">Compléter ci-dessous pour UN SOUS COMMISSARIAT (S/CIAT) TYPIQUE</td></tr><tr><td>COMDT. SOUS-CIAT</td><td>2</td><td>2</td><td></td><td></td><td>600</td></tr><tr><td>(titulaire + adjoint)</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>SECRETAIRE SOUS-CIAT</td><td>1</td><td>1</td><td></td><td></td><td>220</td></tr><tr><td>OPJ (officier de la police judiciaire)</td><td>1</td><td>1</td><td></td><td></td><td>200</td></tr><tr><td>BRGS (bureau de renseignement general special)</td><td>1</td><td>1</td><td></td><td></td><td>210</td></tr><tr><td>Autre</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>TOTAL PARTIEL SOUS COMMISSARIAT</td><td>5</td><td>5</td><td></td><td></td><td>1250</td></tr><tr><td colspan="6">NOMBRE DE POSTES :</td></tr><tr><td colspan="6">Compléter ci-dessous pour UN POSTE TYPIQUE</td></tr><tr><td>COMDT. Poste (titulaire + adjoint)</td><td>2</td><td>2</td><td></td><td></td><td>400</td></tr><tr><td>ADJ (agent de la police judiciaire)</td><td>1</td><td>1</td><td></td><td></td><td>40</td></tr><tr><td>Autre</td><td></td><td></td><td></td><td></td><td></td></tr></table>
+                </div>
+                <div class="col">
+                    <h4>Raw Output</h4>
+                    <pre><|ref|>table<|/ref|><|det|>[[140, 90, 904, 848]]<|/det|>
+<table><tr><td colspan="6">A continuer… Compléter ci-dessous pour UN COMMISSARIAT TYPIQUE</td></tr><tr><td>Autre</td><td>(Nom(s) de(s) autre(s))</td><td></td><td></td><td></td><td></td></tr><tr><td>TOTAL PARTIEL COMMISSARIAT</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>(Additionner tous les lignes)</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>N'oubliez pas les lignes correspondantes pour un commissariat su...</pre>
+                </div>
+            </div>
+        </div>
+        
+        <div class="example">
+            <h3>[18] training_data/images/94. January 2023/January 2023 page 83.jpeg</h3>
+            <div class="tables">
+                <div class="col">
+                    <h4>Ground Truth</h4>
+                    <table><tr><td>total_ou_detail_vente_l</td><td>annee</td><td>mois</td><td>nom_village</td><td>groupement_raw</td><td>l_date_de_vente</td><td>l_prix_de_vente_a_l_unitefc</td><td>l_quantite_distribuee</td><td>l_quantite_vendue</td><td>l_net_flow</td><td>l_remain_last_mth</td><td>l_overall_total</td><td>l_recette_totale_fc</td></tr><tr><td>91</td><td>2023</td><td>January</td><td>BASOMBE</td><td>IHANA</td><td>2023-01-12</td><td>50000</td><td>8</td><td>8</td><td>0</td><td>0</td><td>0</td><td>400000</td></tr><tr><td>92</td><td>2023</td><td>January</td><td>MINSUNSU</td><td>IHANA</td><td>2023-01-10</td><td>50000</td><td>10</td><td>11</td><td>0</td><td>3</td><td>2</td><td>550000</td></tr><tr><td>93</td><td>2023</td><td>January</td><td>MAKUTANO</td><td>USALA</td><td>2023-01-09</td><td>50000</td><td>9</td><td>8</td><td>1</td><td>0</td><td>1</td><td>400000</td></tr><tr><td>94</td><td>2023</td><td>January</td><td>VUMILIA</td><td>USALA</td><td>2023-01-09</td><td>50000</td><td>7</td><td>7</td><td>0</td><td>0</td><td>0</td><td>350000</td></tr><tr><td>95</td><td>2023</td><td>January</td><td>LUBIRI</td><td>USALA</td><td>2023-01-11</td><td>50000</td><td>6</td><td>6</td><td>0</td><td>0</td><td>0</td><td>300000</td></tr><tr><td>96</td><td>2023</td><td>January</td><td>MIKITI</td><td>UTUNDA</td><td>2023-01-11</td><td>50000</td><td>7</td><td>7</td><td>0</td><td>0</td><td>0</td><td>350000</td></tr><tr><td>97</td><td>2023</td><td>January</td><td>TOKELU</td><td>USALA</td><td>2023-01-11</td><td>50000</td><td>9</td><td>11</td><td>0</td><td>2</td><td>0</td><td>550000</td></tr><tr><td>98</td><td>2023</td><td>January</td><td>SHEBAKENGETA</td><td>USALA</td><td>2023-01-12</td><td>50000</td><td>8</td><td>7</td><td>1</td><td>0</td><td>1</td><td>350000</td></tr><tr><td>99</td><td>2023</td><td>January</td><td>LUTOBORA</td><td>USALA</td><td>2023-01-12</td><td>50000</td><td>8</td><td>9</td><td>0</td><td>2</td><td>1</td><td>450000</td></tr><tr><td>100</td><td>2023</td><td>January</td><td>MINGOTE</td><td>WALOWA-UROBA</td><td>2023-01-08</td><td>50000</td><td>7</td><td>8</td><td>0</td><td>1</td><td>0</td><td>400000</td></tr><tr><td>101</td><td>2023</td><td>January</td><td>BYUNGU</td><td>WALOWA-UROBA</td><td>2023-01-08</td><td>50000</td><td>10</td><td>10</td><td>0</td><td>0</td><td>0</td><td>500000</td></tr><tr><td>102</td><td>2023</td><td>January</td><td>ROWA</td><td>WALOWA-UROBA</td><td>2023-01-07</td><td>50000</td><td>7</td><td>6</td><td>1</td><td>0</td><td>1</td><td>300000</td></tr><tr><td>103</td><td>2023</td><td>January</td><td>MATAKA</td><td>WALOWA-UROBA</td><td>2023-01-10</td><td>50000</td><td>9</td><td>7</td><td>2</td><td>1</td><td>3</td><td>350000</td></tr></table>
+                </div>
+                <div class="col">
+                    <h4>Model Output (cleaned)</h4>
+                    <table><tr><td>annee</td><td>mois</td><td>nom_village</td><td>groupement_raw</td><td>date_de_vente</td><td>prix_de_vente_a_l_unite</td><td>quantite_distribuee</td><td>quantite_vendue</td><td>quantite_stagne</td><td>quantite_restante</td><td>quantite_de_voiture</td><td>totaal_payeur</td><td>tots_suppliers_corrected</td></tr><tr><td>2023</td><td>Janvier</td><td>BASOMBIE</td><td>IHANA</td><td>2023-01-12</td><td>50000</td><td>8</td><td>8</td><td>0</td><td>0</td><td>0</td><td>400000</td><td>400000</td></tr><tr><td>2023</td><td>Janvier</td><td>MINSUNSU</td><td>IHANA</td><td>2023-01-10</td><td>50000</td><td>10</td><td>11</td><td>0</td><td>3</td><td>2</td><td>550000</td><td>550000</td></tr><tr><td>2023</td><td>Janvier</td><td>MAKUTANO</td><td>USALA</td><td>2023-01-09</td><td>50000</td><td>9</td><td>8</td><td>1</td><td>0</td><td>1</td><td>400000</td><td>400000*</td></tr><tr><td>2023</td><td>Janvier</td><td>VUMILIA</td><td>USALA</td><td>2023-01-09</td><td>50000</td><td>7</td><td>7</td><td>0</td><td>0</td><td>0</td><td>350000</td><td>350000*</td></tr><tr><td>2023</td><td>Janvier</td><td>LUBIRI</td><td>USALA</td><td>2023-01-11</td><td>50000</td><td>6</td><td>6</td><td>0</td><td>0</td><td>0</td><td>300000</td><td>300000*</td></tr><tr><td>2023</td><td>Janvier</td><td>MIKITI</td><td>UTUNDA</td><td>2023-01-11</td><td>50000</td><td>7</td><td>7</td><td>0</td><td>0</td><td>0</td><td>300000</td><td>300000*</td></tr><tr><td>2023</td><td>Janvier</td><td>TOKELU</td><td>USALA</td><td>2023-01-11</td><td>50000</td><td>9</td><td>11</td><td>0</td><td>2</td><td>0</td><td>500000</td><td>500000*</td></tr><tr><td>2023</td><td>Janvier</td><td>SHEBAKENGETA</td><td>USALA</td><td>2023-01-12</td><td>50000</td><td>8</td><td>7</td><td>2</td><td>0</td><td>1</td><td>350000</td><td>350000*</td></tr><tr><td>2023</td><td>Janvier</td><td>LUTOBORA</td><td>USALA</td><td>2023-01-12</td><td>50000</td><td>7</td><td>9</td><td>0</td><td>2</td><td>1</td><td>450000</td><td>450000*</td></tr><tr><td>2023</td><td>Janvier</td><td>MUNGOTE</td><td>WALOWA-UROBA</td><td>2023-01-08</td><td>50000</td><td>7</td><td>7</td><td>0</td><td>1</td><td>0</td><td>400000</td><td>400000*</td></tr><tr><td>2023</td><td>Janvier</td><td>DYUNGU</td><td>WALOWA-UROBA</td><td>2023-01-08</td><td>50000</td><td>10</td><td>10</td><td>0</td><td>0</td><td>0</td><td>500000</td><td>500000*</td></tr><tr><td>2023</td><td>Janvier</td><td>ROWA</td><td>WALOWA-UROBA</td><td>2023-01-07</td><td>50000</td><td>7</td><td>6</td><td>1</td><td>0</td><td>1</td><td>300000</td><td>300000*</td></tr><tr><td>2023</td><td>Janvier</td><td>MITPAKẾ</td><td>WALOWA-UROBA</td><td>2023-01-10</td><td>50000</td><td>9</td><td>7</td><td>2</td><td>1</td><td>3</td><td>350000</td><td>350000*</td></tr></table>
+                </div>
+                <div class="col">
+                    <h4>Raw Output</h4>
+                    <pre><table><tr><td>annee</td><td>mois</td><td>nom_village</td><td>groupement_raw</td><td>date_de_vente</td><td>prix_de_vente_a_l_unite</td><td>quantite_distribuee</td><td>quantite_vendue</td><td>quantite_stagne</td><td>quantite_restante</td><td>quantite_de_voiture</td><td>totaal_payeur</td><td>tots_suppliers_corrected</td></tr><tr><td>2023</td><td>Janvier</td><td>BASOMBIE</td><td>IHANA</td><td>2023-01-12</td><td>50000</td><td>8</td><td>8</td><td>0</td><td>0</td><td>0</td><td>400000</td><td>400000</t...</pre>
+                </div>
+            </div>
+        </div>
+        
+        <div class="example">
+            <h3>[19] training_data/images/96. March 2023/54.jpg</h3>
+            <div class="tables">
+                <div class="col">
+                    <h4>Ground Truth</h4>
+                    <table><tr><td>total_ou_detail_vente_b</td><td>annee</td><td>mois</td><td>nom_village</td><td>groupement_raw</td><td>b_date_de_vente</td><td>b_prix_de_vente_a_l_unitefc</td><td>b_quantite_distribuee</td><td>b_quantite_vendue</td><td>b_net_flow</td><td>b_remain_last_mth</td><td>b_overall_total</td><td>b_recette_totale_fc</td></tr><tr><td>12</td><td>2023</td><td>Mars</td><td>ANGOA</td><td>UTUNDA</td><td>2023-03-07</td><td>98000</td><td>10</td><td>10</td><td>0</td><td>0</td><td>0</td><td>980000</td></tr><tr><td>13</td><td>2023</td><td>Mars</td><td>MANGOBO</td><td>IHANA</td><td>2023-03-07</td><td>98000</td><td>10</td><td>10</td><td>0</td><td>0</td><td>0</td><td>980000</td></tr><tr><td>14</td><td>2023</td><td>Mars</td><td>MISOKE</td><td>IHANA</td><td>2023-03-10</td><td>98000</td><td>8</td><td>7</td><td>1</td><td>0</td><td>1</td><td>686000</td></tr><tr><td>15</td><td>2023</td><td>Mars</td><td>KIMANGA</td><td>IKOBO</td><td>2023-03-07</td><td>98000</td><td>9</td><td>9</td><td>0</td><td>0</td><td>0</td><td>882000</td></tr><tr><td>16</td><td>2023</td><td>Mars</td><td>CHAMBULI</td><td>IKOBO</td><td>2023-03-09</td><td>98000</td><td>9</td><td>8</td><td>1</td><td>0</td><td>1</td><td>784000</td></tr><tr><td>17</td><td>2023</td><td>Mars</td><td>KASEKE</td><td>IHANA</td><td>2023-03-10</td><td>98000</td><td>8</td><td>7</td><td>1</td><td>0</td><td>1</td><td>686000</td></tr><tr><td>18</td><td>2023</td><td>Mars</td><td>FATUA</td><td>USALA</td><td>2023-03-11</td><td>98000</td><td>7</td><td>7</td><td>0</td><td>0</td><td>0</td><td>686000</td></tr><tr><td>19</td><td>2023</td><td>Mars</td><td>IRAMESO</td><td>IHANA</td><td>2023-03-08</td><td>98000</td><td>8</td><td>10</td><td>0</td><td>2</td><td>0</td><td>980000</td></tr><tr><td>20</td><td>2023</td><td>Mars</td><td>BETELI</td><td>IHANA</td><td>2023-03-08</td><td>98000</td><td>11</td><td>10</td><td>1</td><td>0</td><td>1</td><td>980000</td></tr><tr><td>21</td><td>2023</td><td>Mars</td><td>BETOBETO 1</td><td>UTUNDA</td><td>2023-03-07</td><td>98000</td><td>11</td><td>9</td><td>2</td><td>0</td><td>2</td><td>882000</td></tr><tr><td>22</td><td>2023</td><td>Mars</td><td>BETOBETO 2</td><td>UTUNDA</td><td>2023-03-07</td><td>98000</td><td>10</td><td>10</td><td>0</td><td>0</td><td>0</td><td>980000</td></tr><tr><td>23</td><td>2023</td><td>Mars</td><td>KINCHIMBA</td><td>UTUNDA</td><td>2023-03-10</td><td>98000</td><td>10</td><td>11</td><td>0</td><td>3</td><td>2</td><td>1078000</td></tr><tr><td>24</td><td>2023</td><td>Mars</td><td>MUNGWE</td><td>UTUNDA</td><td>2023-03-10</td><td>98000</td><td>9</td><td>10</td><td>0</td><td>1</td><td>0</td><td>980000</td></tr></table>
+                </div>
+                <div class="col">
+                    <h4>Model Output (cleaned)</h4>
+                    <table><tr><td>Month</td><td>Num_buyer</td><td>Date</td><td>Village</td><td>Groupe</td><td>Num_helices</td><td>Prix_par_hectare</td><td>Quantite_distribuee</td><td>Quantite_vendue</td><td>Quantite_stoque</td><td>Recette_totale</td><td>Unite_hydraulique</td><td>Surface_ha</td><td>Prix_iece</td><td>Total_piece_tot</td><td>Month_total</td><td>Num_buyer</td><td>Date</td><td>Village</td><td>Groupe</td><td>Num_helices</td><td>Prix_par_hectare</td></tr><tr><td>Mars</td><td>0</td><td>2023-03-07</td><td>IHANA</td><td>UTUNDA</td><td>3</td><td>1312023</td><td>98000</td><td>10</td><td>10</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>2023-03-07</td><td>IHANA</td><td>UTUNDA</td><td>3</td><td>1312023</td><td>98000</td><td>F 9 cuites</td><td>980000</td><td>F 980000</td></tr><tr><td>Mars</td><td>0</td><td>2023-03-08</td><td>IHANA</td><td>UTUNDA</td><td>3</td><td>1312023</td><td>98000</td><td>10</td><td>10</td><td>0</td><td>0</td><tr><td>Mars</td><td>0</td><td>2023-03-09</td><td>IHANA</td><td>UTUNDA</td><td>3</td><td>1312023</td><td>98000</td><td>8</td><td>7</td><td>1</td><td>0</td><td>0</td><td>0</td><td>0</td><td>2023-03-09</td><td>IHANA</td><td>UTUNDA</td><td>3</td><td>1312023</td><td>98000</td><td>F 9 cuites</td><td>980000</td><td>C 980000</td></tr><tr><td>Mars</td><td>0</td><td>2023-03-10</td><td>IHANA</td><td>UTUNDA</td><td>3</td><td>1312023</td><td>98000</td><td>8</td><td>8</td><td>1</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>2023-03-10</td><td>IHANA</td><td>UTUNDA</td><td>3</td><td>1312023</td><td>98000</td><td>F 9 cuites</td><td>980000</td><td>D 980000</td></tr><tr><td>Mars</td><td>0</td><td>2023-03-11</td><td>IHANA</td><td>UTUNDA</td><td>3</td><td>1312023</td><td>98000</td><td>8</td><td>7</td><td>1</td><td>0</td><tr><td>Mars</td><td>0</td><td>2023-03-12</td><td>IHANA</td><td>UTUNDA</td><td>3</td><td>1312023</td><td>98000</td><td>7</td><td>7</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>2023-03-12</td><td>IHANA</td><td>UTUNDA</td><td>3</td><td>1312023</td><td>98000</td><td>F 9 cuites</td><td>980000</td><td>A 980000</td></tr><tr><td>Mars</td><td>0</td><td>2023-03-13</td><td>IHANA</td><td>UTUNDA</td><td>3</td><td>1312023</td><td>98000</td><td>10</td><td>10</td><td>0</td><td>0</td></tr><tr><td>Mars</td><td>0</td><td>2023-03-14</td><td>IHANA</td><td>UTUNDA</td><td>3</td><td>1312023</td><td>98000</td><td>10</td><td>10</td><td>0</td><td>0</td>
+tative_remise_2023-03-15
+tative_remise_2023-03-16
+tative_remise_2023-03-17
+tative_remise_2023-03-18
+tative_remise_2023-03-19
+tative_remise_2023-03-20
+tative_remise_2023-03-21
+tative_remise_2023-03-22
+tative_remise_2023-03-23
+tative_remise_2023-03-24
+tative_remise_2023-03-25
+tative_remise_2023-03-26
+tative_remise_2023-03-27
+tative_remise_2023-03-28
+tative_remise_2023-03-29
+tative_remise_2023-03-30
+tative_remise_2023-03-31
+tative_remise_2023-04-01
+tative_remise_2023-04-02
+tative_remise_2023-04-03
+tative_remise_2023-04-04
+tative_remise_2023-04-05
+tative_remise_2023-04-06
+tative_remise_2023-04-07
+tative_remise_2023-04-08
+tative_remise_2023-04-09
+tative_remise_2023-04-10
+tative_remise_2023-04-11
+tative_remise_2023-04-12
+tative_remise_2023-04-13
+tative_remise_2023-04-14
+tative_remise_2023-04-15
+tative_remise_2023-04-16
+tative_remise_2023-04-17
+tative_remise_2023-04-18
+tative_remise_2023-04-19
+tative_remise_2023-04-20
+tative_remise_2023-04-21
+tative_remise_2023-04-22
+tative_remise_2023-04-23
+tative_remise_2023-04-24
+tative_remise_2023-04-25
+tative_remise_2023-04-26
+tative_remise_2023-04-27
+tative_remise_2023-04-28
+tative_remise_2023-04-29
+tative_remise_2023-04-30
+tative_remise_2023-04-31
+tative_remise_2023-05-01
+tative_remise_2023-05-02
+tative_remise_2023-05-03
+tative_remise_2023-05-04
+tative_remise_2023-05-05
+tative_remise_2023-05-06
+tative_remise_2023-05-07
+tative_remise_2023-05-08
+tative_remise_2023-05-09
+tative_remise_2023-05-10
+tative_remise_2023-05-11
+tative_remise_2023-05-12
+tative_remise_2023-05-13
+tative_remise_2023-05-14
+tative_remise_2023-05-15
+tative_remise_2023-05-16
+tative_remise_2023-05-17
+tative_remise_2023-05-18
+tative_remise_2023-05-19
+tative_remise_2023-05-20
+tative_remise_2023-05-21
+tative_remise_2023-05-22
+tative_remise_2023-05-23
+tative_remise_2023-05-24
+tative_remise_2023-05-25
+tative_remise_2023-05-26
+tative_remise_2023-05-27
+tative_remise_2023-05-28
+tative_remise_2023-05-29
+tative_remise_2023-05-30
+tative_remise_2023-05-31
+tative_remise_2023-06-01
+tative_remise_2023-06-02
+tative_remise_2023-06-03
+tative_remise_2023-06-04
+tative_remise_2023-06-05
+tative_remise_2023-06-06
+tative_remise_2023-06-07
+tative_remise_2023-06-08
+tative_remise_2023-06-09
+tative_remise_2023-06-10
+tative_remise_2023-06-11
+tative_remise_2023-06-12
+tative_remise_2023-06-13
+tative_remise_2023-06-14
+tative_remise_2023-06-15
+tative_remise_2023-06-16
+tative_remise_2023-06-17
+tative_remise_2023-06-18
+tative_remise_2023-06-19
+tative_remise_2023-06-20
+tative_remise_2023-06-21
+tative_remise_2023-06-22
+tative_remise_2023-06-23
+tative_remise_2023-06-24
+tative_remise_2023-06-25
+tative_remise_2023-06-26
+tative_remise_2023-06-27
+tative_remise_2023-06-28
+tative_remise_2023-06-29
+tative_remise_2023-06-30
+tative_remise_2023-06-31
+tative_remise_2023-07-01
+tative_remise_2023-07-02
+tative_remise_2023-07-03
+tative_remise_2023-07-04
+tative_remise_2023-07-05
+tative_remise_2023-07-06
+tative_remise_2023-07-07
+tative_remise_2023-07-08
+tative_remise_2023-07-09
+tative_remise_2023-07-10
+tative_remise_2023-07-11
+tative_remise_2023-07-12
+tative_remise_2023-07-13
+tative_remise_2023-07-14
+tative_remise_2023-07-15
+tative_remise_2023-07-16
+tative_remise_2023-07-17
+tative_remise_2023-07-18
+tative_remise_2023-07-19
+tative_remise_2023-07-20
+tative_remise_2023-07-21
+tative_remise_2023-07-22
+tative_remise_2023-07-23
+tative_remise_2023-07-24
+tative_remise_2023-07-25
+tative_remise_2023-07-26
+tative_remise_2023-07-27
+tative_remise_2023-07-28
+tative_remise_2023-07-29
+tative_remise_2023-07-30
+tative_remise_2023-07-31
+tative_remise_2023-08-01
+tative_remise_2023-08-02
+tative_remise_2023-08-03
+tative_remise_2023-08-04
+tative_remise_2023-08-05
+tative_remise_2023-08-06
+tative_remise_2023-08-07
+tative_remise_2023-08-08
+tative_remise_2023-08-09
+tative_remise_2023-08-10
+tative_remise_2023-08-11
+tative_remise_2023-08-12
+tative_remise_2023-08-13
+tative_remise_2023-08-14
+tative_remise_2023-08-15
+tative_remise_2023-08-16
+tative_remise_2023-08-17
+tative_remise_2023-08-18
+tative_remise_2023-08-19
+tative_remise_2023-08-20
+tative_remise_2023-08-21
+tative_remise_2023-08-22
+tative_remise_2023-08-23
+tative_remise_2023-08-24
+tative_remise_2023-08-25
+tative_remise_2023-08-26
+tative_remise_2023-08-27
+tative_remise_2023-08-28
+tative_remise_2023-08-29
+tative_remise_2023-08-30
+tative_remise_2023-08-31
+                </div>
+                <div class="col">
+                    <h4>Raw Output</h4>
+                    <pre><table><tr><td>Month</td><td>Num_buyer</td><td>Date</td><td>Village</td><td>Groupe</td><td>Num_helices</td><td>Prix_par_hectare</td><td>Quantite_distribuee</td><td>Quantite_vendue</td><td>Quantite_stoque</td><td>Recette_totale</td><td>Unite_hydraulique</td><td>Surface_ha</td><td>Prix_iece</td><td>Total_piece_tot</td><td>Month_total</td><td>Num_buyer</td><td>Date</td><td>Village</td><td>Groupe</td><td>Num_helices</td><td>Prix_par_hectare</td></tr><tr><td>Mars</td><td>0</td><td>2023-03-07</td><td>...</pre>
+                </div>
+            </div>
+        </div>
+        
+        <div class="example">
+            <h3>[20] training_data/images/95. February 2023/D_076.jpeg</h3>
+            <div class="tables">
+                <div class="col">
+                    <h4>Ground Truth</h4>
+                    <table><tr><td>total_ou_detail_vente_l</td><td>annee</td><td>mois</td><td>nom_village</td><td>groupement_raw</td><td>l_date_de_vente</td><td>l_prix_de_vente_a_l_unitefc</td><td>l_quantite_distribuee</td><td>l_quantite_vendue</td><td>l_net_flow</td><td>l_remain_last_mth</td><td>l_overall_total</td><td>l_recette_totale_fc</td></tr><tr><td>1</td><td>2023</td><td>Feburary</td><td>BUJUMBURA</td><td>UTUNDA</td><td>2023-02-08</td><td>50000</td><td>8</td><td>9</td><td>0</td><td>1</td><td>0</td><td>450000</td></tr><tr><td>2</td><td>2023</td><td>Feburary</td><td>KIFO</td><td>UTUNDA</td><td>2023-02-05</td><td>50000</td><td>10</td><td>9</td><td>1</td><td>1</td><td>2</td><td>450000</td></tr><tr><td>3</td><td>2023</td><td>Feburary</td><td>TEMPS PRESENT</td><td>UTUNDA</td><td>2023-02-07</td><td>50000</td><td>9</td><td>8</td><td>1</td><td>0</td><td>1</td><td>400000</td></tr><tr><td>4</td><td>2023</td><td>Feburary</td><td>MANINGE</td><td>IHANA</td><td>2023-02-07</td><td>50000</td><td>9</td><td>10</td><td>0</td><td>2</td><td>1</td><td>500000</td></tr><tr><td>5</td><td>2023</td><td>Feburary</td><td>MINSURINSURI</td><td>UTUNDA</td><td>2023-02-06</td><td>50000</td><td>10</td><td>12</td><td>0</td><td>2</td><td>0</td><td>600000</td></tr><tr><td>6</td><td>2023</td><td>Feburary</td><td>MISOKE 2</td><td>IHANA</td><td>2023-02-06</td><td>50000</td><td>9</td><td>9</td><td>0</td><td>1</td><td>1</td><td>450000</td></tr><tr><td>7</td><td>2023</td><td>Feburary</td><td>MURUTA</td><td>UTUNDA</td><td>2023-02-08</td><td>50000</td><td>9</td><td>9</td><td>0</td><td>0</td><td>0</td><td>450000</td></tr><tr><td>8</td><td>2023</td><td>Feburary</td><td>KABEKOTO</td><td>UTUNDA</td><td>2023-02-10</td><td>50000</td><td>8</td><td>8</td><td>0</td><td>0</td><td>0</td><td>400000</td></tr><tr><td>9</td><td>2023</td><td>Feburary</td><td>MUPUNGA</td><td>UTUNDA</td><td>2023-02-10</td><td>50000</td><td>8</td><td>6</td><td>2</td><td>0</td><td>2</td><td>300000</td></tr><tr><td>10</td><td>2023</td><td>Feburary</td><td>MAPERA</td><td>IHANA</td><td>2023-02-11</td><td>50000</td><td>6</td><td>6</td><td>0</td><td>0</td><td>0</td><td>300000</td></tr><tr><td>11</td><td>2023</td><td>Feburary</td><td>KITURUKU</td><td>UTUNDA</td><td>2023-02-10</td><td>50000</td><td>10</td><td>10</td><td>0</td><td>2</td><td>2</td><td>500000</td></tr><tr><td>12</td><td>2023</td><td>Feburary</td><td>KIVUKO</td><td>USALA</td><td>2023-02-10</td><td>50000</td><td>8</td><td>8</td><td>0</td><td>0</td><td>0</td><td>400000</td></tr></table>
+                </div>
+                <div class="col">
+                    <h4>Model Output (cleaned)</h4>
+                    <table><tr><td>Month</td><td>Lieux de Venture</td><td>Nom Village</td><td>Date(s) de vente</td><td>Prix de vente</td><td>Quantite distnbuee</td><td>Quantite totale vendeur</td><td>Quantite restante dans le village</td><td>Quantite restante dans le乡镇</td><td>Quantite generalle</td><td>Recette totale</td></tr><tr><td>February</td><td>BUVUMUYA</td><td>UTUNDA</td><td>2023-02-08</td><td>50000</td><td>8</td><td>9</td><td>0</td><td>1</td><td>0</td><td>450000</td></tr><tr><td>March</td><td>KIFO</td><td>UTUNDA</td><td>2023-02-08</td><td>50000</td><td>10</td><td>9</td><td>1</td><td>1</td><td>2</td><td>450000</td></tr><tr><td>April</td><td>TEMPS ARGENT</td><td>UTUNDA</td><td>2023-02-07</td><td>50000</td><td>9</td><td>8</td><td>1</td><td>0</td><td>1</td><td>400000</td></tr><tr><td>May</td><td>MANINGE</td><td>IHANA</td><td>2023-02-07</td><td>50000</td><td>9</td><td>10</td><td>0</td><td>2</td><td>1</td><td>500000</td></tr><tr><td>June</td><td>MINSURINSURI</td><td>UTUNDA</td><td>2023-02-06</td><td>50000</td><td>10</td><td>12</td><td>0</td><td>2</td><td>1</td><td>600000</td></tr><tr><td>July</td><td>MUKES 2</td><td>IHANA</td><td>2023-02-06</td><td>50000</td><td>10</td><td>9</td><td>0</td><td>1</td><td>1</td><td>450000</td></tr><tr><td>August</td><td>MURUTA</td><td>UTUNDA</td><td>2023-02-06</td><td>50000</td><td>9</td><td>9</td><td>0</td><td>1</td><td>1</td><td>450000</td></tr><tr><td>September</td><td>KABEKOTO</td><td>UTUNDA</td><td>2023-02-10</td><td>50000</td><td>8</td><td>8</td><td>0</td><td>0</td><td>0</td><td>450000</td></tr><tr><td>October</td><td>MUPUNGA</td><td>UTUNDA</td><td>2023-02-08</td><td>50000</td><td>8</td><td>8</td><td>0</td><td>0</td><td>2</td><td>400000</td></tr><tr><td>November</td><td>MAPERA</td><td>IHANA</td><td>2023-02-09</td><td>50000</td><td>6</td><td>6</td><td>2</td><td>0</td><td>2</td><td>300000</td></tr><tr><td>December</td><td>KITURUKU</td><td>UTUNDA</td><td>2023-02-10</td><td>50000</td><td>6</td><td>6</td><td>0</td><td>0</td><td>0</td><td>300000</td></tr><tr><td>January</td><td>KIVUKO</td><td>USALA</td><td>2023-02-10</td><td>50000</td><td>10</td><td>10</td><td>0</td><td>2</td><td>2</td><td>500000</td></tr></table>
+                </div>
+                <div class="col">
+                    <h4>Raw Output</h4>
+                    <pre><table><tr><td>Month</td><td>Lieux de Venture</td><td>Nom Village</td><td>Date(s) de vente</td><td>Prix de vente</td><td>Quantite distnbuee</td><td>Quantite totale vendeur</td><td>Quantite restante dans le village</td><td>Quantite restante dans le乡镇</td><td>Quantite generalle</td><td>Recette totale</td></tr><tr><td>February</td><td>BUVUMUYA</td><td>UTUNDA</td><td>2023-02-08</td><td>50000</td><td>8</td><td>9</td><td>0</td><td>1</td><td>0</td><td>450000</td></tr><tr><td>March</td><td>KIFO</td><td>...</pre>
+                </div>
+            </div>
+        </div>
+        
+</body>
+</html>

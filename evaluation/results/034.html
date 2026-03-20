@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Example 34/37</title>
+
+<style>
+  body { font-family: sans-serif; font-size: 13px; margin: 20px; }
+  h2 { color: #333; }
+  h4 { margin: 0 0 8px 0; color: #555; border-bottom: 1px solid #eee; padding-bottom: 4px; }
+  .image-path { font-size: 12px; color: #888; margin-bottom: 16px; }
+  .section { margin-bottom: 24px; }
+  table { border-collapse: collapse; width: 100%; font-size: 12px; margin-bottom: 8px; }
+  td, th { border: 1px solid #ddd; padding: 5px 10px; text-align: left; }
+  tr:nth-child(even) { background: #f9f9f9; }
+  thead tr { background: #e8f0fe; }
+  pre { background: #f5f5f5; padding: 10px; font-size: 11px; white-space: pre-wrap; word-break: break-word; border-radius: 4px; }
+  .nav { margin-bottom: 20px; font-size: 13px; }
+  .nav a { margin-right: 12px; color: #1a73e8; text-decoration: none; }
+  .nav a:hover { text-decoration: underline; }
+</style>
+
+</head>
+<body>
+<div class="nav"><a href="index.html">Index</a> <a href="033.html">← Prev</a> <a href="035.html">Next →</a> <span style="color:#999">34/37</span></div>
+<h2>Example 34</h2>
+<div class="image-path">training_data/images/96. March 2023/43.jpg</div>
+
+<div class="section">
+  <h4>Ground Truth</h4>
+  <table><tr><td>annee</td><td>mois</td><td>groupement_corrected</td><td>nom_village</td><td>date_de_distribution_jetons</td><td>jetons_nombre_distribues</td><td>jetons_nombre_vendus</td><td>jetons_nombre_restants</td><td>recette_realisee_FC</td></tr><tr><td>2023</td><td>Mars</td><td>UTUNDA</td><td>KITURUKU</td><td>2023-03-09</td><td>207</td><td>205</td><td>2</td><td>205000</td></tr><tr><td>2023</td><td>Mars</td><td>USALA</td><td>LUTOBORA</td><td>2023-03-09</td><td>315</td><td>310</td><td>5</td><td>310000</td></tr><tr><td>2023</td><td>Mars</td><td>USALA</td><td>LUBIRI</td><td>2023-03-09</td><td>340</td><td>340</td><td>0</td><td>340000</td></tr><tr><td>2023</td><td>Mars</td><td>USALA</td><td>VUMILIA</td><td>2023-03-11</td><td>210</td><td>209</td><td>1</td><td>209000</td></tr><tr><td>2023</td><td>Mars</td><td>IHANA</td><td>NKIMBA</td><td>2023-03-12</td><td>143</td><td>142</td><td>1</td><td>142000</td></tr><tr><td>2023</td><td>Mars</td><td>IHANA</td><td>BASOMBE</td><td>2023-03-10</td><td>222</td><td>220</td><td>2</td><td>220000</td></tr><tr><td>2023</td><td>Mars</td><td>IHANA</td><td>KASEKE</td><td>2023-03-10</td><td>440</td><td>435</td><td>5</td><td>435000</td></tr><tr><td>2023</td><td>Mars</td><td>WALOWA-UROBA</td><td>MUNGOTE</td><td>2023-03-07</td><td>340</td><td>340</td><td>0</td><td>340000</td></tr><tr><td>2023</td><td>Mars</td><td>WALOWA-UROBA</td><td>BYUNGU</td><td>2023-03-07</td><td>350</td><td>345</td><td>5</td><td>345000</td></tr><tr><td>2023</td><td>Mars</td><td>WALOWA-UROBA</td><td>NTOTO</td><td>2023-03-08</td><td>805</td><td>803</td><td>2</td><td>803000</td></tr><tr><td>2023</td><td>Mars</td><td>WALOWA-UROBA</td><td>MATAKA</td><td>2023-03-08</td><td>255</td><td>255</td><td>0</td><td>255000</td></tr></table>
+</div>
+
+<div class="section">
+  <h4>Model Output (cleaned)</h4>
+  <table><tr><td>annee</td><td>mois</td><td>nom_groupement</td><td>nom_village</td><td>date_distribution</td><td>jetons_nombre_distribues</td><td>jetons_nombre_vendus</td><td>jetons_nombre_restants</td><td>recette_totale</td></tr><tr><td>2023</td><td>Mars</td><td>UTUNDA</td><td>KITURUKU</td><td>2023-03-09</td><td>207</td><td>205</td><td>2</td><td>205000</td></tr><tr><td>2023</td><td>Mars</td><td>USALA</td><td>LUTOBORA</td><td>2023-03-09</td><td>315</td><td>310</td><td>5</td><td>310000</td></tr><tr><td>2023</td><td>Mars</td><td>USALA</td><td>LUBIRI</td><td>2023-03-09</td><td>340</td><td>340</td><td>0</td><td>340000</td></tr><tr><td>2023</td><td>Mars</td><td>USALA</td><td>VUMILIA</td><td>2023-03-11</td><td>210</td><td>209</td><td>1</td><td>209000</td></tr><tr><td>2023</td><td>Mars</td><td>IHANA</td><td>NKIMBA</td><td>2023-03-12</td><td>143</td><td>142</td><td>1</td><td>142000</td></tr><tr><td>2023</td><td>Mars</td><td>IHANA</td><td>BASOMBE</td><td>2023-03-10</td><td>222</td><td>220</td><td>2</td><td>220000</td></tr><tr><td>2023</td><td>Mars</td><td>IHANA</td><td>KASELCE</td><td>2023-03-10</td><td>440</td><td>435</td><td>5</td><td>435000</td></tr><tr><td>2023</td><td>Mars</td><td>WALOWA-UROBA</td><td>MUNATOFTE</td><td>2023-03-07</td><td>340</td><td>340</td><td>0</td><td>340000</td></tr><tr><td>2023</td><td>Mars</td><td>WALOWA-UROBA</td><td>BYUNGU</td><td>2023-03-07</td><td>350</td><td>345</td><td>5</td><td>345000</td></tr><tr><td>2023</td><td>Mars</td><td>WALOWA-UROBA</td><td>NTOTO</td><td>2023-03-08</td><td>805</td><td>803</td><td>2</td><td>803000</td></tr><tr><td>2023</td><td>Mars</td><td>WALOWA-UROBA</td><td>MATAKA</td><td>2023-03-08</td><td>255</td><td>255</td><td>0</td><td>255000</td></tr></table>
+</div>
+
+<div class="section">
+  <h4>Raw Output</h4>
+  <pre><table><tr><td>annee</td><td>mois</td><td>nom_groupement</td><td>nom_village</td><td>date_distribution</td><td>jetons_nombre_distribues</td><td>jetons_nombre_vendus</td><td>jetons_nombre_restants</td><td>recette_totale</td></tr><tr><td>2023</td><td>Mars</td><td>UTUNDA</td><td>KITURUKU</td><td>2023-03-09</td><td>207</td><td>205</td><td>2</td><td>205000</td></tr><tr><td>2023</td><td>Mars</td><td>USALA</td><td>LUTOBORA</td><td>2023-03-09</td><td>315</td><td>310</td><td>5</td><td>310000</td></tr><tr><td>2023</td><td>Mars</td><td>USALA</td><td>LUBIRI</td><td>2023-03-09</td><td>340</td><td>340</td><td>0</td><td>340000</td></tr><tr><td>2023</td><td>Mars</td><td>USALA</td><td>VUMILIA</td><td>2023-03-11</td><td>210</td><td>209</td><td>1</td><td>209000</td></tr><tr><td>2023</td><td>Mars</td><td>IHANA</td><td>NKIMBA</td><td>2023-03-12</td><td>143</td><td>142</td><td>1</td><td>142000</td></tr><tr><td>2023</td><td>Mars</td><td>IHANA</td><td>BASOMBE</td><td>2023-03-10</td><td>222</td><td>220</td><td>2</td><td>220000</td></tr><tr><td>2023</td><td>Mars</td><td>IHANA</td><td>KASELCE</td><td>2023-03-10</td><td>440</td><td>435</td><td>5</td><td>435000</td></tr><tr><td>2023</td><td>Mars</td><td>WALOWA-UROBA</td><td>MUNATOFTE</td><td>2023-03-07</td><td>340</td><td>340</td><td>0</td><td>340000</td></tr><tr><td>2023</td><td>Mars</td><td>WALOWA-UROBA</td><td>BYUNGU</td><td>2023-03-07</td><td>350</td><td>345</td><td>5</td><td>345000</td></tr><tr><td>2023</td><td>Mars</td><td>WALOWA-UROBA</td><td>NTOTO</td><td>2023-03-08</td><td>805</td><td>803</td><td>2</td><td>803000</td></tr><tr><td>2023</td><td>Mars</td><td>WALOWA-UROBA</td><td>MATAKA</td><td>2023-03-08</td><td>255</td><td>255</td><td>0</td><td>255000</td></tr></table></pre>
+</div>
+
+<div class="nav"><a href="index.html">Index</a> <a href="033.html">← Prev</a> <a href="035.html">Next →</a></div>
+</body>
+</html>
