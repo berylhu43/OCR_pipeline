@@ -115,7 +115,7 @@ _MONTH_VARIANTS: Dict[str, List[str]] = {
     "May":       ["may", "mai"],
     "June":      ["june", "juin"],
     "July":      ["july", "juillet"],
-    "August":    ["august", "aout", "août", "auot"],
+    "August":    ["august", "aout", "août"],
     "September": ["september", "septembre"],
     "October":   ["october", "octobre"],
     "November":  ["november", "novembre"],
@@ -151,7 +151,7 @@ def extract_month_folder_info(folder_name: str) -> Optional[Tuple[str, int]]:
 def detect_naming_style(folder_path: Path) -> str:
     """'coded' → A1_002.jpeg  |  'paged' → January 2023 page 3.jpeg  |  'numbered' → 1.jpg"""
     for f in folder_path.iterdir():
-        if f.suffix.lower() in (".jpg", ".jpeg", ".png", ".pdf"):
+        if f.suffix.lower() in (".jpg", ".jpeg", ".png"):
             stem = f.stem
             if re.match(r'^\d+$', stem):
                 return "numbered"
@@ -173,7 +173,7 @@ def build_coded_index(folder_path: Path) -> SectionIndex:
     so that A.xlsx gets the Effectifs summary page and A1.xlsx gets
     the recruit pages starting from page 3.
     """
-    pat = re.compile(r'^(.+)_(\d+)\.(jpg|jpeg|png|pdf)$', re.IGNORECASE)
+    pat = re.compile(r'^(.+)_(\d+)\.(jpg|jpeg|png)$', re.IGNORECASE)
     index: SectionIndex = {}
     for f in folder_path.iterdir():
         m = pat.match(f.name)
@@ -199,11 +199,9 @@ def build_paged_index(
     index: SectionIndex = {}
     for code, (start, end) in SECTION_PAGE_RANGES.items():
         for page in range(start, end + 1):
-            for ext in (".jpeg", ".jpg", ".png", ".pdf"):
-                p = folder_path / f"{month_name} {year} page {page}{ext}"
-                if p.exists():
-                    index.setdefault(code, {})[page] = p
-                    break
+            p = folder_path / f"{month_name} {year} page {page}.jpeg"
+            if p.exists():
+                index.setdefault(code, {})[page] = p
     return index
 
 
@@ -297,7 +295,7 @@ def cell_to_str(cell) -> str:
     if isinstance(cell, float):
         return str(int(cell)) if cell == int(cell) else str(cell)
     if isinstance(cell, (datetime.datetime, datetime.date)):
-        return cell.strftime("%m/%d/%Y")
+        return cell.strftime("%Y-%m-%d")
     return str(cell).strip()
 
 
@@ -340,47 +338,14 @@ def rows_to_markdown(headers: tuple, data_rows: List[tuple]) -> str:
 
 
 # ---------------------------------------------------------------------------
-# Per-section extra instructions
-# ---------------------------------------------------------------------------
-
-# Sections that have military/administrative unit columns written as
-# "11e cellule", "122e division", "1e < 2e section" etc.
-# The GT keeps only the number(s): "11", "122", "1 2".
-_UNIT_COLUMN_INSTRUCTION = (
-    " For unit designation fields (cellule/secteur, division/brigade, "
-    "département/bataillon, comité/compagnie, S-comité/peloton, section), "
-    "keep only the number(s) and drop the label. "
-    "Examples: '11e cellule' → '11', '122e division' → '122', "
-    "'2e comité' → '2', '1e < 2e section' → '1 2'."
-)
-
-SECTION_EXTRA_INSTRUCTIONS: Dict[str, str] = {
-    "B1":       _UNIT_COLUMN_INSTRUCTION,
-    "L_combat": _UNIT_COLUMN_INSTRUCTION,
-    "L_front":  _UNIT_COLUMN_INSTRUCTION,
-    "I_autorisation": (
-        " When a cell describes a quantity and unit price with a total "
-        "(e.g. '2 bouteilles de 4000FC chacune soit 8000FC'), "
-        "output only the final total as a plain number (e.g. '8000')."
-    ),
-}
-
-
-# ---------------------------------------------------------------------------
 # Training example creation
 # ---------------------------------------------------------------------------
 
 def create_training_example(image_path: Path, ground_truth: str, section_name: str = "") -> dict:
-    base = (
-        "The document is in Congolese French. Convert the document to markdown. "
-        "Dates are handwritten as day/month/year — reformat them to month/day/year (MM/DD/YYYY) "
-        "in your output. If only month and year are present, output month/year (MM/YYYY)."
-    )
-    extra = SECTION_EXTRA_INSTRUCTIONS.get(section_name, "")
     if section_name:
-        prompt = f"<image>\n<|grounding|>This is section {section_name}. {base}{extra}"
+        prompt = f"<image>\n<|grounding|>This is section {section_name}. The document is in Congolese French. Convert the document to markdown."
     else:
-        prompt = f"<image>\n<|grounding|>{base}"
+        prompt = "<image>\n<|grounding|>The document is in Congolese French. Convert the document to markdown."
     return {
         "image": str(image_path),
         "conversations": [
@@ -404,13 +369,8 @@ def process_month_folder(
     folder_path: Path,
     excel_dir: Path,
     output_format: str = "html",
-    sections_filter: Optional[Set[str]] = None,
 ) -> List[dict]:
-    """Process one month folder and return all training examples.
-
-    Args:
-        sections_filter: if provided, only process Excel stems in this set.
-    """
+    """Process one month folder and return all training examples."""
     info = extract_month_folder_info(folder_path.name)
     if info is None:
         print(f"  Skipping '{folder_path.name}': cannot parse month/year")
@@ -438,15 +398,13 @@ def process_month_folder(
         stem = excel_path.stem
         if stem not in SECTION_CONFIG:
             continue
-        if sections_filter is not None and stem not in sections_filter:
-            continue
 
         # Merge page→image maps for all section codes this file covers.
         # For numbered style, match page_num directly to image filename (e.g. 3.jpg → page 3).
         page_to_img: Dict[int, Path] = {}
         if naming_style == "numbered":
             for f in folder_path.iterdir():
-                if f.suffix.lower() in (".jpg", ".jpeg", ".png", ".pdf") and f.stem.isdigit():
+                if f.suffix.lower() in (".jpg", ".jpeg", ".png") and f.stem.isdigit():
                     page_to_img[int(f.stem)] = f
         else:
             for code in SECTION_CONFIG[stem]:
@@ -536,8 +494,6 @@ def create_dataset(
     output_path: Path,
     output_format: str = "html",
     train_split: float = 0.9,
-    sections_filter: Optional[Set[str]] = None,
-    append: bool = False,
 ) -> Tuple[int, int]:
     images_dir = data_dir / "images"
     excel_dir  = data_dir / "excel"
@@ -547,20 +503,17 @@ def create_dataset(
     if not excel_dir.exists():
         raise ValueError(f"Excel directory not found: {excel_dir}")
 
-    if sections_filter:
-        print(f"Filtering to sections: {sorted(sections_filter)}")
-
     month_folders = sorted(p for p in images_dir.iterdir() if p.is_dir())
     print(f"Found {len(month_folders)} month folder(s): {[f.name for f in month_folders]}")
 
     all_examples: List[dict] = []
     for folder in month_folders:
         print(f"\nProcessing: {folder.name}")
-        examples = process_month_folder(folder, excel_dir, output_format, sections_filter)
+        examples = process_month_folder(folder, excel_dir, output_format)
         all_examples.extend(examples)
         print(f"  → {len(examples)} examples")
 
-    print(f"\nTotal new: {len(all_examples)} examples")
+    print(f"\nTotal: {len(all_examples)} examples")
     if not all_examples:
         print("No examples created – check page_num columns and folder names.")
         return 0, 0
@@ -573,15 +526,13 @@ def create_dataset(
     train_path = output_path.parent / f"{output_path.stem}_train.jsonl"
     val_path   = output_path.parent / f"{output_path.stem}_val.jsonl"
 
-    mode = "a" if append else "w"
     for path, subset in [(train_path, train_ex), (val_path, val_ex)]:
-        with open(path, mode, encoding="utf-8") as f:
+        with open(path, "w", encoding="utf-8") as f:
             for ex in subset:
                 f.write(json.dumps(ex, ensure_ascii=False) + "\n")
 
-    action = "Appended" if append else "Saved"
-    print(f"{action} {len(train_ex)} train  → {train_path}")
-    print(f"{action} {len(val_ex)} val    → {val_path}")
+    print(f"Saved {len(train_ex)} train  → {train_path}")
+    print(f"Saved {len(val_ex)} val    → {val_path}")
     return len(train_ex), len(val_ex)
 
 
@@ -640,10 +591,6 @@ if __name__ == "__main__":
     parser.add_argument("--output",      default="./training_data/dataset.jsonl")
     parser.add_argument("--format",      choices=["html", "markdown"], default="html")
     parser.add_argument("--train_split", type=float, default=0.9)
-    parser.add_argument("--sections",    nargs="+", default=None,
-                        help="Only process these Excel stems (e.g. --sections C_cig I_autorisation L_front)")
-    parser.add_argument("--append",      action="store_true",
-                        help="Append to existing dataset files instead of overwriting")
 
     parser.add_argument("--test_single", action="store_true")
     parser.add_argument("--test_image")
@@ -664,6 +611,4 @@ if __name__ == "__main__":
         data_dir    = Path(args.data_dir)
         output_path = Path(args.output)
         output_path.parent.mkdir(parents=True, exist_ok=True)
-        sections_filter = set(args.sections) if args.sections else None
-        create_dataset(data_dir, output_path, args.format, args.train_split,
-                       sections_filter, args.append)
+        create_dataset(data_dir, output_path, args.format, args.train_split)

@@ -46,35 +46,6 @@ def is_blank_page(ocr_output: str) -> bool:
 from transformers import AutoTokenizer, AutoModel
 from peft import PeftModel
 
-import glob as _glob
-import os as _os
-
-
-def _patch_deepseek_ocr_cache():
-    """Fix masked_scatter_ in cached modeling file: in-place op + dtype mismatch."""
-    pattern = _os.path.expanduser(
-        "~/.cache/huggingface/modules/transformers_modules/deepseek-ai/DeepSeek-OCR/*/modeling_deepseekocr.py"
-    )
-    # Original in-place version (unpatched)
-    old = "                    inputs_embeds[idx].masked_scatter_(images_seq_mask[idx].unsqueeze(-1).cuda(), images_in_this_batch)"
-    # Previous patch (no-inplace, but still dtype mismatch)
-    old_partial = "                    inputs_embeds[idx] = inputs_embeds[idx].masked_scatter(images_seq_mask[idx].unsqueeze(-1).cuda(), images_in_this_batch)"
-    # Full fix: clone + cast + non-inplace
-    new = (
-        "                    inputs_embeds = inputs_embeds.clone()\n"
-        "                    inputs_embeds[idx] = inputs_embeds[idx].masked_scatter(images_seq_mask[idx].unsqueeze(-1).cuda(), images_in_this_batch.to(inputs_embeds.dtype))"
-    )
-    for path in _glob.glob(pattern):
-        text = open(path).read()
-        if old in text:
-            open(path, "w").write(text.replace(old, new))
-            print(f"Patched {path}")
-        elif old_partial in text and ".to(inputs_embeds.dtype)" not in text:
-            open(path, "w").write(text.replace(old_partial, new.split("\n")[1]))
-            print(f"Updated dtype cast in {path}")
-        elif new.split("\n")[1] in text:
-            print(f"Already patched: {path}")
-
 
 def load_finetuned_model(
     base_model_name: str = "deepseek-ai/DeepSeek-OCR",
@@ -82,7 +53,6 @@ def load_finetuned_model(
     device: str = "cuda",
     load_in_4bit: bool = True,
 ):
-    _patch_deepseek_ocr_cache()
     print(f"Loading base model: {base_model_name}")
 
     tokenizer = AutoTokenizer.from_pretrained(base_model_name, trust_remote_code=True)
@@ -105,7 +75,7 @@ def run_ocr(
     model,
     tokenizer,
     image_path: str,
-    prompt: str = "<image>\n<|grounding|>The document is in Congolese French. Convert the document to markdown. Dates are handwritten as day/month/year — reformat them to month/day/year (MM/DD/YYYY) in your output. If only month and year are present, output month/year (MM/YYYY).",
+    prompt: str = "<image>\n<|grounding|>The document is in Congolese French. Convert the document to markdown.",
     max_new_tokens: int = 2048,
     temperature: float = 0.1,
     do_sample: bool = False,
@@ -181,7 +151,7 @@ def run_ocr(
 def run_ocr_vllm(
     image_path: str,
     adapter_path: Optional[str] = None,
-    prompt: str = "<image>\n<|grounding|>The document is in Congolese French. Convert the document to markdown. Dates are handwritten as day/month/year — reformat them to month/day/year (MM/DD/YYYY) in your output. If only month and year are present, output month/year (MM/YYYY).",
+    prompt: str = "<image>\n<|grounding|>The document is in Congolese French. Convert the document to markdown.",
 ) -> str:
     """
     Run OCR using vLLM for faster inference.
