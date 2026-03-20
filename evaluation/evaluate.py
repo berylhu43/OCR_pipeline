@@ -97,11 +97,79 @@ def parse_table(text: str) -> Tuple[Optional[List[str]], List[List[str]]]:
 
 
 # ---------------------------------------------------------------------------
-# Cell comparison
+# Normalization helpers
 # ---------------------------------------------------------------------------
 
+def _norm_date(v: str) -> str:
+    """
+    Normalize date strings to MM/DD/YYYY for comparison.
+    Handles:
+      - MM/DD/YYYY or M/D/YYYY  → already target format
+      - DD/MM/YYYY              → swap day and month (handwritten convention)
+      - YYYY-MM-DD              → reformat to MM/DD/YYYY
+      - MM/YYYY or YYYY-MM      → normalize to MM/YYYY
+    Returns original string lowercased if no pattern matches.
+
+    Ambiguity note: D/M/YYYY and M/D/YYYY are indistinguishable when both
+    values are ≤ 12. We assume the GT is already in MM/DD/YYYY and the model
+    output is in DD/MM/YYYY (handwritten), so we always swap group(1)/group(2).
+    The GT dates coming from Excel are stored as YYYY-MM-DD and converted here.
+    """
+    v = v.strip()
+    # YYYY-MM-DD (from Excel GT)
+    m = re.match(r'^(\d{4})-(\d{2})-(\d{2})$', v)
+    if m:
+        return f"{m.group(2)}/{m.group(3)}/{m.group(1)}"
+    # YYYY-MM (partial date from Excel GT)
+    m = re.match(r'^(\d{4})-(\d{2})$', v)
+    if m:
+        return f"{m.group(2)}/{m.group(1)}"
+    # DD/MM/YYYY or D/M/YYYY (handwritten, model output before retraining)
+    # Target format is MM/DD/YYYY so swap day and month
+    m = re.match(r'^(\d{1,2})/(\d{1,2})/(\d{4})$', v)
+    if m:
+        day, month, year = m.group(1), m.group(2), m.group(3)
+        return f"{month.zfill(2)}/{day.zfill(2)}/{year}"
+    # MM/YYYY (month/year only)
+    m = re.match(r'^(\d{1,2})/(\d{4})$', v)
+    if m:
+        return f"{m.group(1).zfill(2)}/{m.group(2)}"
+    return v.lower()
+
+
+def _norm_number(v: str) -> str:
+    """Normalize numeric values: strip currency suffixes, spaces, dots used as thousands sep."""
+    v = v.strip()
+    # Remove currency suffix (FC, Fc, etc.) and trailing spaces
+    v = re.sub(r'\s*[Ff][Cc]$', '', v).strip()
+    # Remove dots/spaces used as thousands separators (e.g. 147.000 or 147 000)
+    # Only do this if remaining string is purely numeric after removal
+    candidate = re.sub(r'[.\s]', '', v)
+    if candidate.isdigit():
+        return candidate
+    # Handle comma as decimal separator (0,14 → 0.14)
+    v = v.replace(',', '.')
+    return v.lower()
+
+
 def _norm(v: str) -> str:
-    return str(v).strip().lower() if v is not None else ""
+    """General normalization: try date, then number, then lowercase."""
+    if v is None:
+        return ""
+    v = str(v).strip()
+    if not v:
+        return ""
+    # Try date pattern
+    normed = _norm_date(v)
+    if normed != v.lower():
+        return normed
+    # Try number normalization
+    return _norm_number(v)
+
+
+def _is_empty_row(row: List[str]) -> bool:
+    """Return True if all cells in the row are blank."""
+    return all(c.strip() in ("", "/", "-") for c in row)
 
 
 def cells_match(pred: str, gt: str) -> bool:
@@ -116,14 +184,31 @@ def evaluate_example(pred_text: str, gt_text: str) -> Dict:
     """
     Compare predicted output to ground truth table.
 
+    Matching strategy:
+    - Columns matched by position (model uses verbose French headers, GT uses short names)
+    - Skip header rows in model output that contain no numeric data (multi-row headers)
+    - Skip empty rows in model output (blank form lines)
+    - Normalize dates (DD/MM/YYYY → YYYY-MM-DD) and currency (147.000FC → 147000)
+
     Returns a dict with:
       - overall_cell_accuracy: fraction of cells that match exactly
-      - column_accuracy: per-column breakdown
-      - row_count_match: whether row counts match
+      - column_accuracy: per-column breakdown (keyed by GT column name)
+      - row_count_match: whether data row counts match after filtering
       - pred_parsed / gt_parsed: whether tables could be parsed
     """
+    # Strip bounding-box preamble emitted by DeepSeek-OCR grounding tokens
+    pred_text = re.sub(r'<\|ref\|>.*?<\|/det\|>', '', pred_text, flags=re.DOTALL).strip()
+
     pred_headers, pred_rows = parse_table(pred_text)
     gt_headers, gt_rows = parse_table(gt_text)
+
+    # Remove empty rows from model output (blank form lines)
+    pred_rows = [r for r in pred_rows if not _is_empty_row(r)]
+
+    # Model sometimes emits extra header rows (e.g. merged headers with no numbers).
+    # Drop leading pred rows that are all non-numeric and look like sub-headers.
+    while pred_rows and all(not re.search(r'\d', c) for c in pred_rows[0]):
+        pred_rows = pred_rows[1:]
 
     result = {
         "pred_parsed": pred_headers is not None,
@@ -138,10 +223,16 @@ def evaluate_example(pred_text: str, gt_text: str) -> Dict:
     if pred_headers is None or gt_headers is None:
         return result
 
-    # Map gt column names → their index
-    gt_col_map = {h.lower(): i for i, h in enumerate(gt_headers)}
-    # Map pred column names → their index (for lookup)
-    pred_col_map = {h.lower(): i for i, h in enumerate(pred_headers)}
+    # Determine column offset: model often prepends a row-number column not in GT.
+    # Match columns by position (GT index → pred index + offset).
+    # Detect by checking if pred has one more column than GT and first col is numeric.
+    col_offset = 0
+    if len(pred_headers) == len(gt_headers) + 1:
+        # Check first data row
+        for r in pred_rows[:3]:
+            if r and re.match(r'^\d+$', r[0].strip()):
+                col_offset = 1
+                break
 
     col_stats: Dict[str, Dict] = defaultdict(lambda: {"correct": 0, "total": 0, "errors": []})
     total_correct = 0
@@ -152,20 +243,21 @@ def evaluate_example(pred_text: str, gt_text: str) -> Dict:
         pred_row = pred_rows[row_idx]
         gt_row = gt_rows[row_idx]
 
-        for col_name, gt_idx in gt_col_map.items():
+        # Match by position: gt_col_idx → pred_col_idx + col_offset
+        for gt_idx, gt_col_name in enumerate(gt_headers):
+            pred_idx = gt_idx + col_offset
             gt_val = gt_row[gt_idx] if gt_idx < len(gt_row) else ""
-            pred_idx = pred_col_map.get(col_name)
-            pred_val = pred_row[pred_idx] if (pred_idx is not None and pred_idx < len(pred_row)) else ""
+            pred_val = pred_row[pred_idx] if pred_idx < len(pred_row) else ""
 
             match = cells_match(pred_val, gt_val)
-            col_stats[col_name]["total"] += 1
+            col_stats[gt_col_name]["total"] += 1
             total_cells += 1
             if match:
-                col_stats[col_name]["correct"] += 1
+                col_stats[gt_col_name]["correct"] += 1
                 total_correct += 1
             else:
-                if len(col_stats[col_name]["errors"]) < 5:
-                    col_stats[col_name]["errors"].append(
+                if len(col_stats[gt_col_name]["errors"]) < 5:
+                    col_stats[gt_col_name]["errors"].append(
                         {"row": row_idx, "pred": pred_val, "gt": gt_val}
                     )
 
