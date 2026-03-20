@@ -43,7 +43,7 @@ def is_blank_page(ocr_output: str) -> bool:
         return False
     return bool(_RAS_PATTERN.search(text))
 
-from transformers import AutoTokenizer, AutoModel
+from transformers import AutoTokenizer, AutoModel, BitsAndBytesConfig
 from peft import PeftModel
 
 
@@ -57,11 +57,24 @@ def load_finetuned_model(
 
     tokenizer = AutoTokenizer.from_pretrained(base_model_name, trust_remote_code=True)
 
-    model = AutoModel.from_pretrained(
-        base_model_name,
-        trust_remote_code=True,
-        torch_dtype=torch.bfloat16,
-    )
+    if load_in_4bit:
+        bnb_config = BitsAndBytesConfig(
+            load_in_4bit=True,
+            bnb_4bit_quant_type="nf4",
+            bnb_4bit_compute_dtype=torch.bfloat16,
+            bnb_4bit_use_double_quant=True,
+        )
+        model = AutoModel.from_pretrained(
+            base_model_name,
+            trust_remote_code=True,
+            quantization_config=bnb_config,
+        )
+    else:
+        model = AutoModel.from_pretrained(
+            base_model_name,
+            trust_remote_code=True,
+            torch_dtype=torch.bfloat16,
+        )
     model = model.eval().cuda()
 
     if adapter_path and Path(adapter_path).exists():
